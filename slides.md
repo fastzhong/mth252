@@ -2076,7 +2076,7 @@ Stable sort algorithms sort equal elements in the same order that they appear in
 <br/>
 
 <div align="center">
-  <img src="/images/sort_stability.png" style="height: 30%"/>
+  <img src="/images/sort_stability.png" style="width: 20%"/>
 </div>
 
 
