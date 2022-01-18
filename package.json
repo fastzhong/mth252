@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "slidev build",
+        "dev": "slidev --open",
+        "export": "slidev export"
+    },
+    "dependencies": {
+        "@slidev/cli": "^0.28.1",
+        "@slidev/theme-default": "*",
+        "@slidev/theme-seriph": "*"
+    },
+    "name": "suss-mth251",
+    "devDependencies": {
+        "@iconify-json/logos": "^1.0.2",
+        "@iconify-json/mdi": "^1.0.12",
+        "@iconify-json/mdi-light": "^1.0.1",
+        "@iconify-json/mi": "^1.0.1",
+        "@iconify-json/simple-icons": "^1.0.15",
+        "@iconify-json/uim": "^1.0.2",
+        "playwright": "^1.17.1",
+        "playwright-chromium": "^1.17.1"
+    }
+}
