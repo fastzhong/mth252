@@ -42,12 +42,14 @@ Data Structures and Algorithms II
 6 weeks (Jan ~ Mar)/6 seminars/6 labs:
 
 <p class="norm">
-1. Priority Queue, Binary Heap, Maps, Hash Table & Skip List<br/>
-2. Search Trees: binary search tree, AVL tree<br/>
-3. Sorting: Merge-Sort, Quick Sort<br/> 
-4. Text Processing: Brute Force Pattern Matching, Boyer-Moore Algo, Knuth-Morris-Pratt Algo and DP<br/> 
-5. Graph Algo: Depth-First Search, Breadth-First Search, Dijkstra's Algo, Min-Spanning Tree, and DAG<br/> 
-6. Review and more
+<ol>
+<li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span> & <span class="hl-bg">Skip List</span></li>
+<li>Search Trees: <span class="hl-bg">binary search tree</span>, <span class="hl-bg">AVL tree</span></li>
+<li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span></li>
+<li>Text Processing: <span class="hl-bg">Brute Force Pattern Matching</span>, <span class="hl-bg">Boyer-Moore Algo</span>, <span class="hl-bg">Knuth-Morris-Pratt Algo</span> and <span class="hl-bg">DP</span></li> 
+<li>Graph Algo: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Algo</span>, <span class="hl-bg">Min-Spanning Tree</span>, and DAG</li>
+<li>Review and more</li>
+</ol>
 </p>
 </div>
 <div>
