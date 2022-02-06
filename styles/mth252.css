@@ -1,35 +1,35 @@
-.slide-layout{
+.slide-layout {
     font-size: 1rem;
 }
 
 .norm {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 0.8rem;
     line-height: 1.5em;
 }
 
 .hl {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 1.1rem;
     font-weight: bold;
 }
 
 .hl-color {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 1.15rem;
     font-weight: bolder;
-    color: #5D8392;
+    color: #5d8392;
 }
 
 .hl-strong {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 1.15rem;
     font-weight: bolder;
-    color: #357EC7;
+    color: #357ec7;
 }
 
 .hl-bg {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-weight: 600;
     background-color: #f4f0ec;
     padding: 1px 4px 2px 4px;
@@ -37,83 +37,81 @@
 }
 
 .uline {
-    text-decoration: #357EC7 underline wavy;
+    text-decoration: #357ec7 underline wavy;
 }
 
 .katex {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-weight: bold;
     font-size: 0.8rem !important;
-    color: #357EC7;
+    color: #357ec7;
     line-height: 1.5em;
 }
 
-
 table.ops {
-	border-collapse: collapse;
-	border: 1px solid #fff; /*for older IE*/
-	border-style: hidden;
-    font-family: 'Open Sans';
+    border-collapse: collapse;
+    border: 1px solid #fff; /*for older IE*/
+    border-style: hidden;
+    font-family: "Open Sans";
     text-align: left;
 }
-
 
 table.ops thead th {
     font-weight: bold;
     color: #ffffff;
-	padding: 8px;
-	background-color: #4472c4;
+    padding: 8px;
+    background-color: #4472c4;
     border-width: 3px 1px;
     border-style: solid;
     border-color: #ffffff;
 }
 
-table.ops th, table.ops td {
+table.ops th,
+table.ops td {
     width: 20%;
-	padding: 3px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #ffffff;
+    padding: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff;
 }
 
 table.ops td {
-    color: #357EC7;
+    color: #357ec7;
 }
 
 table.ops tr.odd {
-	background-color: #cfd5ea;
+    background-color: #cfd5ea;
 }
 
 table.ops tr.even {
-	background-color: #e9ebf5;
+    background-color: #e9ebf5;
 }
 
-
 table.flashcard {
-	border-collapse: collapse;
-	border: 1px solid #fff; /*for older IE*/
-	border-style: hidden;
-    font-family: 'Open Sans';
+    border-collapse: collapse;
+    border: 1px solid #fff; /*for older IE*/
+    border-style: hidden;
+    font-family: "Open Sans";
     font-size: 15px;
     text-align: left;
 }
 
-
 table.flashcard thead th {
     height: 10px;
     color: #ffffff;
-	padding: 0px;
-	background-color: #4472c4;
+    padding: 0px;
+    background-color: #4472c4;
     border-width: 3px 1px;
     border-style: solid;
     border-color: #ffffff;
 }
 
-table.flashcard th, table.flashcard td {
-	padding: 5px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #ffffff;
+table.flashcard th,
+table.flashcard td {
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff;
 }
 
 table.flashcard th {
@@ -121,9 +119,31 @@ table.flashcard th {
 }
 
 table.flashcard tr.odd {
-	background-color: #cfd5ea;
+    background-color: #cfd5ea;
 }
 
 table.flashcard tr.even {
-	background-color: #e9ebf5;
+    background-color: #e9ebf5;
+}
+
+table.grid {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    text-align: left;
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+table.grid td {
+    padding: 5px;
+}
+
+table.grid tr.odd {
+    background-color: #4472c4;
+    color: #ffffff;
+}
+
+table.grid tr.even {
+	background-color: #cccccc;
+    color: #ffffff;
 }

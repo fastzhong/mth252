@@ -39,15 +39,15 @@ Data Structures and Algorithms II
 
 <div grid="~ cols-2 gap-4">
 <div>
-6 weeks (Jan ~ Mar)/6 seminars/6 labs:
+6 weeks (Jan ~ Mar), 6 seminars & 6 labs:
 
 <p class="norm">
 <ol>
 <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span> & <span class="hl-bg">Skip List</span></li>
-<li>Search Trees: <span class="hl-bg">binary search tree</span>, <span class="hl-bg">AVL tree</span></li>
-<li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span></li>
-<li>Text Processing: <span class="hl-bg">Brute Force Pattern Matching</span>, <span class="hl-bg">Boyer-Moore Algo</span>, <span class="hl-bg">Knuth-Morris-Pratt Algo</span> and <span class="hl-bg">DP</span></li> 
-<li>Graph Algo: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Algo</span>, <span class="hl-bg">Min-Spanning Tree</span>, and DAG</li>
+<li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span></li>
+<li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Binary Search</span>, <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
+<li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li> 
+<li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, <span class="hl-bg">Min-Spanning Tree</span>, and <span class="hl-bg">Directed Acyclic Grap</span>(DAG) </li>
 <li>Review and more</li>
 </ol>
 </p>
@@ -60,7 +60,7 @@ Data Structures and Algorithms II
 </div>
 </div>
 
-👉 MTH252 is much more heavy than MTH251
+👉 MTH252 is much more difficult than MTH251
 
 ---
 
@@ -72,7 +72,17 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 <mdi-file-pdf /> [https://mth252.fastzhong.com/mth252.pdf](https://mth251.fastzhong.com/mth252.pdf)
 
-[<logos-github-octocat /> labs: [https://github.com/fastzhong/mth252/tree/main/public/notebooks](https://github.com/fastzhong/mth252/tree/main/public/notebooks)
+<logos-github-octocat /> labs: [https://github.com/fastzhong/mth252/tree/main/public/notebooks](https://github.com/fastzhong/mth252/tree/main/public/notebooks)
+
+<br/>
+
+<br/>
+
+👉 Python & Big O review:
+
+MTH251 slides: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
+
+<logos-github-octocat /> [MTH251 lab1](https://github.com/fastzhong/mth252/tree/main/public/notebooks)
 
 ---
 
@@ -102,13 +112,499 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 🙇🏻‍♂️ problem solving 
 </p>
 
+---
+
+# Learning Resource
+
+📚 books
+
+if you want to dive deeper into proofs and the mathematics of computer science:  
+
+[Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
+
+
 
 ---
 
-# Priority Queue 
+# Priority Queue
+
+-   FIFO/LILO
+-   <span class="hl">each element (k, v) has a certain priority k and k must be compariable</span>
+-   min priority queue (smaller k, higher priority)
+-   max priority queue (bigger k, higher priority)
+
+e.g. printer queue, cpu task scheduler, etc.
+
+<!--
+You cannot sort the elements/tasks first, and pick up the highest task, as the first task is finished, there could be some new coming tasks. in another word we need a data structure to DYNAMICALLY maintain the ordering.
+-->
+
+---
+
+# Priority Queue: Operations (Min PQ)
+
+<br/>
+
+-   <span class="hl-strong">add(k, v)</span> (enqueue) − adding an element to the queue
+-   <span class="hl-strong">remove_min()</span> (dequeue) − obtain the first element with a pair of (k,v), where k is the mininum value of keys in Min PQ, and remove it from the queue
+-   <span class="hl-strong">min()</span> (first/peek) − obtain the first element with a pair of (k,v) where k is the mininum value of keys in Min PQ
+-   size(), is_empty()
+
+---
+
+# Priority Queue Complexity
+
+<logos-jupyter />
+
+<br/>
+
+<br/>
+
+<div style="width: 70%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">Priority Queue</th>
+        <th id="">unsorted list</th>
+        <th id="">sorted list</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>is_empty</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+      </tr>
+      <tr class="even">
+        <th>size</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+      </tr>
+      <tr class="odd">
+        <th>add</th>
+        <td>O(1)</td>
+        <td>O(n) 👈 </td>
+      </tr>
+      <tr class="even">
+        <th>remove_min</th>
+        <td>O(n) 👈 </td>
+        <td>O(1)</td>
+      </tr>
+      <tr class="odd">
+        <th>min</th>
+        <td>O(n) 👈 </td>
+        <td>O(1)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+# Binary Heap
+
+<br/>
+
+-   <span class="hl">Complete Binary Tree</span>
+
+-   k value for any node in the tree <span class="hl">smaller than any child node</span>
+
+<img src="/images/binary_heap.png" style="width: 80%"/>
+
+<span class="norm">👉 A complete binary tree is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible.
+</span>
+
+---
+
+# Binary Heap
+
+<br/>
+
+-   from root to any leaf, the key values are in non-decreasing order
+
+-   key of root is always the smallest
+
+-   given height <span class="norm">h</span>, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
+
+-   given total nodes <span class="norm">n</span>, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
+
+<!--
+if exclude the bottom level, binary heap is a perfect binary tree and nodes is 2^h - 1
+
+low level node is always smaller than the high level node? NO.
+-->
+
+---
+
+# Binary Heap
+
+<br/>
+
+<div grid="~ cols-2 gap-12">
+  <div>
+    <img src="/images/binary_heap_index.png"/>
+  </div>
+  <div>
+    <br/>
+    <table class="grid">
+      <tbody>
+        <tr class="odd">
+          <td>2</td>
+          <td>4</td>
+          <td>3</td>
+          <td>5</td>
+          <td>6</td>
+          <td>6</td>
+          <td>9</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+        </tr>
+        <tr class="even">
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+  <div>
+    <table style="width:60%; font-family: 'Open Sans'; font-size: 0.8rem;">
+      <tbody>
+      <tr>
+        <td align="right">parent(i)</td>
+        <td align="center">=</td>
+        <td align="left">(i - 1) / 2</td>
+      </tr>
+      <tr>
+        <td align="right">left_child(i)</td>
+        <td align="center">=</td>
+        <td align="left">2 * i + 1</td>
+      </tr>
+      <tr align="left">
+        <td align="right">right_child(i)</td>
+        <td align="center">=</td>
+        <td align="left">2 * i + 2</td>
+      </tr>    
+      </tbody>
+    </table>  
+  </div>
+</div>
+---
+
+# Binary Heap
+
+<logos-jupyter />
+
+<br/>
+
+-   add new element:
+
+    1. append to the last (so its still complete binary tree)
+    2. "sift up" if new element is smaller
+
+-   remove the min:
+    1. replace the first element with the last (so its still complete binary tree)
+    2. "sift down" if the last element is bigger
+
+👉 [https://www.cs.usfca.edu/~galles/visualization/Heap.html](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
+
+---
+
+# Priority Queue Complexity
+
+<br/>
+
+<div style="width: 70%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">Priority Queue</th>
+        <th id="">unsorted list</th>
+        <th id="">sorted list</th>
+        <th id="">binary heap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>is_empty</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+        <td>O(1)</td>
+      </tr>
+      <tr class="even">
+        <th>size</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+        <td>O(1)</td>
+      </tr>
+      <tr class="odd">
+        <th>add</th>
+        <td>O(1)</td>
+        <td>O(n)</td>
+        <td>O(logN) 👈 </td>
+      </tr>
+      <tr class="even">
+        <th>remove_min</th>
+        <td>O(n)</td>
+        <td>O(1)</td>
+        <td>O(logN) 👈 </td>
+      </tr>
+      <tr class="odd">
+        <th>min</th>
+        <td>O(n)</td>
+        <td>O(1)</td>
+        <td>O(1)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
+Binary Heap is always a complete binary tree, so the height is always O(logN), note that the worst case of binary tree is O(N) == linked list.
+-->
+
+---
+
+# When & Where is a Priority Queue (PQ) used?
+
+<br/>
+
+-   used in certain implementations of <span class="hl-bg">Dijkstra's Shortest Path</span> algorithm
+
+-   <span class="hl-bg">Best First Search</span> (BFS) algorithms such as A\* uses PQ to continuously grab the next most promising node
+
+-   used in <span class="hl-bg">Huffman coding</span> (which is often used for lossless data compression)
+
+-   Used by <span class="hl-bg">Minimum Spanning Tree</span> (MST) algorithms
+
+-   anytime you need to dynamically fetch the "next best" or "next worst" element
+
+<!--
+Technically Priority Queue can be considered same as binary heap, but Priority Queue is ADT as it can be implemented by other data structure.
+
+There are trees other than binary tree, so there are heaps other than binary heap - D-ary Heap, Fibonacci Heap, Index heap, Binomial Heap, Pairing Heap, etc. But binary heap is very useful and important data structure.
+-->
+
+---
+
+# Heap Sort
+
+<logos-jupyter />
+
+<br/>
+
+1. create a binary heap
+
+2. add all elements to the heap
+
+3. recursively obtain the min element from the heap
+
+---
+
+# Heapify 
+
+<logos-jupyter />
+
+<br/>
+
+<span class="hl">Heapify</span>: convert the array to be a binary heap (array)  
+
+by "sift down" the non-leaf node one by one from bottom to top 
+
+time complexity: $O(N)$  
+space complexity: $O(1)$  
+
+<!--
+last non-leaf node: parent of last leaf node 
+-->
+
+---
+layout: two-cols
+---
+# Heapify
+
+<br/>
+
+Complete Binary Tree (Perfect Binary Tree)
+
+<br/>
+
+<table style="font-family: 'Open Sans'; font-size: 0.8rem;">
+  <tbody>
+  <tr>
+    <td align="right">last level nodes:</td>
+    <td align="left">n/2</td>
+    <td align="right">sift_down:</td>
+    <td align="left">n/2 * 0</td>
+  </tr>
+  <tr>
+    <td align="right">2nd last level nodes:</td>
+    <td align="left">n/4</td>
+    <td align="right">sift_down:</td>
+    <td align="left">n/4 * 1</td>
+  </tr>
+  <tr>
+    <td align="center">......</td>
+  </tr>
+  <tr>
+    <td align="right">h+1 last level nodes:</td>
+    <td align="left">n/2^(h+1)</td>
+    <td align="right">sift_down:</td>
+    <td align="left">n/2^(h+1) * h</td>
+  </tr>
+  </tbody>
+</table> 
+
+::right::
 
 
+<div align="center">
 
+<br/>
+
+<br/>
+
+<br/>
+
+Time Complexity: $O(n)$
+
+<br/>
+
+<img src="/images/heapify_complexity.png" style="width: 80%"/>
+
+</div>
+
+---
+
+# Heap Sort 
+
+<br/>
+
+<img src="/images/heap_sort.png" style="height: 85%"/>
+
+---
+
+
+# Hash Table
+
+<br/>
+
+blablablan
+
+---
+
+# Skip List
+
+<br/>
+
+blablablan
+
+---
+
+# Binary Search Tree
+
+<br/>
+
+blablablan
+
+---
+
+# AVL
+
+<br/>
+
+blablablan
+
+---
+
+# Merge-Sort
+
+<br/>
+
+blablablan
+
+---
+
+# Quick Sort
+
+<br/>
+
+blablablan
+
+---
+
+# Brute Force Pattern Matching
+
+<br/>
+
+blablablan
+
+---
+
+# Boyer-Moore
+
+<br/>
+
+blablablan
+
+---
+
+# KMP
+
+<br/>
+
+blablablan
+
+---
+
+# Depth-First Search (DFS)
+
+<br/>
+
+blablablan
+
+---
+
+# Breadth-First Search (BFS)
+
+<br/>
+
+blablablan
+
+---
+
+# Dijkstra's Shortest Path
+
+<br/>
+
+blablablan
+
+---
+
+# Min-Spanning Tree (MST)
+
+<br/>
+
+blablablan
+
+---
+
+# DAG
+
+<br/>
+
+blablablan
+
+---
 
 <div id="labs">
 </div>
@@ -131,23 +627,46 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 # Lab 1
 
+<br/>
+
+blablablan
 
 ---
 
 # Lab 2
 
+<br/>
+
+blablablan
+
 ---
 
 # Lab 3
+
+<br/>
+
+blablablan
 
 ---
 
 # Lab 4
 
+<br/>
+
+blablablan
+
 ---
 
 # Lab 5
 
+<br/>
+
+blablablan
+
 ---
 
 # Lab 6
+
+<br/>
+
+blablablan
