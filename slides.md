@@ -118,11 +118,9 @@ MTH251 slides: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 📚 books
 
-if you want to dive deeper into proofs and the mathematics of computer science:  
+if you want to dive deeper into proofs and the mathematics of computer science:
 
 [Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
-
-
 
 ---
 
@@ -406,30 +404,31 @@ There are trees other than binary tree, so there are heaps other than binary hea
 
 2. add all elements to the heap
 
-3. recursively obtain the min element from the heap
+3. recursively obtain the min/max element from the heap
 
 ---
 
-# Heapify 
+# Heapify
 
 <logos-jupyter />
 
 <br/>
 
-<span class="hl">Heapify</span>: convert the array to be a binary heap (array)  
+<span class="hl">Heapify</span>: convert the array to be a binary heap (array)
 
-by "sift down" the non-leaf node one by one from bottom to top 
+by "sift down" the non-leaf node one by one from bottom to top
 
 time complexity: $O(N)$  
-space complexity: $O(1)$  
+space complexity: $O(1)$
 
 <!--
-last non-leaf node: parent of last leaf node 
+last non-leaf node: parent of last leaf node
 -->
 
 ---
 layout: two-cols
 ---
+
 # Heapify
 
 <br/>
@@ -462,10 +461,9 @@ Complete Binary Tree (Perfect Binary Tree)
     <td align="left">n/2^(h+1) * h</td>
   </tr>
   </tbody>
-</table> 
+</table>
 
 ::right::
-
 
 <div align="center">
 
@@ -485,7 +483,7 @@ Time Complexity: $O(n)$
 
 ---
 
-# Heap Sort 
+# Heap Sort
 
 <br/>
 
@@ -493,12 +491,305 @@ Time Complexity: $O(n)$
 
 ---
 
+# Map
+
+<br/>
+
+A Map is an abstract data structure (ADT):
+
+-   a collection of kye-value (k,v) paris
+-   there cannot be duplicate keys (key can be viewed as a unique identifier for the object/value)
+
+k - unique  
+v - can be repeated
+
+<span class="norm">🤔 Can we use **none**/**null** key?</span>
+
+---
+
+# Map
+
+<br/>
+
+a shopping cart:
+
+| Product(key)   | Quantity(value) |
+| :------------- | :-------------- |
+| tiger beer:    | 12 (cans)       |
+| us apple:      | 4 (pieces)      |
+| chicken wings: | 12 (pieces)     |
+| ...            | ...             |
+
+---
+
+# Map Operations
+
+<br/>
+
+for a map
+
+<pre class="norm">
+- map[k], map.get(k)
+- map.pop(k)
+- map[k] = v, map.set(k), map.setdefault(k, default)
+- map.keys()
+- map.values()
+- del map[k], map.clear()
+- size(map)
+- iter(map), map.items()
+</pre>
+
+---
+
+# Sorted Map
+
+<br/>
+
+A Sorted Map is an abstract data structure (ADT):
+
+-   extension of Map and keys are sorted in increasing order
+
+---
+
+# Map Operations
+
+<br/>
+
+for a sortedMap
+
+<pre class="norm">
+- sortedMap.find_min()
+- sortedMap.find_max()
+- sortedMap.find_lt(k)
+- sortedMap.find_le(k)
+- sortedMap.find_gt(k)
+- sortedMap.find_ge(k)
+- sortedMap.find_range(k1, k2)
+- sortedMap.reversed()
+</pre>
+
+---
+
+# Map Implementation
+
+<br/>
+
+-   Array/ArrayList
+-   Linked List
+-   Binary Search Tree
+-   Hash Table
+
+---
+
+# Map Implementation: Linked List
+
+<br/>
+
+-   store (k,v) in a doubly linked list
+
+-   get(k)
+
+    -   loop through the list until find the element with key k
+
+-   set(k,v)
+
+    -   create a new node (k,v) and add it at the front
+
+-   delete(k)
+    -   loop through the list until find the element with key k
+    -   remove it by updating the pre and next elements
+
+Complexity: $O(n)$
+
+---
 
 # Hash Table
 
 <br/>
 
-blablablan
+A <span class="hl-color">Hash table</span> is a data structure that provides a mapping from keys to values using a technique called <span class="hl-color">hashing</span>.
+
+A hash function <span class="hl-color">H(x)</span> is a function that maps a <span class="uline">general</span> key ‘x’ to a whole number in a fixed range [0, N-1].
+
+<!--
+large keys → small keys (indexable)
+-->
+
+---
+
+# Hash Function
+
+<br/>
+
+step1. Hash Code: abitrary object → integer
+
+<p class="norm">An element is converted into an integer by using a hash function. This element can be used as an index to store the original element, which falls into the hash table.</p>
+
+step2. Compression: $integer \in [0, N-1]$
+
+<p class="norm">
+The element is stored in the hash table where it can be quickly retrieved using hashed key.
+<br/>
+hash = hashfunc(key)<br/>
+index = hash % array_size<br/>
+</p>
+
+---
+layout: two-cols
+---
+
+# Hash Function
+
+<br/>
+
+a number of (k, v) pairs with key set {“abcdef”, “bcdefa”, “cdefab” , “defabc”}
+
+The ASCII values of a, b, c, d, e, and f are 97, 98, 99, 100, 101, and 102 respectively.
+
+| key    |            Hash Function             | Index |
+| :----- | :----------------------------------: | :---- |
+| abcdef | (97 + 98 + 99 + 100 + 101 + 102)%599 | 2     |
+| bcdefa | (98 + 99 + 100 + 101 + 102 + 97)%599 | 2     |
+| cdefab | (99 + 100 + 101 + 102 + 97 + 98)%599 | 2     |
+| defabc | (100 + 101 + 102 + 97 + 98 + 99)%599 | 2     |
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/hash_example1.jpeg" style="width:70%; height: 70%"/>
+</div>
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+
+table {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Hash Function
+
+<br/>
+
+a number of (k, v) with key set {“abcdef”, “bcdefa”, “cdefab” , “defabc”}
+
+The ASCII values of a, b, c, d, e, and f are 97, 98, 99, 100, 101, and 102 respectively.
+
+| key    |               Hash Function                | Index |
+| :----- | :----------------------------------------: | :---- |
+| abcdef | (971 + 982 + 993 + 1004 + 1015 + 1026)%599 | 38    |
+| bcdefa | (981 + 992 + 1003 + 1014 + 1025 + 976)%599 | 23    |
+| cdefab | (991 + 1002 + 1013 + 1024 + 975 + 986)%599 | 14    |
+| defabc | (1001 + 1012 + 1023 + 974 + 985 + 996)%599 | 11    |
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/hash_example2.jpeg" style="width:70%; height: 70%"/>
+</div>
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+
+table {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+
+# Hash Code: Bit Representation
+ 
+```python
+# XOR byte by byte
+def byte_xor(ba1, ba2):
+    return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
+
+# produce 32-byte hash code 
+# chop the data into 32-byte long chunks (pad with zeros if required)
+# compute XOR on all chunks 
+def bitwise_xor(data):
+    chunks = [data[i:i+32] for i in range(0, len(data), 32)]
+    for i in range(len(chunks)):
+        chunk = chunks[i]
+        hexchunk = chunk.hex()
+        len_diff = 32 - len(chunk)
+        if len_diff:
+            hexchunk += '00' * len_diff
+            chunk = bytearray.fromhex(hexchunk)
+            chunks[i] = chunk
+    res = bytes.fromhex('00' * 32)
+    for chunk in chunks:
+        res = byte_xor(res, chunk)
+    return res
+``` 
+
+---
+
+# Hash Code: Polynomial & Cyclic-Shift
+
+<br/>
+
+### Polynomial
+for n-tuple ($x_0, x_1, x_2, ..., x_{n-1}$), if position is important, we can multiply $a^{n-1}$ for position n, e.g.:    
+
+$x_0·a^0 + x_1·a^1  + x_2·a^2  + ...  + x_{n-1}·a^{n-1}$
+
+### Cyclic-Shift
+
+for bitwise, we can also apply cyclic-shift function instead of multiplication, e.g. shift(x, y) means cyclic-shift y bits:      
+
+$shift(x_0, 0\;mod\;32) \oplus shift(x_1, 1\;mod\;32)  \oplus shift(x_2, 2\;mod\;32)  \oplus ...  \oplus shift(x_{n-1}, (n-1)\;mod\;32)$
+
+
+
+---
+
+# Compression Function
+
+<br/>
+
+for hash code $i$: 
+
+- Division Method: $i\;mod\;N$
+
+- MAD: $[(a·i\;+\;b)\;mod\;p]\;mod\;N$  
+  where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
+
+
+---
+
+Hash Function
+
+> Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
 
 ---
 
