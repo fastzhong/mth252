@@ -3,7 +3,7 @@ theme: seriph
 title: "MTH252"
 background: https://mth252.fastzhong.com/images/cover.webp
 highlighter: shiki
-lineNumbers: true
+lineNumbers: false
 colorSchema: "light"
 ---
 
@@ -497,13 +497,17 @@ Time Complexity: $O(n)$
 
 A Map is an abstract data structure (ADT):
 
--   a collection of kye-value (k,v) paris
--   there cannot be duplicate keys (key can be viewed as a unique identifier for the object/value)
+-   a collection of key-value (k,v) paris
+-   key can be viewed as a unique identifier for the object/value
 
 k - unique  
 v - can be repeated
 
-<span class="norm">🤔 Can we use **none**/**null** key?</span>
+A <span class="hl-color">Sorted Map</span> is an extension of Map and keys are sorted in increasing order.  
+
+<br/>
+
+<span class="norm">🤔 Can we use **none**/**null** for key?</span>
 
 ---
 
@@ -538,16 +542,6 @@ for a map
 - size(map)
 - iter(map), map.items()
 </pre>
-
----
-
-# Sorted Map
-
-<br/>
-
-A Sorted Map is an abstract data structure (ADT):
-
--   extension of Map and keys are sorted in increasing order
 
 ---
 
@@ -611,6 +605,10 @@ A <span class="hl-color">Hash table</span> is a data structure that provides a m
 
 A hash function <span class="hl-color">H(x)</span> is a function that maps a <span class="uline">general</span> key ‘x’ to a whole number in a fixed range [0, N-1].
 
+
+💡 <span class="norm">locate the element without searching: </span>$O(n)$ → $O(1)$
+
+
 <!--
 large keys → small keys (indexable)
 -->
@@ -623,15 +621,23 @@ large keys → small keys (indexable)
 
 step1. Hash Code: abitrary object → integer
 
-<p class="norm">An element is converted into an integer by using a hash function. This element can be used as an index to store the original element, which falls into the hash table.</p>
+<p class="norm">An element is converted into an integer by using a hash function. This element can be used as an index to store the original element, which falls into the hash table.
+<br/>
 
-step2. Compression: $integer \in [0, N-1]$
+```
+hash = hashfunc(key)
+```
+</p>
+
+step2. Compression: $integer \in [0, N-1]$ (N is the size of hash table)
 
 <p class="norm">
 The element is stored in the hash table where it can be quickly retrieved using hashed key.
 <br/>
-hash = hashfunc(key)<br/>
-index = hash % array_size<br/>
+
+```
+index = hash % array_size
+```
 </p>
 
 ---
@@ -734,8 +740,7 @@ def byte_xor(ba1, ba2):
     return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
 
 # produce 32-byte hash code 
-# chop the data into 32-byte long chunks (pad with zeros if required)
-# compute XOR on all chunks 
+# chop the data into 32-byte long chunks (padding with zeros if required) then XOR on all chunks 
 def bitwise_xor(data):
     chunks = [data[i:i+32] for i in range(0, len(data), 32)]
     for i in range(len(chunks)):
@@ -751,6 +756,8 @@ def bitwise_xor(data):
         res = byte_xor(res, chunk)
     return res
 ``` 
+
+👉 MD5, SHA-256
 
 ---
 
@@ -786,8 +793,88 @@ for hash code $i$:
 
 
 ---
+layout: two-cols
+---
+# Hash Function: Collision 
 
-Hash Function
+<br/>
+
+### chaining (open hashing)
+
+- one element $O(1)$ 
+
+- **linked list** (more than one element) $O(1) + O(n)$ 
+
+- **red black tree** (Java: more than 8 elements) $O(1) + O(logN)$ 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/hash_chaining.png" style="width:60%"/>
+
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+--- 
+
+# Hash Function: Collision 
+### open address (closed hashing)
+
+Finding an unused, or open, location in the hash table is called <span class="hl-strong">open addressing</span>.   
+
+The process of locating an open location in the hash table is called <span class="hl-strong">probing</span>. 
+
+Various probing techniques: 
+
+<div grid="~ cols-3 gap-4">
+  <div class="norm">
+    <span class="hl">linear probing</span><br/>
+    index = index % hashTableSize<br/>  
+    index = (index + 1) % hashTableSize<br/>  
+    index = (index + 2) % hashTableSize<br/>  
+    index = (index + 3) % hashTableSize<br/>  
+    ...  
+  </div>
+  <div class="norm">
+    <span class="hl">quadratic probing</span><br/>
+    index = index % hashTableSize<br/>  
+    index = (index + 1^2) % hashTableSize<br/>  
+    index = (index + 2^2) % hashTableSize<br/>  
+    index = (index + 3^2) % hashTableSize<br/>  
+    ... 
+  </div>
+  <div class="norm">
+    <span class="hl">open addressing</span>
+    index = index % hashTableSize  
+    index = (index + 1) % hashTableSize  
+    index = (index + 2) % hashTableSize  
+    index = (index + 3) % hashTableSize  
+    ... 
+  </div>
+</div>
+
+  
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+
+# Hash Function
 
 > Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
 
@@ -817,6 +904,19 @@ blablablan
 
 ---
 
+# Red Black Tree 
+
+<br/>
+
+blablablan
+
+---
+
+# Sorting 
+
+
+---
+
 # Merge-Sort
 
 <br/>
@@ -833,7 +933,17 @@ blablablan
 
 ---
 
-# Brute Force Pattern Matching
+# Text Pattern Matching
+
+<br/>
+
+blablablan
+
+
+
+---
+
+# Brute Force 
 
 <br/>
 
@@ -849,11 +959,15 @@ blablablan
 
 ---
 
-# KMP
+# Knuth-Morris-Pratt (KMP)
 
 <br/>
 
 blablablan
+
+---
+
+# Graph
 
 ---
 
