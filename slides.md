@@ -38,27 +38,27 @@ Data Structures and Algorithms II
 <br/>
 
 <div grid="~ cols-2 gap-4">
-<div>
-6 weeks (Jan ~ Mar), 6 seminars & 6 labs:
+  <div>
+    6 weeks (Jan ~ Mar), 6 seminars & 6 labs:
+    <p class="norm">
+      <ol>
+        <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span> & <span class="hl-bg">Skip List</span></li>
+        <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span></li>
+        <li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Binary Search</span>, <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
+        <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li> 
+        <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, <span class="hl-bg">Min-Spanning Tree</span>, and <span class="hl-bg">Directed Acyclic Grap</span>(DAG) </li>
+        <li>Review and more</li>
+      </ol>
+    </p>
+  </div>
+  <div>
+    3 assignments & open book exam:
+    <p class="norm">
+      <img src="/images/assessment.png" style="width:80%"/>
+    </p>
+  </div>
+</div>
 
-<p class="norm">
-<ol>
-<li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span> & <span class="hl-bg">Skip List</span></li>
-<li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span></li>
-<li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Binary Search</span>, <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
-<li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li> 
-<li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, <span class="hl-bg">Min-Spanning Tree</span>, and <span class="hl-bg">Directed Acyclic Grap</span>(DAG) </li>
-<li>Review and more</li>
-</ol>
-</p>
-</div>
-<div>
-3 assignments & open book exam:
-<p class="norm">
-<img src="/images/assessment.png" style="width:80%"/>
-</p>
-</div>
-</div>
 
 👉 MTH252 is much more difficult than MTH251
 
@@ -78,11 +78,7 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 <br/>
 
-👉 Python & Big O review:
-
-MTH251 slides: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
-
-<logos-github-octocat /> [MTH251 lab1](https://github.com/fastzhong/mth252/tree/main/public/notebooks)
+👉 Python & Big O review:  [MTH251](https://mth252.fastzhong.com/)
 
 ---
 
@@ -209,6 +205,8 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 <img src="/images/binary_heap.png" style="width: 80%"/>
 
+<br/>
+
 <span class="norm">👉 A complete binary tree is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible.
 </span>
 
@@ -222,9 +220,9 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 -   key of root is always the smallest
 
--   given height <span class="norm">h</span>, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
+-   given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
 
--   given total nodes <span class="norm">n</span>, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
+-   given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
 
 <!--
 if exclude the bottom level, binary heap is a perfect binary tree and nodes is 2^h - 1
@@ -435,33 +433,13 @@ layout: two-cols
 
 Complete Binary Tree (Perfect Binary Tree)
 
-<br/>
+|                       |                     |            |           |
+| --------------------: | :------------------ | ---------: | :---------|
+|     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$ |
+| 2nd last level nodes: | $\frac{n}{4}$       | sift_down: | $\frac{n}{4} * 1$ |
+|                   ... |                     |        ... |           |
+| h+1 last level nodes: | $\frac{n}{2^(h+1)}$ | sift_down: | $\frac{n}{2^(h+1)} \cdot h$ |
 
-<table style="font-family: 'Open Sans'; font-size: 0.8rem;">
-  <tbody>
-  <tr>
-    <td align="right">last level nodes:</td>
-    <td align="left">n/2</td>
-    <td align="right">sift_down:</td>
-    <td align="left">n/2 * 0</td>
-  </tr>
-  <tr>
-    <td align="right">2nd last level nodes:</td>
-    <td align="left">n/4</td>
-    <td align="right">sift_down:</td>
-    <td align="left">n/4 * 1</td>
-  </tr>
-  <tr>
-    <td align="center">......</td>
-  </tr>
-  <tr>
-    <td align="right">h+1 last level nodes:</td>
-    <td align="left">n/2^(h+1)</td>
-    <td align="right">sift_down:</td>
-    <td align="left">n/2^(h+1) * h</td>
-  </tr>
-  </tbody>
-</table>
 
 ::right::
 
@@ -480,6 +458,19 @@ Time Complexity: $O(n)$
 <img src="/images/heapify_complexity.png" style="width: 80%"/>
 
 </div>
+
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+
+table {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
@@ -503,7 +494,9 @@ A Map is an abstract data structure (ADT):
 k - unique  
 v - can be repeated
 
-A <span class="hl-color">Sorted Map</span> is an extension of Map and keys are sorted in increasing order.  
+<br/>
+
+A <span class="hl-color">Sorted Map</span> is an extension of Map and keys are sorted in increasing order.
 
 <br/>
 
@@ -515,14 +508,14 @@ A <span class="hl-color">Sorted Map</span> is an extension of Map and keys are s
 
 <br/>
 
-a shopping cart:
+class score:
 
-| Product(key)   | Quantity(value) |
-| :------------- | :-------------- |
-| tiger beer:    | 12 (cans)       |
-| us apple:      | 4 (pieces)      |
-| chicken wings: | 12 (pieces)     |
-| ...            | ...             |
+| Student(key) | Score(value) |
+| :----------- | :----------- |
+| A:           | 80           |
+| B:           | 70           |
+| C:           | 60           |
+| ...          | ...          |
 
 ---
 
@@ -535,7 +528,7 @@ for a map
 <pre class="norm">
 - map[k], map.get(k)
 - map.pop(k)
-- map[k] = v, map.set(k), map.setdefault(k, default)
+- map[k] = v, map.set(k) = v, map.put(k,v), map.setdefault(k, default)
 - map.keys()
 - map.values()
 - del map[k], map.clear()
@@ -593,7 +586,7 @@ for a sortedMap
     -   loop through the list until find the element with key k
     -   remove it by updating the pre and next elements
 
-Complexity: $O(n)$
+👉 Complexity: $O(n)$
 
 ---
 
@@ -605,9 +598,7 @@ A <span class="hl-color">Hash table</span> is a data structure that provides a m
 
 A hash function <span class="hl-color">H(x)</span> is a function that maps a <span class="uline">general</span> key ‘x’ to a whole number in a fixed range [0, N-1].
 
-
 💡 <span class="norm">locate the element without searching: </span>$O(n)$ → $O(1)$
-
 
 <!--
 large keys → small keys (indexable)
@@ -625,8 +616,9 @@ step1. Hash Code: abitrary object → integer
 <br/>
 
 ```
-hash = hashfunc(key)
+hash = hashcode(key)
 ```
+
 </p>
 
 step2. Compression: $integer \in [0, N-1]$ (N is the size of hash table)
@@ -638,6 +630,7 @@ The element is stored in the hash table where it can be quickly retrieved using 
 ```
 index = hash % array_size
 ```
+
 </p>
 
 ---
@@ -652,12 +645,12 @@ a number of (k, v) pairs with key set {“abcdef”, “bcdefa”, “cdefab” 
 
 The ASCII values of a, b, c, d, e, and f are 97, 98, 99, 100, 101, and 102 respectively.
 
-| key    |            Hash Function             | Index |
-| :----- | :----------------------------------: | :---- |
-| abcdef | (97 + 98 + 99 + 100 + 101 + 102)%599 | 2     |
-| bcdefa | (98 + 99 + 100 + 101 + 102 + 97)%599 | 2     |
-| cdefab | (99 + 100 + 101 + 102 + 97 + 98)%599 | 2     |
-| defabc | (100 + 101 + 102 + 97 + 98 + 99)%599 | 2     |
+| key    |             Hash Function              | Index |
+| :----- | :------------------------------------: | :---- |
+| abcdef | (97 + 98 + 99 + 100 + 101 + 102) % 599 | 2     |
+| bcdefa | (98 + 99 + 100 + 101 + 102 + 97) % 599 | 2     |
+| cdefab | (99 + 100 + 101 + 102 + 97 + 98) % 599 | 2     |
+| defabc | (100 + 101 + 102 + 97 + 98 + 99) % 599 | 2     |
 
 ::right::
 
@@ -697,12 +690,12 @@ a number of (k, v) with key set {“abcdef”, “bcdefa”, “cdefab” , “d
 
 The ASCII values of a, b, c, d, e, and f are 97, 98, 99, 100, 101, and 102 respectively.
 
-| key    |               Hash Function                | Index |
-| :----- | :----------------------------------------: | :---- |
-| abcdef | (971 + 982 + 993 + 1004 + 1015 + 1026)%599 | 38    |
-| bcdefa | (981 + 992 + 1003 + 1014 + 1025 + 976)%599 | 23    |
-| cdefab | (991 + 1002 + 1013 + 1024 + 975 + 986)%599 | 14    |
-| defabc | (1001 + 1012 + 1023 + 974 + 985 + 996)%599 | 11    |
+| key    |                 Hash Function                 | Index |
+| :----- | :-------------------------------------------: | :---- |
+| abcdef | (971 + 982 + 993 + 1004 + 1015 + 1026) % 2069 | 38    |
+| bcdefa | (981 + 992 + 1003 + 1014 + 1025 + 976) % 2069 | 23    |
+| cdefab | (991 + 1002 + 1013 + 1024 + 975 + 986) % 2069 | 14    |
+| defabc | (1001 + 1012 + 1023 + 974 + 985 + 996) % 2069 | 11    |
 
 ::right::
 
@@ -733,14 +726,14 @@ table {
 ---
 
 # Hash Code: Bit Representation
- 
+
 ```python
 # XOR byte by byte
 def byte_xor(ba1, ba2):
     return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
 
-# produce 32-byte hash code 
-# chop the data into 32-byte long chunks (padding with zeros if required) then XOR on all chunks 
+# produce 32-byte hash code
+# chop the data into 32-byte long chunks (padding with zeros if required) then XOR on all chunks
 def bitwise_xor(data):
     chunks = [data[i:i+32] for i in range(0, len(data), 32)]
     for i in range(len(chunks)):
@@ -755,9 +748,16 @@ def bitwise_xor(data):
     for chunk in chunks:
         res = byte_xor(res, chunk)
     return res
-``` 
+```
 
-👉 MD5, SHA-256
+👉 <span class="norm">[MD5](https://en.wikipedia.org/wiki/MD5)&nbsp;&nbsp;&nbsp; [SHA-256](https://en.wikipedia.org/wiki/SHA-2)</span>
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
@@ -766,46 +766,58 @@ def bitwise_xor(data):
 <br/>
 
 ### Polynomial
-for n-tuple ($x_0, x_1, x_2, ..., x_{n-1}$), if position is important, we can multiply $a^{n-1}$ for position n, e.g.:    
+
+for n-tuple $(x_0, x_1, x_2, ..., x_{n-1})$, if position is important, we can multiply $a^{n-1}$ for position $n$, e.g.:
 
 $x_0·a^0 + x_1·a^1  + x_2·a^2  + ...  + x_{n-1}·a^{n-1}$
 
 ### Cyclic-Shift
 
-for bitwise, we can also apply cyclic-shift function instead of multiplication, e.g. shift(x, y) means cyclic-shift y bits:      
+for bitwise, we can also apply cyclic-shift function instead of multiplication, e.g. shift(x, y) means cyclic-shift y bits:
 
 $shift(x_0, 0\;mod\;32) \oplus shift(x_1, 1\;mod\;32)  \oplus shift(x_2, 2\;mod\;32)  \oplus ...  \oplus shift(x_{n-1}, (n-1)\;mod\;32)$
 
+💬 5-bit cyclic shift operation can achieve the smallest total collisions when 230,000 English words
 
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
-# Compression Function
+# Hash Function: Compression
 
 <br/>
 
-for hash code $i$: 
+for hash code $x$:
 
-- Division Method: $i\;mod\;N$
+-   Division Method: $x\;mod\;N$
 
-- MAD: $[(a·i\;+\;b)\;mod\;p]\;mod\;N$  
-  where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
+-   MAD:  
+    where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
 
+<br/>
+
+👉 <span class="norm">[good hash table primes](https://planetmath.org/goodhashtableprimes) </span>
 
 ---
 layout: two-cols
 ---
-# Hash Function: Collision 
+
+# Hash Function: Collision
 
 <br/>
 
 ### chaining (open hashing)
 
-- one element $O(1)$ 
+-   one element $O(1)$
 
-- **linked list** (more than one element) $O(1) + O(n)$ 
+-   **linked list** (Java: more than one element) $O(1) + O(n)$
 
-- **red black tree** (Java: more than 8 elements) $O(1) + O(logN)$ 
+-   **treemap/red black tree** (Java: more than 8 elements) $O(1) + O(logN)$
 
 ::right::
 
@@ -817,7 +829,6 @@ layout: two-cols
 
 <img src="/images/hash_chaining.png" style="width:60%"/>
 
-
 <style>
 p {
     font-family: "Open Sans";
@@ -825,45 +836,46 @@ p {
 }
 </style>
 
---- 
+---
 
-# Hash Function: Collision 
+# Hash Function: Collision
+
 ### open address (closed hashing)
 
-Finding an unused, or open, location in the hash table is called <span class="hl-strong">open addressing</span>.   
+Finding an unused, or open, location in the hash table is called <span class="hl-strong">open addressing</span>.
 
-The process of locating an open location in the hash table is called <span class="hl-strong">probing</span>. 
+The process of locating an open location in the hash table is called <span class="hl-strong">probing</span>.
 
-Various probing techniques: 
+Various probing techniques:
+
+<br/>
 
 <div grid="~ cols-3 gap-4">
   <div class="norm">
-    <span class="hl">linear probing</span><br/>
-    index = index % hashTableSize<br/>  
+    <span class="hl">linear probing</span><br/><br/> 
+    <img src="/images/probing_linear.svg"/><br/>    
     index = (index + 1) % hashTableSize<br/>  
     index = (index + 2) % hashTableSize<br/>  
     index = (index + 3) % hashTableSize<br/>  
     ...  
   </div>
   <div class="norm">
-    <span class="hl">quadratic probing</span><br/>
-    index = index % hashTableSize<br/>  
+    <span class="hl">quadratic probing</span><br/><br/>  
+    <img src="/images/probing_quadratic.svg"/><br/>   
     index = (index + 1^2) % hashTableSize<br/>  
     index = (index + 2^2) % hashTableSize<br/>  
     index = (index + 3^2) % hashTableSize<br/>  
     ... 
   </div>
   <div class="norm">
-    <span class="hl">open addressing</span>
-    index = index % hashTableSize  
-    index = (index + 1) % hashTableSize  
-    index = (index + 2) % hashTableSize  
-    index = (index + 3) % hashTableSize  
+    <span class="hl">double probing</span><br/><br/> 
+    <img src="/images/probing_double.svg"/><br/> 
+    index = (index + 1 * H2) % hashTableSize<br/>  
+    index = (index + 2 * H2) % hashTableSize<br/>  
+    index = (index + 3 * H2) % hashTableSize<br/>  
     ... 
   </div>
 </div>
-
-  
 
 <style>
 p {
@@ -874,7 +886,121 @@ p {
 
 ---
 
+# Hash Function: Collision
+
+<br/>
+
+⚠️ probing may go into cycles (**an infinite loop**) (hashing attack)
+
+⚠️ chaos when removing element from hash table
+
+<br/>
+
+<div grid="~ cols-2 gap-4" class="norm">
+  <div>k % 10, linear probing, k1=11, k2=21, k3=31</div>
+  <div>&nbsp;</div>
+  <div>
+    - put(k1,v1)&nbsp;&nbsp;&nbsp;(probing: 1)<br/>  
+    - put(k2,v2)&nbsp;&nbsp;&nbsp;(probing: 1 → 2)<br/>
+    - put(k3,v3)&nbsp;&nbsp;&nbsp;(probing: 1 → 2 → 3)<br/>
+  </div>
+  <div><img src="/images/hash_linear1.png"></div>
+  <div>
+    - del(k2)&nbsp;&nbsp;&nbsp;(probing: 1 → 2)<br/>  
+    - <span style="color:red">get(k3)</span>&nbsp;&nbsp;&nbsp;(probing: 1 → 2)<br/>
+  </div>
+  <div><img src="/images/hash_linear2.png"></div> 
+</div>
+
+---
+layout: two-cols
+---
+
 # Hash Function
+
+<br/>
+
+-   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>
+
+-   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>
+    -   <span class="norm">compare hash code first, before compare x and y</span>
+    -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
+
+::right::
+
+<br/>
+
+```python
+class UserGroup:
+
+  def __init__(self, name, city, status):
+    self.name = name
+    self.city = city
+    self.status = status
+
+  def __hash__(self):
+    result = 17
+    result = 31 * result + hash(name)
+    if not city:
+      result = 31 * result + hash(city)
+    return result
+
+  def __eq__(self, other):
+    if isinstance(other, UserGroup):
+      return self.__hash__() == other.__hash__()
+    if self.status == other.status:
+      return True
+    return False
+```
+
+---
+layout: two-cols
+---
+
+# Hash Table: resize
+
+<br/>
+
+$M$<span class="norm">: total num of map elements</span>  
+$O$<span class="norm">: num of occupied buckets</span>  
+$N$<span class="norm">: size of hash table</span>  
+$P$<span class="norm">: new size of hash table (expand or shrink)</span>
+
+when:
+
+-   load factor (for open addressing): $\frac{O}{N}$
+-   tolerance factor (for closed addressing): $\frac{M}{N}$
+
+how:
+
+-   size(<span class="norm">[good hash table primes](https://planetmath.org/goodhashtableprimes)</span>): $N$ → $P$
+-   rehashing: $H(x)\;mod\;N$ → $H(x)\;mod\;P$
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/hash_chaining.png" style="width:60%"/>
+
+---
+
+# Hash Function
+
+<br/>
+
+-   $H(x)$ must be deterministic
+
+-   $H(x)$ need to be fast $O(1)$
+
+-   $H(x)\;mod\;N$ evenly distributed
+
+<br/>
+
+<br/>
 
 > Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
 
@@ -882,9 +1008,90 @@ p {
 
 # Skip List
 
+<div class="inline-grid grid-cols-[2fr,5fr] gap-4">
+
+  <div align="right">Level 0:</div>
+  <div><img src="/images/skip1.webp" style="width:50%"/></div>
+
+  <div align="right">Level 1:</div>
+  <div><img src="/images/skip2.webp" style="width:50%"/></div>
+
+  <div align="right">Level 2:</div>
+  <div><img src="/images/skip3.webp" style="width:50%"/></div>
+
+</div>
+
+---
+
+# Skip List
+
 <br/>
 
-blablablan
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> search key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_search.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> delete key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_del.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> add key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_add1.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> add key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_add2.webp" style="width:70%"/>
+  </div>
+
+</div>
 
 ---
 
@@ -904,7 +1111,7 @@ blablablan
 
 ---
 
-# Red Black Tree 
+# Red Black Tree
 
 <br/>
 
@@ -912,8 +1119,7 @@ blablablan
 
 ---
 
-# Sorting 
-
+# Sorting
 
 ---
 
@@ -939,11 +1145,9 @@ blablablan
 
 blablablan
 
-
-
 ---
 
-# Brute Force 
+# Brute Force
 
 <br/>
 
