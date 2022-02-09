@@ -916,47 +916,6 @@ p {
 layout: two-cols
 ---
 
-# Hash Function
-
-<br/>
-
--   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>
-
--   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>
-    -   <span class="norm">compare hash code first, before compare x and y</span>
-    -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
-
-::right::
-
-<br/>
-
-```python
-class UserGroup:
-
-  def __init__(self, name, city, status):
-    self.name = name
-    self.city = city
-    self.status = status
-
-  def __hash__(self):
-    result = 17
-    result = 31 * result + hash(name)
-    if not city:
-      result = 31 * result + hash(city)
-    return result
-
-  def __eq__(self, other):
-    if isinstance(other, UserGroup):
-      return self.__hash__() == other.__hash__()
-    if self.status == other.status:
-      return True
-    return False
-```
-
----
-layout: two-cols
----
-
 # Hash Table: resize
 
 <br/>
@@ -986,23 +945,55 @@ how:
 
 <img src="/images/hash_chaining.png" style="width:60%"/>
 
+
+---
+layout: two-cols
 ---
 
 # Hash Function
 
-<br/>
+-   $H(x)$ must be deterministic  
+-   $H(x)$ need to be fast $O(1)$  
+-   $H(x)\;mod\;N$ evenly distributed  
+-   if $x = y$, H(x) and H(y) <span class="uline">must be equal</span>  
+-   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>  
+-   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>  
 
--   $H(x)$ must be deterministic
-
--   $H(x)$ need to be fast $O(1)$
-
--   $H(x)\;mod\;N$ evenly distributed
-
-<br/>
+<span class="norm">💡 coding tips:</span>
+-   <span class="norm">avoid to use real or big number as key (e.g. $H(0.0) == H(-0.0)$) </span> 
+-   <span class="norm">compare hash code first, before compare x and y</span>  
+-   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>  
 
 <br/>
 
 > Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
+
+::right::
+
+<br/>
+
+```python
+class UserGroup:
+
+  def __init__(self, name, city, status):
+    self.name = name
+    self.city = city
+    self.status = status
+
+  def __hash__(self):
+    result = 17
+    result = 31 * result + hash(name)
+    if not city:
+      result = 31 * result + hash(city)
+    return result
+
+  def __eq__(self, other):
+    if isinstance(other, UserGroup):
+      return self.__hash__() == other.__hash__()
+    if self.status == other.status:
+      return True
+    return False
+```
 
 ---
 
