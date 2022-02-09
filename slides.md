@@ -78,7 +78,7 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 <br/>
 
-👉 Python & Big O review:  [MTH251](https://mth252.fastzhong.com/)
+👉 Python & Big O review:  [MTH251 lab1](https://mth252.fastzhong.com/) 
 
 ---
 
@@ -486,7 +486,7 @@ table {
 
 <br/>
 
-A Map is an abstract data structure (ADT):
+A <span class="hl-bg">Map</span> is an abstract data structure (ADT):
 
 -   a collection of key-value (k,v) paris
 -   key can be viewed as a unique identifier for the object/value
@@ -594,7 +594,7 @@ for a sortedMap
 
 <br/>
 
-A <span class="hl-color">Hash table</span> is a data structure that provides a mapping from keys to values using a technique called <span class="hl-color">hashing</span>.
+A <span class="hl-bg">Hash table</span> is a data structure that provides a mapping from keys to values using a technique called <span class="hl-color">hashing</span>.
 
 A hash function <span class="hl-color">H(x)</span> is a function that maps a <span class="uline">general</span> key ‘x’ to a whole number in a fixed range [0, N-1].
 
@@ -1012,6 +1012,10 @@ class UserGroup:
 
 </div>
 
+<!-- 
+sorted linked list for sorted map 
+-->
+
 ---
 
 # Skip List
@@ -1086,11 +1090,20 @@ class UserGroup:
 
 ---
 
-# Binary Search Tree
+# Binary Search Tree 
 
 <br/>
 
-blablablan
+<span class="hl-bg">Binary Search Tree</span> (BST) is a binary tree and: 
+
+- left subtree has smaller elements
+- right subtree has bigger elements 
+
+💬 <span class="norm"></span>in some BST implementation all values are unique so we exclude duplicates now  
+
+
+<img src="/images/bst.png" style="width:60%"/>
+
 
 ---
 
