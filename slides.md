@@ -1102,7 +1102,7 @@ sorted linked list for sorted map
 💬 <span class="norm"></span>in some BST implementation all values are unique so we exclude duplicates now  
 
 
-<img src="/images/bst.png" style="width:60%"/>
+<img src="/images/binary_search_tree.png" style="width:60%"/>
 
 
 ---
