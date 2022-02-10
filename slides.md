@@ -162,7 +162,7 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Priority Queue</th>
+        <th id="">Operation</th>
         <th id="">unsorted list</th>
         <th id="">sorted list</th>
       </tr>
@@ -329,7 +329,7 @@ low level node is always smaller than the high level node? NO.
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Priority Queue</th>
+        <th id="">Operation</th>
         <th id="">unsorted list</th>
         <th id="">sorted list</th>
         <th id="">binary heap</th>
@@ -1055,7 +1055,7 @@ class UserGroup:
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Hash Table</th>
+        <th id="">Operation</th>
         <th id="">best case</th>
         <th id="">avg case</th>
         <th id="">worst case</th>
@@ -1063,19 +1063,19 @@ class UserGroup:
     </thead>
     <tbody>
       <tr class="odd">
-        <th>Searching</th>
+        <th>Search</th>
         <td>O(1)</td>
         <td>O(1)</td>
         <td>O(n)</td>
       </tr>
       <tr class="even">
-        <th>Insertion</th>
+        <th>Insert</th>
         <td>O(1)</td>
         <td>O(1)</td>
         <td>O(n)</td>
       </tr>
       <tr class="odd">
-        <th>Deletion</th>
+        <th>Delete</th>
         <td>O(1)</td>
         <td>O(1)</td>
         <td>O(n)</td>
@@ -1187,21 +1187,21 @@ sorted linked list for sorted map
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Skip List</th>
+        <th id="">Operation</th>
         <th id="">Time Complexity</th>
       </tr>
     </thead>
     <tbody>
       <tr class="odd">
-        <th>Searching</th>
+        <th>Search</th>
         <td>O(logN)</td>
       </tr>
       <tr class="even">
-        <th>Insertion</th>
+        <th>Insert</th>
         <td>O(logN)</td>
       </tr>
       <tr class="odd">
-        <th>Deletion</th>
+        <th>Delete</th>
         <td>O(logN)</td>
       </tr>
     </tbody>
@@ -1325,24 +1325,24 @@ layout: two-cols
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Binary Search Tree</th>
+        <th id="">Operation</th>
         <th id="">avg case</th>
         <th id="">worst case</th>
       </tr>
     </thead>
     <tbody>
       <tr class="odd">
-        <th>Searching</th>
+        <th>Search</th>
         <td>O(logN)</td>
         <td>O(n)</td>
       </tr>
       <tr class="even">
-        <th>Insertion</th>
+        <th>Insert</th>
         <td>O(logN)</td>
         <td>O(n)</td>
       </tr>
       <tr class="odd">
-        <th>Deletion</th>
+        <th>Delete</th>
         <td>O(logN)</td>
         <td>O(n)</td>
       </tr>
@@ -1395,6 +1395,8 @@ layout: two-cols
 </div>
 
 ---
+layout: two-cols
+---
 
 # AVL
 
@@ -1404,7 +1406,70 @@ layout: two-cols
 
 - first type of <span class="hl-bg">Balanced Binary Search Tree</span> (BBST) 
 
-- height balanced: $-1  \leq height(left subtree) - height{right substree} \leq 1$ 
+- height balanced, $BF$ - balance factor:   
+  $BF = H(node.right) - H(node.left)$ $BF \in {-1, 0, 1}$  
+
+
+<br/>
+
+<span class="norm">👉 Heap/Complete Binary Tree, Segment Tree</span>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/avl1.png" style="width:70%"/>
+</div>
+
+---
+
+# BST & AVL Complexity
+
+<br/>
+
+<div style="width: 80%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">Operation</th>
+        <th id="">BST avg</th>
+        <th id="">BST worst</th>
+        <th id="">AVL avg</th>
+        <th id="">AVL worst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Search</th>
+        <td>O(logN)</td>
+        <td>O(N)</td>
+        <td>O(logN)</td>
+        <td>O(logN)</td>
+      </tr>
+      <tr class="even">
+        <td>Insert</td>
+        <td>O(logN)</td>
+        <td>O(N)</td>
+        <td>O(logN)</td>
+        <td>O(logN)</td>
+      </tr>
+      <tr class="odd">
+        <th>Delete</th>
+        <td>O(logN)</td>
+        <td>O(N)</td>
+        <td>O(logN)</td>
+        <td>O(logN)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ---
 
