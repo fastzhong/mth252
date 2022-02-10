@@ -60,7 +60,7 @@ Data Structures and Algorithms II
 </div>
 
 
-👉 MTH252 is much more difficult than MTH251
+<span class="norm">👉 MTH252 is much more difficult than MTH251</span>
 
 ---
 
@@ -380,9 +380,11 @@ Binary Heap is always a complete binary tree, so the height is always O(logN), n
 
 -   used in <span class="hl-bg">Huffman coding</span> (which is often used for lossless data compression)
 
--   Used by <span class="hl-bg">Minimum Spanning Tree</span> (MST) algorithms
+-   used by <span class="hl-bg">Minimum Spanning Tree</span> (MST) algorithms
 
 -   anytime you need to dynamically fetch the "next best" or "next worst" element
+
+- ...
 
 <!--
 Technically Priority Queue can be considered same as binary heap, but Priority Queue is ADT as it can be implemented by other data structure.
@@ -796,7 +798,7 @@ for hash code $x$:
 
 -   Division Method: $x\;mod\;N$
 
--   MAD:  
+-   MAD:  $(a\;\cdot\;i + b)\;mod\;p$  
     where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
 
 <br/>
@@ -997,6 +999,45 @@ class UserGroup:
 
 ---
 
+# Map/Hash Table Complexity
+
+<br/>
+
+<div style="width: 70%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">Hash Table</th>
+        <th id="">best case</th>
+        <th id="">avg case</th>
+        <th id="">worst case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Searching</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr class="even">
+        <th>Insertion</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr class="odd">
+        <th>Deletion</th>
+        <td>O(1)</td>
+        <td>O(1)</td>
+        <td>O(n)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
 # Skip List
 
 <div class="inline-grid grid-cols-[2fr,5fr] gap-4">
@@ -1090,6 +1131,39 @@ sorted linked list for sorted map
 
 ---
 
+# Skip List Complexity
+
+<br/>
+
+<div style="width: 70%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">Skip List</th>
+        <th id="">Time Complexity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Searching</th>
+        <td>O(logN)</td>
+      </tr>
+      <tr class="even">
+        <th>Insertion</th>
+        <td>O(logN)</td>
+      </tr>
+      <tr class="odd">
+        <th>Deletion</th>
+        <td>O(logN)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+layout: two-cols
+---
+
 # Binary Search Tree 
 
 <br/>
@@ -1099,19 +1173,160 @@ sorted linked list for sorted map
 - left subtree has smaller elements
 - right subtree has bigger elements 
 
-💬 <span class="norm"></span>in some BST implementation all values are unique so we exclude duplicates now  
+   
+💡 any BST subtree is still a BST   
+💡 BST node must be comparable  
 
 
-<img src="/images/binary_search_tree1.png" style="width:60%"/>
+<br/>
+
+<span class="norm">💬  in some BST implementation all values are unique, so we exclude duplicates now</span>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/binary_search_tree1.png" style="width:70%"/>
+
+---
+
+# Binary Search Tree: Operations
+
+<logos-jupyter />
+
+- search()
+- insert()
+- delete()
+- first()
+- last()
+- before(p)
+- after(p)
+- is_empty()
+
+👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+
+---
+layout: two-cols
+---
+# Binary Search Tree: Operations
+
+<logos-jupyter />
+
+💬 1962, Hibbard Deletion
+
+```python
+# 
+
+```
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/binary_search_tree2.png" style="width:70%"/>
 
 
 ---
+layout: two-cols
+---
+# Binary Search Tree: Operations
+
+<logos-jupyter />
+
+💬 1962, Hibbard Deletion
+
+```python
+# 
+
+```
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/binary_search_tree3.png" style="width:70%"/>
+
+---
+
+# Binary Search Tree Complexity 
+
+<br/>
+
+<div style="width: 70%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">Binary Search Tree</th>
+        <th id="">avg case</th>
+        <th id="">worst case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Searching</th>
+        <td>O(logN)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr class="even">
+        <th>Insertion</th>
+        <td>O(logN)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr class="odd">
+        <th>Deletion</th>
+        <td>O(logN)</td>
+        <td>O(n)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+# When & Where is a Binary Search Tree (BST) used?
+
+<br/>
+
+-   implementation of <span class="hl-bg">AVL Tree</span> <span class="hl-bg">Red Black Tree</span> etc. 
+
+-   syntax trees used by compiler and calculator 
+
+-   <span class="hl-bg">Treap</span> - a probabilistic data structure
+
+- ...
+
+---
+
 
 # AVL
 
 <br/>
 
-blablablan
+named after their two inventors G.M. Adel’son-Vel’skii and E.M. Landis
 
 ---
 
