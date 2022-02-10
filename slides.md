@@ -101,7 +101,9 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 [<mdi-file-code /> Leetcode](https://leetcode.com/)
 
-<img src="/images/leetcode.png" style="border-radius: 8px; width: 70%"/>
+<img src="/images/leetcode.png" style="border-radius: 8px; width: 60%"/>
+
+<br/>
 
 <p class="norm">
 🏃‍♂️ learning by doing, implementing the algo from scratch  <br/>
@@ -127,7 +129,9 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 -   min priority queue (smaller k, higher priority)
 -   max priority queue (bigger k, higher priority)
 
-e.g. printer queue, cpu task scheduler, etc.
+<br/>
+
+<span class="norm">e.g. printer queue, cpu task scheduler, etc.</span>
 
 <!--
 You cannot sort the elements/tasks first, and pick up the highest task, as the first task is finished, there could be some new coming tasks. in another word we need a data structure to DYNAMICALLY maintain the ordering.
@@ -202,6 +206,8 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 -   <span class="hl">Complete Binary Tree</span>
 
 -   k value for any node in the tree <span class="hl">smaller than any child node</span>
+
+<br/>
 
 <img src="/images/binary_heap.png" style="width: 80%"/>
 
@@ -311,7 +317,7 @@ low level node is always smaller than the high level node? NO.
     1. replace the first element with the last (so its still complete binary tree)
     2. "sift down" if the last element is bigger
 
-👉 [https://www.cs.usfca.edu/~galles/visualization/Heap.html](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
+<span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/Heap.html](https://www.cs.usfca.edu/~galles/visualization/Heap.html)</span>
 
 ---
 
@@ -475,12 +481,44 @@ table {
 </style>
 
 ---
+layout: two-cols
+---
 
 # Heap Sort
 
+<logos-jupyter />
+
 <br/>
 
-<img src="/images/heap_sort.png" style="height: 85%"/>
+```python
+"""
+heap_sort: sort nums in place  
+
+time complexity: O(N)  
+space complexity: O(1)
+"""  
+def heap_sort2(nums: []) -> []:
+    nums = heapify(nums)
+    print("    heapify: ", nums)
+    # swap from the last element 
+    for i in range(len(nums) - 1, 0, -1): 
+        # move the biggest to the end
+        nums[0], nums[i] = nums[i], nums[0]
+        # sift down the first element after swap 
+        # so nums[0, i) is still a max heap 
+        heapify_sift_down(nums, 0, i)
+    return nums 
+```
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/heap_sort.png" style="height: 70%"/>
 
 ---
 
@@ -577,11 +615,9 @@ for a sortedMap
 -   store (k,v) in a doubly linked list
 
 -   get(k)
-
     -   loop through the list until find the element with key k
 
 -   set(k,v)
-
     -   create a new node (k,v) and add it at the front
 
 -   delete(k)
@@ -829,6 +865,10 @@ layout: two-cols
 
 <br/>
 
+<br/>
+
+<br/>
+
 <img src="/images/hash_chaining.png" style="width:60%"/>
 
 <style>
@@ -945,6 +985,10 @@ how:
 
 <br/>
 
+<br/>
+
+<br/>
+
 <img src="/images/hash_chaining.png" style="width:60%"/>
 
 
@@ -962,7 +1006,7 @@ layout: two-cols
 -   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>  
 
 <span class="norm">💡 coding tips:</span>
--   <span class="norm">avoid to use real or big number as key (e.g. $H(0.0) == H(-0.0)$) </span> 
+-   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ⁇</span> 
 -   <span class="norm">compare hash code first, before compare x and y</span>  
 -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>  
 
@@ -971,6 +1015,10 @@ layout: two-cols
 > Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
 
 ::right::
+
+<br/>
+
+<br/>
 
 <br/>
 
@@ -987,13 +1035,13 @@ class UserGroup:
     result = 31 * result + hash(name)
     if not city:
       result = 31 * result + hash(city)
+    if not status:
+      result = 31 * result + hash(status)
     return result
 
   def __eq__(self, other):
     if isinstance(other, UserGroup):
       return self.__hash__() == other.__hash__()
-    if self.status == other.status:
-      return True
     return False
 ```
 
@@ -1042,13 +1090,13 @@ class UserGroup:
 
 <div class="inline-grid grid-cols-[2fr,5fr] gap-4">
 
-  <div align="right">Level 0:</div>
+  <div align="right">Level 1:</div>
   <div><img src="/images/skip1.webp" style="width:50%"/></div>
 
-  <div align="right">Level 1:</div>
+  <div align="right">Level 2:</div>
   <div><img src="/images/skip2.webp" style="width:50%"/></div>
 
-  <div align="right">Level 2:</div>
+  <div align="right">Level 3:</div>
   <div><img src="/images/skip3.webp" style="width:50%"/></div>
 
 </div>
@@ -1173,10 +1221,10 @@ layout: two-cols
 - left subtree has smaller elements
 - right subtree has bigger elements 
 
+<br/>
    
 💡 any BST subtree is still a BST   
 💡 BST node must be comparable  
-
 
 <br/>
 
@@ -1192,9 +1240,9 @@ layout: two-cols
 
 <br/>
 
-<br/>
-
-<img src="/images/binary_search_tree1.png" style="width:70%"/>
+<div align="center">
+  <img src="/images/binary_search_tree1.png" style="width:70%"/>
+</div>
 
 ---
 
@@ -1207,25 +1255,25 @@ layout: two-cols
 - delete()
 - first()
 - last()
-- before(p)
-- after(p)
+- before()
+- after()
 - is_empty()
 
-👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+<span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)</span>
+
+<span class="norm">💬 1962, Hibbard Deletion</span>
 
 ---
 layout: two-cols
 ---
-# Binary Search Tree: Operations
 
-<logos-jupyter />
+# Hibbard Deletion
 
-💬 1962, Hibbard Deletion
+<br/>
 
-```python
-# 
-
-```
+<div align="center">
+  <img src="/images/hibbard.png" style="width:80%"/>
+</div>
 
 ::right::
 
@@ -1237,24 +1285,21 @@ layout: two-cols
 
 <br/>
 
-<br/>
-
-<img src="/images/binary_search_tree2.png" style="width:70%"/>
-
+<div align="center">
+  <img src="/images/binary_search_tree2.png" style="width:70%"/>
+</div>
 
 ---
 layout: two-cols
 ---
-# Binary Search Tree: Operations
 
-<logos-jupyter />
+# Hibbard Deletion
 
-💬 1962, Hibbard Deletion
+<br/>
 
-```python
-# 
-
-```
+<div align="center">
+  <img src="/images/hibbard.png" style="width:80%"/>
+</div>
 
 ::right::
 
@@ -1266,9 +1311,9 @@ layout: two-cols
 
 <br/>
 
-<br/>
-
-<img src="/images/binary_search_tree3.png" style="width:70%"/>
+<div align="center">
+  <img src="/images/binary_search_tree3.png" style="width:70%"/>
+</div>
 
 ---
 
@@ -1320,13 +1365,46 @@ layout: two-cols
 - ...
 
 ---
+layout: two-cols
+---
 
+# Heap vs. BST 
+
+<br/>
+
+- Heap is <span class="uline">balanced</span> tree, BST is not 
+
+- Heap allows duplicates, BST doesnot 
+
+- BST is ordered data structure, Heap is not  
+
+- worst case for building $n$ nodes of BST $O(n \cdot log(n))$, Heap is $O(n)$ 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/binary_search_tree4.png" style="width:40%"/>
+</div>
+
+---
 
 # AVL
 
 <br/>
 
-named after their two inventors G.M. Adel’son-Vel’skii and E.M. Landis
+- named after inventors G.M. <span class="hl-color">A</span>del’son-<span class="hl-color">V</span>el’skii and E.M. <span class="hl-color">L</span>andis, 1962
+
+- first type of <span class="hl-bg">Balanced Binary Search Tree</span> (BBST) 
+
+- height balanced: $-1  \leq height(left subtree) - height{right substree} \leq 1$ 
 
 ---
 
