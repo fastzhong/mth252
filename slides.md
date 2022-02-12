@@ -446,7 +446,7 @@ Complete Binary Tree (Perfect Binary Tree)
 |     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$ |
 | 2nd last level nodes: | $\frac{n}{4}$       | sift_down: | $\frac{n}{4} * 1$ |
 |                   ... |                     |        ... |           |
-| h+1 last level nodes: | $\frac{n}{2^(h+1)}$ | sift_down: | $\frac{n}{2^(h+1)} \cdot h$ |
+| h+1 last level nodes: | $\frac{n}{2^{h+1}}$ | sift_down: | $\frac{n}{2^{h+1}} \cdot h$ |
 
 
 ::right::
@@ -853,10 +853,6 @@ layout: two-cols
 
 -   one element $O(1)$
 
--   **linked list** (Java: more than one element) $O(1) + O(n)$
-
--   **treemap/red black tree** (Java: more than 8 elements) $O(1) + O(logN)$
-
 ::right::
 
 <br/>
@@ -1083,6 +1079,27 @@ class UserGroup:
     </tbody>
   </table>
 </div>
+
+---
+
+# Map/Hash Table Industrial Implementation 
+
+-   Collison: chaining   
+    -   **linked list**  $O(1) + O(n)$
+    -   Java 8-, insert at the beginneing (deadlock in concurrent insertion), from Java 8+, append to the tail  
+    -   **treemap/red black tree** (more than 8 elements && table size > 64) $O(1) + O(logN)$
+
+-   hash table size  
+    -   default: $2^4 = 16$  max: $2^{30}$ 
+    -   load factor: $0.75$
+    -   optimize rehashing 
+
+- Map/Hash Table for Hash Set: HashSet&#60;E&#62; → HashMap&#60;E, Object&#62;  
+    -   (e1, PRESENT), (e2, PRESENT), (e3, PRESENT), ... 
+
+<br/>
+
+<span class="norm">👉 source code: [https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java](https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java)</span>
 
 ---
 
@@ -1454,7 +1471,7 @@ layout: two-cols
         <td>O(logN)</td>
       </tr>
       <tr class="even">
-        <td>Insert</td>
+        <th>Insert</th>
         <td>O(logN)</td>
         <td>O(N)</td>
         <td>O(logN)</td>
@@ -1477,7 +1494,7 @@ layout: two-cols
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
