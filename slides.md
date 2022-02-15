@@ -213,7 +213,7 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 <br/>
 
-<span class="norm">👉 A complete binary tree is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible.
+<span class="norm">👉 A <strong>complete binary tree</strong> is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible.
 </span>
 
 ---
@@ -679,6 +679,86 @@ index = hash % array_size
 </p>
 
 ---
+
+# Hash Code: Bit Representation
+
+```python
+# XOR byte by byte
+def byte_xor(ba1, ba2):
+    return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
+
+# produce 32-byte hash code
+# chop the data into 32-byte long chunks (padding with zeros if required) then XOR on all chunks
+def bitwise_xor(data):
+    chunks = [data[i:i+32] for i in range(0, len(data), 32)]
+    for i in range(len(chunks)):
+        chunk = chunks[i]
+        hexchunk = chunk.hex()
+        len_diff = 32 - len(chunk)
+        if len_diff:
+            hexchunk += '00' * len_diff
+            chunk = bytearray.fromhex(hexchunk)
+            chunks[i] = chunk
+    res = bytes.fromhex('00' * 32)
+    for chunk in chunks:
+        res = byte_xor(res, chunk)
+    return res
+```
+
+👉 <span class="norm">[MD5](https://en.wikipedia.org/wiki/MD5)&nbsp;&nbsp;&nbsp; [SHA-256](https://en.wikipedia.org/wiki/SHA-2)</span>
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+
+# Hash Code: Polynomial & Cyclic-Shift
+
+<br/>
+
+### Polynomial
+
+for n-tuple $(x_0, x_1, x_2, ..., x_{n-1})$, if position is important, we can multiply $a^{n-1}$ for position $n$, e.g.:
+
+$x_0·a^0 + x_1·a^1  + x_2·a^2  + ...  + x_{n-1}·a^{n-1}$
+
+### Cyclic-Shift
+
+for bitwise, we can also apply cyclic-shift function instead of multiplication, e.g. shift(x, y) means cyclic-shift y bits:
+
+$shift(x_0, 0\;mod\;32) \oplus shift(x_1, 1\;mod\;32)  \oplus shift(x_2, 2\;mod\;32)  \oplus ...  \oplus shift(x_{n-1}, (n-1)\;mod\;32)$
+
+💬 5-bit cyclic shift operation can achieve the smallest total collisions when 230,000 English words
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+
+# Hash Function: Compression
+
+<br/>
+
+for hash code $x$:
+
+-   Division Method: $x\;mod\;N$
+
+-   MAD:  $(a\;\cdot\;x + b)\;mod\;p$  
+    where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
+
+<br/>
+
+👉 <span class="norm">[good hash table primes](https://planetmath.org/goodhashtableprimes) </span>
+
+---
 layout: two-cols
 ---
 
@@ -767,86 +847,6 @@ table {
     font-size: 0.8rem;
 }
 </style>
-
----
-
-# Hash Code: Bit Representation
-
-```python
-# XOR byte by byte
-def byte_xor(ba1, ba2):
-    return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
-
-# produce 32-byte hash code
-# chop the data into 32-byte long chunks (padding with zeros if required) then XOR on all chunks
-def bitwise_xor(data):
-    chunks = [data[i:i+32] for i in range(0, len(data), 32)]
-    for i in range(len(chunks)):
-        chunk = chunks[i]
-        hexchunk = chunk.hex()
-        len_diff = 32 - len(chunk)
-        if len_diff:
-            hexchunk += '00' * len_diff
-            chunk = bytearray.fromhex(hexchunk)
-            chunks[i] = chunk
-    res = bytes.fromhex('00' * 32)
-    for chunk in chunks:
-        res = byte_xor(res, chunk)
-    return res
-```
-
-👉 <span class="norm">[MD5](https://en.wikipedia.org/wiki/MD5)&nbsp;&nbsp;&nbsp; [SHA-256](https://en.wikipedia.org/wiki/SHA-2)</span>
-
-<style>
-p {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-}
-</style>
-
----
-
-# Hash Code: Polynomial & Cyclic-Shift
-
-<br/>
-
-### Polynomial
-
-for n-tuple $(x_0, x_1, x_2, ..., x_{n-1})$, if position is important, we can multiply $a^{n-1}$ for position $n$, e.g.:
-
-$x_0·a^0 + x_1·a^1  + x_2·a^2  + ...  + x_{n-1}·a^{n-1}$
-
-### Cyclic-Shift
-
-for bitwise, we can also apply cyclic-shift function instead of multiplication, e.g. shift(x, y) means cyclic-shift y bits:
-
-$shift(x_0, 0\;mod\;32) \oplus shift(x_1, 1\;mod\;32)  \oplus shift(x_2, 2\;mod\;32)  \oplus ...  \oplus shift(x_{n-1}, (n-1)\;mod\;32)$
-
-💬 5-bit cyclic shift operation can achieve the smallest total collisions when 230,000 English words
-
-<style>
-p {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-}
-</style>
-
----
-
-# Hash Function: Compression
-
-<br/>
-
-for hash code $x$:
-
--   Division Method: $x\;mod\;N$
-
--   MAD:  $(a\;\cdot\;i + b)\;mod\;p$  
-    where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
-
-<br/>
-
-👉 <span class="norm">[good hash table primes](https://planetmath.org/goodhashtableprimes) </span>
 
 ---
 layout: two-cols
@@ -1382,12 +1382,12 @@ sorted linked list for sorted map
 
 <br/>
 
-<div style="width: 70%">
+<div style="width: 40%">
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Operation</th>
-        <th id="">Time Complexity</th>
+        <th id="" width="50%">Operation</th>
+        <th id="" width="50%">Time Complexity</th>
       </tr>
     </thead>
     <tbody>
@@ -1520,13 +1520,13 @@ layout: two-cols
 
 <br/>
 
-<div style="width: 70%">
+<div style="width: 60%">
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Operation</th>
-        <th id="">avg case</th>
-        <th id="">worst case</th>
+        <th id="" width="40%">Operation</th>
+        <th id="" width="30%">avg case</th>
+        <th id="" width="30%">worst case</th>
       </tr>
     </thead>
     <tbody>
@@ -1682,6 +1682,14 @@ TBD
 
 # Sorting
 
+- make data in order 
+- different Algorithmic Thinking
+
+
+---
+
+# Sorting
+
 ---
 
 # Merge-Sort
@@ -1697,6 +1705,84 @@ blablablan
 <br/>
 
 blablablan
+
+---
+
+# Sorting Complexity
+
+<br/>
+
+<div>
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">algo</th>
+        <th id="">avg</th>
+        <th id="">best</th>
+        <th id="">worst</th>
+        <th id="">in/out-place</th>
+        <th id="">space</th>
+        <th id="">stable</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Selection</th>
+        <td>O(N^2)</td>
+        <td>O(N^2)</td>
+        <td>O(N^2)</td>
+        <td><span class="norm">in-place</span></td>
+        <td>O(1)</td>
+        <td><span class="norm">NOT stable</span></td>
+      </tr>
+      <tr class="even">
+        <th>Insertion</th>
+        <td>O(N^2)</td>
+        <td>O(N)</td>
+        <td>O(N^2)</td>
+        <td><span class="norm">in-place</span></td>
+        <td>O(1)</td>
+        <td><span class="norm">stable</span></td>
+      </tr>
+      <tr class="odd">
+        <th>Bubble</th>
+        <td>O(N^2)</td>
+        <td>O(N)</td>
+        <td>O(N^2)</td>
+        <td><span class="norm">in-place</span></td>
+        <td>O(1)</td>
+        <td><span class="norm">stable</span></td>
+      </tr>
+      <tr class="even">
+        <th>Heap</th>
+        <td>O(NlogN)</td>
+        <td>O(NlogN)</td>
+        <td>O(NlogN)</td>
+        <td><span class="norm">in-place</span></td>
+        <td>O(1)</td>
+        <td><span class="norm">NOT stable</span></td>
+      </tr>
+      <tr class="odd">
+        <th>Merge</th>
+        <td>O(NlogN)</td>
+        <td>O(NlogN)</td>
+        <td>O(NlogN)</td>
+        <td><span class="norm">OUT-place</span></td>
+        <td>O(n)</td>
+        <td><span class="norm">stable</span></td>
+      </tr> 
+      <tr class="even">
+        <th>Quick</th>
+        <td>O(NlogN)</td>
+        <td>O(NlogN)</td>
+        <td>O(N^2)</td>
+        <td><span class="norm">in-place</span></td>
+        <td>O(logN)</td>
+        <td><span class="norm">NOT stable</span></td>
+      </tr>     
+    </tbody>
+  </table>
+</div>
 
 ---
 
