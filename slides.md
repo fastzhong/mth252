@@ -615,16 +615,23 @@ for a sortedMap
 -   store (k,v) in a doubly linked list
 
 -   get(k)
-    -   loop through the list until find the element with key k
+    -   <span class="norm">loop through the list until find the element with key k</span>
 
 -   set(k,v)
-    -   create a new node (k,v) and add it at the front
+    -   <span class="norm">create a new node (k,v) and add it at the front</span>
 
 -   delete(k)
-    -   loop through the list until find the element with key k
-    -   remove it by updating the pre and next elements
+    -   <span class="norm">loop through the list until find the element with key k</span>
+    -   <span class="norm">remove it by updating the pre and next elements</span>
 
-👉 Complexity: $O(n)$
+<span class="norm">👉 Complexity: $O(n)$</span>
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
@@ -851,7 +858,9 @@ layout: two-cols
 
 ### chaining (open hashing)
 
--   one element $O(1)$
+-   one element: $O(1)$
+
+-   more than one element: **linked list**  $O(1) + O(n)$
 
 ::right::
 
@@ -1001,10 +1010,6 @@ layout: two-cols
 -   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>  
 -   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>  
 
-<span class="norm">💡 coding tips:</span>
--   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ⁇</span> 
--   <span class="norm">compare hash code first, before compare x and y</span>  
--   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>  
 
 <br/>
 
@@ -1014,23 +1019,24 @@ layout: two-cols
 
 <br/>
 
-<br/>
+<span class="norm">💡 coding tips:</span>
+-   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ⁇</span> 
+-   <span class="norm">compare hash code first, before compare x and y</span>  
+-   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>  
 
 <br/>
+
 
 ```python
 class UserGroup:
 
-  def __init__(self, name, city, status):
+  def __init__(self, name, status):
     self.name = name
-    self.city = city
     self.status = status
 
   def __hash__(self):
     result = 17
     result = 31 * result + hash(name)
-    if not city:
-      result = 31 * result + hash(city)
     if not status:
       result = 31 * result + hash(status)
     return result
@@ -1040,6 +1046,7 @@ class UserGroup:
       return self.__hash__() == other.__hash__()
     return False
 ```
+
 
 ---
 
@@ -1081,21 +1088,196 @@ class UserGroup:
 </div>
 
 ---
+layout: two-cols
+---
 
-# Map/Hash Table Industrial Implementation 
+# Industrial Implementation 
 
--   Collison: chaining   
+Java HashMap
+
+- hash code   
+
+<table style="width:90%; font-family: 'Open Sans'; font-size: 0.8rem;">
+  <tbody>
+    <tr>
+      <td align="right"><strong>Key Type</strong></td>
+      <td align="left"><strong>hashCode(k)</strong></td>
+    </tr>    
+    <tr>
+      <td align="right">boolean</td>
+      <td align="left">k? 0 : 1</td>
+    </tr>
+    <tr>
+      <td align="right">byte, char, short, int</td>
+      <td align="left">k</td>
+    </tr>
+    <tr>
+      <td align="right">long</td>
+      <td align="left">(int)(k XOR (k >>> 32))</td>
+    </tr>
+    <tr>
+      <td align="right">float</td>
+      <td align="left">Float.floatToIntBits(k)</td>
+    </tr>
+    <tr>
+      <td align="right">double</td>
+      <td align="v">long l = Double.doubleToIntLongBits(k)<br/>(int)(l XOR (l >>> 32))</td>
+    </tr>
+    <tr>
+      <td align="right">string/array</td>
+      <td align="v">s[0]*31^(n-1) + s[1]*31^(n-2)+ ... + s[n-1]</td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<span class="norm">similarly for compound data type, like Object k with $n$ fields, a way to implement hashCode():</span>   
+
+$h = h(k_0)*31^{n-1} + h(k_1)*31^{n-2} + ... + h(k_{n-1})$
+
+```java
+String name;
+int age; 
+
+@Override
+public int hashCode() {
+    int result = name != null ? name.hashCode() : 0;
+    result = 31 * result + age;
+    return result;
+}
+```
+
+---
+layout: two-cols
+---
+
+# Industrial Implementation 
+
+Java HashMap
+
+- compression/indexing: $h\;\&\;(n - 1)$
+
+<span class="norm">when table size $n$ is $2^y$: </span> $x\;\%\;2^y = x\;\&\;(2^y - 1)$
+
+<span class="norm">e.g.</span>   
+
+$6\;\%\;8 = 6$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$6\;\&\;7 = 6$   
+$10\;\%\;8 = 2$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$10\;\&\;7 = 2$  
+
+<img src="/images/hashmap_index.webp" style="height:20%"/>
+
+<br/>
+
+<span class="norm">👉 binary bit operation <span class="hl">&</span> is much faster then decimal mod</span>    
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<span class="norm">then XOR between the first 16 bits and the last 16 bits:</span>   
+
+$H(k) =  (h\;XOR\;(h\;>>>\;16))\;\&\;(n - 1)$
+
+<br/>
+
+<div>
+  <img src="/images/hashmap_hash.png" style="width:80%"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# Industrial Implementation 
+
+Java HashMap
+
+-   Collision: chaining   
     -   **linked list**  $O(1) + O(n)$
-    -   Java 8-, insert at the beginneing (deadlock in concurrent insertion), from Java 8+, append to the tail  
-    -   **treemap/red black tree** (more than 8 elements && table size > 64) $O(1) + O(logN)$
+    -   $< Java 8$, insert at the beginneing (⚠️ deadlock in concurrent insertion);  
+        $> Java 8$, append to the tail  
+    -   **treemap/red black tree** (more than 8 elements and table size ≧ 64) $O(1) + O(logN)$
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/hashmap_collision1.jpeg" style="width:80%"/>
+  <img src="/images/hashmap_collision2.png" style="width:80%"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# Industrial Implementation 
+
+Java HashMap
 
 -   hash table size  
-    -   default: $2^4 = 16$  max: $2^{30}$ 
+    -   always $2^n$,&nbsp;&nbsp;&nbsp;default: $16$, &nbsp;&nbsp;&nbsp;max: $2^{30}$ 
     -   load factor: $0.75$
-    -   optimize rehashing 
+    -   optimize rehashing
 
-- Map/Hash Table for Hash Set: HashSet&#60;E&#62; → HashMap&#60;E, Object&#62;  
-    -   (e1, PRESENT), (e2, PRESENT), (e3, PRESENT), ... 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<span class="norm">size $16$ → $16 * 2$: </span>
+
+<div>
+  <img src="/images/hashmap_rehash1.png" style="width:80%"/>
+  <img src="/images/hashmap_rehash2.png" style="width:80%"/>
+</div>
+
+
+---
+
+# Industrial Implementation 
+
+Java HashMap
+
+- HashMap for HashSet: HashSet&#60;E&#62; → HashMap&#60;E, Object&#62;  
+    -   <span class="norm">{e1, e2, e3, ...} → (e1, PRESENT), (e2, PRESENT), (e3, PRESENT), ... </span>
 
 <br/>
 
