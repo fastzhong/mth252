@@ -1735,17 +1735,17 @@ blablablan
         <td>O(1)</td>
         <td><span class="norm">NOT stable</span></td>
       </tr>
-      <tr class="even">
-        <th>Insertion</th>
+      <tr class="odd">
+        <th>Bubble</th>
         <td>O(N^2)</td>
         <td>O(N)</td>
         <td>O(N^2)</td>
         <td><span class="norm">in-place</span></td>
         <td>O(1)</td>
         <td><span class="norm">stable</span></td>
-      </tr>
-      <tr class="odd">
-        <th>Bubble</th>
+      </tr>      
+      <tr class="even">
+        <th>Insertion</th>
         <td>O(N^2)</td>
         <td>O(N)</td>
         <td>O(N^2)</td>
@@ -1785,6 +1785,10 @@ blablablan
 </div>
 
 ---
+
+# Industrial Implementation 
+
+Java Arrays.sort()
 
 # Text Pattern Matching
 
