@@ -44,7 +44,7 @@ Data Structures and Algorithms II
       <ol>
         <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span> & <span class="hl-bg">Skip List</span></li>
         <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span></li>
-        <li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Binary Search</span>, <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
+        <li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
         <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li> 
         <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, <span class="hl-bg">Min-Spanning Tree</span>, and <span class="hl-bg">Directed Acyclic Grap</span>(DAG) </li>
         <li>Review and more</li>
@@ -58,7 +58,6 @@ Data Structures and Algorithms II
     </p>
   </div>
 </div>
-
 
 <span class="norm">👉 MTH252 is much more difficult than MTH251</span>
 
@@ -78,7 +77,7 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 <br/>
 
-👉 Python & Big O review:  [MTH251 lab1](https://mth252.fastzhong.com/) 
+👉 Python & Big O review: [MTH251 lab1](https://mth252.fastzhong.com/)
 
 ---
 
@@ -121,8 +120,17 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 [Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
 
 ---
+layout: center
+---
 
 # Priority Queue
+
+
+---
+
+# Priority Queue
+
+<br/>
 
 -   FIFO/LILO
 -   <span class="hl">each element (k, v) has a certain priority k and k must be compariable</span>
@@ -390,7 +398,7 @@ Binary Heap is always a complete binary tree, so the height is always O(logN), n
 
 -   anytime you need to dynamically fetch the "next best" or "next worst" element
 
-- ...
+-   ...
 
 <!--
 Technically Priority Queue can be considered same as binary heap, but Priority Queue is ADT as it can be implemented by other data structure.
@@ -441,13 +449,12 @@ layout: two-cols
 
 Complete Binary Tree (Perfect Binary Tree)
 
-|                       |                     |            |           |
-| --------------------: | :------------------ | ---------: | :---------|
-|     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$ |
-| 2nd last level nodes: | $\frac{n}{4}$       | sift_down: | $\frac{n}{4} * 1$ |
-|                   ... |                     |        ... |           |
+|                       |                     |            |                             |
+| --------------------: | :------------------ | ---------: | :-------------------------- |
+|     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$           |
+| 2nd last level nodes: | $\frac{n}{4}$       | sift_down: | $\frac{n}{4} * 1$           |
+|                   ... |                     |        ... |                             |
 | h+1 last level nodes: | $\frac{n}{2^{h+1}}$ | sift_down: | $\frac{n}{2^{h+1}} \cdot h$ |
-
 
 ::right::
 
@@ -466,7 +473,6 @@ Time Complexity: $O(n)$
 <img src="/images/heapify_complexity.png" style="width: 80%"/>
 
 </div>
-
 
 <style>
 p {
@@ -492,22 +498,22 @@ layout: two-cols
 
 ```python
 """
-heap_sort: sort nums in place  
+heap_sort: sort nums in place
 
-time complexity: O(N)  
+time complexity: O(N)
 space complexity: O(1)
-"""  
+"""
 def heap_sort2(nums: []) -> []:
     nums = heapify(nums)
     print("    heapify: ", nums)
-    # swap from the last element 
-    for i in range(len(nums) - 1, 0, -1): 
+    # swap from the last element
+    for i in range(len(nums) - 1, 0, -1):
         # move the biggest to the end
         nums[0], nums[i] = nums[i], nums[0]
-        # sift down the first element after swap 
-        # so nums[0, i) is still a max heap 
+        # sift down the first element after swap
+        # so nums[0, i) is still a max heap
         heapify_sift_down(nums, 0, i)
-    return nums 
+    return nums
 ```
 
 ::right::
@@ -519,6 +525,12 @@ def heap_sort2(nums: []) -> []:
 <br/>
 
 <img src="/images/heap_sort.png" style="height: 70%"/>
+
+---
+layout: center
+---
+
+# Map/Hash Table 
 
 ---
 
@@ -615,9 +627,11 @@ for a sortedMap
 -   store (k,v) in a doubly linked list
 
 -   get(k)
+
     -   <span class="norm">loop through the list until find the element with key k</span>
 
 -   set(k,v)
+
     -   <span class="norm">create a new node (k,v) and add it at the front</span>
 
 -   delete(k)
@@ -751,7 +765,7 @@ for hash code $x$:
 
 -   Division Method: $x\;mod\;N$
 
--   MAD:  $(a\;\cdot\;x + b)\;mod\;p$  
+-   MAD: $(a\;\cdot\;x + b)\;mod\;p$  
     where $p$ is a prime number, $p > N$, $a$ and $b$ are random number, $a\in[0, p-1]$, $b\in[0, p-1]$
 
 <br/>
@@ -860,7 +874,7 @@ layout: two-cols
 
 -   one element: $O(1)$
 
--   more than one element: **linked list**  $O(1) + O(n)$
+-   more than one element: **linked list** $O(1) + O(n)$
 
 ::right::
 
@@ -996,20 +1010,18 @@ how:
 
 <img src="/images/hash_chaining.png" style="width:60%"/>
 
-
 ---
 layout: two-cols
 ---
 
 # Hash Function
 
--   $H(x)$ must be deterministic  
--   $H(x)$ need to be fast $O(1)$  
--   $H(x)\;mod\;N$ evenly distributed  
--   if $x = y$, H(x) and H(y) <span class="uline">must be equal</span>  
--   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>  
--   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>  
-
+-   $H(x)$ must be deterministic
+-   $H(x)$ need to be fast $O(1)$
+-   $H(x)\;mod\;N$ evenly distributed
+-   if $x = y$, H(x) and H(y) <span class="uline">must be equal</span>
+-   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>
+-   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>
 
 <br/>
 
@@ -1020,12 +1032,12 @@ layout: two-cols
 <br/>
 
 <span class="norm">💡 coding tips:</span>
--   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ⁇</span> 
--   <span class="norm">compare hash code first, before compare x and y</span>  
--   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>  
+
+-   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ⁇</span>
+-   <span class="norm">compare hash code first, before compare x and y</span>
+-   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
 
 <br/>
-
 
 ```python
 class UserGroup:
@@ -1046,7 +1058,6 @@ class UserGroup:
       return self.__hash__() == other.__hash__()
     return False
 ```
-
 
 ---
 
@@ -1091,11 +1102,11 @@ class UserGroup:
 layout: two-cols
 ---
 
-# Industrial Implementation 
+# Industrial Implementation
 
-Java HashMap
+ <logos-java/> HashMap
 
-- hash code   
+-   hash code
 
 <table style="width:90%; font-family: 'Open Sans'; font-size: 0.8rem;">
   <tbody>
@@ -1142,13 +1153,13 @@ Java HashMap
 
 <br/>
 
-<span class="norm">similarly for compound data type, like Object k with $n$ fields, a way to implement hashCode():</span>   
+<span class="norm">similarly for compound data type, like Object k with $n$ fields, a way to implement hashCode():</span>
 
 $h = h(k_0)*31^{n-1} + h(k_1)*31^{n-2} + ... + h(k_{n-1})$
 
 ```java
 String name;
-int age; 
+int age;
 
 @Override
 public int hashCode() {
@@ -1162,24 +1173,24 @@ public int hashCode() {
 layout: two-cols
 ---
 
-# Industrial Implementation 
+# Industrial Implementation
 
-Java HashMap
+ <logos-java/> HashMap
 
-- compression/indexing: $h\;\&\;(n - 1)$
+-   compression/indexing: $h\;\&\;(n - 1)$
 
 <span class="norm">when table size $n$ is $2^y$: </span> $x\;\%\;2^y = x\;\&\;(2^y - 1)$
 
-<span class="norm">e.g.</span>   
+<span class="norm">e.g.</span>
 
-$6\;\%\;8 = 6$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$6\;\&\;7 = 6$   
-$10\;\%\;8 = 2$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$10\;\&\;7 = 2$  
+$6\;\%\;8 = 6$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$6\;\&\;7 = 6$  
+$10\;\%\;8 = 2$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$10\;\&\;7 = 2$
 
 <img src="/images/hashmap_index.webp" style="height:20%"/>
 
 <br/>
 
-<span class="norm">👉 binary bit operation <span class="hl">&</span> is much faster then decimal mod</span>    
+<span class="norm">👉 binary bit operation <span class="hl">&</span> is much faster then decimal mod</span>
 
 ::right::
 
@@ -1193,7 +1204,7 @@ $10\;\%\;8 = 2$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$10\;\&\;7 = 2$
 
 <br/>
 
-<span class="norm">then XOR between the first 16 bits and the last 16 bits:</span>   
+<span class="norm">then XOR between the first 16 bits and the last 16 bits:</span>
 
 $H(k) =  (h\;XOR\;(h\;>>>\;16))\;\&\;(n - 1)$
 
@@ -1207,14 +1218,14 @@ $H(k) =  (h\;XOR\;(h\;>>>\;16))\;\&\;(n - 1)$
 layout: two-cols
 ---
 
-# Industrial Implementation 
+# Industrial Implementation
 
-Java HashMap
+ <logos-java/> HashMap
 
--   Collision: chaining   
-    -   **linked list**  $O(1) + O(n)$
+-   Collision: chaining
+    -   **linked list** $O(1) + O(n)$
     -   $< Java 8$, insert at the beginneing (⚠️ deadlock in concurrent insertion);  
-        $> Java 8$, append to the tail  
+        $> Java 8$, append to the tail
     -   **treemap/red black tree** (more than 8 elements and table size ≧ 64) $O(1) + O(logN)$
 
 ::right::
@@ -1240,15 +1251,14 @@ Java HashMap
 layout: two-cols
 ---
 
-# Industrial Implementation 
+# Industrial Implementation
 
-Java HashMap
+ <logos-java/> HashMap
 
--   hash table size  
-    -   always $2^n$,&nbsp;&nbsp;&nbsp;default: $16$, &nbsp;&nbsp;&nbsp;max: $2^{30}$ 
+-   hash table size
+    -   always $2^n$,&nbsp;&nbsp;&nbsp;default: $16$, &nbsp;&nbsp;&nbsp;max: $2^{30}$
     -   load factor: $0.75$
     -   optimize rehashing
-
 
 ::right::
 
@@ -1269,19 +1279,25 @@ Java HashMap
   <img src="/images/hashmap_rehash2.png" style="width:80%"/>
 </div>
 
-
 ---
 
-# Industrial Implementation 
+# Industrial Implementation
 
-Java HashMap
+ <logos-java/> HashMap
 
-- HashMap for HashSet: HashSet&#60;E&#62; → HashMap&#60;E, Object&#62;  
+-   HashMap for HashSet: HashSet&#60;E&#62; → HashMap&#60;E, Object&#62;
     -   <span class="norm">{e1, e2, e3, ...} → (e1, PRESENT), (e2, PRESENT), (e3, PRESENT), ... </span>
 
 <br/>
 
 <span class="norm">👉 source code: [https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java](https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java)</span>
+
+
+---
+layout: center
+---
+
+# Skip List
 
 ---
 
@@ -1300,8 +1316,8 @@ Java HashMap
 
 </div>
 
-<!-- 
-sorted linked list for sorted map 
+<!--
+sorted linked list for sorted map
 -->
 
 ---
@@ -1408,26 +1424,32 @@ sorted linked list for sorted map
 </div>
 
 ---
+layout: center
+---
+
+# Search Tree
+
+---
 layout: two-cols
 ---
 
-# Binary Search Tree 
+# Binary Search Tree
 
 <br/>
 
-<span class="hl-bg">Binary Search Tree</span> (BST) is a binary tree and: 
+<span class="hl-bg">Binary Search Tree</span> (BST) is a binary tree and:
 
-- left subtree has smaller elements
-- right subtree has bigger elements 
+-   left subtree has smaller elements
+-   right subtree has bigger elements
 
 <br/>
    
 💡 any BST subtree is still a BST   
-💡 BST node must be comparable  
+💡 BST node must be comparable
 
 <br/>
 
-<span class="norm">💬  in some BST implementation all values are unique, so we exclude duplicates now</span>
+<span class="norm">💬 in some BST implementation all values are unique, so we exclude duplicates now</span>
 
 ::right::
 
@@ -1443,20 +1465,25 @@ layout: two-cols
   <img src="/images/binary_search_tree1.png" style="width:70%"/>
 </div>
 
+<!--
+- Linear Search  
+- Binary Search  
+-->
+
 ---
 
 # Binary Search Tree: Operations
 
 <logos-jupyter />
 
-- search()
-- insert()
-- delete()
-- first()
-- last()
-- before()
-- after()
-- is_empty()
+-   search()
+-   insert()
+-   delete()
+-   first()
+-   last()
+-   before()
+-   after()
+-   is_empty()
 
 <span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)</span>
 
@@ -1516,7 +1543,7 @@ layout: two-cols
 
 ---
 
-# Binary Search Tree Complexity 
+# Binary Search Tree Complexity
 
 <br/>
 
@@ -1555,29 +1582,29 @@ layout: two-cols
 
 <br/>
 
--   implementation of <span class="hl-bg">AVL Tree</span> <span class="hl-bg">Red Black Tree</span> etc. 
+-   implementation of <span class="hl-bg">AVL Tree</span> <span class="hl-bg">Red Black Tree</span> etc.
 
--   syntax trees used by compiler and calculator 
+-   syntax trees used by compiler and calculator
 
 -   <span class="hl-bg">Treap</span> - a probabilistic data structure
 
-- ...
+-   ...
 
 ---
 layout: two-cols
 ---
 
-# Heap vs. BST 
+# Heap vs. BST
 
 <br/>
 
-- Heap is <span class="uline">balanced</span> tree, BST is not 
+-   Heap is <span class="uline">balanced</span> tree, BST is not
 
-- Heap allows duplicates, BST doesnot 
+-   Heap allows duplicates, BST doesnot
 
-- BST is ordered data structure, Heap is not  
+-   BST is ordered data structure, Heap is not
 
-- worst case for building $n$ nodes of BST $O(n \cdot log(n))$, Heap is $O(n)$ 
+-   worst case for building $n$ nodes of BST $O(n \cdot log(n))$, Heap is $O(n)$
 
 ::right::
 
@@ -1601,13 +1628,12 @@ layout: two-cols
 
 <br/>
 
-- named after inventors G.M. <span class="hl-color">A</span>del’son-<span class="hl-color">V</span>el’skii and E.M. <span class="hl-color">L</span>andis, 1962
+-   named after inventors G.M. <span class="hl-color">A</span>del’son-<span class="hl-color">V</span>el’skii and E.M. <span class="hl-color">L</span>andis, 1962
 
-- first type of <span class="hl-bg">Balanced Binary Search Tree</span> (BBST) 
+-   first type of <span class="hl-bg">Balanced Binary Search Tree</span> (BBST)
 
-- height balanced, $BF$ - balance factor:   
-  $BF = H(node.right) - H(node.left)$ $BF \in {-1, 0, 1}$  
-
+-   height balanced, $BF$ - balance factor:  
+    $BF = H(node.right) - H(node.left)$ $BF \in {-1, 0, 1}$
 
 <br/>
 
@@ -1679,105 +1705,259 @@ layout: two-cols
 TBD
 
 ---
-
-# Sorting
-
-- make data in order 
-- different Algorithmic Thinking
-
-
+layout: center
 ---
 
 # Sorting
 
 ---
 
-# Merge-Sort
+# Sorting
 
 <br/>
 
-blablablan
+-   make data in order
+-   different Algorithmic Thinking
 
 ---
 
-# Quick Sort
+# Sorting: Selection
+
+<logos-jupyter />
 
 <br/>
 
-blablablan
+- sort the arr from left to right 
+- every time select the smallest 
+- for position i: 
+  - [0, i) sorted
+  - [i,n) unsorted 
+  - find the smallest from arr[i, n) and place at arr[i]
+
+<br/>
+
+<img src="/images/sort_selection.gif" style="width:70%"/>
 
 ---
 
-# Sorting Complexity
+# Sorting: Insertion
+
+<logos-jupyter />
 
 <br/>
 
-<div>
+- sort the arr from left to right 
+- for postion i:
+  - [0, i) sorted
+  - [i, n) unsorted
+  - insert arr[i] to the proper position on the left 
+
+<br/>
+
+<img src="/images/sort_insertion.gif" style="width:70%; height:50%"/>
+
+---
+
+# Sorting: Bubble
+
+<logos-jupyter />
+
+<br/>
+
+- sort the arr from right to left
+- for postion postion n-i
+  - [0, n-i) unsorted
+  - [n-i, n) sorted
+  - bubble the biggest to arr[n-i-1]
+
+<br/>
+
+<img src="/images/sort_bubble.gif" style="width:70%"/>
+
+---
+
+# Sorting: Merge
+
+<logos-jupyter />
+
+<br/>
+
+- recursively [l, m, r]: 
+  - sort [l, m]
+  - sort [m+1, r]
+  - merge two sorted array [l, m] & [m+1, r]
+
+<br/>
+
+<img src="/images/sort_merge.gif" style="width:70%; height:50%"/>
+
+<!--
+John von Neumann
+-->
+
+---
+layout: two-cols
+---
+
+# Sorting: Merge
+
+<br/>
+
+- Time Complexity
+- Space Complexity
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="left">
+  <img src="/images/sort_merge_complexity.png" style="width:80%"/>
+</div>
+
+
+---
+
+# Sorting: Quick
+
+<logos-jupyter />
+
+<br/>
+
+<pre class="norm">
+- sort the arr from right to left
+- for postion i
+  - arr[0, n-i) unsorted, arr[n-i, n) sorted
+  - bubble the biggest to arr[n-i-1]
+</pre>
+
+<br/>
+
+<img src="/images/sort_quick.gif" style="width:70%"/>
+
+<!-- 
+Tony Hoare
+-->
+
+---
+layout: two-cols
+---
+
+# Sorting
+
+<br/>
+
+Simple Sort:  
+-   Selection    
+-   Insertion
+-   Bubble
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+Efficient Sort:
+-   Heap
+-   Merge
+    -   <span class="norm">recursive/top down</span>
+    -   <span class="norm">iterative/buttom up</span>
+-   Quick
+    -   <span class="norm"></span>
+    -   <span class="norm"></span>
+    -   <span class="norm"></span>
+
+<!--
+- element comparable
+- optimize
+- simple sorts vs efficient sorts   
+- stability 
+-->
+
+---
+
+# Sorting: Complexity
+
+<br/>
+
+<div style="width:90%">
   <table class="ops">
     <thead>
       <tr>
-        <th id="">algo</th>
+        <th id="">sorting</th>
         <th id="">avg</th>
         <th id="">best</th>
         <th id="">worst</th>
-        <th id="">in/out-place</th>
+        <th id="">inplacement</th>
         <th id="">space</th>
-        <th id="">stable</th>
+        <th id="">stability</th>
       </tr>
     </thead>
     <tbody>
       <tr class="odd">
         <th>Selection</th>
-        <td>O(N^2)</td>
-        <td>O(N^2)</td>
-        <td>O(N^2)</td>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
         <td><span class="norm">in-place</span></td>
         <td>O(1)</td>
         <td><span class="norm">NOT stable</span></td>
-      </tr>
-      <tr class="odd">
-        <th>Bubble</th>
-        <td>O(N^2)</td>
-        <td>O(N)</td>
-        <td>O(N^2)</td>
+      </tr>    
+      <tr class="even">
+        <th>Insertion</th>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
+        <td>O(n) 👍</td>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
         <td><span class="norm">in-place</span></td>
         <td>O(1)</td>
         <td><span class="norm">stable</span></td>
-      </tr>      
-      <tr class="even">
-        <th>Insertion</th>
-        <td>O(N^2)</td>
-        <td>O(N)</td>
-        <td>O(N^2)</td>
+      </tr>
+      <tr class="odd">
+        <th>Bubble</th>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
+        <td>O(n)<sup>*</sup></td>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
         <td><span class="norm">in-place</span></td>
         <td>O(1)</td>
         <td><span class="norm">stable</span></td>
       </tr>
       <tr class="even">
         <th>Heap</th>
-        <td>O(NlogN)</td>
-        <td>O(NlogN)</td>
-        <td>O(NlogN)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
         <td><span class="norm">in-place</span></td>
         <td>O(1)</td>
         <td><span class="norm">NOT stable</span></td>
-      </tr>
+      </tr>         
       <tr class="odd">
         <th>Merge</th>
-        <td>O(NlogN)</td>
-        <td>O(NlogN)</td>
-        <td>O(NlogN)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n)<sup>*</sup></td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
         <td><span class="norm">OUT-place</span></td>
-        <td>O(n)</td>
+        <td>O(n) 👎</td>
         <td><span class="norm">stable</span></td>
-      </tr> 
+      </tr>
       <tr class="even">
         <th>Quick</th>
-        <td>O(NlogN)</td>
-        <td>O(NlogN)</td>
-        <td>O(N^2)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n)<sup>*</sup></td>
+        <td>O(n<sup><span class="norm">2</span></sup>) 👈</td>
         <td><span class="norm">in-place</span></td>
-        <td>O(logN)</td>
+        <td>O(1)</td>
         <td><span class="norm">NOT stable</span></td>
       </tr>     
     </tbody>
@@ -1786,15 +1966,117 @@ blablablan
 
 ---
 
-# Industrial Implementation 
-
-Java Arrays.sort()
-
-# Text Pattern Matching
+# Sorting
 
 <br/>
 
-blablablan
+<div style="width: 80%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="" width="30%"> </th>
+        <th id="" width="30%">n<sup><span class="norm">2</span></sup></th>
+        <th id="" width="20%">n<sub><span class="norm">log</span></sub>n</th>
+        <th id="" width="20%">faster</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>n = 10</th>
+        <td>100</td>
+        <td>33</td>
+        <td>3</td>
+      </tr>    
+      <tr class="even">
+        <th>n = 100</th>
+        <td>10,000</td>
+        <td>664</td>
+        <td>15</td>
+      </tr>   
+      <tr class="odd">
+        <th>n = 1,000</th>
+        <td>1,000,000</td>
+        <td>9,966</td>
+        <td>100</td>
+      </tr>    
+      <tr class="even">
+        <th>n = 10,000</th>
+        <td>100,000,000</td>
+        <td>132,877</td>
+        <td>753</td>
+      </tr>    
+    </tbody>
+  </table>
+</div>
+
+<br/>
+
+👉 1hr vs. 31days (≈ 753hrs)
+
+---
+
+# Sorting: stability 
+
+<br/>
+
+Stable sort algorithms sort equal elements in the same order that they appear in the input:
+
+<br/>
+
+<img src="/images/sort_stability.png" style="height: 60%"/>
+
+
+---
+
+# Sorting
+
+<br/>
+
+<div align="center">
+  <img src="/images/sorting_algos.png" style="width: 70%"/>
+</div>
+
+---
+
+# Industrial Implementation
+
+ <logos-python/> list.sort() or sorted(list)
+
+[Timsort](https://bugs.python.org/file4451/timsort.txt)
+
+https://dev.to/brandonskerritt/timsort-the-fastest-sorting-algorithm-you-ve-never-heard-of-2ake
+
+---
+
+# Industrial Implementation
+
+ <logos-java/> Arrays.sort() or Collections.sort()
+
+https://cherish-ls.github.io/2020/10/14/JAVA%E5%86%85%E7%BD%AE%E6%8E%92%E5%BA%8FArrays-sort%E5%AE%9E%E7%8E%B0%E7%AE%80%E8%BF%B0/
+
+https://cloud.tencent.com/developer/article/1690708
+
+https://juejin.cn/post/6844903911497662471
+
+---
+layout: center
+---
+
+# Selection
+
+---
+
+# Selection
+
+<br/>
+
+In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic. This includes the cases of finding the minimum, maximum, and median elements. 
+
+---
+layout: center
+---
+
+# Text Processing
 
 ---
 
@@ -1820,6 +2102,14 @@ blablablan
 
 blablablan
 
+---
+layout: center
+---
+
+# Dynamic Programming (DP)
+
+---
+layout: center
 ---
 
 # Graph
