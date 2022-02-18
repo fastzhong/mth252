@@ -1730,7 +1730,7 @@ layout: center
 
 <br/>
 
-<img src="/images/sort_selection.gif" style="width:70%"/>
+<img src="/images/sort_selection.gif" style="width:50%"/>
 
 ---
 
@@ -1748,7 +1748,7 @@ layout: center
 
 <br/>
 
-<img src="/images/sort_insertion.gif" style="width:70%; height:50%"/>
+<img src="/images/sort_insertion.gif" style="height:50%"/>
 
 ---
 
@@ -1759,22 +1759,22 @@ layout: center
 <br/>
 
 - sort the arr from right to left
-- for postion postion n-i
-  - [0, n-i) unsorted
+- for postion postion n-i-1
   - [n-i, n) sorted
+  - [0, n-i-1) unsorted
   - bubble the biggest to arr[n-i-1]
 
 <br/>
 
-<img src="/images/sort_bubble.gif" style="width:70%"/>
+<img src="/images/sort_bubble.gif" style="width:50%"/>
 
 ---
 
-# Sorting: Merge
+# Sorting: Merge 
+
+John von Neumann
 
 <logos-jupyter />
-
-<br/>
 
 - recursively [l, m, r]: 
   - sort [l, m]
@@ -1783,7 +1783,15 @@ layout: center
 
 <br/>
 
-<img src="/images/sort_merge.gif" style="width:70%; height:50%"/>
+<div class="inline-grid grid-cols-[1fr,3fr] gap-8">
+  <div>
+    <img src="/images/JohnvonNeumann.jpeg" style="height:50%"/>
+  </div>
+  <div>
+    <img src="/images/sort_merge.gif" style="height:60%"/>
+  </div>
+</div>
+
 
 <!--
 John von Neumann
@@ -1836,26 +1844,64 @@ Algo analysis: lose a little bit of granularity of information but we dont lose 
 
 ---
 
-# Sorting: Quick
+# Sorting: Merge
 
 <logos-jupyter />
 
 <br/>
 
-<pre class="norm">
-- sort the arr from right to left
-- for postion i
-  - arr[0, n-i) unsorted, arr[n-i, n) sorted
-  - bubble the biggest to arr[n-i-1]
-</pre>
+- merge top down:
+  - <span class="norm">[On finding the average of two unsigned integers without overflow](https://devblogs.microsoft.com/oldnewthing/20220207-00/?p=106223)</span> 
+  - insertion 
+  - tmp 
+
+- merge buttom up  
+
+---
+
+# Sorting: Quick 
+
+Tony Hoare
+
+<logos-jupyter /> 
+
+- partition: select v, so that [l, p-1] smaller than v and [p+1, r] bigger than v 
+- recursive sort [l, p-1]
+- recursive sort [p+1, r]
 
 <br/>
 
-<img src="/images/sort_quick.gif" style="width:70%"/>
+<div class="inline-grid grid-cols-[1fr,3fr] gap-8">
+  <div>
+    <img src="/images/TonyHoare.jpeg" style="height:85%"/>
+  </div>
+  <div>
+    <img src="/images/sort_quick.gif"/>
+  </div>
+</div>
 
 <!-- 
 Tony Hoare
+
+Quick is faster than Merge because partion func is faster than merge function
 -->
+
+---
+
+# Sorting: Quick 
+
+<br/>
+
+- worst case: $O(n^2)$
+    - <span class="norm">sorted array</span>
+    - <span class="norm">duplicates</span>
+    - $O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$
+
+- recusion stack overflow 
+
+- random algorithm, time complexity $O(n \cdot log_2n)$ 👉 [Introduction to Algorithms]()
+
+- two-way quicksort, [3-way radix quicksort ](https://en.wikipedia.org/wiki/Multi-key_quicksort), [dual pivot quicksort](https://arxiv.org/abs/1503.08498)
 
 ---
 layout: two-cols
@@ -1883,12 +1929,7 @@ Simple Sort:
 Efficient Sort:
 -   Heap
 -   Merge
-    -   <span class="norm">recursive/top down</span>
-    -   <span class="norm">iterative/buttom up</span>
 -   Quick
-    -   <span class="norm"></span>
-    -   <span class="norm"></span>
-    -   <span class="norm"></span>
 
 <!--
 - element comparable
@@ -2022,7 +2063,7 @@ Efficient Sort:
 
 <br/>
 
-👉 1hr vs. 31days (≈ 753hrs)
+👉 <span class="norm"><span class="hl-color">1hr</span> vs.  <span class="hl-color">31days</span> (≈ 753hrs)</span>
 
 ---
 
@@ -2048,26 +2089,105 @@ Stable sort algorithms sort equal elements in the same order that they appear in
 </div>
 
 ---
+layout: two-cols
+---
 
 # Industrial Implementation
 
- <logos-python/> list.sort() or sorted(list)
+<logos-python/> list.sort() or sorted(list)
 
 [Timsort](https://bugs.python.org/file4451/timsort.txt)
 
-https://dev.to/brandonskerritt/timsort-the-fastest-sorting-algorithm-you-ve-never-heard-of-2ake
+<div style="width:90%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="">sorting</th>
+        <th id="">best</th>
+        <th id="">avg</th>
+        <th id="">worst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="even">
+        <th>Merge</th>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+      </tr>
+      <tr class="odd">
+        <th>Quick</th>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sup><span class="norm">2</span></sup>)</td>
+      </tr>
+      <tr class="even">
+        <th class="hl-color">Timsort</th>
+        <td>O(n) 👈</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+        <td>O(n<sub><span class="norm">log</span></sub>n)</td>
+      </tr>        
+    </tbody>
+  </table>
+</div>
 
+<br/>
+
+- <span class="norm">size < 64, insertion sort</span> 
+- <span class="norm">"adaptive merge sort"</span>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+sort operations: 
+
+1. <span class="norm">moving or coping objects (just one step)</span>
+2. <span class="norm">comparing two objects:</span>   
+    <span class="norm">compare class type → compare method → if not, ...</span>
+
+<br/>
+
+> <span class="norm"> comparing objects is very expensive</span>
+
+---
+
+# Industrial Implementation
+
+<logos-python/> list.sort() or sorted(list)
+
+- run: parts that are strictly increasing (if decreasing, reverse it)
+- split into multiple runs 
+- merge runs - **Galloping**: 
+
+[1, 2, 3, ..., 100, ..., 101, 102, 103, ..., 200]  
+run1 = [1, 2, 3, , ..., 100]  
+run2 = [101, 102, 103, , ..., 200]  
+
+$run2[2^{n-1} - 1] < run1[0] \leq run2[2^n - 1]$   
+binary search: $O(N)$ → $O(logN)$
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 ---
 
 # Industrial Implementation
 
  <logos-java/> Arrays.sort() or Collections.sort()
 
-https://cherish-ls.github.io/2020/10/14/JAVA%E5%86%85%E7%BD%AE%E6%8E%92%E5%BA%8FArrays-sort%E5%AE%9E%E7%8E%B0%E7%AE%80%E8%BF%B0/
+- primitive array: **Dual Pivot Quicksort**  
 
-https://cloud.tencent.com/developer/article/1690708
-
-https://juejin.cn/post/6844903911497662471
+- object array: **Timsort**
 
 ---
 layout: center
