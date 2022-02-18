@@ -170,9 +170,9 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Operation</th>
-        <th id="">unsorted list</th>
-        <th id="">sorted list</th>
+        <th id="" width="40%">Operation</th>
+        <th id="" width="30%">unsorted list</th>
+        <th id="" width="30%">sorted list</th>
       </tr>
     </thead>
     <tbody>
@@ -337,10 +337,10 @@ low level node is always smaller than the high level node? NO.
   <table class="ops">
     <thead>
       <tr>
-        <th id="">Operation</th>
-        <th id="">unsorted list</th>
-        <th id="">sorted list</th>
-        <th id="">binary heap</th>
+        <th id="" width="25%">Operation</th>
+        <th id="" width="25%">unsorted list</th>
+        <th id="" width="25%">sorted list</th>
+        <th id="" width="25%">binary heap</th>
       </tr>
     </thead>
     <tbody>
@@ -384,9 +384,11 @@ Binary Heap is always a complete binary tree, so the height is always O(logN), n
 
 ---
 
-# When & Where is a Priority Queue (PQ) used?
+# When & Where 
 
 <br/>
+
+Priority Queue (PQ) is used: 
 
 -   used in certain implementations of <span class="hl-bg">Dijkstra's Shortest Path</span> algorithm
 
@@ -421,34 +423,18 @@ There are trees other than binary tree, so there are heaps other than binary hea
 3. recursively obtain the min/max element from the heap
 
 ---
-
-# Heapify
-
-<logos-jupyter />
-
-<br/>
-
-<span class="hl">Heapify</span>: convert the array to be a binary heap (array)
-
-by "sift down" the non-leaf node one by one from bottom to top
-
-time complexity: $O(N)$  
-space complexity: $O(1)$
-
-<!--
-last non-leaf node: parent of last leaf node
--->
-
----
 layout: two-cols
 ---
 
 # Heapify
 
-<br/>
+<logos-jupyter />
+
+<span class="hl">Heapify</span>: convert the array to be a binary heap
+
+by "sift down" the non-leaf node one by one from bottom to top
 
 Complete Binary Tree (Perfect Binary Tree)
-
 |                       |                     |            |                             |
 | --------------------: | :------------------ | ---------: | :-------------------------- |
 |     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$           |
@@ -482,9 +468,14 @@ p {
 
 table {
     font-family: "Open Sans";
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 </style>
+
+
+<!--
+last non-leaf node: parent of last leaf node
+-->
 
 ---
 layout: two-cols
@@ -1070,8 +1061,8 @@ class UserGroup:
     <thead>
       <tr>
         <th id="">Operation</th>
-        <th id="">best case</th>
         <th id="">avg case</th>
+        <th id="">best case</th>
         <th id="">worst case</th>
       </tr>
     </thead>
@@ -1578,9 +1569,11 @@ layout: two-cols
 
 ---
 
-# When & Where is a Binary Search Tree (BST) used?
+# When & Where 
 
 <br/>
+
+Binary Search Tree (BST) is used: 
 
 -   implementation of <span class="hl-bg">AVL Tree</span> <span class="hl-bg">Red Black Tree</span> etc.
 
@@ -1632,8 +1625,9 @@ layout: two-cols
 
 -   first type of <span class="hl-bg">Balanced Binary Search Tree</span> (BBST)
 
--   height balanced, $BF$ - balance factor:  
-    $BF = H(node.right) - H(node.left)$ $BF \in {-1, 0, 1}$
+-   height balanced: $BF$ - balance factor  
+    $BF = H(node.right) - H(node.left)$   
+    $BF \in {-1, 0, 1}$
 
 <br/>
 
@@ -1717,7 +1711,7 @@ layout: center
 <br/>
 
 -   make data in order
--   different Algorithmic Thinking
+-   different **Algorithmic Thinking**
 
 ---
 
@@ -1803,8 +1797,13 @@ layout: two-cols
 
 <br/>
 
-- Time Complexity
-- Space Complexity
+- Time Complexity $O(n \cdot log_2n)$
+- Space Complexity $O(n)$
+
+<span class="norm">at each level i = $0,1,2, ..., log_2n$</span>   
+<span class="norm">there are $2^i$ subproblems, each of size $\frac{n}{2^i}$</span>  
+<span class="norm">total # of operations at level i $\le 2^i \cdot c(\frac{n}{2^i}) = c \cdot n$ </span>  
+<span class="norm">complexity on each level is $O(n)$</span>  
 
 ::right::
 
@@ -1818,10 +1817,22 @@ layout: two-cols
 
 <br/>
 
+"recursion tree"
+
 <div align="left">
   <img src="/images/sort_merge_complexity.png" style="width:80%"/>
 </div>
 
+
+<!-- 
+Analysis of Algorithms:  
+
+- worst case
+- ignore constant factors, lower-order terms  
+- asymptotic analysis (large input size) 
+
+Algo analysis: lose a little bit of granularity of information but we dont lose what we really care about which is accurate guidence about what algorithms are gonna be faster than the others. 
+-->
 
 ---
 
@@ -1892,13 +1903,13 @@ Efficient Sort:
 
 <br/>
 
-<div style="width:90%">
+<div style="width:100%">
   <table class="ops">
     <thead>
       <tr>
         <th id="">sorting</th>
         <th id="">avg</th>
-        <th id="">best</th>
+        <th id="" width="25%">best</th>
         <th id="">worst</th>
         <th id="">inplacement</th>
         <th id="">space</th>
@@ -1945,7 +1956,7 @@ Efficient Sort:
       <tr class="odd">
         <th>Merge</th>
         <td>O(n<sub><span class="norm">log</span></sub>n)</td>
-        <td>O(n)<sup>*</sup></td>
+        <td>O(n<sub><span class="norm">log</span></sub>n) → O(n)<sup>*</sup></td>
         <td>O(n<sub><span class="norm">log</span></sub>n)</td>
         <td><span class="norm">OUT-place</span></td>
         <td>O(n) 👎</td>
@@ -1954,7 +1965,7 @@ Efficient Sort:
       <tr class="even">
         <th>Quick</th>
         <td>O(n<sub><span class="norm">log</span></sub>n)</td>
-        <td>O(n)<sup>*</sup></td>
+        <td>O(n<sub><span class="norm">log</span></sub>n) → O(n)<sup>*</sup></td>
         <td>O(n<sup><span class="norm">2</span></sup>) 👈</td>
         <td><span class="norm">in-place</span></td>
         <td>O(1)</td>
