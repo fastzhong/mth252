@@ -79,6 +79,13 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 👉 Python & Big O review: [MTH251 lab1](https://mth252.fastzhong.com/)
 
+<br/>
+
+<p class="norm">
+🏃‍♂️ learning by doing, implementing the algo from scratch  <br/>
+🙇🏻‍♂️ problem solving 
+</p>
+
 ---
 
 # Learning Resource
@@ -98,26 +105,25 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 # Learning Resource
 
-[<mdi-file-code /> Leetcode](https://leetcode.com/)
-
-<img src="/images/leetcode.png" style="border-radius: 8px; width: 60%"/>
-
-<br/>
-
-<p class="norm">
-🏃‍♂️ learning by doing, implementing the algo from scratch  <br/>
-🙇🏻‍♂️ problem solving 
-</p>
-
----
-
-# Learning Resource
-
 📚 books
 
 if you want to dive deeper into proofs and the mathematics of computer science:
 
 [Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
+
+
+---
+
+# Clarification on DSA questions
+
+<br/>
+
+Without explicitly mentioned, for implementating algorithms in related DSA questions:
+
+-   always seek the best time and space complexity by appling DSA taught in MTH251 & 252  
+-   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent    
+-   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min/max/set/match ... , as time and space complexity for the solution become unknown or Python dependent 
+ 
 
 ---
 layout: center
@@ -2352,4 +2358,4 @@ blablablan
 
 <br/>
 
-blablablan
+TMA review
