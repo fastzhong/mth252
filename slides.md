@@ -59,8 +59,6 @@ Data Structures and Algorithms II
   </div>
 </div>
 
-<span class="norm">👉 MTH252 is much more difficult than MTH251</span>
-
 ---
 
 # Slides & Notebooks
@@ -210,6 +208,12 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
     </tbody>
   </table>
 </div>
+
+--- 
+layout: center
+---
+
+# Binary Heap
 
 ---
 
@@ -1391,6 +1395,27 @@ sorted linked list for sorted map
 
 ---
 
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <p>
+    Skip List node with an array of pointers: position pointers[0] stores a level 0 pointer, position pointers[1] stores a level 1 pointer, and so on. <br/> <br/>
+    When inserting a new value, the levels (depth) for the new node is randomized.    
+    </p>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_pointers.png" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
 # Skip List Complexity
 
 <br/>
@@ -1424,7 +1449,7 @@ sorted linked list for sorted map
 layout: center
 ---
 
-# Search Tree
+# Binary Search Tree
 
 ---
 layout: two-cols
@@ -1619,6 +1644,12 @@ layout: two-cols
   <img src="/images/binary_search_tree4.png" style="width:40%"/>
 </div>
 
+--- 
+layout: center
+---
+
+# AVL 
+
 ---
 layout: two-cols
 ---
@@ -1652,6 +1683,14 @@ layout: two-cols
 <div align="center">
   <img src="/images/avl1.png" style="width:70%"/>
 </div>
+
+---
+
+# AVL Rebalance
+
+<br/>
+
+TBD
 
 ---
 
@@ -1696,9 +1735,58 @@ layout: two-cols
   </table>
 </div>
 
+--- 
+layout: center
 ---
 
 # Red Black Tree
+
+---
+
+# Red Black Tree
+
+<br/>
+
+TBD
+
+--- 
+layout: center
+---
+
+# B Tree
+
+---
+
+# B Tree
+
+<br/>
+
+TBD
+
+--- 
+layout: center
+---
+
+# B+ Tree
+
+---
+
+# B+ Tree
+
+<br/>
+
+TBD
+
+--- 
+layout: center
+---
+
+# Trie 
+
+
+---
+
+# Trie
 
 <br/>
 
@@ -2212,6 +2300,22 @@ layout: center
 In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic. This includes the cases of finding the minimum, maximum, and median elements. 
 
 ---
+
+# Prune-and-Search
+
+<br/>
+
+TBD
+
+---
+
+# Randomised Quick Sort
+
+<br/>
+
+TBD
+
+---
 layout: center
 ---
 
@@ -2223,7 +2327,7 @@ layout: center
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2231,7 +2335,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2239,7 +2343,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 layout: center
@@ -2255,11 +2359,19 @@ layout: center
 
 ---
 
+# Graph Terminology
+
+<br/>
+
+TBD
+
+---
+
 # Depth-First Search (DFS)
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2267,7 +2379,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2275,7 +2387,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2283,7 +2395,23 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
+
+---
+
+# Prim-Jarnik Algorithm
+
+<br/>
+
+TBD
+
+---
+
+# Kruskal's Algorithm
+
+<br/>
+
+TBD
 
 ---
 
@@ -2291,7 +2419,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2318,7 +2446,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2326,7 +2454,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2334,7 +2462,7 @@ blablablan
 
 <br/>
 
-blablablan
+v
 
 ---
 
@@ -2342,7 +2470,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
@@ -2350,7 +2478,7 @@ blablablan
 
 <br/>
 
-blablablan
+TBD
 
 ---
 
