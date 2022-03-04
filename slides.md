@@ -116,11 +116,11 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 
 <br/>
 
-Without explicitly mentioned, for implementating algorithms in related DSA questions:
+Without explicitly mentioned, algo implementation in related DSA questions:
 
--   always seek the best time and space complexity by appling DSA taught in MTH251 & 252  
+-   always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252  
 -   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent    
--   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min/max/set/match ... , as time and space complexity for the solution become unknown or Python dependent 
+-   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min/max/set/match ... , as the algo implementation becomes unknown and Python dependent 
  
 
 ---
@@ -1306,13 +1306,13 @@ layout: center
 
 <div class="inline-grid grid-cols-[2fr,5fr] gap-4">
 
-  <div align="right">Level 1:</div>
+  <div align="right">1 Level:</div>
   <div><img src="/images/skip1.webp" style="width:50%"/></div>
 
-  <div align="right">Level 2:</div>
+  <div align="right">2 Levels:</div>
   <div><img src="/images/skip2.webp" style="width:50%"/></div>
 
-  <div align="right">Level 3:</div>
+  <div align="right">3 Levels:</div>
   <div><img src="/images/skip3.webp" style="width:50%"/></div>
 
 </div>
@@ -1366,7 +1366,7 @@ sorted linked list for sorted map
 <div class="inline-grid grid-cols-[2fr,3fr] gap-8">
 
   <div class="norm">
-    <h3><logos-jupyter /> add key</h3>
+    <h3><logos-jupyter /> insert key</h3>
   </div>
   <div>
     <br/>
@@ -1384,7 +1384,7 @@ sorted linked list for sorted map
 <div class="inline-grid grid-cols-[2fr,3fr] gap-8">
 
   <div class="norm">
-    <h3><logos-jupyter /> add key</h3>
+    <h3><logos-jupyter /> insert key</h3>
   </div>
   <div>
     <br/>
@@ -1420,12 +1420,12 @@ sorted linked list for sorted map
 
 <br/>
 
-<div style="width: 40%">
+<div style="width: 50%">
   <table class="ops">
     <thead>
       <tr>
-        <th id="" width="50%">Operation</th>
-        <th id="" width="50%">Time Complexity</th>
+        <th id="" width="40%">Operation</th>
+        <th id="" width="60%">Time Complexity avg</th>
       </tr>
     </thead>
     <tbody>
@@ -1444,6 +1444,24 @@ sorted linked list for sorted map
     </tbody>
   </table>
 </div>
+
+<br/>
+
+[Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf), William Pugh, 1990
+
+<!--
+Insert & Delete need to update the search path, so it depends on Search. 
+-->
+
+--- 
+
+# Skip List vs. Hash Table, Balanced Tree
+
+- keys in order, better for range search   
+- operations (linkedlist operations+) simpler than balanced tree (AVL, Red Black Tree, etc.)   
+- for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, 1.33 < 2 
+- single key search, Hash Table close to O(1)
+- Skip List implementation simpler 
 
 ---
 layout: center
