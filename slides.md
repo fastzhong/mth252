@@ -116,7 +116,7 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 
 <br/>
 
-Without explicitly mentioned, algo implementation in related DSA questions:
+Algo implementation in related DSA questions:
 
 -   always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252  
 -   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent    
@@ -1294,6 +1294,12 @@ layout: two-cols
 <span class="norm">👉 source code: [https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java](https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java)</span>
 
 
+<!--
+
+We dont have another section to study Set data structure, as it can be converted from Map/HashTable. Map/HashTable can be converted from Set also. 
+
+-->
+
 ---
 layout: center
 ---
@@ -1431,7 +1437,7 @@ sorted linked list for sorted map
     <tbody>
       <tr class="odd">
         <th>Search</th>
-        <td>O(logN)</td>
+        <td>O(logN) 👈</td>
       </tr>
       <tr class="even">
         <th>Insert</th>
@@ -1450,7 +1456,7 @@ sorted linked list for sorted map
 [Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf), William Pugh, 1990
 
 <!--
-Insert & Delete need to update the search path, so it depends on Search. 
+Insert & Delete need to update the searching path, so it depends on Search. 
 -->
 
 --- 
@@ -1473,7 +1479,7 @@ layout: center
 layout: two-cols
 ---
 
-# Binary Search Tree
+# Binary Search Tree (BST)
 
 <br/>
 
@@ -1512,7 +1518,7 @@ layout: two-cols
 
 ---
 
-# Binary Search Tree: Operations
+# BST: Operations
 
 <logos-jupyter />
 
@@ -1530,10 +1536,22 @@ layout: two-cols
 <span class="norm">💬 1962, Hibbard Deletion</span>
 
 ---
+
+# BST: Hibbard Deletion
+
+<logos-jupyter /> 
+
+
+- del min 
+
+- del max 
+
+
+---
 layout: two-cols
 ---
 
-# Hibbard Deletion
+# BST: Hibbard Deletion
 
 <br/>
 
@@ -1544,22 +1562,30 @@ layout: two-cols
 ::right::
 
 <br/>
-
+<br/>
+<br/>
 <br/>
 
-<br/>
 
-<br/>
-
-<div align="center">
-  <img src="/images/binary_search_tree2.png" style="width:70%"/>
+<div class="inline-grid grid-cols-[4fr,1fr,4fr] gap-2">
+  <div>
+    <img src="/images/binary_search_tree1.png"/>
+  </div>
+  <div style="color: green; text-align: center;">
+    <br/><br/>
+    <mdi-arrow-right-bold/> <br/>
+    <span class="norm">del 10</span>
+  </div>
+  <div>
+    <img src="/images/binary_search_tree2.png"/>
+  </div>
 </div>
 
 ---
 layout: two-cols
 ---
 
-# Hibbard Deletion
+# BST: Hibbard Deletion
 
 <br/>
 
@@ -1570,16 +1596,44 @@ layout: two-cols
 ::right::
 
 <br/>
-
+<br/>
+<br/>
 <br/>
 
-<br/>
 
-<br/>
-
-<div align="center">
-  <img src="/images/binary_search_tree3.png" style="width:70%"/>
+<div class="inline-grid grid-cols-[4fr,1fr,4fr] gap-2">
+  <div>
+    <img src="/images/binary_search_tree2.png"/>
+  </div>
+  <div style="color: green; text-align: center;">
+    <br/><br/>
+    <mdi-arrow-right-bold/> <br/>
+    <span class="norm">del 77</span>
+  </div>
+  <div>
+    <img src="/images/binary_search_tree3.png"/>
+  </div>
 </div>
+
+---
+
+# BST: Traversal    
+
+- pre-order
+- in-order: sorted list   
+- post-order   
+- level order 
+
+<!--
+
+pre/in/post depends on when we want to proces the node, e.g. for memory management in C++, we probably want to do GC for the node when GC is done for left & right subtree, so post-order may be a choice.  
+
+min, max  
+floor, ceil  
+rank, select 
+
+
+-->
 
 ---
 
@@ -1684,9 +1738,13 @@ layout: two-cols
     $BF = H(node.right) - H(node.left)$   
     $BF \in {-1, 0, 1}$
 
+-   heigh and no. of nodes: $O(logN)$ 
+
 <br/>
 
-<span class="norm">👉 Heap/Complete Binary Tree, Segment Tree</span>
+- <span class="norm">perfect binary tree (minimum heigh)</span> 
+- <span class="norm">complete binary tree</span> 
+- <span class="norm">Binary Heap, Red Black Tree, Segment Tree</span> 
 
 ::right::
 
@@ -1701,6 +1759,12 @@ layout: two-cols
 <div align="center">
   <img src="/images/avl1.png" style="width:70%"/>
 </div>
+
+<!--
+
+The example is a binary search tree, not complete binary tree, but it is balanced. 
+
+-->
 
 ---
 
@@ -1762,6 +1826,20 @@ layout: center
 ---
 
 # Red Black Tree
+
+<br/>
+
+TBD
+
+--- 
+layout: center
+---
+
+# Segment Tree
+
+---
+
+# Segment Tree
 
 <br/>
 
@@ -1969,6 +2047,11 @@ Algo analysis: lose a little bit of granularity of information but we dont lose 
 
 - merge buttom up  
 
+- worst case: 
+    - <span class="norm">sorted array</span>
+    - <span class="norm">sorted array (reversed order)</span>
+    - <span class="norm">duplicates</span>
+
 ---
 
 # Sorting: Quick 
@@ -2006,6 +2089,7 @@ Quick is faster than Merge because partion func is faster than merge function
 
 - worst case: $O(n^2)$
     - <span class="norm">sorted array</span>
+    - <span class="norm">sorted array (reversed order)</span>
     - <span class="norm">duplicates</span>
     - $O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$
 
