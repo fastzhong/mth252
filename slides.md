@@ -46,7 +46,7 @@ Data Structures and Algorithms II
         <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span></li>
         <li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
         <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li> 
-        <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, <span class="hl-bg">Min-Spanning Tree</span>, and <span class="hl-bg">Directed Acyclic Grap</span>(DAG) </li>
+        <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, and <span class="hl-bg">Min-Spanning Tree</span> </li>
         <li>Review and more</li>
       </ol>
     </p>
@@ -120,7 +120,7 @@ Algo implementation in related DSA questions:
 
 -   always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252  
 -   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent    
--   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min/max/set/match ... , as the algo implementation becomes unknown and Python dependent 
+-   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the algo implementation becomes unknown and Python dependent 
  
 
 ---
@@ -1531,6 +1531,8 @@ layout: two-cols
 -   after()
 -   is_empty()
 
+<br/>
+
 <span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)</span>
 
 <span class="norm">💬 1962, Hibbard Deletion</span>
@@ -1744,7 +1746,7 @@ layout: two-cols
 
 - <span class="norm">perfect binary tree (minimum heigh)</span> 
 - <span class="norm">complete binary tree</span> 
-- <span class="norm">Binary Heap, Red Black Tree, Segment Tree</span> 
+- <span class="norm">Binary Heap, Red Black Tree, Segment Tree, etc.</span> 
 
 ::right::
 
@@ -1767,12 +1769,139 @@ The example is a binary search tree, not complete binary tree, but it is balance
 -->
 
 ---
+layout: two-cols
+---
 
-# AVL Rebalance
+# AVL Balance Factor
 
 <br/>
 
-TBD
+<div align="center">
+  <img src="/images/avl1.png"/>
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/avl2.png"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# AVL Right Rotate (LL)
+<br/>
+
+$T1 < z < T2 < y < T3 < z < T4$
+
+- y.right = x
+
+- x.left = T3 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/avl-right-rotate.png"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# AVL Left Rotate (RR)
+
+<br/>
+
+$T4 < x < T3 < y < T1 < z < T2$
+
+- y.left = x
+
+- x.right = T3 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/avl-left-rotate.png"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# AVL LR → LL
+<br/>
+
+LL & LR
+
+1. LR → LL: left rotate
+
+2. LL: right rotate  
+
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/avl-LR.png"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# AVL RL → RR
+
+<br/>
+
+RL & RR
+
+1. RL → RR: right rotate
+
+2. RR: left rotate  
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/avl-RL.png"/>
+</div>
 
 ---
 
@@ -1816,6 +1945,10 @@ TBD
     </tbody>
   </table>
 </div>
+
+<br/>
+
+<span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/AVLtree.html](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)</span>
 
 --- 
 layout: center
