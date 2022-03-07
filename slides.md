@@ -1605,7 +1605,7 @@ layout: two-cols
 
 # AVL Balance Factor
 
-<br/>
+<logos-jupyter />
 
 <div align="center">
   <img src="/images/avl1.png"/>
@@ -1623,12 +1623,24 @@ layout: two-cols
   <img src="/images/avl2.png"/>
 </div>
 
+Rebalance ⁇ 
+
+- when: insert(), delete() 
+- where: backtracking from the node
+
+<!--
+
+As we implement insert(), delete() with recurion, backtracking can be done with recursion. 
+
+-->
+
 ---
 layout: two-cols
 ---
 
 # AVL Right Rotate (LL)
-<br/>
+
+<logos-jupyter />
 
 $T1 < z < T2 < y < T3 < z < T4$
 
@@ -1656,7 +1668,7 @@ layout: two-cols
 
 # AVL Left Rotate (RR)
 
-<br/>
+<logos-jupyter />
 
 $T4 < x < T3 < y < T1 < z < T2$
 
@@ -1683,7 +1695,8 @@ layout: two-cols
 ---
 
 # AVL LR → LL
-<br/>
+
+<logos-jupyter />
 
 LL & LR
 
@@ -1712,7 +1725,7 @@ layout: two-cols
 
 # AVL RL → RR
 
-<br/>
+<logos-jupyter />
 
 RL & RR
 
@@ -1736,7 +1749,27 @@ RL & RR
 
 ---
 
-# BST & AVL Complexity
+# AVL insert & delete  
+
+
+1. update Height 
+
+2. compute Balance Factor 
+
+3. left/right rotation if unbalanced
+
+<!--
+
+delete:
+
+1. _delete_max rebalance?
+2. reb_node could be None? (delete leaf node)
+
+-->
+
+---
+
+# BST vs. AVL Complexity
 
 <br/>
 
@@ -1791,7 +1824,7 @@ layout: center
 
 # Red Black Tree
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -1805,7 +1838,7 @@ layout: center
 
 # Segment Tree
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -1819,7 +1852,7 @@ layout: center
 
 # B Tree
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -1833,7 +1866,7 @@ layout: center
 
 # B+ Tree
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -1848,7 +1881,7 @@ layout: center
 
 # Trie
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2538,7 +2571,7 @@ In computer science, a <span class="hl-color">selection algorithm</span> is an a
 
 # Prune-and-Search
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2546,7 +2579,7 @@ TBD
 
 # Randomised Quick Sort
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2560,7 +2593,7 @@ layout: center
 
 # Brute Force
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2568,7 +2601,7 @@ TBD
 
 # Boyer-Moore
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2576,7 +2609,7 @@ TBD
 
 # Knuth-Morris-Pratt (KMP)
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2596,7 +2629,7 @@ layout: center
 
 # Graph Terminology
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2604,7 +2637,7 @@ TBD
 
 # Depth-First Search (DFS)
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2612,7 +2645,7 @@ TBD
 
 # Breadth-First Search (BFS)
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2620,7 +2653,7 @@ TBD
 
 # Dijkstra's Shortest Path
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2628,7 +2661,7 @@ TBD
 
 # Min-Spanning Tree (MST)
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2636,7 +2669,7 @@ TBD
 
 # Prim-Jarnik Algorithm
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2644,15 +2677,7 @@ TBD
 
 # Kruskal's Algorithm
 
-<br/>
-
-TBD
-
----
-
-# DAG
-
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2679,7 +2704,7 @@ TBD
 
 # Lab 1
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2687,7 +2712,7 @@ TBD
 
 # Lab 2
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2695,15 +2720,15 @@ TBD
 
 # Lab 3
 
-<br/>
+<mdi-timer-sand />
 
-v
+TBD
 
 ---
 
 # Lab 4
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
@@ -2711,7 +2736,7 @@ TBD
 
 # Lab 5
 
-<br/>
+<mdi-timer-sand />
 
 TBD
 
