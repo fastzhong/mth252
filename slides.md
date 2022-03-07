@@ -42,8 +42,8 @@ Data Structures and Algorithms II
     6 weeks (Jan ~ Mar), 6 seminars & 6 labs:
     <p class="norm">
       <ol>
-        <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span> & <span class="hl-bg">Skip List</span></li>
-        <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span></li>
+        <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span></li>
+        <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span>, and <span class="hl-bg">Skip List</span></li>
         <li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li> 
         <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li> 
         <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, and <span class="hl-bg">Min-Spanning Tree</span> </li>
@@ -1304,175 +1304,6 @@ We dont have another section to study Set data structure, as it can be converted
 layout: center
 ---
 
-# Skip List
-
----
-
-# Skip List
-
-<div class="inline-grid grid-cols-[2fr,5fr] gap-4">
-
-  <div align="right">1 Level:</div>
-  <div><img src="/images/skip1.webp" style="width:50%"/></div>
-
-  <div align="right">2 Levels:</div>
-  <div><img src="/images/skip2.webp" style="width:50%"/></div>
-
-  <div align="right">3 Levels:</div>
-  <div><img src="/images/skip3.webp" style="width:50%"/></div>
-
-</div>
-
-<!--
-sorted linked list for sorted map
--->
-
----
-
-# Skip List
-
-<br/>
-
-<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
-
-  <div class="norm">
-    <h3><logos-jupyter /> search key</h3>
-  </div>
-  <div>
-    <br/>
-    <img src="/images/skip_search.webp" style="width:70%"/>
-  </div>
-
-</div>
-
----
-
-# Skip List
-
-<br/>
-
-<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
-
-  <div class="norm">
-    <h3><logos-jupyter /> delete key</h3>
-  </div>
-  <div>
-    <br/>
-    <img src="/images/skip_del.webp" style="width:70%"/>
-  </div>
-
-</div>
-
----
-
-# Skip List
-
-<br/>
-
-<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
-
-  <div class="norm">
-    <h3><logos-jupyter /> insert key</h3>
-  </div>
-  <div>
-    <br/>
-    <img src="/images/skip_add1.webp" style="width:70%"/>
-  </div>
-
-</div>
-
----
-
-# Skip List
-
-<br/>
-
-<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
-
-  <div class="norm">
-    <h3><logos-jupyter /> insert key</h3>
-  </div>
-  <div>
-    <br/>
-    <img src="/images/skip_add2.webp" style="width:70%"/>
-  </div>
-
-</div>
-
----
-
-# Skip List
-
-<br/>
-
-<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
-
-  <div class="norm">
-    <p>
-    Skip List node with an array of pointers: position pointers[0] stores a level 0 pointer, position pointers[1] stores a level 1 pointer, and so on. <br/> <br/>
-    When inserting a new value, the levels (depth) for the new node is randomized.    
-    </p>
-  </div>
-  <div>
-    <br/>
-    <img src="/images/skip_pointers.png" style="width:70%"/>
-  </div>
-
-</div>
-
----
-
-# Skip List Complexity
-
-<br/>
-
-<div style="width: 50%">
-  <table class="ops">
-    <thead>
-      <tr>
-        <th id="" width="40%">Operation</th>
-        <th id="" width="60%">Time Complexity avg</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="odd">
-        <th>Search</th>
-        <td>O(logN) 👈</td>
-      </tr>
-      <tr class="even">
-        <th>Insert</th>
-        <td>O(logN)</td>
-      </tr>
-      <tr class="odd">
-        <th>Delete</th>
-        <td>O(logN)</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<br/>
-
-[Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf), William Pugh, 1990
-
-<!--
-Insert & Delete need to update the searching path, so it depends on Search. 
--->
-
---- 
-
-# Skip List vs. Hash Table, Balanced Tree
-
-- keys in order, better for range search   
-- operations (linkedlist operations+) simpler than balanced tree (AVL, Red Black Tree, etc.)   
-- for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, 1.33 < 2 
-- single key search, Hash Table close to O(1)
-- Skip List implementation simpler 
-
----
-layout: center
----
-
 # Binary Search Tree
 
 ---
@@ -2020,6 +1851,175 @@ layout: center
 <br/>
 
 TBD
+
+---
+layout: center
+---
+
+# Skip List
+
+---
+
+# Skip List
+
+<div class="inline-grid grid-cols-[2fr,5fr] gap-4">
+
+  <div align="right">1 Level:</div>
+  <div><img src="/images/skip1.webp" style="width:50%"/></div>
+
+  <div align="right">2 Levels:</div>
+  <div><img src="/images/skip2.webp" style="width:50%"/></div>
+
+  <div align="right">3 Levels:</div>
+  <div><img src="/images/skip3.webp" style="width:50%"/></div>
+
+</div>
+
+<!--
+sorted linked list for sorted map
+-->
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> search key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_search.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> delete key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_del.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> insert key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_add1.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <h3><logos-jupyter /> insert key</h3>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_add2.webp" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,3fr] gap-8">
+
+  <div class="norm">
+    <p>
+    Skip List node with an array of pointers: position pointers[0] stores a level 0 pointer, position pointers[1] stores a level 1 pointer, and so on. <br/> <br/>
+    When inserting a new value, the levels (depth) for the new node is randomized.    
+    </p>
+  </div>
+  <div>
+    <br/>
+    <img src="/images/skip_pointers.png" style="width:70%"/>
+  </div>
+
+</div>
+
+---
+
+# Skip List Complexity
+
+<br/>
+
+<div style="width: 50%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="" width="40%">Operation</th>
+        <th id="" width="60%">Time Complexity avg</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Search</th>
+        <td>O(logN) 👈</td>
+      </tr>
+      <tr class="even">
+        <th>Insert</th>
+        <td>O(logN)</td>
+      </tr>
+      <tr class="odd">
+        <th>Delete</th>
+        <td>O(logN)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br/>
+
+[Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf), William Pugh, 1990
+
+<!--
+Insert & Delete need to update the searching path, so it depends on Search. 
+-->
+
+--- 
+
+# Skip List vs. Hash Table, Balanced Tree
+
+- keys in order, better for range search   
+- operations (linkedlist operations+) simpler than balanced tree (AVL, Red Black Tree, etc.)   
+- for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, 1.33 < 2 
+- single key search, Hash Table close to O(1)
+- Skip List implementation simpler 
 
 ---
 layout: center
