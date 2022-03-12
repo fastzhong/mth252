@@ -44,8 +44,8 @@ Data Structures and Algorithms II
       <ol>
         <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span></li>
         <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span>, and <span class="hl-bg">Skip List</span></li>
-        <li>Sorting: <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li>
-        <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span>(KMP) and <span class="hl-bg">Dynamic Programming</span>(DP)</li>
+        <li>Sorting: <span class="hl-bg">Insertion</span>, <span class="hl-bg">Selection</span>, <span class="hl-bg">Bubble</span>, <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li>
+        <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span> and <span class="hl-bg">Dynamic Programming</span></li>
         <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, and <span class="hl-bg">Min-Spanning Tree</span> </li>
         <li>Review and more</li>
       </ol>
@@ -107,7 +107,7 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 if you want to dive deeper into proofs and the mathematics of computer science:
 
-[Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
+<mdi-link/>[Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
 
 
 ---
@@ -120,7 +120,7 @@ Algo implementation in related DSA questions:
 
 -   always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252
 -   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent
--   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the algo implementation becomes unknown and Python dependent
+-   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the complexity becomes unknown and Python dependent
 
 
 ---
@@ -132,7 +132,7 @@ layout: center
 
 ---
 
-# Priority Queue
+# Priority Queue (PQ)
 
 <br/>
 
@@ -151,14 +151,21 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 ---
 
-# Priority Queue: Operations (Min PQ)
+# Priority Queue: Operations 
 
 <br/>
+
+Min PQ  
 
 -   <span class="hl-strong">add(k, v)</span> (enqueue) − adding an element to the queue
 -   <span class="hl-strong">remove_min()</span> (dequeue) − obtain the first element with a pair of (k,v), where k is the mininum value of keys in Min PQ, and remove it from the queue
 -   <span class="hl-strong">min()</span> (first/peek) − obtain the first element with a pair of (k,v) where k is the mininum value of keys in Min PQ
 -   size(), is_empty()
+
+<br/>
+
+Max PQ   
+<span class="hl-strong">add(k, v)</span>, <span class="hl-strong">remove_max()</span>, <span class="hl-strong">max()</span>, size(), is_empty()
 
 ---
 
@@ -240,18 +247,24 @@ layout: center
 
 <br/>
 
--   from root to any leaf, the key values are in non-decreasing order
 
--   key of root is always the smallest
+💡  key of root is always the smallest
 
--   given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
+💡  subtree is also a binary heap 
 
--   given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
+💡  from root to any leaf, the key values are in non-decreasing order
+
+💡  given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
+
+💡  given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
 
 <!--
 if exclude the bottom level, binary heap is a perfect binary tree and nodes is 2^h - 1
 
 low level node is always smaller than the high level node? NO.
+
+child of binary tree is still a binary tree, recusion can be usually considered for tree operations. 
+
 -->
 
 ---
@@ -446,11 +459,11 @@ Priority Queue (PQ) is used:
 
 -   used in certain implementations of <span class="hl-bg">Dijkstra's Shortest Path</span> algorithm
 
+-   used by <span class="hl-bg">Minimum Spanning Tree</span> (MST) algorithms
+
 -   <span class="hl-bg">Best First Search</span> (BFS) algorithms such as A\* uses PQ to continuously grab the next most promising node
 
 -   used in <span class="hl-bg">Huffman coding</span> (which is often used for lossless data compression)
-
--   used by <span class="hl-bg">Minimum Spanning Tree</span> (MST) algorithms
 
 -   anytime you need to dynamically fetch the "next best" or "next worst" element
 
@@ -587,12 +600,12 @@ A <span class="hl-bg">Map</span> is an abstract data structure (ADT):
 -   a collection of key-value (k,v) paris
 -   key can be viewed as a unique identifier for the object/value
 
-k - unique
+<span class="hl-color">k - unique</span>   
 v - can be repeated
 
 <br/>
 
-A <span class="hl-color">Sorted Map</span> is an extension of Map and keys are sorted in increasing order.
+A <span class="hl">Sorted Map</span> is an extension of Map and keys are sorted in increasing order.
 
 <br/>
 
@@ -1025,10 +1038,10 @@ layout: two-cols
 
 <br/>
 
-$M$<span class="norm">: total num of map elements</span>
-$O$<span class="norm">: num of occupied buckets</span>
-$N$<span class="norm">: size of hash table</span>
-$P$<span class="norm">: new size of hash table (expand or shrink)</span>
+$M$<span class="norm">: total num of map elements</span>  
+$O$<span class="norm">: num of occupied buckets</span>  
+$N$<span class="norm">: size of hash table</span>  
+$P$<span class="norm">: new size of hash table (expand or shrink)</span>  
 
 when:
 
@@ -1059,6 +1072,10 @@ layout: two-cols
 ---
 
 # Hash Function
+
+<br/>
+
+<span class="hl">Guidelines:</span>
 
 -   $H(x)$ must be deterministic
 -   $H(x)$ need to be fast $O(1)$
@@ -1364,7 +1381,7 @@ layout: two-cols
 
 <br/>
 
-💡 any BST subtree is still a BST
+💡 any BST subtree is still a BST  
 💡 BST node must be comparable
 
 <br/>
@@ -1398,7 +1415,7 @@ layout: two-cols
 
 -   search()
 -   insert()
--   delete()
+-   delete() <span class="norm">💬 1962, Hibbard Deletion</span>
 -   first()
 -   last()
 -   before()
@@ -1409,7 +1426,6 @@ layout: two-cols
 
 <span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)</span>
 
-<span class="norm">💬 1962, Hibbard Deletion</span>
 
 ---
 
@@ -1496,7 +1512,7 @@ layout: two-cols
 # BST: Traversal
 
 - pre-order
-- in-order: sorted list
+- in-order: sorted list 👈
 - post-order
 - level order
 
@@ -1618,6 +1634,7 @@ layout: two-cols
 
 <br/>
 
+Examples:
 - <span class="norm">perfect binary tree (minimum heigh)</span>
 - <span class="norm">complete binary tree</span>
 - <span class="norm">Binary Heap, Red Black Tree, Segment Tree, etc.</span>
@@ -1666,14 +1683,40 @@ layout: two-cols
   <img src="/images/avl2.png"/>
 </div>
 
-Rebalance ⁇
+<br/>
 
+Rebalance ⁇  
 - when: insert(), delete()
 - where: backtracking from the node
 
 <!--
 
 As we implement insert(), delete() with recurion, backtracking can be done with recursion.
+
+-->
+
+---
+
+# AVL insert & delete
+
+<logos-jupyter />
+
+<br/>
+
+Steps:
+
+1. update Height
+
+2. compute Balance Factor
+
+3. left/right rotation if unbalanced
+
+<!--
+
+delete:
+
+1. _delete_max rebalance?
+2. reb_node could be None? (delete leaf node)
 
 -->
 
@@ -1741,7 +1784,6 @@ layout: two-cols
 
 <logos-jupyter />
 
-LL & LR
 
 1. LR → LL: left rotate
 
@@ -1770,8 +1812,6 @@ layout: two-cols
 
 <logos-jupyter />
 
-RL & RR
-
 1. RL → RR: right rotate
 
 2. RR: left rotate
@@ -1789,26 +1829,6 @@ RL & RR
 <div align="center">
   <img src="/images/avl-RL.png"/>
 </div>
-
----
-
-# AVL insert & delete
-
-
-1. update Height
-
-2. compute Balance Factor
-
-3. left/right rotation if unbalanced
-
-<!--
-
-delete:
-
-1. _delete_max rebalance?
-2. reb_node could be None? (delete leaf node)
-
--->
 
 ---
 
@@ -2029,8 +2049,10 @@ Insert & Delete need to update the searching path, so it depends on Search.
 
 # Skip List vs. Hash Table, Balanced Tree
 
+<br/>
+
 - keys in order, better for range search
-- operations (linkedlist operations+) simpler than balanced tree (AVL, Red Black Tree, etc.)
+- operations (linkedlist+ operations) simpler than balanced tree (AVL, Red Black Tree, etc.)
 - for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, 1.33 < 2
 - single key search, Hash Table close to O(1)
 - Skip List implementation simpler
@@ -2087,7 +2109,7 @@ layout: center
 
 <br/>
 
-<img src="/images/sort_insertion.gif" style="height:50%"/>
+<img src="/images/sort_insertion.gif" style="height:40%"/>
 
 ---
 
@@ -2120,9 +2142,7 @@ improve the data overall ordering while bubble up
 
 # Sorting: Merge
 
-John von Neumann
-
-<logos-jupyter />
+<logos-jupyter /> John von Neumann  
 
 - recursively [l, m, r]:
   - sort [l, m]
@@ -2144,6 +2164,26 @@ John von Neumann
 <!--
 John von Neumann
 -->
+
+---
+
+# Sorting: Merge
+
+<logos-jupyter />
+
+<br/>
+
+- merge top down:
+  - <span class="norm">[On finding the average of two unsigned integers without overflow](https://devblogs.microsoft.com/oldnewthing/20220207-00/?p=106223)</span>
+  - insertion
+  - tmp
+
+- merge buttom up
+
+- worst case:
+    - <span class="norm">sorted array</span>
+    - <span class="norm">sorted array (reversed order)</span>
+    - <span class="norm">duplicates</span>
 
 ---
 layout: two-cols
@@ -2192,31 +2232,9 @@ Algo analysis: lose a little bit of granularity of information but we dont lose 
 
 ---
 
-# Sorting: Merge
-
-<logos-jupyter />
-
-<br/>
-
-- merge top down:
-  - <span class="norm">[On finding the average of two unsigned integers without overflow](https://devblogs.microsoft.com/oldnewthing/20220207-00/?p=106223)</span>
-  - insertion
-  - tmp
-
-- merge buttom up
-
-- worst case:
-    - <span class="norm">sorted array</span>
-    - <span class="norm">sorted array (reversed order)</span>
-    - <span class="norm">duplicates</span>
-
----
-
 # Sorting: Quick
 
-Tony Hoare
-
-<logos-jupyter />
+<logos-jupyter /> Tony Hoare
 
 - partition: select v, so that [l, p-1] smaller than v and [p+1, r] bigger than v
 - recursive sort [l, p-1]
@@ -2226,10 +2244,10 @@ Tony Hoare
 
 <div class="inline-grid grid-cols-[1fr,3fr] gap-8">
   <div>
-    <img src="/images/TonyHoare.jpeg" style="height:85%"/>
+    <img src="/images/TonyHoare.jpeg" style="height:80%"/>
   </div>
   <div>
-    <img src="/images/sort_quick.gif"/>
+    <img src="/images/sort_quick.gif"  style="height:80%"/>
   </div>
 </div>
 
@@ -2266,9 +2284,9 @@ layout: two-cols
 <br/>
 
 Simple Sort:
--   Selection
--   Insertion
--   Bubble
+-   <span class="hl">Selection</span>
+-   <span class="hl">Insertion</span>
+-   <span class="hl">Bubble</span>
 
 ::right::
 
@@ -2281,9 +2299,9 @@ Simple Sort:
 <br/>
 
 Efficient Sort:
--   Heap
--   Merge
--   Quick
+-   <span class="hl">Heap</span>
+-   <span class="hl">Merge</span>
+-   <span class="hl">Quick</span>
 
 <!--
 - element comparable
@@ -2452,7 +2470,7 @@ layout: two-cols
 
 <logos-python/> list.sort() or sorted(list)
 
-[Timsort](https://bugs.python.org/file4451/timsort.txt)
+<mdi-link/>[Timsort](https://bugs.python.org/file4451/timsort.txt)
 
 <div style="width:90%">
   <table class="ops">
@@ -2522,19 +2540,20 @@ sort operations:
 - split into multiple runs
 - merge runs - **Galloping**:
 
-[1, 2, 3, ..., 100, ..., 101, 102, 103, ..., 200]
-run1 = [1, 2, 3, , ..., 100]
-run2 = [101, 102, 103, , ..., 200]
+<br/>
 
-$run2[2^{n-1} - 1] < run1[0] \leq run2[2^n - 1]$
-binary search: $O(N)$ → $O(logN)$
+<pre class="norm">
+[1, 2, 3, ..., 100, ..., 101, 102, 103, ..., 200]  
+run1 = [1, 2, 3, , ..., 100]  
+run2 = [101, 102, 103, , ..., 200]  
+......
+</pre>
 
-<style>
-p {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-}
-</style>
+$run2[2^{n-1} - 1] <pre run1[0] \leq run2[2^n - 1]$  
+
+<span class="norm">binary search: $O(N)$ → $O(logN)$</span>
+
+
 ---
 
 # Industrial Implementation
@@ -2586,6 +2605,10 @@ selectK
     - else skip it
 -  Min Heap Complexity: $O(NlogK)$
 
+
+merge sort O(NlogN)
+quick sort O(n) selectK, topK
+
 ---
 
 # Prune-and-Search
@@ -2601,15 +2624,6 @@ TBD
 <mdi-timer-sand />
 
 TBD
-
----
-
-# misc.
-
-merge sort O(NlogN)
-quick sort O(n) selectK, topK
-binary heap/priority queue
-
 
 ---
 layout: center
@@ -2720,7 +2734,7 @@ layout: center
 <br/>
 
 <div align="center">
-  <img src="/images/string_matching_rabin_karp.png" style="width:80%"/>
+  <img src="/images/string_matching_rabin_karp.png" style="width:70%"/>
 </div>
 
 ---
@@ -2766,22 +2780,26 @@ h(i+1): <span style="text-decoration: line-through red;">S[i-m+1]</span> ... S[i
 
 <br/>
 
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 <span class="norm">e.g. m = 5</span>  
-"54321": $5 * 10^4 + 4 * 10^3 + 3 * 10^2 + 2 * 10^1 + 1 * 10^0$  
-"bbabc": $b * 256^4 + b * 256^3 + a * 256^2 + b * 256^1 + c * 256^0$  
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
+"54321": $5 * 10^4 + 4 * 10^3 + 3 * 10^2 + 2 * 10^1 + 1 * 10^0$   
+"bbabc": $b * 256^4 + b * 256^3 + a * 256^2 + b * 256^1 + c * 256^0$    
+  
 $(a + b)\;\%\;M = (a\;\%\;M + b\;\%\;M)\;\%\;M$   
 $(a * b)\;\%\;M = (a\;\%\;M * b\;\%\;M)\;\%\;M$ 
 
@@ -3209,8 +3227,6 @@ layout: two-cols
 
 <span class="hl">Suffix</span> & <span class="hl">Prefix</span> array
 
-- P: abcdab 
-
 - suffix: start position of the right most suffix 
 
 - prefix: True if it is a prefix 
@@ -3223,11 +3239,8 @@ layout: two-cols
 
 <br/>
 
-<br/>
-
-<br/>
-
 <div style="">
+  <p class="norm">P: "abcdab"</p>
   <table class="ops">
     <thead>
       <tr>
@@ -3465,9 +3478,6 @@ layout: center
 
 </pre>
 ---
-
-# Graph
-
 
 # Graph Terminology
 
