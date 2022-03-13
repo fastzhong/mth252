@@ -3311,7 +3311,7 @@ locate bad char $P[j]$, decide $d$:
 
 Time Complexity
 - best case: $O(m + n/m)$ 
-- worst case: $O(m + n*m)$ (roughly $3n$ or $5n$, see linkes below)
+- worst case: $O(m + n*m)$ ($\approx 3n\;or\;5n$, see linkes below)
 
 <br/>
 
@@ -3347,7 +3347,7 @@ layout: two-cols
 
 <br/>
 
-"bad character": shift $m + 1$
+<span class="hl">bad char</span>: shift $m + 1$
 
 <br/>
 
@@ -3385,12 +3385,367 @@ layout: center
 # Knuth-Morris-Pratt
 
 ---
+layout: two-cols
+---
 
 # Knuth-Morris-Pratt (KMP)
 
 <br/>
 
-<span class="norm">👉 </span>
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:orange">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td>c</td>
+      <td>b</td>
+      <td style="color:orange">e</td>
+      <td>a</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td style="color:orange">c</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+      <td rowspan="2" style="background-color: white">❌</td>      
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td> </td>
+      <td style="color:orange">b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+      <td>a</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:orange">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+      <td rowspan="2" style="background-color: white">✅</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td> </td>
+      <td> </td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="color:orange">c</td>
+      <td>b</td>
+      <td>e</td>
+      <td>a</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/kmp1.png" style="width: 80%"/>
+  <br/>
+  <br/>
+  <br/>
+  longest common "<span class="hl">prefix/suffix</span>"
+</div>
+
+<br/>
+
+<br/>
+
+<pre class="norm">
+P: b c b c e a  
+
+prebuild the array to store the next position to shift for any substrings of P: 
+b, b c, b c b, b c b c, b c b c e, b c b c e a  
+
+</pre>
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<br/>
+
+<span class="hl">next array</span>
+
+<div style="width: 90%">
+  <span class="norm">P: b c b c e a</span>
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="" width="30%">substring</th>
+        <th id="">last pos</th>
+        <th id="">prefix last char</th>
+        <th id="" width="30%">next pos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>b</th>
+        <td>0</td>
+        <td>-1</td>
+        <td>next[0] = -1</td>
+      </tr>
+      <tr class="even">
+        <th>b c</th>
+        <td>1</td>
+        <td>-1</td>
+        <td>next[1] = -1</td>
+      </tr>
+      <tr class="odd">
+        <th>b c b</th>
+        <td>2</td>
+        <td>0 (b)</td>
+        <td>next[2] = 0</td>
+      </tr>
+      <tr class="even">
+        <th>b c b c</th>
+        <td>3</td>
+        <td>1 (b c)</td>
+        <td>next[3] = 1</td>
+      </tr>
+      <tr class="odd">
+        <th>b c b c b</th>
+        <td>4</td>
+        <td>2 (b c b)</td>
+        <td>next[4] = 2</td>
+      </tr>
+      <tr class="even">
+        <th>b c b c b e</th>
+        <td>5</td>
+        <td>-1</td>
+        <td>next[5] = -1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:orange">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td>c</td>
+      <td>b</td>
+      <td style="color:orange">e</td>
+      <td>a</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">j</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td style="color:orange">5</td>
+      <td></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<span class="norm">bad char: $P[5]$</span>  
+<span class="norm">substring: $P[0:5]$</span>  
+<span class="norm">now shift j to the char after the prefix: $j = next[4] + 1 = 2 + 1 = 3$</span>  
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:orange">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td> </td>
+      <td> </td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="color:orange">c</td>
+      <td>b</td>
+      <td>e</td>
+      <td>a</td>
+      <td> </td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">j</td>
+      <td> </td>
+      <td> </td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td style="color:orange">3</td>
+      <td></td>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<logos-jupyter />
+
+for i = 0...n, compare $S[i]$ and $P[j]$:   
+
+- $S[i] == P[j]$
+  - if $j = m$, $P$ is found in $S$
+  - else move both $S$ and $P$ to next char $i = i+1$ and $j = j+1$
+
+
+- $S[i] != P[j]$
+  - if longest prefix-suffix exists, move $P$: $j = next[j-1] + 1$
+  - else starts from the begining of P: $j = -1 + 1 = 0$ (∵ $next[j-1] = -1$)
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<logos-jupyter />
+
+<span class="hl">next array</span>
+
+$next[i-1] = k$ and $P[i+1] = x$ → $next[i]$ ?  
+
+case1: $P[k+1] == x$, than $next[i] = k + 1$  
+
+case2: always look for $k$, so that $P[k+1] == x$ ?
+
+$next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[k]]$ .....
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/kmp2.png" style="width: 80%"/>
+</div>
 
 ---
 
