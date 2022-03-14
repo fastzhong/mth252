@@ -3332,51 +3332,25 @@ layout: center
 # Sunday
 
 ---
-layout: two-cols
----
 
 # Sunday
 
 <logos-jupyter />
 
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<span class="hl">bad char</span>: shift $m + 1$
-
-<br/>
-
-<br/>
-
-<br/>
-
-otherwise: shift the distance from the rightmost character ($P[i]$) to the end of the string + 1 ($m - i$)
-
-::right::
-
-<br/>
-
-<br/> 
-
-<br/>
-
-<br/>
-
-<div align="center">
-  <img src="/images/string_matching_sunday1.png" style="width: 70%"/><br/>
-  <img src="/images/string_matching_sunday2.png" style="width: 70%"/>
-  <img src="/images/string_matching_sunday3.png" style="width: 70%"/><br/><br/>
-  <img src="/images/string_matching_sunday4.png" style="width: 70%"/>
-  <img src="/images/string_matching_sunday5.png" style="width: 70%"/>
-  <img src="/images/string_matching_sunday6.png" style="width: 70%"/>
+<div class="inline-grid grid-cols-[2fr,4fr] gap-4">
+  <div></div>
+  <div><img src="/images/string_matching_sunday1.png" style="width: 60%"/></div>
+  <div class="norm"></div>
+  <div><img src="/images/string_matching_sunday2.png" style="width: 60%"/></div>
+  <div class="norm"><strong>bad char</strong>, shift m + 1</div>
+  <div><img src="/images/string_matching_sunday3.png" style="width: 60%"/></div>
+  <div></div>
+  <div><img src="/images/string_matching_sunday4.png" style="width: 60%"/></div>
+  <div></div>
+  <div><img src="/images/string_matching_sunday5.png" style="width: 60%"/></div>
+  <div class="norm">otherwise, shift m - i (from the rightmost character to the end of the string + 1)</div>
+  <div><img src="/images/string_matching_sunday6.png" style="width: 60%"/></div>
 </div>
-
-
 
 ---
 layout: center
@@ -3704,12 +3678,12 @@ layout: two-cols
 
 for i = 0...n, compare $S[i]$ and $P[j]$:   
 
-- $S[i] == P[j]$
+- $S[i]\;==\;P[j]$
   - if $j = m$, $P$ is found in $S$
-  - else move both $S$ and $P$ to next char $i = i+1$ and $j = j+1$
+  - else move both $S$ and $P$ to next char $i = i+1$, $j = j+1$
 
 
-- $S[i] != P[j]$
+- $S[i]\;!=\;P[j]$
   - if longest prefix-suffix exists, move $P$: $j = next[j-1] + 1$
   - else starts from the begining of P: $j = -1 + 1 = 0$ (∵ $next[j-1] = -1$)
 
@@ -3746,6 +3720,31 @@ $next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[k]]$ .....
 <div align="center">
   <img src="/images/kmp2.png" style="width: 80%"/>
 </div>
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<br />
+
+<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span><br/>
+<img src="/images/kmp_worst.jpeg" style="width: 80%"/>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+
+<span class="hl">best case: $O(n + 1*n/m + m)$</span><br/>
+<img src="/images/kmp_best.jpeg" style="width: 80%"/>
 
 ---
 
@@ -3786,6 +3785,9 @@ $next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[k]]$ .....
   </table>
 </div>
 
+<br/>
+
+👉 KMP is linear 
 
 ---
 layout: center
