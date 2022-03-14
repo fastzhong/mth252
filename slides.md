@@ -499,7 +499,7 @@ layout: two-cols
 
 <span class="hl">Heapify</span>: convert the array to be a binary heap
 
-by "sift down" the non-leaf node one by one from bottom to top
+by "sift down" the non-leaf node one by one from top to bottom
 
 Complete Binary Tree (Perfect Binary Tree)
 |                       |                     |            |                             |
@@ -1592,7 +1592,7 @@ layout: two-cols
 
 -   BST is ordered data structure, Heap is not
 
--   worst case for building $n$ nodes of BST $O(n \cdot log(n))$, Heap is $O(n)$
+-   worst case for building $n$ nodes of BST $O(n \cdot log(n))$, Heap is $O(n)$ (heapify)
 
 ::right::
 
@@ -1620,21 +1620,19 @@ layout: two-cols
 
 # AVL
 
-<br/>
-
 -   named after inventors G.M. <span class="hl-color">A</span>del’son-<span class="hl-color">V</span>el’skii and E.M. <span class="hl-color">L</span>andis, 1962
 
 -   first type of <span class="hl-bg">Balanced Binary Search Tree</span> (BBST)
 
--   height balanced: $BF$ - balance factor
-    $BF = H(node.right) - H(node.left)$
+-   height balanced: $BF$ - balance factor  
+    $BF = H(node.right) - H(node.left)$  
     $BF \in {-1, 0, 1}$
 
 -   heigh and no. of nodes: $O(logN)$
 
 <br/>
 
-Examples:
+<span class="norm">Examples:</span>
 - <span class="norm">perfect binary tree (minimum heigh)</span>
 - <span class="norm">complete binary tree</span>
 - <span class="norm">Binary Heap, Red Black Tree, Segment Tree, etc.</span>
@@ -1686,8 +1684,8 @@ layout: two-cols
 <br/>
 
 Rebalance ⁇  
-- when: insert(), delete()
-- where: backtracking from the node
+- When: insert(), delete()
+- Where: backtracking from the node
 
 <!--
 
@@ -2196,10 +2194,10 @@ layout: two-cols
 - Time Complexity $O(n \cdot log_2n)$
 - Space Complexity $O(n)$
 
-<span class="norm">at each level i = $0,1,2, ..., log_2n$</span>
-<span class="norm">there are $2^i$ subproblems, each of size $\frac{n}{2^i}$</span>
-<span class="norm">total # of operations at level i $\le 2^i \cdot c(\frac{n}{2^i}) = c \cdot n$ </span>
-<span class="norm">complexity on each level is $O(n)$</span>
+<span class="norm">at each level i = $0,1,2, ..., log_2n$</span>  
+<span class="norm">there are $2^i$ subproblems, each of size $\frac{n}{2^i}$</span>  
+<span class="norm">total # of operations at level i $\le 2^i \cdot c(\frac{n}{2^i}) = c \cdot n$ </span>  
+<span class="norm">complexity on each level is $O(n)$</span>           
 
 ::right::
 
@@ -2264,10 +2262,9 @@ Quick is faster than Merge because partion func is faster than merge function
 <br/>
 
 - worst case: $O(n^2)$
-    - <span class="norm">sorted array</span>
     - <span class="norm">sorted array (reversed order)</span>
     - <span class="norm">duplicates</span>
-    - $O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$
+    - <span class="norm">$O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$</span>
 
 - recusion stack overflow
 
@@ -3684,7 +3681,7 @@ for i = 0...n, compare $S[i]$ and $P[j]$:
 
 
 - $S[i]\;!=\;P[j]$
-  - if longest prefix-suffix exists, move $P$: $j = next[j-1] + 1$
+  - if longest prefix-suffix exists, move P: $j = next[j-1] + 1$
   - else starts from the begining of P: $j = -1 + 1 = 0$ (∵ $next[j-1] = -1$)
 
 ---
