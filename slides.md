@@ -44,7 +44,7 @@ Data Structures and Algorithms II
       <ol>
         <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span></li>
         <li>Search Trees: <span class="hl-bg">Binary Search Tree</span>, <span class="hl-bg">AVL</span>, and <span class="hl-bg">Skip List</span></li>
-        <li>Sorting: <span class="hl-bg">Insertion</span>, <span class="hl-bg">Selection</span>, <span class="hl-bg">Bubble</span>, <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li>
+        <li>Sorting: <span class="hl-bg">Insertion Sort</span>, <span class="hl-bg">Selection Sort</span>, <span class="hl-bg">Bubble Sort</span>, <span class="hl-bg">Merge-Sort</span>, <span class="hl-bg">Quick Sort</span> <br/> Selection: <span class="hl-bg">Prune-and-Search</span>, <span class="hl-bg">Randomized-Quicksort</span></li>
         <li>Text Processing: <span class="hl-bg">Brute-Force</span>, <span class="hl-bg">Boyer-Moore</span>, <span class="hl-bg">Knuth-Morris-Pratt</span> and <span class="hl-bg">Dynamic Programming</span></li>
         <li>Graph: <span class="hl-bg">Depth-First Search</span>, <span class="hl-bg">Breadth-First Search</span>, <span class="hl-bg">Dijkstra's Shortest Path</span>, and <span class="hl-bg">Min-Spanning Tree</span> </li>
         <li>Review and more</li>
@@ -103,20 +103,20 @@ slides online: [https://mth252.fastzhong.com/](https://mth252.fastzhong.com/)
 
 # Learning Resource
 
-📚 books
+<br/>
 
 if you want to dive deeper into proofs and the mathematics of computer science:
 
-<mdi-link/>[Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
+📚 [Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
 
 
 ---
 
-# Clarification on DSA questions
+# Clarification 
 
 <br/>
 
-Algo implementation in related DSA questions:
+⚠️ Algo implementation in related DSA questions:
 
 -   always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252
 -   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent
