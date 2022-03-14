@@ -153,7 +153,7 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 # Priority Queue: Operations 
 
-<br/>
+<logos-jupyter />
 
 Min PQ  
 
