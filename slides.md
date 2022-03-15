@@ -4225,9 +4225,15 @@ TBD
 
 <logos-jupyter />
 
-1. <strong>[Shell Sort](https://en.wikipedia.org/wiki/Shellsort)</strong> is an optimization of Insertion Sort. Implement your Shell Short. 
+1. Implement your <strong>Insertion Sort</strong> and sort the number array from right to left.
 
-2. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
+2. Implement your <strong>Bubble Sort</strong> and sort the number array from left to right.
+
+3. Implement your <strong>Merge Sort</strong> and use bottom-up approach.
+
+4. <strong>[Shell Sort](https://en.wikipedia.org/wiki/Shellsort)</strong> is an optimization of Insertion Sort. Implement your Shell Short. 
+
+5. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
 
 <style>
 li {
