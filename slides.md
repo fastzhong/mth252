@@ -670,7 +670,7 @@ A <span class="hl">Sorted Map</span> is an extension of Map and keys are sorted 
 
 <br/>
 
-class score:
+students score:
 
 <div style="width: 50%;">
 
@@ -1142,7 +1142,7 @@ layout: two-cols
 -   $H(x)\;mod\;N$ evenly distributed
 -   if $x = y$, H(x) and H(y) <span class="uline">must be equal</span>
 -   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>
--   if $H(x) \neq H(y)$, x and y <span class="uline">certainly not equal</span>
+-   if $H(x) \ne H(y)$, x and y <span class="uline">certainly not equal</span>
 
 <br/>
 
@@ -4223,9 +4223,18 @@ TBD
 
 # Lab 3
 
-<mdi-timer-sand />
+<logos-jupyter />
 
-TBD
+1. <strong>[Shell Sort](https://en.wikipedia.org/wiki/Shellsort)</strong> is an optimization of Insertion Sort. Implement your Shell Short. 
+
+2. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
