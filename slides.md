@@ -23,9 +23,9 @@ Data Structures and Algorithms II
 
 <br/>
 
-<i class="fab fa-linkedin"></i> [https://www.linkedin.com/in/zhonglun/](https://www.linkedin.com/in/zhonglun/)
-<i class="far fa-envelope"></i> [zhonglun@gmail.com](zhonglun@gmail.com)
-<i class="fas fa-mobile-alt"></i> 9647 7009
+<i class="fab fa-linkedin"></i> [https://www.linkedin.com/in/zhonglun/](https://www.linkedin.com/in/zhonglun/)   
+<i class="far fa-envelope"></i> [zhonglun@gmail.com](zhonglun@gmail.com)  
+<i class="fas fa-mobile-alt"></i> 9647 7009  
 
 <br/>
 
@@ -116,11 +116,13 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 
 <br/>
 
-⚠️ Algo implementation in related DSA questions:
+#### Solution related to DSA questions:
 
--   always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252
--   in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent
--   advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the complexity becomes unknown and Python dependent
+⚠️  <span class="norm">always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252</span>   
+  
+⚠️  <span class="norm">in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent</span>  
+  
+⚠️  <span class="norm">advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the complexity becomes unknown and Python dependent</span>
 
 
 ---
@@ -155,7 +157,7 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 <logos-jupyter />
 
-Min PQ  
+<span class="hl">Min PQ</span>  
 
 -   <span class="hl-strong">add(k, v)</span> (enqueue) − adding an element to the queue
 -   <span class="hl-strong">remove_min()</span> (dequeue) − obtain the first element with a pair of (k,v), where k is the mininum value of keys in Min PQ, and remove it from the queue
@@ -164,7 +166,8 @@ Min PQ
 
 <br/>
 
-Max PQ   
+<span class="hl">Max PQ</span>  
+
 <span class="hl-strong">add(k, v)</span>, <span class="hl-strong">remove_max()</span>, <span class="hl-strong">max()</span>, size(), is_empty()
 
 ---
@@ -238,8 +241,12 @@ layout: center
 
 <br/>
 
+
+<span class="norm">👉 A <strong>perfect binary tree</strong> is a tree of which every non-leaf node has two child nodes.</span>  
 <span class="norm">👉 A <strong>complete binary tree</strong> is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible.
 </span>
+
+
 
 ---
 
@@ -248,15 +255,15 @@ layout: center
 <br/>
 
 
-💡  key of root is always the smallest
+- key of root is always the smallest (MinHeap) or the largest (MaxHeap)
 
-💡  subtree is also a binary heap 
+- subtree is also a binary heap 
 
-💡  from root to any leaf, the key values are in non-decreasing order
+- from root to any leaf, the key values are in non-decreasing order
 
-💡  given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
+- given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
 
-💡  given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
+- given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
 
 <!--
 if exclude the bottom level, binary heap is a perfect binary tree and nodes is 2^h - 1
@@ -313,6 +320,11 @@ child of binary tree is still a binary tree, recusion can be usually considered 
     <table style="width:60%; font-family: 'Open Sans'; font-size: 0.8rem;">
       <tbody>
       <tr>
+        <td align="right">current node</td>
+        <td align="center">:</td>
+        <td align="left"><span style="font-weight: bolder; color: #357ec7;">i</span></td>
+      </tr>
+      <tr>
         <td align="right">parent(i)</td>
         <td align="center">=</td>
         <td align="left"><span style="font-weight: bolder; color: #357ec7;">(i - 1) / 2</span></td>
@@ -345,7 +357,7 @@ layout: two-cols
 add new element:
 
 1. append to the last (so its still complete binary tree)
-2. "sift up" if new element is smaller
+2. <span class="hl-strong">sift up</span> if new element is smaller
 
 <br/>
 
@@ -376,7 +388,7 @@ layout: two-cols
 remove the min:
 
 1. replace the first element with the last (so its still complete binary tree)
-2. "sift down" if the last element is bigger
+2. <span class="hl-strong">sift down</span> if the last element is bigger
 
 <br/>
 
@@ -476,18 +488,55 @@ There are trees other than binary tree, so there are heaps other than binary hea
 -->
 
 ---
+layout: two-cols
+---
 
-# Heap Sort
+# Heap Sort 
 
 <logos-jupyter />
 
 <br/>
+
+Steps:
 
 1. create a binary heap
 
 2. add all elements to the heap
 
 3. recursively obtain the min/max element from the heap
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div style="width: 80%;padding-left: 10px;">
+
+```python
+# heap sort 
+
+# time complexity: O(NlogN)
+# space complexity: O(N)
+def heap_sort(nums: []) -> []:
+    if not nums:
+        return []
+    minH = MinHeap() 
+    for e in nums:
+        minH.add((e, e))
+    nums_sorted = []
+    for i in range(len(nums)): 
+        nums[i] = minH.remove_min()[0]
+    return nums 
+```
+
+</div>
 
 ---
 layout: two-cols
@@ -501,7 +550,7 @@ layout: two-cols
 
 by "sift down" the non-leaf node one by one from top to bottom
 
-Complete Binary Tree (Perfect Binary Tree)
+Complete Binary Tree (Perfect Binary Tree in worst case)
 |                       |                     |            |                             |
 | --------------------: | :------------------ | ---------: | :-------------------------- |
 |     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$           |
@@ -523,7 +572,7 @@ Time Complexity: $O(n)$
 <br/>
 
 <div align="center">
-<img src="/images/heapify_complexity.png" style="width: 80%"/>
+  <img src="/images/heapify_complexity.png" style="width: 80%"/>
 </div>
 
 <style>
@@ -553,6 +602,8 @@ layout: two-cols
 
 <br/>
 
+<div style="width: 90%;">
+
 ```python
 """
 heap_sort: sort nums in place
@@ -572,6 +623,8 @@ def heap_sort2(nums: []) -> []:
         heapify_sift_down(nums, 0, i)
     return nums
 ```
+
+</div>
 
 ::right::
 
@@ -619,12 +672,16 @@ A <span class="hl">Sorted Map</span> is an extension of Map and keys are sorted 
 
 class score:
 
+<div style="width: 50%;">
+
 | Student(key) | Score(value) |
-| :----------- | :----------- |
-| A:           | 80           |
-| B:           | 70           |
-| C:           | 60           |
-| ...          | ...          |
+| :---------- | :----------- |
+| A           | 80           |
+| B           | 70           |
+| C           | 60           |
+| ...         | ...          |
+
+</div>
 
 ---
 
@@ -673,7 +730,8 @@ for a sortedMap
 -   Array/ArrayList
 -   Linked List
 -   Binary Search Tree
--   Hash Table
+-   <span class="hl-color">Hash Table</span>
+-   <span class="hl-color">Skip List</span>
 
 ---
 
@@ -682,15 +740,10 @@ for a sortedMap
 <br/>
 
 -   store (k,v) in a doubly linked list
-
 -   get(k)
-
     -   <span class="norm">loop through the list until find the element with key k</span>
-
 -   set(k,v)
-
     -   <span class="norm">create a new node (k,v) and add it at the front</span>
-
 -   delete(k)
     -   <span class="norm">loop through the list until find the element with key k</span>
     -   <span class="norm">remove it by updating the pre and next elements</span>
@@ -698,10 +751,12 @@ for a sortedMap
 <span class="norm">👉 Complexity: $O(n)$</span>
 
 <style>
-p {
+
+li {
     font-family: "Open Sans";
     font-size: 0.8rem;
 }
+
 </style>
 
 ---
@@ -753,13 +808,16 @@ index = hash % array_size
 
 # Hash Code: Bit Representation
 
+<div style="width: 80%;">
+
 ```python
 # XOR byte by byte
 def byte_xor(ba1, ba2):
     return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
 
 # produce 32-byte hash code
-# chop the data into 32-byte long chunks (padding with zeros if required) then XOR on all chunks
+# chop the data into 32-byte long chunks (padding with zeros if required) 
+# then XOR on all chunks
 def bitwise_xor(data):
     chunks = [data[i:i+32] for i in range(0, len(data), 32)]
     for i in range(len(chunks)):
@@ -775,6 +833,8 @@ def bitwise_xor(data):
         res = byte_xor(res, chunk)
     return res
 ```
+
+</div>
 
 👉 <span class="norm">[MD5](https://en.wikipedia.org/wiki/MD5)&nbsp;&nbsp;&nbsp; [SHA-256](https://en.wikipedia.org/wiki/SHA-2)</span>
 
@@ -1086,19 +1146,20 @@ layout: two-cols
 
 <br/>
 
+<div style="width: 80%;">
+
 > Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
+
+</div>
 
 ::right::
 
 <br/>
 
-<span class="norm">💡 coding tips:</span>
-
--   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ⁇</span>
+<span class="norm">💡 coding tips:</span>  
+-   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ?</span>
 -   <span class="norm">compare hash code first, before compare x and y</span>
 -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
-
-<br/>
 
 ```python
 class UserGroup:
@@ -1428,16 +1489,34 @@ layout: two-cols
 
 
 ---
+layout: two-cols
+---
 
 # BST: Hibbard Deletion
 
 <logos-jupyter />
 
+<br/>
 
 - del min
 
 - del max
 
+::right:: 
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div>
+  <img src="/images/hibbard1.png"/>
+</div>
 
 ---
 layout: two-cols
@@ -1447,17 +1526,19 @@ layout: two-cols
 
 <br/>
 
-<div align="center">
-  <img src="/images/hibbard.png" style="width:80%"/>
+<div>
+  <img src="/images/hibbard2.png"/>
 </div>
 
 ::right::
 
 <br/>
-<br/>
-<br/>
+
 <br/>
 
+<br/>
+
+<br/>
 
 <div class="inline-grid grid-cols-[4fr,1fr,4fr] gap-2">
   <div>
@@ -1481,17 +1562,19 @@ layout: two-cols
 
 <br/>
 
-<div align="center">
-  <img src="/images/hibbard.png" style="width:80%"/>
+<div>
+  <img src="/images/hibbard2.png"/>
 </div>
 
 ::right::
 
 <br/>
-<br/>
-<br/>
+
 <br/>
 
+<br/>
+
+<br/>
 
 <div class="inline-grid grid-cols-[4fr,1fr,4fr] gap-2">
   <div>
@@ -1511,6 +1594,8 @@ layout: two-cols
 
 # BST: Traversal
 
+<br/>
+
 - pre-order
 - in-order: sorted list 👈
 - post-order
@@ -1519,11 +1604,6 @@ layout: two-cols
 <!--
 
 pre/in/post depends on when we want to proces the node, e.g. for memory management in C++, we probably want to do GC for the node when GC is done for left & right subtree, so post-order may be a choice.
-
-min, max
-floor, ceil
-rank, select
-
 
 -->
 
@@ -1586,13 +1666,13 @@ layout: two-cols
 
 <br/>
 
--   Heap is <span class="uline">balanced</span> tree, BST is not
+-   <span class="hl">Heap</span> is <span class="uline">balanced</span> tree, <span class="hl">BST</span> is not
 
--   Heap allows duplicates, BST doesnot
+-   <span class="hl">Heap</span> allows duplicates, <span class="hl">BST</span> doesnot
 
--   BST is ordered data structure, Heap is not
+-   <span class="hl">BST</span> is ordered data structure, <span class="hl">Heap</span> is not
 
--   worst case for building $n$ nodes of BST $O(n \cdot log(n))$, Heap is $O(n)$ (heapify)
+-   worst case for building $n$ nodes of <span class="hl">BST</span> $O(n \cdot log(n))$, <span class="hl">Heap</span> is $O(n)$ (heapify)
 
 ::right::
 
@@ -1683,7 +1763,7 @@ layout: two-cols
 
 <br/>
 
-Rebalance ⁇  
+Rebalance ?
 - When: insert(), delete()
 - Where: backtracking from the node
 
@@ -1709,6 +1789,10 @@ Steps:
 
 3. left/right rotation if unbalanced
 
+<br/>
+
+<span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/AVLtree.html](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)</span>
+
 <!--
 
 delete:
@@ -1728,9 +1812,15 @@ layout: two-cols
 
 $T1 < z < T2 < y < T3 < z < T4$
 
-- y.right = x
+<div style="width: 80%;">
 
+```md
+- y.right = x
 - x.left = T3
+```
+
+</div>
+
 
 ::right::
 
@@ -1756,9 +1846,14 @@ layout: two-cols
 
 $T4 < x < T3 < y < T1 < z < T2$
 
-- y.left = x
+<div style="width: 80%;">
 
+```md
+- y.left = x
 - x.right = T3
+```
+
+</div>
 
 ::right::
 
@@ -1782,11 +1877,18 @@ layout: two-cols
 
 <logos-jupyter />
 
+<br/>
 
+<br/>
+
+<div style="width: 80%;">
+
+```md
 1. LR → LL: left rotate
-
 2. LL: right rotate
+```
 
+</div>
 
 ::right::
 
@@ -1810,9 +1912,18 @@ layout: two-cols
 
 <logos-jupyter />
 
-1. RL → RR: right rotate
+<br/>
 
+<br/>
+
+<div style="width: 80%;">
+
+```md
+1. RL → RR: right rotate
 2. RR: left rotate
+```
+
+</div>
 
 ::right::
 
@@ -1873,8 +1984,7 @@ layout: two-cols
 
 <br/>
 
-<span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/AVLtree.html](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)</span>
-
+AVL: $O(N)$ → $O(logN)$
 
 <!--
 
@@ -1883,6 +1993,20 @@ layout: two-cols
 - Red Black Tree better than AVL
 
 -->
+
+---
+layout: center
+---
+
+# Red Black Tree
+
+---
+
+# Red Black Tree
+
+
+
+---
 
 ---
 layout: center
@@ -2010,26 +2134,30 @@ sorted linked list for sorted map
 
 <br/>
 
-<div style="width: 50%">
+<div style="width: 70%">
   <table class="ops">
     <thead>
       <tr>
-        <th id="" width="40%">Operation</th>
-        <th id="" width="60%">Time Complexity avg</th>
+        <th id="" width="20%">Operation</th>
+        <th id="" width="40%">Skip List avg</th>
+        <th id="" width="40%">Link List avg</th>
       </tr>
     </thead>
     <tbody>
       <tr class="odd">
         <th>Search</th>
         <td>O(logN) 👈</td>
+        <td>O(N)</td>
       </tr>
       <tr class="even">
         <th>Insert</th>
         <td>O(logN)</td>
+        <td>O(N)</td>
       </tr>
       <tr class="odd">
         <th>Delete</th>
         <td>O(logN)</td>
+        <td>O(N)</td>
       </tr>
     </tbody>
   </table>
@@ -2037,7 +2165,7 @@ sorted linked list for sorted map
 
 <br/>
 
-[Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf), William Pugh, 1990
+<span class="norm">👉 [Skip Lists: A Probabilistic Alternative to Balanced Trees (William Pugh, 1990)](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf)</span>
 
 <!--
 Insert & Delete need to update the searching path, so it depends on Search.
@@ -2045,15 +2173,15 @@ Insert & Delete need to update the searching path, so it depends on Search.
 
 ---
 
-# Skip List vs. Hash Table, Balanced Tree
+# Skip List vs. Hash Table & Balanced Tree
 
 <br/>
 
+- single key search, Hash Table close to $O(1)$
+- for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, $1.33 < 2$
 - keys in order, better for range search
-- operations (linkedlist+ operations) simpler than balanced tree (AVL, Red Black Tree, etc.)
-- for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, 1.33 < 2
-- single key search, Hash Table close to O(1)
-- Skip List implementation simpler
+- Skip List operations (linkedlist++) simpler than balanced tree (AVL, Red Black Tree, etc.)
+- Skip List overall implementation simpler
 
 ---
 layout: center
@@ -2068,8 +2196,10 @@ layout: center
 <br/>
 
 -   make data in order
--   different **Algorithmic Thinking**
+-   different <span class="uline">algorithmic thinking</span>
 
+---
+layout: two-cols
 ---
 
 # Sorting: Selection
@@ -2080,16 +2210,31 @@ layout: center
 
 - sort the arr from left to right
 - every time select the smallest
-- for position i:
-  - [0, i) sorted
-  - [i,n) unsorted
-  - find the smallest from arr[i, n) and place at arr[i]
+- for position $i$:
+  - $[0, i)$ sorted
+  - $[i,n)$ unsorted
+  - find the smallest from $arr[i, n)$ and place at $arr[i]$
 - Complexity: $1 + 2 + 3 + ... + n = \frac{(n + 1) * n}{2}$
+
+::right::
 
 <br/>
 
-<img src="/images/sort_selection.gif" style="width:50%"/>
+<br/>
 
+<br/>
+
+<br/>
+
+<br/>
+
+
+<div align="center">
+  <img src="/images/sort_selection.gif" style="width:90%"/>
+</div>
+
+---
+layout: two-cols
 ---
 
 # Sorting: Insertion
@@ -2099,16 +2244,31 @@ layout: center
 <br/>
 
 - sort the arr from left to right
-- for postion i:
-  - [0, i) sorted
-  - [i, n) unsorted
-  - insert arr[i] to the proper position on the left
-- Complexity: $O(n^2)$, if already sorted, $O(n)$ 👍
+- for postion $i$:
+  - $[0, i)$ sorted
+  - $[i, n)$ unsorted
+  - insert $arr[i]$ to the proper position on the left
+- Complexity: $O(n^2)$, if already sorted → $O(n)$ 👍
+
+::right::
 
 <br/>
 
-<img src="/images/sort_insertion.gif" style="height:40%"/>
+<br/>
 
+<br/>
+
+<br/>
+
+<br/>
+
+
+<div align="center">
+  <img src="/images/sort_insertion.gif" style="width:90%"/>
+</div>
+
+---
+layout: two-cols
 ---
 
 # Sorting: Bubble
@@ -2118,15 +2278,28 @@ layout: center
 <br/>
 
 - sort the arr from right to left
-- for postion postion n-i-1
-  - [n-i, n) sorted
-  - [0, n-i-1) unsorted
-  - bubble the biggest to arr[n-i-1]
+- for postion postion $n-i-1$: 
+  - $[n-i, n)$ sorted
+  - $[0, n-i-1)$ unsorted
+  - bubble the biggest to $arr[n-i-1]$
 - Complexity: $O(n^2)$
+
+::right::
 
 <br/>
 
-<img src="/images/sort_bubble.gif" style="width:50%"/>
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+
+<div align="center">
+  <img src="/images/sort_bubble.gif" style="width:90%"/>
+</div>
 
 <!--
 
@@ -2137,25 +2310,39 @@ improve the data overall ordering while bubble up
 -->
 
 ---
+layout: two-cols
+---
 
 # Sorting: Merge
 
 <logos-jupyter /> John von Neumann  
 
-- recursively [l, m, r]:
-  - sort [l, m]
-  - sort [m+1, r]
-  - merge two sorted array [l, m] & [m+1, r]
+<img src="/images/JohnvonNeumann.jpeg" style="height:30%"/>
 
 <br/>
 
-<div class="inline-grid grid-cols-[1fr,3fr] gap-8">
-  <div>
-    <img src="/images/JohnvonNeumann.jpeg" style="height:50%"/>
-  </div>
-  <div>
-    <img src="/images/sort_merge.gif" style="height:60%"/>
-  </div>
+- recursively $[l, m, r]$:
+  - sort $[l, m]$
+  - sort $[m+1, r]$
+  - <span class="hl-strong">merge</span> two sorted array $[l, m]$ & $[m+1, r]$
+
+<br/>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+
+<div align="center">
+  <img src="/images/sort_merge.gif" style="width:90%"/>
 </div>
 
 
@@ -2171,14 +2358,14 @@ John von Neumann
 
 <br/>
 
-- merge top down:
+- merge top down, improvement: 
   - <span class="norm">[On finding the average of two unsigned integers without overflow](https://devblogs.microsoft.com/oldnewthing/20220207-00/?p=106223)</span>
-  - insertion
-  - tmp
+  - <span class="norm">✅ insertion</span>
+  - <span class="norm">❌ tmp</span>
 
 - merge buttom up
 
-- worst case:
+- worst case ?
     - <span class="norm">sorted array</span>
     - <span class="norm">sorted array (reversed order)</span>
     - <span class="norm">duplicates</span>
@@ -2214,7 +2401,7 @@ layout: two-cols
 "recursion tree"
 
 <div align="left">
-  <img src="/images/sort_merge_complexity.png" style="width:80%"/>
+  <img src="/images/sort_merge_complexity.png" style="width:90%"/>
 </div>
 
 
@@ -2229,24 +2416,35 @@ Algo analysis: lose a little bit of granularity of information but we dont lose 
 -->
 
 ---
+layout: two-cols
+---
 
 # Sorting: Quick
 
 <logos-jupyter /> Tony Hoare
 
-- partition: select v, so that [l, p-1] smaller than v and [p+1, r] bigger than v
-- recursive sort [l, p-1]
-- recursive sort [p+1, r]
+<img src="/images/TonyHoare.jpeg" style="height:30%"/>
 
 <br/>
 
-<div class="inline-grid grid-cols-[1fr,3fr] gap-8">
-  <div>
-    <img src="/images/TonyHoare.jpeg" style="height:80%"/>
-  </div>
-  <div>
-    <img src="/images/sort_quick.gif"  style="height:80%"/>
-  </div>
+- <span class="hl-strong">partition</span>: select $v$, so that $[l, p-1] \leq v$ and $[p+1, r] \geq v$ 
+- recursive sort $[l, p-1]$
+- recursive sort $[p+1, r]$
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/sort_quick.gif" style="width:90%"/>
 </div>
 
 <!--
@@ -2262,15 +2460,18 @@ Quick is faster than Merge because partion func is faster than merge function
 <br/>
 
 - worst case: $O(n^2)$
+    - <span class="norm">sorted array</span>
     - <span class="norm">sorted array (reversed order)</span>
     - <span class="norm">duplicates</span>
     - <span class="norm">$O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$</span>
+    - <span class="norm">recusion stack overflow</span>
 
-- recusion stack overflow
+- random algorithm, time complexity $O(N \cdot log_2N)$ <span class="norm"> 👉 📚 Introduction to Algorithms</span>
 
-- random algorithm, time complexity $O(n \cdot log_2n)$ 👉 [Introduction to Algorithms]()
-
-- two-way quicksort, [3-way radix quicksort ](https://en.wikipedia.org/wiki/Multi-key_quicksort), [dual pivot quicksort](https://arxiv.org/abs/1503.08498)
+- improvement:
+    - <span class="norm">two-way quicksort </span>
+    - <span class="norm">[3-way radix quicksort ](https://en.wikipedia.org/wiki/Multi-key_quicksort)</span>
+    - <span class="norm">[dual pivot quicksort](https://arxiv.org/abs/1503.08498)</span>
 
 ---
 layout: two-cols
@@ -2432,7 +2633,7 @@ Efficient Sort:
 
 <br/>
 
-👉 <span class="norm"><span class="hl-color">1hr</span> vs.  <span class="hl-color">31days</span> (≈ 753hrs)</span>
+👉 <span class="norm"><span class="hl-strong">1hr</span> vs.  <span class="hl-strong">31days</span> (≈ 753hrs)</span>
 
 ---
 
@@ -2467,7 +2668,7 @@ layout: two-cols
 
 <logos-python/> list.sort() or sorted(list)
 
-<mdi-link/>[Timsort](https://bugs.python.org/file4451/timsort.txt)
+<span class="hl-color"><mdi-link/>[Timsort](https://bugs.python.org/file4451/timsort.txt)</span>
 
 <div style="width:90%">
   <table class="ops">
@@ -2504,8 +2705,8 @@ layout: two-cols
 
 <br/>
 
-- <span class="norm">size < 64, insertion sort</span>
-- <span class="norm">"adaptive merge sort"</span>
+<span class="norm">✅ size < 64 → insertion sort</span>  
+<span class="norm">✅  otherwise → "adaptive merge sort"</span>
 
 ::right::
 
@@ -2517,15 +2718,15 @@ layout: two-cols
 
 <br/>
 
-sort operations:
+2 types of sorting operations:
 
-1. <span class="norm">moving or coping objects (just one step)</span>
-2. <span class="norm">comparing two objects:</span>
+- <span class="norm">moving or coping objects (just one step)</span>
+- <span class="norm">comparing two objects:</span>
     <span class="norm">compare class type → compare method → if not, ...</span>
 
 <br/>
 
-<span class="norm"> comparing objects is very expensive</span>
+<span class="norm">⚠️ comparing objects is very expensive</span>
 
 ---
 
@@ -2533,9 +2734,9 @@ sort operations:
 
 <logos-python/> list.sort() or sorted(list)
 
-- run: parts that are strictly increasing (if decreasing, reverse it)
+- **run**: parts that are strictly increasing (if decreasing, reverse it)
 - split into multiple runs
-- merge runs - **Galloping**:
+- **Galloping**: merge runs 
 
 <br/>
 
@@ -2546,7 +2747,7 @@ run2 = [101, 102, 103, , ..., 200]
 ......
 </pre>
 
-$run2[2^{n-1} - 1] <pre run1[0] \leq run2[2^n - 1]$  
+$run2[2^{n-1} - 1] \leq run1[0] \leq run2[2^n - 1]$  
 
 <span class="norm">binary search: $O(N)$ → $O(logN)$</span>
 
@@ -2646,6 +2847,7 @@ Algorithms on Strings
 
 <br/>
 
+<span class="norm">Example:  </span>
 <pre class="norm">
 “Hello World”
 “http://www.google.com”
@@ -2658,11 +2860,12 @@ Algorithms on Strings
 
 <br/>
 
-<span class="hl">Pattern Matching</span>: For a text string $S$ with a length of $n$, and a pattern string $P$ with length of $m$, decides if $P$ is a substring of $S$.
+<span class="hl">Pattern Matching</span>  
+For a text string $S$ with a length of $n$, and a pattern string $P$ with length of $m$, decides if $P$ is a substring of $S$.
 
 <br/>
 
-<span class="hl">Approximate Pattern Matching</span>:
+<span class="hl">Approximate Pattern Matching</span>
 
 - input: a text string $S$ with a length of $n$, a pattern string $P$ with length of $m$, and an integer $d$
 
@@ -2881,8 +3084,8 @@ layout: two-cols
 
 <span class="hl">bad char</span> shift $d$: $d = j - b$   
 
-- where $P[j]$ is the bad char("C") , $P[b]$ is the right most bad char ("D")
-- if cannot find bad char ("D") in $P$ let $b = -1$ 
+- where $P[j]$ is the bad char <span class="hl-strong">C</span>, $P[b]$ is the right most bad char <span class="hl-strong">D</span>
+- if cannot find bad char <span class="hl-strong">D</span> in $P$ let $b = -1$ 
 
 <span class="norm">💬 bad char offset $b$ can be pre-built in a bad char dictionary</span> 
 
@@ -3002,9 +3205,9 @@ layout: two-cols
 
 <span class="hl">good suffix</span> on the left, shift $d$: $d = j - s$ 
 
-- where $P[j]$ is the bad char("A") , good suffix length is $k = m - 1 - j$ ("CD")
+- where $P[j]$ is the bad char <span class="hl-strong">A</span>, good suffix length is $k = m - 1 - j$ 
 
-- $P[s:s+k]$ is the right most suffix 
+- $P[s:s+k]$ is the right most suffix <span class="hl-strong">CD</span>
 
 <span class="norm">💬 offset $s$ for right most suffix with length $k$ can be pre-built in a "suffix" array</span> 
 
@@ -3034,15 +3237,13 @@ layout: two-cols
 
 <span class="hl-color">S: "A" → "D"</span>
 
-<span class="hl">good suffix</span> NOT on the left, shift $d$: $d = m$ 
+<span class="hl">good suffix</span> NOT on the left, shift $d$: $d = m$    
 
 <br/>
 
-<br/>
+<span class="hl-strong">⚠️ except:</span>
 
-<br/>
-
-<span class="norm">⚠️ bad char: "c", good suffix: "d c a"</span>
+<span class="norm">bad char: "c", good suffix: "d c a"</span>
 
 <table class="grid">
   <tbody>
@@ -3194,8 +3395,8 @@ layout: two-cols
 
 a prefix in <span class="hl">good suffix</span>, shift $d$: $d = r$ 
 
-- $P[j]$: bad char ("B")
-- $P[j+1:m]$: good suffix ("ACD")
+- $P[j]$: bad char <span class="hl-strong">B</span>
+- $P[j+1:m]$: good suffix <span class="hl-strong">ACD</span>
 - $P[j+2:m]$: potential prefix 
 - $P[r:m]$: the largest prefix ($P[0:m-r]$) with length $m - r$, where $j+2 \leq r \leq m-1$   
 
@@ -3222,13 +3423,15 @@ layout: two-cols
 
 <logos-jupyter />
 
-<span class="hl">Suffix</span> & <span class="hl">Prefix</span> array
+<br/>
 
-- suffix: start position of the right most suffix 
+- <span class="hl">Suffix</span> array: start position of the right most suffix 
 
-- prefix: True if it is a prefix 
+- <span class="hl">Prefix</span> array: True if it is a prefix 
 
 ::right::
+
+<br/>
 
 <br/>
 
@@ -3288,14 +3491,14 @@ layout: two-cols
 
 <logos-jupyter />
 
-locate bad char $P[j]$, decide $d$:   
+locate bad char $P[j]$ then decide $d$:   
 
 - <span class="strong">bad char</span> $d1 = j - b$ 
 
 - <span class="strong">good suffix</span>
-    1. $d2 = j - s$ ($s$ - right most suffix offset)
-    2. $d2 = r$ (prefix $P[r:m]$ where $j+2 \leq r \leq m-1$) 
-    3. $d2 = m$
+    1. $d2 = j - s$ <span class="norm">($s$: right most suffix offset)</span>
+    2. $d2 = r$ <span class="norm">(prefix $P[r:m]$ true, where $j+2 \leq r \leq m-1$) </span>
+    3. $d2 = m$ <span class="norm">(neither 1 or 2)</span>
 
 - $d = max(d1, d2)$
 
@@ -3308,7 +3511,7 @@ locate bad char $P[j]$, decide $d$:
 
 Time Complexity
 - best case: $O(m + n/m)$ 
-- worst case: $O(m + n*m)$ ($\approx 3n\;or\;5n$, see linkes below)
+- worst case: $O(m + n*m)$ <span class="norm">👉 $\approx 3n$ or $5n$, see linkes below</span>
 
 <br/>
 
@@ -3339,13 +3542,13 @@ layout: center
   <div><img src="/images/string_matching_sunday1.png" style="width: 60%"/></div>
   <div class="norm"></div>
   <div><img src="/images/string_matching_sunday2.png" style="width: 60%"/></div>
-  <div class="norm"><strong>bad char</strong>, shift m + 1</div>
+  <div class="norm">✅ <strong>bad char</strong> → shift <span style="color: #357EC7">m + 1</span></div>
   <div><img src="/images/string_matching_sunday3.png" style="width: 60%"/></div>
   <div></div>
   <div><img src="/images/string_matching_sunday4.png" style="width: 60%"/></div>
   <div></div>
   <div><img src="/images/string_matching_sunday5.png" style="width: 60%"/></div>
-  <div class="norm">otherwise, shift m - i (from the rightmost character to the end of the string + 1)</div>
+  <div class="norm">✅ otherwise → shift <span style="color: #357EC7">m -i</span> (from the rightmost char to the end of the string + 1)</div>
   <div><img src="/images/string_matching_sunday6.png" style="width: 60%"/></div>
 </div>
 
@@ -3410,7 +3613,7 @@ layout: two-cols
       <td>c</td>
       <td>b</td>
       <td>e</td>
-      <td rowspan="2" style="background-color: white">❌</td>      
+      <td rowspan="2" style="background-color: white">👎</td>      
     </tr>
     <tr class="even">
       <td style="font-weight:bolder">P</td>
@@ -3444,7 +3647,7 @@ layout: two-cols
       <td>c</td>
       <td>b</td>
       <td>e</td>
-      <td rowspan="2" style="background-color: white">✅</td>
+      <td rowspan="2" style="background-color: white">👍</td>
     </tr>
     <tr class="even">
       <td style="font-weight:bolder">P</td>
@@ -3617,7 +3820,7 @@ layout: two-cols
 <br/>
 
 <span class="norm">bad char: $P[5]$</span>  
-<span class="norm">substring: $P[0:5]$</span>  
+<span class="norm">substring: $P[0:5]$ (b c b c b)</span>  
 <span class="norm">now shift j to the char after the prefix: $j = next[4] + 1 = 2 + 1 = 3$</span>  
 
 <br/>
@@ -3684,6 +3887,13 @@ for i = 0...n, compare $S[i]$ and $P[j]$:
   - if longest prefix-suffix exists, move P: $j = next[j-1] + 1$
   - else starts from the begining of P: $j = -1 + 1 = 0$ (∵ $next[j-1] = -1$)
 
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
 ---
 layout: two-cols
 ---
@@ -3694,13 +3904,14 @@ layout: two-cols
 
 <span class="hl">next array</span>
 
-$next[i-1] = k$ and $P[i+1] = x$ → $next[i]$ ?  
+Give $next[i-1] = k$ and $P[i+1] = x$ then $next[i]$?  
 
-case1: $P[k+1] == x$, than $next[i] = k + 1$  
+case1: $P[k+1] == x$, than $next[i] = k + 1$    
 
-case2: always look for $k$, so that $P[k+1] == x$ ?
+case2: if not, continuously look for $k'$, so that $P[k'+1] == x$
 
-$next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[k]]$ .....
+$next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[next[k]]]$ .....
+
 
 ::right::
 
@@ -3718,6 +3929,14 @@ $next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[k]]$ .....
   <img src="/images/kmp2.png" style="width: 80%"/>
 </div>
 
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+
+</style>
+
 ---
 layout: two-cols
 ---
@@ -3726,7 +3945,8 @@ layout: two-cols
 
 <br />
 
-<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span><br/>
+<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span>  
+
 <img src="/images/kmp_worst.jpeg" style="width: 80%"/>
 
 ::right::
@@ -3740,7 +3960,8 @@ layout: two-cols
 <br/>
 
 
-<span class="hl">best case: $O(n + 1*n/m + m)$</span><br/>
+<span class="hl">best case: $O(n + 1*n/m + m)$</span>  
+
 <img src="/images/kmp_best.jpeg" style="width: 80%"/>
 
 ---
@@ -3784,7 +4005,7 @@ layout: two-cols
 
 <br/>
 
-👉 KMP is linear 
+<span class="norm">👉 KMP always linear</span>
 
 ---
 layout: center
@@ -3817,19 +4038,20 @@ layout: center
 
 # Graph
 
+<br/>
+
 - Implement Graph ADT using different internal representation
 
 - Learn Graph associated algorithms
 
 - How Graph can be used to solve a wide variety of problems
 
+<br/>
 
 <pre class="norm">
-
 - trees are sub-set of graphs
 
 - graph can model many things in real world such as roads, airline routes, social media connections, etc.
-
 </pre>
 ---
 
@@ -3837,15 +4059,11 @@ layout: center
 
 <mdi-timer-sand />
 
-TBD
-
 ---
 
 # Depth-First Search (DFS)
 
 <mdi-timer-sand />
-
-TBD
 
 ---
 
@@ -3853,15 +4071,11 @@ TBD
 
 <mdi-timer-sand />
 
-TBD
-
 ---
 
 # Dijkstra's Shortest Path
 
 <mdi-timer-sand />
-
-TBD
 
 ---
 
@@ -3869,36 +4083,17 @@ TBD
 
 <mdi-timer-sand />
 
-TBD
-
 ---
 
 # Prim-Jarnik Algorithm
 
 <mdi-timer-sand />
 
-TBD
-
 ---
 
 # Kruskal's Algorithm
 
 <mdi-timer-sand />
-
-TBD
-
----
-layout: center
----
-
-# Red Black Tree
-
----
-
-# Red Black Tree
-
-<mdi-timer-sand />
-
 
 ---
 layout: center
@@ -3996,9 +4191,25 @@ layout: center
 
 # Lab 1
 
-<mdi-timer-sand />
+<logos-jupyter />
 
-TBD
+1. Review "sift up" and "sift down", implement your <strong>MaxHeap</strong>.
+
+2. Give an <strong>O(logN*logN)</strong> algorithm to merge two binary heap.
+
+3. Design a <strong>Min-Max Heap</strong> that supports both remove_min and remove_max in <strong>O(logN)</strong> per operation.  
+    - how to find min and max element? 
+    - how to insert/add an element? 
+    - how to build a Min-Max Heap(heapify) in linear time 
+  
+4. Implement a classic <strong>Cuckoo Hash Table</strong> ([Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)). 
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
