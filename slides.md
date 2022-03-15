@@ -4200,7 +4200,7 @@ layout: center
 3. Design a <strong>Min-Max Heap</strong> that supports both remove_min and remove_max in <strong>O(logN)</strong> per operation.  
     - how to find min and max element? 
     - how to insert/add an element? 
-    - how to build a Min-Max Heap(heapify) in linear time 
+    - how to build a Min-Max Heap(heapify) in linear time?
   
 4. Implement a classic <strong>Cuckoo Hash Table</strong> ([Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)). 
 
