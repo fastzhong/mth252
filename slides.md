@@ -39,7 +39,7 @@ Data Structures and Algorithms II
 
 <div grid="~ cols-2 gap-4">
   <div>
-    6 weeks (Jan ~ Mar), 6 seminars & 6 labs:
+    Learning Objectives (Mar ~ Apr 6 weeks, 6 lectures & 6 labs):
     <p class="norm">
       <ol>
         <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span></li>
@@ -2004,9 +2004,69 @@ layout: center
 
 # Red Black Tree
 
+<br/>
 
+
+A <span class="hl-bg">red-black tree</span> is a binary tree that satisfies the following <span class="uline">red-black properties</span>: 
+
+- every node is either red or black 
+- the root is black 
+- every leaf (NIL) is black 
+- if a node is red, both its children are black 
+- for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
 
 ---
+layout: two-cols
+---
+
+# 2-3 Tree 
+
+<br/>
+
+A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3: 
+
+- <span class="hl">2-node</span>: node with two children 
+- <span class="hl">3-node</span>: node with three children 
+- <span class="uline">a perfect balanced tree</span>: all leaf nodes at the same level  
+
+::right::
+
+<br/>
+
+<br/>
+
+
+<div grid="~ cols-2 gap-4">
+  <div align="center">
+    <span class="norm">2-node</span>
+  </div>
+  <div align="center">
+    <span class="norm">3-node</span>
+  </div>
+  <div align="center">
+    <img src="/images/2-3_tree_2-node.png" style="height: 50%"/>
+  </div>
+  <div align="center">
+        <img src="/images/2-3_tree_3-node.png" style="height: 50%"/>
+  </div>  
+  <div align="center" style="grid-column: 1 / span 2;">
+    <img src="/images/2-3-tree-example.png" style="width: 70%" />
+  </div>
+</div>
+
+---
+
+# 2-3 Tree 
+
+<br/>
+
+- insertion always is done at leaf  
+  - merge leaf node: 
+    - node → 2-node 
+    - 2-node → 3-node 
+    - 3-node → 4-node  
+  - 4-node
+
 
 ---
 layout: center
@@ -4191,20 +4251,26 @@ layout: center
 
 # Lab 1
 
-<logos-jupyter />
+<mdi-clipboard-list-outline />
 
 1. Review "sift up" and "sift down", implement your <strong>MaxHeap</strong>.
 
-2. Give an <strong>O(logN*logN)</strong> algorithm to merge two binary heap.
+2. Give an <strong>O(logN * logN)</strong> algorithm to merge two binary heap.
 
 3. Design a <strong>Min-Max Heap</strong> that supports both remove_min and remove_max in <strong>O(logN)</strong> per operation.  
     - how to find min and max element? 
     - how to insert/add an element? 
     - how to build a Min-Max Heap(heapify) in linear time?
   
-4. Implement a classic <strong>Cuckoo Hash Table</strong> ([Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)). 
+4. Implement a classic <strong>Cuckoo Hash Table</strong> ([Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)) and support the basic operations: insert, get and remove a key. 
 
 <style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
@@ -4215,15 +4281,31 @@ li {
 
 # Lab 2
 
-<mdi-timer-sand />
+<mdi-clipboard-list-outline />
 
-TBD
+1. Optimize AVL tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+
+2. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
+
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
 # Lab 3
 
-<logos-jupyter />
+<mdi-clipboard-list-outline />
 
 1. Implement your <strong>Insertion Sort</strong> and sort the number array from right to left.
 
@@ -4236,6 +4318,12 @@ TBD
 5. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
 
 <style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
@@ -4246,22 +4334,61 @@ li {
 
 # Lab 4
 
-<mdi-timer-sand />
+<mdi-clipboard-list-outline />
 
 TBD
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
 # Lab 5
 
-<mdi-timer-sand />
+<mdi-clipboard-list-outline />
 
 TBD
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
 # Lab 6
 
-<br/>
+<mdi-clipboard-list-outline />
 
 TMA review
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
