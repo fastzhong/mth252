@@ -155,9 +155,7 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 # Priority Queue: Operations 
 
-<logos-jupyter />
-
-<span class="hl">Min PQ</span>  
+### Min PQ  
 
 -   <span class="hl-strong">add(k, v)</span> (enqueue) − adding an element to the queue
 -   <span class="hl-strong">remove_min()</span> (dequeue) − obtain the first element with a pair of (k,v), where k is the mininum value of keys in Min PQ, and remove it from the queue
@@ -166,15 +164,13 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 <br/>
 
-<span class="hl">Max PQ</span>  
+### Max PQ  
 
 <span class="hl-strong">add(k, v)</span>, <span class="hl-strong">remove_max()</span>, <span class="hl-strong">max()</span>, size(), is_empty()
 
 ---
 
 # Priority Queue Complexity
-
-<logos-jupyter />
 
 <br/>
 
@@ -254,7 +250,6 @@ layout: center
 
 <br/>
 
-
 - key of root is always the smallest (MinHeap) or the largest (MaxHeap)
 
 - subtree is also a binary heap 
@@ -303,11 +298,11 @@ child of binary tree is still a binary tree, recusion can be usually considered 
         <tr class="even">
           <td>0</td>
           <td>1</td>
-          <td><span style="color: orange">2</span></td>
+          <td><span style="color: purple">2</span></td>
           <td>3</td>
           <td>4</td>
-          <td><span style="color: orange">5</span></td>
-          <td><span style="color: orange">6</span></td>
+          <td><span style="color: purple">5</span></td>
+          <td><span style="color: purple">6</span></td>
           <td>7</td>
           <td>8</td>
           <td>9</td>
@@ -849,8 +844,6 @@ p {
 
 # Hash Code: Polynomial & Cyclic-Shift
 
-<br/>
-
 ### Polynomial
 
 for n-tuple $(x_0, x_1, x_2, ..., x_{n-1})$, if position is important, we can multiply $a^{n-1}$ for position $n$, e.g.:
@@ -984,8 +977,6 @@ layout: two-cols
 ---
 
 # Hash Function: Collision
-
-<br/>
 
 ### chaining (open hashing)
 
@@ -1134,9 +1125,7 @@ layout: two-cols
 # Hash Function
 
 <br/>
-
-<span class="hl">Guidelines:</span>
-
+   
 -   $H(x)$ must be deterministic
 -   $H(x)$ need to be fast $O(1)$
 -   $H(x)\;mod\;N$ evenly distributed
@@ -1146,7 +1135,7 @@ layout: two-cols
 
 <br/>
 
-<div style="width: 80%;">
+<div style="width: 90%;">
 
 > Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
 
@@ -1160,7 +1149,6 @@ layout: two-cols
 -   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ?</span>
 -   <span class="norm">compare hash code first, before compare x and y</span>
 -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
-
 ```python
 class UserGroup:
 
@@ -1472,11 +1460,11 @@ layout: two-cols
 
 # BST: Operations
 
-<logos-jupyter />
+<br/>
 
 -   search()
 -   insert()
--   delete() <span class="norm">💬 1962, Hibbard Deletion</span>
+-   delete() 
 -   first()
 -   last()
 -   before()
@@ -1484,6 +1472,8 @@ layout: two-cols
 -   is_empty()
 
 <br/>
+
+<span class="norm">💬 1962, Hibbard Deletion</span>
 
 <span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)</span>
 
@@ -1515,7 +1505,7 @@ layout: two-cols
 <br/>
 
 <div>
-  <img src="/images/hibbard1.png"/>
+  <img src="/images/hibbard1.png" style="width:90%"/>
 </div>
 
 ---
@@ -1527,7 +1517,7 @@ layout: two-cols
 <br/>
 
 <div>
-  <img src="/images/hibbard2.png"/>
+  <img src="/images/hibbard2.png" style="width:90%"/>
 </div>
 
 ::right::
@@ -1563,7 +1553,7 @@ layout: two-cols
 <br/>
 
 <div>
-  <img src="/images/hibbard2.png"/>
+  <img src="/images/hibbard2.png" style="width:90%"/>
 </div>
 
 ::right::
@@ -1597,7 +1587,7 @@ layout: two-cols
 <br/>
 
 - pre-order
-- in-order: sorted list 👈
+- in-order: "sorted list" 👈
 - post-order
 - level order
 
@@ -1662,7 +1652,7 @@ Binary Search Tree (BST) is used:
 layout: two-cols
 ---
 
-# Heap vs. BST
+# BST vs. Heap
 
 <br/>
 
@@ -1685,7 +1675,7 @@ layout: two-cols
 <br/>
 
 <div align="center">
-  <img src="/images/binary_search_tree4.png" style="width:40%"/>
+  <img src="/images/binary_search_tree4.png" style="width:30%"/>
 </div>
 
 ---
@@ -2009,11 +1999,11 @@ layout: center
 
 A <span class="hl-bg">red-black tree</span> is a binary tree that satisfies the following <span class="uline">red-black properties</span>: 
 
-- every node is either red or black 
-- the root is black 
-- every leaf (NIL) is black 
-- if a node is red, both its children are black 
-- for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
+1. every node is either red or black 
+2. the root is black 
+3. every leaf (NIL) is black 
+4. if a node is red, both its children are black 
+5. for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
 
 ---
 layout: two-cols
@@ -2025,9 +2015,9 @@ layout: two-cols
 
 A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3: 
 
-- <span class="hl">2-node</span>: node with two children 
-- <span class="hl">3-node</span>: node with three children 
-- <span class="uline">a perfect balanced tree</span>: all leaf nodes at the same level  
+- <span class="hl">2-node</span>: node with two child nodes 
+- <span class="hl">3-node</span>: node with three child nodes
+- <span class="hl-strong">a perfectly balanced tree</span>: all leaf nodes at the same level  
 
 ::right::
 
@@ -2058,15 +2048,79 @@ A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3:
 
 # 2-3 Tree 
 
+<div style="width: 50%;">  
+
+  > Insertion is always done on leaf 
+
+</div>
+
 <br/>
 
-- insertion always is done at leaf  
-  - merge leaf node: 
-    - node → 2-node 
-    - 2-node → 3-node 
-    - 3-node → 4-node  
-  - 4-node
+<div class="inline-grid grid-cols-[5fr,2fr,2fr] gap-2">
+  <div style="font-family: 'Open Sans'; font-size: 0.8rem;">
+    <img src="/images/2-3-tree-insert.png" style="width: 60%"/>
+    <ul>  
+      <li><strong>merge</strong>: insert into a node with only data element (2-node leaf)</li>
+      <li><strong>merge</strong>: insert into a node with two data element (3-node leaf) whose parent contains only one data element (2-node parent)</li>
+      <li><strong>merge</strong> & <strong>split</strong>: insert into a node with two data element (3-node leaf) whose parent contains two data element (3-node parent)</li>
+    </ul>
+  </div>
+  <div align="center">
+    <img src="/images/avl-insert.png"/>
+  </div>
+  <div align="center">
+    <img src="/images/bs-tree-insert.png"/>
+  </div>
+</div>
 
+<span class="norm">👉 [https://people.ksp.sk/~kuko/gnarley-trees/23tree.html](https://people.ksp.sk/~kuko/gnarley-trees/23tree.html)</span>
+
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+
+# Red Black Tree 
+
+<div style="width: 60%;">
+
+> Red Black Tree is equivalent 2-3 Tree 
+
+</div>
+
+<br/>
+
+<img src="/images/2-3-red-black.png" style="height: 40%"/>
+
+
+---
+
+# Red Black Tree 
+
+<div style="width: 60%;">
+
+> Red Black Tree is equivalent 2-3 Tree 
+
+</div>
+
+<br/>
+
+<div class="inline-grid grid-cols-[2fr,1fr,1fr] gap-2">
+  <div style="font-family: 'Open Sans'; font-size: 0.8rem;">
+    <img src="/images/rb-23-tree.png" style="width: 80%"/>
+  </div>
+  <div align="center">
+    <img src="/images/2-3-tree-insert.png"/>
+  </div>
+  <div align="center">
+    <img src="/images/avl-insert.png"/>
+  </div>
+</div>
 
 ---
 layout: center
@@ -2893,7 +2947,7 @@ layout: center
 
 # Text Processing
 
-Algorithms on Strings
+#### Algorithms on Strings
 
 - docs editors, emails, messages
 
@@ -3002,23 +3056,25 @@ layout: two-cols
 ---
 # Rabin-Karp
 
-<br/>  
+<logos-jupyter />
 
-For a text string $S$ with a length of $n$, and a pattern string $P$ with length of $m$, $i = m-1...n - 1$, compute hashing $h(i)$ for substring S[i...i + m - 1]:
+#### Rolling Hash  
+
+$S$ with a length of $n$, and a pattern string $P$ with length of $m$  
+for $i = m-1...n - 1$, compute hashing $h(i)$ for substring S[i-m+1...i]:
 
 $B = 256$   
 $M = 1e9 + 7$  
 $BP = B^{m-1}\;\%\;M$  
 
-  h(i): S[i-m+1] ... S[i]  
-h(i+1): <span style="text-decoration: line-through red;">S[i-m+1]</span> ... S[i] S[i+1]  
+h(i-1): S[i-m+1] ... S[i-1]    
+&nbsp;&nbsp;&nbsp;h(i): <span style="text-decoration: line-through red;">S[i-m+1]</span> ... S[i-1] S[i]  
 
--   $h[i] = (h * B + S[i]) % M$
+-   $h[i] = (h * B + S[i])\;\%\;M$
 
--   $h = h[i] - s[i-m+1] * B^{m-1}$  
-    $h = h[i] - s[i-m+1] * B^{m-1}\;\%\;M$  
-    $h = (h[i] - s[i-m+1] * B^{m-1}\;\%\;M + M)\;\%\;M$   
-    $h = (h[i] - s[i-m+1] * BP\;\%\;M + M)\;\%\;M$ 
+-   $h = h[i-1] - s[i-m+1] * B^{m-1}\;\%\;M$  
+    $h = (h[i-1] - s[i-m+1] * B^{m-1}\;\%\;M + M)\;\%\;M$ ⏰  
+    $h = (h[i-1] - s[i-m+1] * BP\;\%\;M + M)\;\%\;M$ 
      
 
 
@@ -3040,32 +3096,26 @@ h(i+1): <span style="text-decoration: line-through red;">S[i-m+1]</span> ... S[i
 
 <br/>
 
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
 <span class="norm">e.g. m = 5</span>  
 "54321": $5 * 10^4 + 4 * 10^3 + 3 * 10^2 + 2 * 10^1 + 1 * 10^0$   
 "bbabc": $b * 256^4 + b * 256^3 + a * 256^2 + b * 256^1 + c * 256^0$    
-  
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 $(a + b)\;\%\;M = (a\;\%\;M + b\;\%\;M)\;\%\;M$   
 $(a * b)\;\%\;M = (a\;\%\;M * b\;\%\;M)\;\%\;M$ 
 
 <!--
 
-Rabin-Karp = rolling hashing
+Rabin-Karp = rolling hashing (sliding window)
 
 Rabin-Karp worst case: find all "aaa" from "aaaaaaaaa" 
 
@@ -3089,6 +3139,459 @@ table {
 layout: center
 ---
 
+# Knuth-Morris-Pratt
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<span class="hl-color">prefix/suffix</span>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:purple">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td>c</td>
+      <td>b</td>
+      <td style="color:purple">e</td>
+      <td>a</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td style="color:purple">c</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+      <td rowspan="2" style="background-color: white">👎</td>      
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td> </td>
+      <td style="color:purple">b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+      <td>a</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:purple">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+      <td rowspan="2" style="background-color: white">👍</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td> </td>
+      <td> </td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="color:purple">c</td>
+      <td>b</td>
+      <td>e</td>
+      <td>a</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/kmp1.png" style="width: 80%"/>
+  <br/>
+  <br/>
+  <br/>
+  longest common "<span class="hl">prefix/suffix</span>"
+</div>
+
+<br/>
+
+<br/>
+
+<pre class="norm">
+P: b c b c e a  
+
+prebuild the array to store the next position to shift for any substrings of P: 
+b, b c, b c b, b c b c, b c b c e, b c b c e  
+
+</pre>
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<br/>
+
+<span class="hl">next array</span>
+
+<div style="width: 90%">
+  <span class="norm">P: b c b c b e a</span>
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id="" width="30%">substring</th>
+        <th id="">last pos</th>
+        <th id="">prefix last char</th>
+        <th id="" width="30%">next pos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>b</th>
+        <td>0</td>
+        <td>-1</td>
+        <td>next[0] = -1</td>
+      </tr>
+      <tr class="even">
+        <th>b c</th>
+        <td>1</td>
+        <td>-1</td>
+        <td>next[1] = -1</td>
+      </tr>
+      <tr class="odd">
+        <th>b c b</th>
+        <td>2</td>
+        <td>0 (b)</td>
+        <td>next[2] = 0</td>
+      </tr>
+      <tr class="even">
+        <th>b c b c</th>
+        <td>3</td>
+        <td>1 (b c)</td>
+        <td>next[3] = 1</td>
+      </tr>
+      <tr class="odd">
+        <th>b c b c b</th>
+        <td>4</td>
+        <td>2 (b c b)</td>
+        <td>next[4] = 2</td>
+      </tr>
+      <tr class="even">
+        <th>b c b c b e</th>
+        <td>5</td>
+        <td>-1</td>
+        <td>next[5] = -1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:purple">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td>c</td>
+      <td>b</td>
+      <td style="color:purple">e</td>
+      <td>a</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">j</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td style="color:purple">5</td>
+      <td></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<span class="norm">char to compare in pattern: $j = 5$</span>   
+<span class="norm">bad char: $P[5]$</span>  
+<span class="norm">substring: $P[0:5]$ (b c b c b)</span>  
+<span class="norm">look for longest common prefix/suffix: $next[5-1]$</span>  
+<span class="norm">next char to compare in pattern: $j = next[5-1] + 1 = 2 + 1 = 3$</span>  
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">S</td>
+      <td>b</td>
+      <td>c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td  style="color:purple">d</td>
+      <td>b</td>
+      <td>c</td>
+      <td>b</td>
+      <td>e</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">P</td>
+      <td> </td>
+      <td> </td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="font-weight:bold; color:green">c</td>
+      <td style="font-weight:bold; color:green">b</td>
+      <td style="color:purple">c</td>
+      <td>b</td>
+      <td>e</td>
+      <td>a</td>
+      <td> </td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">j</td>
+      <td> </td>
+      <td> </td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td style="color:purple">3</td>
+      <td></td>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<logos-jupyter />
+
+for i = 0...n, compare $S[i]$ and $P[j]$:   
+
+- $S[i]\;==\;P[j]$
+  - if $j = m$, $P$ is found in $S$
+  - else move both $S$ and $P$ to next char   
+  $i++$, $j++$
+
+
+- $S[i]\;!=\;P[j]$ (bad char)
+  - if longest common prefix/suffx found, next char to compare:   
+  $j = next[j-1] + 1$
+  - else compare from the begining (∵ $next[j-1] = -1$):   
+  $j = next[j-1] + 1 = -1 + 1 = 0$ 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+```python
+for i in range(len_s): 
+        while j > 0 and s[i] != p[j]: 
+            # refer to slides: "bad char" found
+            j = next_arr[j - 1] + 1 
+        if s[i] == p[j]:
+            j += 1
+        if j == len_p:
+            return i - len_p + 1
+```
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<logos-jupyter />
+
+<span class="hl">next array</span>
+
+Give $next[i-1] = k$ and $P[i] = x$ then $next[i]$?  
+
+case1: $P[k+1] == x$, than $next[i] = k + 1$    
+
+case2: if not, continuously look for $k'$, so that $P[k'+1] == x$
+
+$k$: $next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[next[k]]]$ .....
+
+$x?$: $P[k]$ → $P[next[k]]$ → $P[next[next[k]]]$ → ......
+
+
+```python
+while k != -1 and p[k + 1] != p[i]: 
+    k = next_arr[k]
+if p[k + 1] == p[i]:
+    k += 1
+next_arr[i] = k 
+```
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/kmp2.png" style="width: 80%"/>
+</div>
+
+<style>
+p {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+
+</style>
+
+---
+layout: two-cols
+---
+
+# Knuth-Morris-Pratt (KMP)
+
+<br />
+
+<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span>  
+
+<img src="/images/kmp_worst.jpeg" style="width: 80%"/>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+
+<span class="hl">best case: $O(n + 1*n/m + m)$</span>  
+
+<img src="/images/kmp_best.jpeg" style="width: 80%"/>
+
+
+---
+layout: center
+---
+
 # Boyer-Moore
 
 ---
@@ -3096,14 +3599,16 @@ layout: two-cols
 ---
 # Boyer-Moore (BM)
 
+### bad char heuristic
+
 <br/>
 
-<div align="center">
+<div align="center"> 
   <img src="/images/string_matching_bm1.png" style="width: 80%"/>
   <img src="/images/string_matching_bm2.png" style="width: 80%"/>
+  <br/>
   <img src="/images/string_matching_bm3.png" style="width: 80%"/>
   <img src="/images/string_matching_bm4.png" style="width: 80%"/>
-  <img src="/images/string_matching_bm5.png" style="width: 80%"/>
 </div>
 
 ::right::
@@ -3117,37 +3622,65 @@ layout: two-cols
 <br/>
 
 <div align="center">
-  <img src="/images/string_matching_bm6.jpeg" style="width: 80%"/><br/>
+  <img src="/images/string_matching_bm5.png" style="width: 80%"/>
+  <img src="/images/string_matching_bm6.jpeg" style="width: 80%"/>
+  <br/>
   <img src="/images/string_matching_bm7.jpeg" style="width: 80%"/>
   <br/>
-  <br/>
-  "<span class="hl">bad char</span>"
+  
+  <span class="hl">"bad char"</span>
+
 </div>
 
 <!--
 
 E mistach and not in Pattern 
-B mistach and in Pattern 
-D mistach and in Pattern 
+B mistach and in Pattern, bad char lookup good, align   
+D mistach and in Pattern, bad char lookup good, align 
 
-if there are two or more bad char in Pattern
+if there are two or more bad char in Pattern? right most 
 
 -->
 
 ---
+
+# Boyer-Moore (BM)
+
+### bad char heuristic
+
+look for the <span class="uline">right most</span> bad char:   
+
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div>
+    <img src="/images/bm_bad_char1.png"/>
+  </div>
+  <div>&nbsp</div>
+  <div>
+    <img src="/images/bm_bad_char2.png"/>
+  </div>
+  <div>❌</div>
+  <div>
+    <img src="/images/bm_bad_char3.png"/>
+  </div>
+  <div>✅</div>
+</div>
+
+---
 layout: two-cols
 ---
 
 # Boyer-Moore (BM)
 
-<span class="hl-color">S: "B" → "B"</span>
+### bad char heuristic
 
-<span class="hl">bad char</span> shift $d$: $d = j - b$   
+<span class="hl">bad char</span> shift $d = j - b$   
 
-- where $P[j]$ is the bad char <span class="hl-strong">C</span>, $P[b]$ is the right most bad char <span class="hl-strong">D</span>
-- if cannot find bad char <span class="hl-strong">D</span> in $P$ let $b = -1$ 
+- where $S[i+j]$ is the bad char, and $P[b] == S[i+j]$ is the right most bad char 
+- if $P[b]$ doesnot exist, let $b = -1$
 
-<span class="norm">💬 bad char offset $b$ can be pre-built in a bad char dictionary</span> 
+<br/>
+
+<span class="norm">💬 bad char offset $b$ can be pre-built for bad char position $j$ ($P[j]$) for all possible missing char in <span class="hl-strong">2-D</span> lookup table $badchar\_tbl$ ?</span> 
 
 <br/>
 
@@ -3157,17 +3690,109 @@ layout: two-cols
 
 <br/> 
 
-<br/>
 
-<br/>
+<div style="margin:5%; width:90%">
+  <img src="/images/string_matching_bm5.png" style="width: 90%"/>
+  <img src="/images/string_matching_bm6.jpeg" style="width: 90%"/>
+</div>
 
-<br/>
+<div style="margin:5%; width:90%">
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>B</td>
+        <td>D</td>
+        <td>C</td>
+        <td>B</td>
+        <td>C</td>
+        <td style="color:purple">D</td>
+        <td>D</td>
+        <td>B</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td>B</td>
+        <td>C</td>
+        <td style="font-weight:bold; color:green">D</td>
+        <td>B</td>
+        <td>A</td>
+        <td style="color:purple">C</td>
+        <td>D</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">j</td>
+        <td>0</td>
+        <td>1</td>
+        <td style="font-weight:bold; color:green">2</td>
+        <td>3</td>
+        <td>4</td>
+        <td style="color:purple">5</td>
+        <td></td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
 
-<br/>
+  $d = 5 - 2 = 3$
 
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>B</td>
+        <td>D</td>
+        <td>C</td>
+        <td>B</td>
+        <td>C</td>
+        <td style="color:purple">D</td>
+        <td>D</td>
+        <td>B</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+      <tr class="odd">
+        <td style="font-weight:bolder">i</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>B</td>
+        <td>C</td>
+        <td style="font-weight:bold; color:green">D</td>
+        <td>B</td>
+        <td>A</td>
+        <td style="color:purple">C</td>
+        <td>D</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
-<div align="center">
-  <img src="/images/string_matching_bm11.jpeg" style="width: 90%"/>
 </div>
 
 
@@ -3177,24 +3802,64 @@ layout: two-cols
 
 # Boyer-Moore (BM)
 
-<logos-jupyter />
+### bad char heuristic
 
-<span class="hl">bad char</span> shift for Pattern $P$ lookup table $badchar\_dict$:   
+let $P[b]$ be the right most char <span class="uline">regardless $j$</span>
+  
+- case1: bad char not found $d = j - b = j - (-1)$ 
 
-- all possible bad char (ascii "0-255") and default $-1$
-- for each char $P[b]$ in P (i = 0...m-1): $badchar\_dict[P[b]] = b$
+- case2: bad char found and $b < j$, $d = j - b$ 
 
-<br/>
+- case3: when $d \leq 0$, let $d = 1$ (might not be the optimized shift)
+ 
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">P</td>
+      <td>a</td>
+      <td>b</td>
+      <td>d</td>
+      <td>a</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">index</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table> 
 
-<br/>
-
-<br/>
-
-<br/>
-
-<span class="norm">"b" appears twice in P, and shift to <span class="uline">the right most</span> "b", $d = j - b$ is $4 - 2$ instead of $4 - 0$</span>
-
-<span class="norm">the offset in lookup table, 2nd "b" will replace the first as iterating P from left to right: $badchar\_dict['b'] = 0$ → $badchar\_dict['b'] = 2$</span>
+$badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table: 
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">bad char</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>97</td>
+      <td>98</td>
+      <td>99</td>
+      <td>100</td>
+      <td>...</td>
+      <td>255</td>
+    </tr>
+    <tr class="even">
+      <td style="font-weight:bolder">b</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>...</td>
+      <td style="font-weight:bold; color:green">3</td>
+      <td style="font-weight:bold; color:green">1</td>
+      <td>-1</td>
+      <td style="font-weight:bold; color:green">2</td>
+      <td>...</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table> 
 
 ::right::
 
@@ -3202,22 +3867,190 @@ layout: two-cols
 
 <br/> 
 
-<br/>
+<br/> 
 
-<div align="center">
-  <img src="/images/string_matching_bm11.jpeg" style="width: 90%"/><br/>
-  <img src="/images/bm_bad_char1.png" style="width: 90%"/>
-  <img src="/images/bm_bad_char2.png" style="width: 90%"/>
-  <img src="/images/bm_bad_char3.png" style="width: 90%"/>
+**case1**: 
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div>
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+        <td style="font-weight:bolder; color:purple">d</td>
+        <td>e</td>
+        <td>f</td>
+        <td>g</td>
+        <td>f</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td>e</td>
+        <td>f</td>
+        <td>g</td>
+        <td>f</td>
+      </tr>
+    </tbody>
+  </table>  
+  </div>
+  <div>
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+        <td style="font-weight:bolder; color:purple">d</td>
+        <td>e</td>
+        <td>f</td>
+        <td>g</td>
+        <td>f</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>e</td>
+        <td>f</td>
+        <td>g</td>
+        <td>f</td>
+      </tr>
+    </tbody>
+  </table>  
+  </div>
 </div>
 
+**case2**: 
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div>
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>a</td>
+        <td>b</td>
+        <td>a</td>
+        <td style="font-weight:bolder; color:purple">e</td>
+        <td>c</td>
+        <td>d</td>
+        <td>g</td>
+        <td>f</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td>a</td>
+        <td style="font-weight:bolder; color:purple">e</td>
+        <td>c</td>
+        <td>d</td>
+      </tr>
+    </tbody>
+  </table>  
+  </div>
+  <div>
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>a</td>
+        <td>b</td>
+        <td>a</td>
+        <td style="font-weight:bolder; color:purple">e</td>
+        <td>c</td>
+        <td>d</td>
+        <td>g</td>
+        <td>f</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td></td>
+        <td></td>
+        <td>a</td>
+        <td style="font-weight:bolder; color:purple">e</td>
+        <td>c</td>
+        <td>d</td>
+      </tr>
+    </tbody>
+  </table> 
+  </div>
+</div>
+
+**case3**: 
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div>
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>a</td>
+        <td style="font-weight:bolder; color:purple">a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td></td>
+        <td style="font-weight:bolder; color:purple">b</td>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+    </tbody>
+  </table>  
+  </div>
+  <div>
+  <table class="grid">
+    <tbody>
+      <tr class="odd">
+        <td style="font-weight:bolder">S</td>
+        <td>a</td>
+        <td style="font-weight:bolder; color:purple">a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+      <tr class="even">
+        <td style="font-weight:bolder">P</td>
+        <td></td>
+        <td></td>
+        <td style="font-weight:bolder; color:purple">b</td>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 layout: two-cols
 ---
 # Boyer-Moore (BM)
 
-<br/>
+### good suffix heuristic
 
 <br/>
 
@@ -3261,15 +4094,54 @@ layout: two-cols
 
 # Boyer-Moore (BM)
 
-<span class="hl-color">S: "A" → "B"</span>
+### good suffix heuristic
 
-<span class="hl">good suffix</span> on the left, shift $d$: $d = j - s$ 
+<span class="hl">good suffix</span> on the left, shift $d = j - s$ 
 
-- where $P[j]$ is the bad char <span class="hl-strong">A</span>, good suffix length is $k = m - 1 - j$ 
+- $P[j]$: bad char
+- $P[j+1:m]$ = $P[s:s+k]$: good suffix with length $k = (m-1) - j$ 
 
-- $P[s:s+k]$ is the right most suffix <span class="hl-strong">CD</span>
+<span class="norm">💬 good suffix with offset $s$ for bad char $P[j]$ can be pre-built in a $suffix$ array</span> 
 
-<span class="norm">💬 offset $s$ for right most suffix with length $k$ can be pre-built in a "suffix" array</span> 
+::right::
+
+<br/>
+
+<br/> 
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/bm-suffix.png" style="width: 90%"/>
+</div>
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Boyer-Moore (BM)
+
+### good suffix heuristic
+
+<br/>
+
+<span class="hl">good suffix</span> NOT on the left, shift $d = m$ ?    
+
+<br/>
+
+⚠️ <span class="hl-strong">Prefix</span>
+
+
+
 
 ::right::
 
@@ -3283,27 +4155,7 @@ layout: two-cols
 
 <br/>
 
-<br/>
-
-<div align="center">
-  <img src="/images/string_matching_bm12.jpeg" style="width: 90%"/>
-</div>
-
----
-layout: two-cols
----
-
-# Boyer-Moore (BM)
-
-<span class="hl-color">S: "A" → "D"</span>
-
-<span class="hl">good suffix</span> NOT on the left, shift $d$: $d = m$    
-
-<br/>
-
-<span class="hl-strong">⚠️ except:</span>
-
-<span class="norm">bad char: "c", good suffix: "d c a"</span>
+<span class="norm">bad char: "c", good suffix: "d c a", prefix: "c a"</span>
 
 <table class="grid">
   <tbody>
@@ -3312,7 +4164,7 @@ layout: two-cols
       <td>a</td>
       <td>b</td>
       <td>c</td>
-      <td  style="color:orange">b</td>
+      <td  style="color:purple">b</td>
       <td>d</td>
       <td>c</td>
       <td>a</td>
@@ -3329,7 +4181,7 @@ layout: two-cols
       <td>c</td>
       <td>a</td>
       <td>d</td>
-      <td style="color:orange">c</td>
+      <td style="color:purple">c</td>
       <td style="font-weight:bold; color:green">d</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">a</td>
@@ -3428,22 +4280,7 @@ layout: two-cols
   </tbody>
 </table>
 
-::right::
 
-<br/>
-
-<br/> 
-
-<br/>
-
-<br/>
-
-<br/>
-
-
-<div align="center">
-  <img src="/images/string_matching_bm15.jpeg" style="width: 90%"/>
-</div>
 
 ---
 layout: two-cols
@@ -3451,16 +4288,16 @@ layout: two-cols
 
 # Boyer-Moore (BM)
 
-<span class="hl-color">S: "B" → "C"</span>
+### good suffix heuristic
 
-a prefix in <span class="hl">good suffix</span>, shift $d$: $d = r$ 
+a prefix in <span class="hl">good suffix</span>, shift $d = r$ 
 
-- $P[j]$: bad char <span class="hl-strong">B</span>
-- $P[j+1:m]$: good suffix <span class="hl-strong">ACD</span>
+- $P[j]$: bad char
+- $P[j+1:m]$: good suffix 
 - $P[j+2:m]$: potential prefix 
-- $P[r:m]$: the largest prefix ($P[0:m-r]$) with length $m - r$, where $j+2 \leq r \leq m-1$   
+- $P[r:m]$: the largest prefix ($P[0:m-r]$), where $j+2 \leq r \leq m-1$   
 
-<span class="norm">💬 prefix with length $m - r$ can be pre-built in a prefix array</span> 
+<span class="norm">💬 prefix for length $m-r$ checking can be pre-built in a $prefix$ array</span> 
 
 ::right::
 
@@ -3473,21 +4310,118 @@ a prefix in <span class="hl">good suffix</span>, shift $d$: $d = r$
 <br/>
 
 <div align="center">
-  <img src="/images/string_matching_bm14.jpeg" style="width: 90%"/>
+  <img src="/images/bm-prefix.png" style="width: 90%"/>
 </div>
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---  
 layout: two-cols
 ---
+
 # Boyer-Moore (BM)
 
-<logos-jupyter />
+### good suffix heuristic
+
+- <span class="hl">Suffix</span><span class="norm"> array: start position of the right most suffix</span>  
+- <span class="hl">Prefix</span><span class="norm"> array: True if it is a prefix </span>
+
+<span class="norm">P: "abcdab"</span>
+<table class="ops">
+  <thead>
+    <tr>
+      <th id="">good suffix</th>
+      <th id="">len</th>
+      <th id="" width="30%">suffix</th>
+      <th id="" width="40%">prefix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <th>b</th>
+      <td>1</td>
+      <td>suffix[1] = 1</td>
+      <td>prefix[1] = false</td>
+    </tr>
+    <tr class="even">
+      <th>ab</th>
+      <td>2</td>
+      <td>suffix[2] = 0</td>
+      <td>prefix[2] = true</td>
+    </tr>
+    <tr class="odd">
+      <th>dab</th>
+      <td>3</td>
+      <td>suffix[3] = -1</td>
+      <td>prefix[3] = false</td>
+    </tr>
+    <tr class="even">
+      <th>cdab</th>
+      <td>4</td>
+      <td>suffix[4] = -1</td>
+      <td>prefix[4] = false</td>
+    </tr>
+    <tr class="odd">
+      <th>bcdab</th>
+      <td>5</td>
+      <td>suffix[5] = -1</td>
+      <td>prefix[5] = false</td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
 
 <br/>
 
-- <span class="hl">Suffix</span> array: start position of the right most suffix 
+<br/>
 
-- <span class="hl">Prefix</span> array: True if it is a prefix 
+<br/>
+
+<div style="display:flex; justify-content:center; width:100%">
+
+```python
+def build_goodsuffix_arr(p): 
+    m = len(p)
+    suffix = [-1 for _ in range(m)]
+    prefix = [False for _ in range(m)]
+    for i in range(m - 1): 
+        # two pointers to compare suffix 
+        j = i 
+        k = 0
+        while j >= 0 and p[j] == p[m - 1 - k]: 
+            k += 1
+            suffix[k] = j 
+            j -= 1
+        if j == -1: 
+            prefix[k] = True
+    return suffix, prefix 
+```
+
+</div>
+
+<div align="center">
+  <img src="/images/bm-prefix-suffix.png" style="width: 80%"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# Boyer-Moore (BM)
+
+### good suffix heuristic
+
+<br/>
+
+1. $d = j - s$ <span class="norm">($s$: right most suffix offset)</span>
+2. $d = r$ <span class="norm">(prefix $P[r:m]$ true, where $j+2 \leq r \leq m-1$) </span>
+3. $d = m$ <span class="norm">(neither 1 or 2)</span>
 
 ::right::
 
@@ -3499,53 +4433,25 @@ layout: two-cols
 
 <br/>
 
-<div style="">
-  <p class="norm">P: "abcdab"</p>
-  <table class="ops">
-    <thead>
-      <tr>
-        <th id="">good suffix</th>
-        <th id="">len</th>
-        <th id="" width="30%">suffix</th>
-        <th id="" width="40%">prefix</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="odd">
-        <th>b</th>
-        <td>1</td>
-        <td>suffix[1] = 1</td>
-        <td>prefix[1] = false</td>
-      </tr>
-      <tr class="even">
-        <th>ab</th>
-        <td>2</td>
-        <td>suffix[2] = 0</td>
-        <td>prefix[2] = true</td>
-      </tr>
-      <tr class="odd">
-        <th>dab</th>
-        <td>3</td>
-        <td>suffix[3] = -1</td>
-        <td>prefix[3] = false</td>
-      </tr>
-      <tr class="even">
-        <th>cdab</th>
-        <td>4</td>
-        <td>suffix[4] = -1</td>
-        <td>prefix[4] = false</td>
-      </tr>
-      <tr class="odd">
-        <th>bcdab</th>
-        <td>5</td>
-        <td>suffix[5] = -1</td>
-        <td>prefix[5] = false</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+```python
+def search_bm_shift_goodsuffix(suffix, prefix, m, j): 
+    k =  m - 1 - j # length of good suffix 
+    # look for right most suffix with length k 
+    if suffix[k] != -1: 
+        # "suffix" exists 
+        return j - suffix[k] + 1
+    # look for the largest prefix in P[j+2...m]: j+2 <= r <= m-1  
+    for r in range(j+2, m, 1): 
+        if prefix[m-r]: 
+            # "prefix" exists 
+            return r
+    # no suffix, no prefix 
+    return m
+```
 
 ---  
+layout: two-cols
+---
 
 # Boyer-Moore (BM)
 
@@ -3553,37 +4459,92 @@ layout: two-cols
 
 locate bad char $P[j]$ then decide $d$:   
 
-- <span class="strong">bad char</span> $d1 = j - b$ 
+- <span class="strong">bad char</span> $d1$  
 
-- <span class="strong">good suffix</span>
-    1. $d2 = j - s$ <span class="norm">($s$: right most suffix offset)</span>
-    2. $d2 = r$ <span class="norm">(prefix $P[r:m]$ true, where $j+2 \leq r \leq m-1$) </span>
-    3. $d2 = m$ <span class="norm">(neither 1 or 2)</span>
+- <span class="strong">good suffix</span> $d2$
 
 - $d = max(d1, d2)$
 
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+```python
+# comapre backward to find "bad char"
+for i in range(len_s - len_p + 1): 
+        j = len_p - 1 
+        # comapre backward to find "bad char"
+        while j >= 0 and s[i+j] == p[j]: 
+            j -= 1
+        if j < 0: 
+            # p is found 
+            return i 
+        # bad char found at s[i+j] != p[j]
+        # bad char shift d1
+        d1 = j - badchar_tbl[ord(s[i+j])]
+        d1 = 1 if d1 <= 0 else d1 
+        # good suffix shift d2 
+        d2 = 0 
+        if len_p - 1 - j > 0: 
+            d2 = search_bm_shift_goodsuffix(suffix, prefix, len_p, j)
+        i += max(d1, d2)
+```
+
+
+
+---
+layout: two-cols
 ---
 
 # Boyer-Moore (BM)
 
-<br/>
+#### Time Complexity
 
-
-Time Complexity
 - best case: $O(m + n/m)$ 
-- worst case: $O(m + n*m)$ <span class="norm">👉 $\approx 3n$ or $5n$, see linkes below</span>
+- worst case: $O(m + n*m)$ <span class="norm">👉 $\approx 3n$, see linkes below</span>
 
 <br/>
 
-Space Complexity: 
-- bad char dict: $O(1)$
+#### Space Complexity: 
+
+- bad char table: $O(256 * m)$ or $O(m)$
 - suffix: $O(m)$
 - prefix: $O(m)$
 
 <br/>
 
-<span class="norm">👉 [A new proof of the linearity of the Boyer-Moore string searching algorithm](https://dl.acm.org/doi/10.1109/SFCS.1977.3)</span>  
+<span class="norm">👉 [A new proof of the linearity of the Boyer-Moore string searching algorithm](https://dl.acm.org/doi/10.1109/SFCS.1977.3)</span>   
+
 <span class="norm">👉 [Tight bounds on the complexity of the Boyer-Moore string matching algorithm](https://dl.acm.org/doi/10.5555/127787.127830)</span>
+
+::right::
+
+<br/>
+
+<br/> 
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/bm-best.jpeg" style="width: 90%"/>
+  <br/>
+    <img src="/images/bm-worst.jpeg" style="width: 90%"/>
+</div>
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 layout: center
@@ -3611,418 +4572,6 @@ layout: center
   <div class="norm">✅ otherwise → shift <span style="color: #357EC7">m -i</span> (from the rightmost char to the end of the string + 1)</div>
   <div><img src="/images/string_matching_sunday6.png" style="width: 60%"/></div>
 </div>
-
----
-layout: center
----
-
-# Knuth-Morris-Pratt
-
----
-layout: two-cols
----
-
-# Knuth-Morris-Pratt (KMP)
-
-<br/>
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <td style="font-weight:bolder">S</td>
-      <td>b</td>
-      <td>c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:orange">d</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>e</td>
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">P</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td>c</td>
-      <td>b</td>
-      <td style="color:orange">e</td>
-      <td>a</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<br/>
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <td style="font-weight:bolder">S</td>
-      <td>b</td>
-      <td style="color:orange">c</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>d</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>e</td>
-      <td rowspan="2" style="background-color: white">👎</td>      
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">P</td>
-      <td> </td>
-      <td style="color:orange">b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>e</td>
-      <td>a</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<br/>
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <td style="font-weight:bolder">S</td>
-      <td>b</td>
-      <td>c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:orange">d</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>e</td>
-      <td rowspan="2" style="background-color: white">👍</td>
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">P</td>
-      <td> </td>
-      <td> </td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="color:orange">c</td>
-      <td>b</td>
-      <td>e</td>
-      <td>a</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<div align="center">
-  <img src="/images/kmp1.png" style="width: 80%"/>
-  <br/>
-  <br/>
-  <br/>
-  longest common "<span class="hl">prefix/suffix</span>"
-</div>
-
-<br/>
-
-<br/>
-
-<pre class="norm">
-P: b c b c e a  
-
-prebuild the array to store the next position to shift for any substrings of P: 
-b, b c, b c b, b c b c, b c b c e, b c b c e a  
-
-</pre>
-
----
-layout: two-cols
----
-
-# Knuth-Morris-Pratt (KMP)
-
-<br/>
-
-<span class="hl">next array</span>
-
-<div style="width: 90%">
-  <span class="norm">P: b c b c e a</span>
-  <table class="ops">
-    <thead>
-      <tr>
-        <th id="" width="30%">substring</th>
-        <th id="">last pos</th>
-        <th id="">prefix last char</th>
-        <th id="" width="30%">next pos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="odd">
-        <th>b</th>
-        <td>0</td>
-        <td>-1</td>
-        <td>next[0] = -1</td>
-      </tr>
-      <tr class="even">
-        <th>b c</th>
-        <td>1</td>
-        <td>-1</td>
-        <td>next[1] = -1</td>
-      </tr>
-      <tr class="odd">
-        <th>b c b</th>
-        <td>2</td>
-        <td>0 (b)</td>
-        <td>next[2] = 0</td>
-      </tr>
-      <tr class="even">
-        <th>b c b c</th>
-        <td>3</td>
-        <td>1 (b c)</td>
-        <td>next[3] = 1</td>
-      </tr>
-      <tr class="odd">
-        <th>b c b c b</th>
-        <td>4</td>
-        <td>2 (b c b)</td>
-        <td>next[4] = 2</td>
-      </tr>
-      <tr class="even">
-        <th>b c b c b e</th>
-        <td>5</td>
-        <td>-1</td>
-        <td>next[5] = -1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <td style="font-weight:bolder">S</td>
-      <td>b</td>
-      <td>c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:orange">d</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>e</td>
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">P</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td>c</td>
-      <td>b</td>
-      <td style="color:orange">e</td>
-      <td>a</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">j</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td style="color:orange">5</td>
-      <td></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<br/>
-
-<span class="norm">bad char: $P[5]$</span>  
-<span class="norm">substring: $P[0:5]$ (b c b c b)</span>  
-<span class="norm">now shift j to the char after the prefix: $j = next[4] + 1 = 2 + 1 = 3$</span>  
-
-<br/>
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <td style="font-weight:bolder">S</td>
-      <td>b</td>
-      <td>c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:orange">d</td>
-      <td>b</td>
-      <td>c</td>
-      <td>b</td>
-      <td>e</td>
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">P</td>
-      <td> </td>
-      <td> </td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="font-weight:bold; color:green">c</td>
-      <td style="font-weight:bold; color:green">b</td>
-      <td style="color:orange">c</td>
-      <td>b</td>
-      <td>e</td>
-      <td>a</td>
-      <td> </td>
-    </tr>
-    <tr class="even">
-      <td style="font-weight:bolder">j</td>
-      <td> </td>
-      <td> </td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td style="color:orange">3</td>
-      <td></td>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-
----
-
-# Knuth-Morris-Pratt (KMP)
-
-<logos-jupyter />
-
-for i = 0...n, compare $S[i]$ and $P[j]$:   
-
-- $S[i]\;==\;P[j]$
-  - if $j = m$, $P$ is found in $S$
-  - else move both $S$ and $P$ to next char $i = i+1$, $j = j+1$
-
-
-- $S[i]\;!=\;P[j]$
-  - if longest prefix-suffix exists, move P: $j = next[j-1] + 1$
-  - else starts from the begining of P: $j = -1 + 1 = 0$ (∵ $next[j-1] = -1$)
-
-<style>
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-}
-</style>
-
----
-layout: two-cols
----
-
-# Knuth-Morris-Pratt (KMP)
-
-<logos-jupyter />
-
-<span class="hl">next array</span>
-
-Give $next[i-1] = k$ and $P[i+1] = x$ then $next[i]$?  
-
-case1: $P[k+1] == x$, than $next[i] = k + 1$    
-
-case2: if not, continuously look for $k'$, so that $P[k'+1] == x$
-
-$next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[next[k]]]$ .....
-
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<div align="center">
-  <img src="/images/kmp2.png" style="width: 80%"/>
-</div>
-
-<style>
-p {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-}
-
-</style>
-
----
-layout: two-cols
----
-
-# Knuth-Morris-Pratt (KMP)
-
-<br />
-
-<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span>  
-
-<img src="/images/kmp_worst.jpeg" style="width: 80%"/>
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-
-<span class="hl">best case: $O(n + 1*n/m + m)$</span>  
-
-<img src="/images/kmp_best.jpeg" style="width: 80%"/>
 
 ---
 
@@ -4283,7 +4832,7 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Optimize AVL tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+1. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
 
 2. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
 
