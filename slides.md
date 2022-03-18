@@ -298,11 +298,11 @@ child of binary tree is still a binary tree, recusion can be usually considered 
         <tr class="even">
           <td>0</td>
           <td>1</td>
-          <td><span style="color: purple">2</span></td>
+          <td><span style="color: orangered">2</span></td>
           <td>3</td>
           <td>4</td>
-          <td><span style="color: purple">5</span></td>
-          <td><span style="color: purple">6</span></td>
+          <td><span style="color: orangered">5</span></td>
+          <td><span style="color: orangered">6</span></td>
           <td>7</td>
           <td>8</td>
           <td>9</td>
@@ -3158,7 +3158,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:purple">d</td>
+      <td  style="color:orangered">d</td>
       <td>b</td>
       <td>c</td>
       <td>b</td>
@@ -3171,7 +3171,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td>c</td>
       <td>b</td>
-      <td style="color:purple">e</td>
+      <td style="color:orangered">e</td>
       <td>a</td>
       <td> </td>
       <td> </td>
@@ -3187,7 +3187,7 @@ layout: two-cols
     <tr class="odd">
       <td style="font-weight:bolder">S</td>
       <td>b</td>
-      <td style="color:purple">c</td>
+      <td style="color:orangered">c</td>
       <td>b</td>
       <td>c</td>
       <td>b</td>
@@ -3201,7 +3201,7 @@ layout: two-cols
     <tr class="even">
       <td style="font-weight:bolder">P</td>
       <td> </td>
-      <td style="color:purple">b</td>
+      <td style="color:orangered">b</td>
       <td>c</td>
       <td>b</td>
       <td>c</td>
@@ -3225,7 +3225,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:purple">d</td>
+      <td  style="color:orangered">d</td>
       <td>b</td>
       <td>c</td>
       <td>b</td>
@@ -3239,7 +3239,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">b</td>
-      <td style="color:purple">c</td>
+      <td style="color:orangered">c</td>
       <td>b</td>
       <td>e</td>
       <td>a</td>
@@ -3365,7 +3365,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:purple">d</td>
+      <td  style="color:orangered">d</td>
       <td>b</td>
       <td>c</td>
       <td>b</td>
@@ -3378,7 +3378,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td>c</td>
       <td>b</td>
-      <td style="color:purple">e</td>
+      <td style="color:orangered">e</td>
       <td>a</td>
       <td> </td>
       <td> </td>
@@ -3391,7 +3391,7 @@ layout: two-cols
       <td>2</td>
       <td>3</td>
       <td>4</td>
-      <td style="color:purple">5</td>
+      <td style="color:orangered">5</td>
       <td></td>
       <td> </td>
       <td> </td>
@@ -3419,7 +3419,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">b</td>
-      <td  style="color:purple">d</td>
+      <td  style="color:orangered">d</td>
       <td>b</td>
       <td>c</td>
       <td>b</td>
@@ -3432,7 +3432,7 @@ layout: two-cols
       <td style="font-weight:bold; color:green">b</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">b</td>
-      <td style="color:purple">c</td>
+      <td style="color:orangered">c</td>
       <td>b</td>
       <td>e</td>
       <td>a</td>
@@ -3445,7 +3445,7 @@ layout: two-cols
       <td>0</td>
       <td>1</td>
       <td>2</td>
-      <td style="color:purple">3</td>
+      <td style="color:orangered">3</td>
       <td></td>
       <td></td>
       <td> </td>
@@ -3706,7 +3706,7 @@ layout: two-cols
         <td>C</td>
         <td>B</td>
         <td>C</td>
-        <td style="color:purple">D</td>
+        <td style="color:orangered">D</td>
         <td>D</td>
         <td>B</td>
         <td>B</td>
@@ -3720,7 +3720,7 @@ layout: two-cols
         <td style="font-weight:bold; color:green">D</td>
         <td>B</td>
         <td>A</td>
-        <td style="color:purple">C</td>
+        <td style="color:orangered">C</td>
         <td>D</td>
         <td></td>
         <td></td>
@@ -3734,7 +3734,7 @@ layout: two-cols
         <td style="font-weight:bold; color:green">2</td>
         <td>3</td>
         <td>4</td>
-        <td style="color:purple">5</td>
+        <td style="color:orangered">5</td>
         <td></td>
         <td> </td>
         <td> </td>
@@ -3755,7 +3755,7 @@ layout: two-cols
         <td>C</td>
         <td>B</td>
         <td>C</td>
-        <td style="color:purple">D</td>
+        <td style="color:orangered">D</td>
         <td>D</td>
         <td>B</td>
         <td>B</td>
@@ -3786,7 +3786,7 @@ layout: two-cols
         <td style="font-weight:bold; color:green">D</td>
         <td>B</td>
         <td>A</td>
-        <td style="color:purple">C</td>
+        <td style="color:orangered">C</td>
         <td>D</td>
         <td></td>
       </tr>
@@ -3879,7 +3879,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
         <td>a</td>
         <td>b</td>
         <td>c</td>
-        <td style="font-weight:bolder; color:purple">d</td>
+        <td style="font-weight:bolder; color:orangered">d</td>
         <td>e</td>
         <td>f</td>
         <td>g</td>
@@ -3903,7 +3903,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
         <td>a</td>
         <td>b</td>
         <td>c</td>
-        <td style="font-weight:bolder; color:purple">d</td>
+        <td style="font-weight:bolder; color:orangered">d</td>
         <td>e</td>
         <td>f</td>
         <td>g</td>
@@ -3935,7 +3935,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
         <td>a</td>
         <td>b</td>
         <td>a</td>
-        <td style="font-weight:bolder; color:purple">e</td>
+        <td style="font-weight:bolder; color:orangered">e</td>
         <td>c</td>
         <td>d</td>
         <td>g</td>
@@ -3944,7 +3944,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
       <tr class="even">
         <td style="font-weight:bolder">P</td>
         <td>a</td>
-        <td style="font-weight:bolder; color:purple">e</td>
+        <td style="font-weight:bolder; color:orangered">e</td>
         <td>c</td>
         <td>d</td>
       </tr>
@@ -3959,7 +3959,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
         <td>a</td>
         <td>b</td>
         <td>a</td>
-        <td style="font-weight:bolder; color:purple">e</td>
+        <td style="font-weight:bolder; color:orangered">e</td>
         <td>c</td>
         <td>d</td>
         <td>g</td>
@@ -3970,7 +3970,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
         <td></td>
         <td></td>
         <td>a</td>
-        <td style="font-weight:bolder; color:purple">e</td>
+        <td style="font-weight:bolder; color:orangered">e</td>
         <td>c</td>
         <td>d</td>
       </tr>
@@ -3987,7 +3987,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
       <tr class="odd">
         <td style="font-weight:bolder">S</td>
         <td>a</td>
-        <td style="font-weight:bolder; color:purple">a</td>
+        <td style="font-weight:bolder; color:orangered">a</td>
         <td>a</td>
         <td>a</td>
         <td>a</td>
@@ -3998,7 +3998,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
       <tr class="even">
         <td style="font-weight:bolder">P</td>
         <td></td>
-        <td style="font-weight:bolder; color:purple">b</td>
+        <td style="font-weight:bolder; color:orangered">b</td>
         <td>a</td>
         <td>a</td>
       </tr>
@@ -4011,7 +4011,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
       <tr class="odd">
         <td style="font-weight:bolder">S</td>
         <td>a</td>
-        <td style="font-weight:bolder; color:purple">a</td>
+        <td style="font-weight:bolder; color:orangered">a</td>
         <td>a</td>
         <td>a</td>
         <td>a</td>
@@ -4023,7 +4023,7 @@ $badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table:
         <td style="font-weight:bolder">P</td>
         <td></td>
         <td></td>
-        <td style="font-weight:bolder; color:purple">b</td>
+        <td style="font-weight:bolder; color:orangered">b</td>
         <td>a</td>
         <td>a</td>
       </tr>
@@ -4164,7 +4164,7 @@ layout: two-cols
       <td>a</td>
       <td>b</td>
       <td>c</td>
-      <td  style="color:purple">b</td>
+      <td  style="color:orangered">b</td>
       <td>d</td>
       <td>c</td>
       <td>a</td>
@@ -4181,7 +4181,7 @@ layout: two-cols
       <td>c</td>
       <td>a</td>
       <td>d</td>
-      <td style="color:purple">c</td>
+      <td style="color:orangered">c</td>
       <td style="font-weight:bold; color:green">d</td>
       <td style="font-weight:bold; color:green">c</td>
       <td style="font-weight:bold; color:green">a</td>
