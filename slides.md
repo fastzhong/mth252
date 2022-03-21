@@ -5383,12 +5383,14 @@ li {
 
 1. Implement BST search operation with iterative solution. 
 
-2. (a) convert a BST into a Min Heap   
+2. before(k) & after(k) in BST would not work if BST doesnot contain the key $k$, pls improve the algorithm to support such case. 
+
+3. (a) convert a BST into a Min Heap   
    (b) convert a Min Heap into a BST
 
-3. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+4. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
 
-4. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
+5. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
 
 
 <style>
