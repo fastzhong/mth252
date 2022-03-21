@@ -4828,14 +4828,32 @@ layout: center
 
 <br/>
 
+<span class="hl-bg">Dynamic Programming</span>(DP) solves problems by combining the solutions to subproblems. It can be analogous to "divide-and-conquer" method, where problem is partitioned into disjoint subproblems, subproblems are recursively solved and then combined to find the solution of the original problem. 
 
+- subproblems may share subsubproblems (subproblem overlap)
+- DP solves each subproblems once and saves its answer to a table (memorization)  
+- technique of constructing DP solution:
+  - iterative (using for loop)
+  - recusive  (using recursion)
+- steps 
+  1. defining subproblems 
+  2. finding recurrences 
+  3. solving the base cases 
 
-
+<span class="norm">💡 usually DP problem is hard</span>    
+<span class="norm">💡 different DP through exercises</span>  
 <!--
 
 Patterns: brute-force, hashing, devide-and-conquer, recursion, ...
 
 -->
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 layout: center
