@@ -1289,7 +1289,7 @@ layout: two-cols
 
 -   compression/indexing: $h\;\&\;(n - 1)$
 
-<span class="norm">when table size $n$ is $2^y$: </span> $x\;\%\;2^y = x\;\&\;(2^y - 1)$
+<span class="norm">when table size $n$ is $2^y$: </span> $x\;\%\;2^y = x\;\&\;(y - 1)$
 
 <span class="norm">e.g.</span>
 
@@ -2061,8 +2061,8 @@ A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3:
     <img src="/images/2-3-tree-insert.png" style="width: 60%"/>
     <ul>  
       <li><strong>merge</strong>: insert into a node with only data element (2-node leaf)</li>
-      <li><strong>merge</strong>: insert into a node with two data element (3-node leaf) whose parent contains only one data element (2-node parent)</li>
-      <li><strong>merge</strong> & <strong>split</strong>: insert into a node with two data element (3-node leaf) whose parent contains two data element (3-node parent)</li>
+      <li><strong>merge</strong> & <strong>split</strong>: insert into a node with two data element (3-node leaf) whose parent contains only one data element (2-node parent)</li>
+      <li><strong>merge⁺⁺</strong> & <strong>split⁺ ⁺ </strong>: insert into a node with two data element (3-node leaf) whose parent contains two data element (3-node parent)</li>
     </ul>
   </div>
   <div align="center">
@@ -2097,6 +2097,11 @@ p {
 
 <img src="/images/2-3-red-black.png" style="height: 40%"/>
 
+<!--
+
+red node together with its parent node represents a 3-node in 2-3 tree.
+
+-->
 
 ---
 
@@ -2121,6 +2126,201 @@ p {
     <img src="/images/avl-insert.png"/>
   </div>
 </div>
+
+- "black balanced" 
+
+- $N$ nodes → height: $2logN$, Complexity: $O(logN)$
+
+- Red Black Tree vs. AVL Tree
+
+<!--
+
+1. every node is either red or black 
+2. the root is black 
+
+3. every leaf (NIL) is black 
+NIL is leaf node also a root of empty tree → 2
+
+4. if a node is red, both its children are black
+the child node of 3-node is 2-node or 3-node, so in either case, the child node is a black node 
+this is not true for black node, for black node, only the right node is black 
+
+5. for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
+2-3 tree, the paths from a node to leaf nodes, the number of node in the path should be same because 2-3 tree is perfectly balanced
+in red-black tree, when we visit a black node, we visit a 2-node or 3-node in the 2-3 tree, so the total number of black node means the total number of nodes for the same path in 2-3 tree.   
+
+black-balanced != balanced tree
+
+-->
+
+
+---
+
+# Red Black Tree 
+
+<br/>
+
+insert a red node →  a blank tree
+
+<!--
+
+always insert Red node
+
+insert new node to empty tree, change red to black 
+
+-->
+
+---
+layout: two-cols
+---
+
+# Red Black Tree
+
+<logos-jupyter />
+
+<br/>
+
+<br/>
+
+#### Left Rotate
+
+<div style="width: 90%;">
+
+```md
+- node.right = x.left 
+- x.left = node
+- x.color = node.color
+- node.color = RED
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div>
+  <img src="/images/rb-LR.png"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# Red Black Tree
+
+<logos-jupyter />
+
+<br/>
+
+<br/>
+
+#### Flip Colors
+
+<div style="width: 90%;">
+
+```md
+- node.color = RED 
+- node.left.color = BLACK
+- node.right.color = BLACK 
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div>
+  <img src="/images/rb-FC.png"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# Red Black Tree
+
+<logos-jupyter />
+
+<br/>
+
+<br/>
+
+#### Right Rotate
+
+<div style="width: 90%;">
+
+```md
+- node.left = T1 
+- x.right = node
+- x.color = node.color
+- node.color = RED 
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div>
+  <img src="/images/rb-RR.png"/>
+</div>
+
+---
+
+# Red Black Tree
+
+<logos-jupyter />
+
+<br/>
+
+<br/>
+
+#### insertion: LR → RR → FC
+
+<br/>
+
+<img src="/images/rb-LR-RR-FC.png" style="height: 40%"/>
+
+
+---
+
+# Red Black Tree
+
+<logos-jupyter />
+
+<br/>
+
+<br/>
+
+#### insertion: LR → RR → FC
+
+- 2-node 
+- 3-node
+
+<br/>
+
+<img src="/images/rb-insertion.png" style="height: 40%"/>
 
 ---
 layout: center
