@@ -750,6 +750,7 @@ for a sortedMap
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 
 </style>
@@ -3708,6 +3709,7 @@ for i in range(len_s):
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -4246,6 +4248,7 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -4325,6 +4328,7 @@ layout: two-cols
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -4521,6 +4525,7 @@ a prefix in <span class="hl">good suffix</span>, shift $d = r$
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -4747,6 +4752,7 @@ layout: two-cols
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -4839,10 +4845,6 @@ layout: center
 - technique of constructing DP solution:
   - iterative (using for loop)
   - recusive  (using recursion)
-- steps 
-  1. defining subproblems 
-  2. finding recurrences 
-  3. solving the base cases 
 
 <span class="norm">💡 usually DP problem is hard</span>    
 <span class="norm">💡 different DP through exercises</span>  
@@ -4856,6 +4858,7 @@ Patterns: brute-force, hashing, devide-and-conquer, recursion, ...
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -4986,7 +4989,6 @@ A Connected graph has a path between every pair of vertices. In other words, the
 
 ---
 
-
 # Graph Terminology
 
 <br/>
@@ -5008,6 +5010,7 @@ A Connected graph has a path between every pair of vertices. In other words, the
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5030,6 +5033,137 @@ li {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Graph Properties
+
+<br/>
+
+- If a graph G has vertex set $V$ and $m$ edges, then $\sum\limits_{v\;in\;V} deg(v) = 2m$
+
+- If a directed graph G has vertex set $V$ and $m$ edges, then $\sum\limits_{v\;in\;V} indeg(v) = \sum\limits_{v\;in\;V} outdeg(v) = m$
+
+- A simple graph G has $n$ vertices and $m$ edges: 
+  - undirected, then $m \leq n*(n-1)/2$
+  - directed, then $m \leq n*(n-1)$
+
+- An undirected graph G has $n$ vertices and $m$ edges: 
+  - connected, then $m \geq (n-1)$
+  - tree, then $m = (n-1)$
+  - forest, then $m \leq (n-1)$
+
+---
+
+# Graph ADT 
+
+<br/>
+
+<pre class="norm">
+endpoint()
+opposite(v)
+vertex_count()
+vertices()
+vertex_edge()
+edges()
+get_edge(Vi, Vj)
+degree(v, out=True)
+degree(v, out=False)
+incident_edge(v, out=True)
+incident_edge(v, out=False)
+insert_vertex(w=None)
+insert_edge(Vi,Vj,e=None)
+remove_vertex(v)
+remove_edge(e)
+</pre>
+
+---
+layout: two-cols
+---
+
+# Graph ADT 
+
+#### Adjacency Matrix Representation
+
+An adjacency matrix is a square matrix used to represent a finite graph. The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph. For a simple unweighted graph with vertex set $V$, the adjacency matrix is a square $|V| × |V|$ matrix A such that its element:
+
+$A_{ij} = 1$, when there is an edge from vertex $V_i$ to vertex $V_j$, and   
+$A_{ij} = 0$, when there is no edge.
+
+Each row in the matrix represents source vertices, and each column represents destination vertices. The diagonal elements of the matrix are all zero since edges from a vertex to itself, i.e., loops are not allowed in simple graphs. If the graph is undirected, the adjacency matrix will be symmetric. Also, for a weighted graph, $A_{ij}$ can represent edge weights.
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/graph-directed.png" style="width: 50%"/>
+  <br/>
+  <img src="/images/graph-matrix.png" style="width: 50%"/>
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Graph ADT 
+
+#### Adjacency List Representation
+
+An adjacency list representation for the graph associates each vertex in the graph with the collection of its neighboring vertices or edges, i.e., every vertex stores a list of adjacent vertices. There are many variations of adjacency list representation depending upon the implementation. This data structure allows the storage of additional data on the vertices but is practically very efficient when the graph contains only a few edges. i.e. the graph is sparse.
+
+<logos-jupyter />
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/graph-directed.png" style="width: 50%"/>
+  <br/>
+  <img src="/images/graph-list.png" style="width: 50%"/>
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5188,6 +5322,7 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5214,6 +5349,7 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5243,6 +5379,7 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5264,6 +5401,7 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5285,6 +5423,7 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
 
@@ -5306,5 +5445,6 @@ p {
 li {
     font-family: "Open Sans";
     font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 </style>
