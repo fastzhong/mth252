@@ -1544,6 +1544,8 @@ layout: two-cols
   </div>
 </div>
 
+<span class="norm">"node with 1 child node"</span>
+
 ---
 layout: two-cols
 ---
@@ -1579,6 +1581,8 @@ layout: two-cols
     <img src="/images/binary_search_tree3.png"/>
   </div>
 </div>
+
+<span class="norm">"node with 2 child nodes"</span>
 
 ---
 
@@ -4867,24 +4871,167 @@ layout: center
 
 <br/>
 
-- Implement Graph ADT using different internal representation
+- Implement graph ADT using different internal representation
 
-- Learn Graph associated algorithms
+- Learn graph associated algorithms
 
-- How Graph can be used to solve a wide variety of problems
+- How graph can be used to solve a wide variety of problems
 
 <br/>
 
-<pre class="norm">
-- trees are sub-set of graphs
+<span class="norm">💡 graph can model many things in real world such as roads, airline routes, social media connections, etc.
+</span>
 
-- graph can model many things in real world such as roads, airline routes, social media connections, etc.
-</pre>
 ---
 
 # Graph Terminology
 
-<mdi-timer-sand />
+<br/>
+
+A <span class="hl-bg">graph</span> is an ordered pair $G = (V, E)$ comprising a set $V$ of <span class="hl">vertices</span> or nodes and a collection of pairs of vertices from $V$, known as <span class="hl">edges</span> of a graph. For example, for the graph below:  
+
+
+$V = { 1, 2, 3, 4, 5, 6 }$  
+$E = { (1, 4), (1, 6), (2, 6), (4, 5), (5, 6) }$  
+
+<img src="/images/graph01.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Undirected Graph 
+
+An <span class="hl-strong">Undirected</span> graph(graph) is a graph in which edges have no orientation. The edge $(x, y)$ is identical to edge $(y, x)$, i.e., they are not ordered pairs. The maximum number of edges possible in an undirected graph without a loop is $n×(n-1)/2$.
+
+<img src="/images/graph-undirected.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Directed Graph 
+
+A <span class="hl-strong">Directed</span> graph (digraph) is a graph in which edges have orientations, i.e., The edge $(x, y)$ is not identical to edge $(y, x)$.
+
+<img src="/images/graph-directed.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Directed Acyclic Graph (DAG) 
+
+A <span class="hl-strong">Directed Acyclic Graph</span> (DAG) is a directed graph that contains no cycles.
+
+<img src="/images/graph-dag.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Weighted and Unweighted graph
+
+A weighted graph associates a value (<span class="hl-strong">weight</span>) with every edge in the graph. We can also use words cost or length instead of weight.
+
+An unweighted graph does not have any value (weight) associated with every edge in the graph. In other words, an unweighted graph is a weighted graph with all edge weight as 1. Unless specified otherwise, all graphs are assumed to be unweighted by default.
+
+<img src="/images/graph-weighted.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Simple and Multi graph
+
+A <span class="hl-strong">multigraph</span> is an undirected graph in which multiple edges (and sometimes loops) are allowed. Multiple edges are two or more edges that connect the same two vertices. A loop is an edge (directed or undirected) that connects a vertex to itself; it may be permitted or not.
+
+A <span class="hl-strong">simple</span> graph is an undirected graph in which both multiple edges and loops are disallowed as opposed to a multigraph. In a simple graph with $n$ vertices, every vertex’s degree is at most $n-1$.
+
+<img src="/images/graph-simple.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Complete graph
+
+A complete graph is one in which every two vertices are adjacent: all edges that could exist are present.
+
+<img src="/images/graph-complete.png" style="height: 40%"/>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+#### Connected graph
+
+A Connected graph has a path between every pair of vertices. In other words, there are no unreachable vertices. A disconnected graph is a graph that is not connected.
+
+<img src="/images/graph-connected.png" style="height: 40%"/>
+
+---
+
+
+# Graph Terminology
+
+<br/>
+
+- an **edge** is (together with vertices) one of the two basic units out of which graphs are constructed, each edge has two vertices to which it is attached, called its **endpoints**.
+- two vertices are called **adjacent** if they are endpoints of the same edge.
+- **outgoing** edges of a vertex are directed edges that the vertex is the origin.
+- **incoming** edges of a vertex are directed edges that the vertex is the destination.
+- the **degree** of a vertex in a graph is the total number of edges incident to it.
+- in a directed graph, the **out-degree** of a vertex is the total number of outgoing edges, and the **in-degree** is the total number of incoming edges.
+- a vertex with in-degree zero is called a **source** vertex, while a vertex with out-degree zero is called a **sink** vertex.
+- an **isolated** vertex is a vertex with degree zero, which is not an endpoint of an edge.
+- **path** is a sequence of alternating vertices and edges such that the edge connects each successive vertex.
+- **cycle** is a path that starts and ends at the same vertex
+- **simple** path is a path with distinct vertices.
+
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+- a graph is **Strongly Connected** if it contains a directed path from u to v and a directed path from v to u for every pair of vertices u, v.
+- a directed graph is called **Weakly Connected** if replacing all of its directed edges with undirected edges produces a connected (undirected) graph. The vertices in a weakly connected graph have either out-degree or in-degree of at least 1.
+- **connected component** is the maximal connected subgraph of an unconnected graph.
+- a **bridge** is an edge whose removal would disconnect the graph.
+- **forest** is a graph without cycles.
+- **tree** is a connected graph with no cycles. If we remove all the cycles from DAG (Directed Acyclic Graph), it becomes a tree, and if we remove any edge in a tree, it becomes a forest.
+- **spanning tree** of an undirected graph is a subgraph that is a tree that includes all the vertices of the graph.
+
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+}
+</style>
 
 ---
 
@@ -5050,9 +5197,11 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+1. Implement BST search operation with iterative solution. 
 
-2. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
+2. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+
+3. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
 
 
 <style>
