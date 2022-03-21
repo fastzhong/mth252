@@ -2067,7 +2067,7 @@ A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3:
     <ul>  
       <li><strong>merge</strong>: insert into a node with only data element (2-node leaf)</li>
       <li><strong>merge</strong> & <strong>split</strong>: insert into a node with two data element (3-node leaf) whose parent contains only one data element (2-node parent)</li>
-      <li><strong>merge⁺⁺</strong> & <strong>split⁺ ⁺ </strong>: insert into a node with two data element (3-node leaf) whose parent contains two data element (3-node parent)</li>
+      <li><strong>merge⁺⁺</strong> & <strong>split⁺⁺ </strong>: insert into a node with two data element (3-node leaf) whose parent contains two data element (3-node parent)</li>
     </ul>
   </div>
   <div align="center">
