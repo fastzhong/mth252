@@ -2363,7 +2363,8 @@ sorted linked list for sorted map
 <div class="inline-grid grid-cols-[2fr,3fr] gap-8">
 
   <div class="norm">
-    <h3><logos-jupyter /> search key</h3>
+    <h3>search key</h3>
+    <logos-jupyter />
   </div>
   <div>
     <br/>
@@ -2381,7 +2382,8 @@ sorted linked list for sorted map
 <div class="inline-grid grid-cols-[2fr,3fr] gap-8">
 
   <div class="norm">
-    <h3><logos-jupyter /> delete key</h3>
+    <h3>delete key</h3>
+    <logos-jupyter />
   </div>
   <div>
     <br/>
@@ -2399,7 +2401,8 @@ sorted linked list for sorted map
 <div class="inline-grid grid-cols-[2fr,3fr] gap-8">
 
   <div class="norm">
-    <h3><logos-jupyter /> insert key</h3>
+    <h3>insert key</h3>
+    <logos-jupyter /> 
   </div>
   <div>
     <br/>
@@ -2410,6 +2413,7 @@ sorted linked list for sorted map
 
 ---
 
+
 # Skip List
 
 <br/>
@@ -2417,7 +2421,8 @@ sorted linked list for sorted map
 <div class="inline-grid grid-cols-[2fr,3fr] gap-8">
 
   <div class="norm">
-    <h3><logos-jupyter /> insert key</h3>
+    <h3>insert key</h3>
+    <logos-jupyter />
   </div>
   <div>
     <br/>
@@ -2492,7 +2497,7 @@ Insert & Delete need to update the searching path, so it depends on Search.
 
 ---
 
-# Skip List vs. Hash Table & Balanced Tree
+# Skip List vs. Hash Table, Balanced Tree
 
 <br/>
 
