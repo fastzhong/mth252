@@ -1,0 +1,127 @@
+# Priority Queue (PQ)
+
+You cannot sort the elements/tasks first, and pick up the highest task, as the first task is finished, there could be some new coming tasks. in another word we need a data structure to DYNAMICALLY maintain the ordering.
+
+# Binary Heap
+
+if exclude the bottom level, binary heap is a perfect binary tree and nodes is 2^h - 1
+
+low level node is always smaller than the high level node? NO.
+
+child of binary tree is still a binary tree, recusion can be usually considered for tree operations. 
+
+Binary Heap is always a complete binary tree, so the height is always O(logN), note that the worst case of binary tree is O(N) == linked list.
+
+Technically Priority Queue can be considered same as binary heap, but Priority Queue is ADT as it can be implemented by other data structure.
+
+There are trees other than binary tree, so there are heaps other than binary heap - D-ary Heap, Fibonacci Heap, Index heap, Binomial Heap, Pairing Heap, etc. But binary heap is very useful and important data structure.
+
+# Heapify
+
+last non-leaf node: parent of last leaf node
+
+# Hash Table
+
+large keys → small keys (indexable)
+
+We dont have another section to study Set data structure, as it can be converted from Map/HashTable. Map/HashTable can be converted from Set also.
+
+# Binary Search Tree (BST)
+
+Linear Search vs. Binary Search
+
+pre/in/post depends on when we want to proces the node, e.g. for memory management in C++, we probably want to do GC for the node when GC is done for left & right subtree, so post-order may be a choice.
+
+in-order: ascending → descending order 
+
+# AVL
+
+The example is a binary search tree, not complete binary tree, but it is balanced.
+
+As we implement insert(), delete() with recurion, backtracking can be done with recursion.
+
+delete:
+
+1. _delete_max rebalance?
+2. reb_node could be None? (delete leaf node)
+
+
+# Red Black Tree 
+
+red node together with its parent node represents a 3-node in 2-3 tree.
+
+1. every node is either red or black 
+2. the root is black 
+
+3. every leaf (NIL) is black 
+NIL is leaf node also a root of empty tree → 2
+
+4. if a node is red, both its children are black
+the child node of 3-node is 2-node or 3-node, so in either case, the child node is a black node 
+this is not true for black node, for black node, only the right node is black 
+
+5. for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
+2-3 tree, the paths from a node to leaf nodes, the number of node in the path should be same because 2-3 tree is perfectly balanced
+in red-black tree, when we visit a black node, we visit a 2-node or 3-node in the 2-3 tree, so the total number of black node means the total number of nodes for the same path in 2-3 tree.   
+
+black-balanced != balanced tree
+
+always insert Red node
+
+insert new node to empty tree, change red to black 
+
+# Skip List 
+
+Insert & Delete need to update the searching path, so it depends on Search.
+
+
+# Bubble sort
+
+
+bubble up = swap, more time consuming
+
+improve the data overall ordering while bubble up
+
+# Quick sort
+
+Quick is faster than Merge because partion func is faster than merge function
+
+# Sorting Summary  
+
+- element comparable
+- optimize
+- simple sorts vs efficient sorts
+- stability
+
+# Pattern Searching 
+
+Approximate Pattern Matching (fuzzle matching?) in genome sequencing detection
+
+Pattern Matching is a searching problem.
+
+# Rabin-Karp
+
+in worst case, scan the whole pattern
+
+if string -> integer
+
+compare two strings O(n) -> compare two integers O(1)
+
+Rabin-Karp = rolling hashing (sliding window)
+
+Rabin-Karp worst case: find all "aaa" from "aaaaaaaaa" 
+
+Brute-Force not so bad for usual case 
+
+# Boyer-Moore
+
+E mistach and not in Pattern 
+B mistach and in Pattern, bad char lookup good, align   
+D mistach and in Pattern, bad char lookup good, align 
+
+if there are two or more bad char in Pattern? right most 
+
+similar to "bad char": 
+
+suffix CD exists E mistach and in Pattern 
+if suffix exists but not in Pattern, shift to the char after good suffix 

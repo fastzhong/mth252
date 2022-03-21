@@ -1453,8 +1453,7 @@ layout: two-cols
 </div>
 
 <!--
-- Linear Search
-- Binary Search
+Linear Search vs. Binary Search
 -->
 
 ---
@@ -1727,9 +1726,7 @@ layout: two-cols
 </div>
 
 <!--
-
 The example is a binary search tree, not complete binary tree, but it is balanced.
-
 -->
 
 ---
@@ -1763,9 +1760,7 @@ Rebalance ?
 - Where: backtracking from the node
 
 <!--
-
 As we implement insert(), delete() with recurion, backtracking can be done with recursion.
-
 -->
 
 ---
@@ -2727,17 +2722,6 @@ layout: two-cols
 <div align="left">
   <img src="/images/sort_merge_complexity.png" style="width:90%"/>
 </div>
-
-
-<!--
-Analysis of Algorithms:
-
-- worst case
-- ignore constant factors, lower-order terms
-- asymptotic analysis (large input size)
-
-Algo analysis: lose a little bit of granularity of information but we dont lose what we really care about which is accurate guidence about what algorithms are gonna be faster than the others.
--->
 
 ---
 layout: two-cols
