@@ -5334,9 +5334,12 @@ li {
 
 1. Implement BST search operation with iterative solution. 
 
-2. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+2. (a) convert a BST into a Min Heap   
+   (b) convert a Min Heap into a BST
 
-3. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
+3. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+
+4. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
 
 
 <style>
