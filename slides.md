@@ -3099,38 +3099,81 @@ layout: center
 
 <br/>
 
-In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic. This includes the cases of finding the minimum, maximum, and median elements.
-
-selectK
-
-topK
+In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic (selectK/topK). This includes the cases of finding the minimum, maximum, and median elements. 
 
 ---
-# Binary Search
+
+# Selection
+
+#### Binary Search
 
 <mdi-timer-sand />
 
-TBD
+
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
 
 ---
 
-# Heap
+# Selection
 
-selectK
+#### Heap
 
--  Max Heap: pop k times (remove_max)
--  Max Heap Complexity: $O(KlogN)$
+-  pop k times (remove_min, remove_max)
+-  complexity: $O(N) + O(KlogN)$
 
 <br/>
 
--  Min Heap: create Min Heap with size K, add element one by one:
+-  create Heap with size K, add element one by one:
     - if bigger than the top (min), replace it;
     - else skip it
--  Min Heap Complexity: $O(NlogK)$
+-  complexity: $O(K) + O(NlogK)$
 
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Selection
+
+#### BTS
+
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Selection
+
+#### Sorting 
 
 merge sort O(NlogN)
 quick sort O(n) selectK, topK
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
 
 ---
 
