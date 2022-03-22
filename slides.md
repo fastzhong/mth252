@@ -2677,16 +2677,15 @@ John von Neumann
 
 <br/>
 
-- merge top down, improvement: 
-  - <span class="norm">[On finding the average of two unsigned integers without overflow](https://devblogs.microsoft.com/oldnewthing/20220207-00/?p=106223)</span>
+- merge top down: <span class="norm">sort_merge_bottomup_v1</span>   
+  improvement: <span class="norm">sort_merge_recusive_v2</span>
   - <span class="norm">✅ insertion</span>
   - <span class="norm">❌ tmp</span>
 
-- merge buttom up
+- merge buttom up: <span class="norm">sort_merge_bottomup</span>
 
 - worst case ?
-    - <span class="norm">sorted array</span>
-    - <span class="norm">sorted array (reversed order)</span>
+    - <span class="norm">almost sorted array</span>
     - <span class="norm">duplicates</span>
 
 ---
@@ -2765,22 +2764,19 @@ Quick is faster than Merge because partion func is faster than merge function
 
 # Sorting: Quick
 
-<br/>
-
 - worst case: $O(n^2)$
     - <span class="norm">sorted array</span>
-    - <span class="norm">sorted array (reversed order)</span>
     - <span class="norm">duplicates</span>
     - <span class="norm">$O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$</span>
     - <span class="norm">recusion stack overflow</span>
-
-- random algorithm, time complexity $O(N \cdot log_2N)$ <span class="norm"> 👉 📚 Introduction to Algorithms</span>
 
 - improvement:
     - <span class="norm">2-way quicksort </span>
     - <span class="norm">3-way quicksort </span>
     - <span class="norm">[3-way radix quicksort ](https://en.wikipedia.org/wiki/Multi-key_quicksort)</span>
     - <span class="norm">[dual pivot quicksort](https://arxiv.org/abs/1503.08498)</span>
+
+<span class="norm"> 👉 random algorithm, time complexity $O(N \cdot log_2N)$ (📚 Introduction to Algorithms)</span>
 
 ---
 layout: two-cols
