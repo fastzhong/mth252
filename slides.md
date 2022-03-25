@@ -1120,29 +1120,38 @@ how:
 <img src="/images/hash_chaining.png" style="width:60%"/>
 
 ---
+
+# Hash Function
+
+<br/>
+
+$H(x)$: 
+
+-   deterministic
+-   fast as $O(1)$
+-   universal input 
+-   evenly distributed
+-   randomly distributed 
+
+<br/>
+
+<div style="width: 90%;">
+
+> Designing good hash functions requires a blending of sophisticated mathematics and clever engineering.
+
+</div>
+
+---
 layout: two-cols
 ---
 
 # Hash Function
 
 <br/>
-   
--   $H(x)$ must be deterministic
--   $H(x)$ need to be fast $O(1)$
--   $H(x)\;mod\;N$ evenly distributed
+
 -   if $x = y$, H(x) and H(y) <span class="uline">must be equal</span>
 -   if $H(x) = H(y)$, x and y <span class="uline">might be equal</span>
 -   if $H(x) \ne H(y)$, x and y <span class="uline">certainly not equal</span>
-
-<br/>
-
-<div style="width: 90%;">
-
-> Designing good hash functions requires a blending of sophisticated mathematics and clever engineering
-
-</div>
-
-::right::
 
 <br/>
 
@@ -1150,6 +1159,18 @@ layout: two-cols
 -   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ?</span>
 -   <span class="norm">compare hash code first, before compare x and y</span>
 -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
+
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 ```python
 class UserGroup:
 
