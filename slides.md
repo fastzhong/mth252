@@ -2799,6 +2799,17 @@ Quick is faster than Merge because partion func is faster than merge function
 
 <span class="norm"> 👉 random algorithm, time complexity $O(N \cdot log_2N)$ (📚 Introduction to Algorithms)</span>
 
+
+<!--
+
+Why 3-way: all elements are same, no need to continue as after partition, we can know this if we have 3 partitions: 
+
+v (pivot) <v ==v >v
+
+we can continue with <v and >v only 
+
+-->
+
 ---
 layout: two-cols
 ---
@@ -3100,41 +3111,30 @@ layout: center
 
 <br/>
 
-In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic (selectK/topK). This includes the cases of finding the minimum, maximum, and median elements. 
+In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic. This includes the cases of finding the minimum, maximum, and median elements. 
+
+<span class="norm">🙂 sort the array first $O(NlogN)$</span>
 
 ---
 
-# Selection
-
-#### Binary Search
-
-<mdi-timer-sand />
-
-
-
-<style>
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-
-# Selection
+# Select K
 
 #### Heap
 
--  pop k times (remove_min, remove_max)
--  complexity: $O(N) + O(KlogN)$
+Solution 1: complexity $O(N) + O(KlogN)$
+
+1.  heapify 
+2.  pop $k$ times (remove_min)
 
 <br/>
 
--  create Heap with size K, add element one by one:
+Solution 2: complexity $O(K) + O(NlogK)$
+
+1. create a Heap with size $k$, add element one by one:
     - if bigger than the top (min), replace it;
     - else skip it
--  complexity: $O(K) + O(NlogK)$
+
+2. min()
 
 <style>
 li {
@@ -3146,27 +3146,22 @@ li {
 
 ---
 
-# Selection
+# Select K
 
-#### BTS
+#### Quick Sort
 
+<br/>
 
-<style>
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
+```python
+p = partition(arr, l, r)
+sort_quick_recursive(arr, l, p - 1)
+sort_quick_recursive(arr, p + 1, r)
+```
+$k+1 == p?$    
+$k+1 < p?$    
+$k+1 > p?$   
 
----
-
-# Selection
-
-#### Sorting 
-
-merge sort O(NlogN)
-quick sort O(n) selectK, topK
+complexity $O(n + n/2 + n/4 + ... + 1) = 2n$ = $O(n)$
 
 <style>
 li {
