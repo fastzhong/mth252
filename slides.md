@@ -3123,15 +3123,15 @@ In computer science, a <span class="hl-color">selection algorithm</span> is an a
 
 Solution 1: complexity $O(N) + O(KlogN)$
 
-1.  heapify 
+1.  heapify (Min Heap)
 2.  pop $k$ times (remove_min)
 
 <br/>
 
 Solution 2: complexity $O(K) + O(NlogK)$
 
-1. create a Heap with size $k$, add element one by one:
-    - if bigger than the top (min), replace it;
+1. create a Max Heap with size $k$, add element one by one:
+    - if smaller than the top, replace it;
     - else skip it
 
 2. min()
@@ -3157,11 +3157,11 @@ p = partition(arr, l, r)
 sort_quick_recursive(arr, l, p - 1)
 sort_quick_recursive(arr, p + 1, r)
 ```
-$k+1 == p?$    
-$k+1 < p?$    
-$k+1 > p?$   
+$k == p?$    
+$k < p?$    
+$k > p?$   
 
-complexity $O(n + n/2 + n/4 + ... + 1) = 2n$ = $O(n)$
+complexity $O(n + n/2 + n/4 + ... + 1) = O(2n) = O(n)$
 
 <style>
 li {
@@ -3173,19 +3173,21 @@ li {
 
 ---
 
-# Prune-and-Search
+# Pruning
 
-<mdi-timer-sand />
+<br/>
 
-TBD
+- brute force
+  - BFS 
+  - DFS 
+- Do not visit any subtree that be judged to be irrelevant to the final results.
 
----
+<br/>
 
-# Randomised Quick Sort
-
-<mdi-timer-sand />
-
-TBD
+The elimination of a large group of possibilities in one step is known as pruning:   
+<span class="norm">👉 binary search </span>   
+<span class="norm">👉 [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)</span>  
+<span class="norm">👉 [decision tree pruning](https://en.wikipedia.org/wiki/Decision_tree_pruning)</span>   
 
 ---
 layout: center
@@ -5379,7 +5381,7 @@ li {
 
 1. Implement BST search operation with iterative solution. 
 
-2. before(k) & after(k) in BST would not work if BST doesnot contain the key $k$, pls improve the algorithm to support such case. 
+2. before(k) & after(k) in <strong>BST</strong> would not work if BST doesnot contain the key $k$, pls improve the algorithm to support such case. 
 
 3. (a) convert a BST into a Min Heap   
    (b) convert a Min Heap into a BST
@@ -5418,6 +5420,8 @@ li {
 4. <strong>[Shell Sort](https://en.wikipedia.org/wiki/Shellsort)</strong> is an optimization of Insertion Sort. Implement your Shell Short. 
 
 5. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
+
+6. Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 <style>
 p {
