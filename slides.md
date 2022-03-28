@@ -2794,7 +2794,6 @@ Quick is faster than Merge because partion func is faster than merge function
 - improvement:
     - <span class="norm">2-way quicksort </span>
     - <span class="norm">3-way quicksort </span>
-    - <span class="norm">[3-way radix quicksort ](https://en.wikipedia.org/wiki/Multi-key_quicksort)</span>
     - <span class="norm">[dual pivot quicksort](https://arxiv.org/abs/1503.08498)</span>
 
 <span class="norm"> 👉 random algorithm, time complexity $O(N \cdot log_2N)$ (📚 Introduction to Algorithms)</span>
