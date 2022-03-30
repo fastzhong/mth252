@@ -142,6 +142,11 @@ table.grid tr.odd {
     color: #ffffff;
 }
 
+table.grid tr th {
+    background-color:#97C1EA;
+    color: #ffffff;
+}
+
 table.grid tr.even {
 	background-color: #cccccc;
     color: #ffffff;

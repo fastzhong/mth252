@@ -2618,7 +2618,7 @@ layout: two-cols
 <br/>
 
 - sort the arr from right to left
-- for postion postion $n-i-1$: 
+- for postion $n-i-1$: 
   - $[n-i, n)$ sorted
   - $[0, n-i-1)$ unsorted
   - bubble the biggest to $arr[n-i-1]$
@@ -4879,18 +4879,80 @@ layout: center
 # Dynamic Programming
 
 ---
+layout: two-cols
+---
+
+# Fibonacci
+
+<br/>
+
+<div style="width: 80%;padding-left: 10px;">
+
+```md
+Fibonacci sequence: 0,1,1,2,3,5,8, ...
+
+when n = 1, fib(1) = 0
+when n = 2, fib(2) = 1
+when n > 2, fib(n) = fib(n-1) + fib(n-2)
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+DP solution:  
+- bottom up 
+- much better performance
+
+<div style="width: 80%; padding-left: 10px;">
+
+```python
+def fib_dp(n): 
+    memo = {}
+    memo[1] = 0 
+    memo[2] = 1
+    for i in range(2, n+1, 1): 
+        memo[i] = memo[i-1] + memo[i-2]
+    return memo[n]
+``` 
+
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
 
 # Dynamic Programming
 
 <br/>
 
-<span class="hl-bg">Dynamic Programming</span>(DP) solves problems by combining the solutions to subproblems. It can be analogous to "divide-and-conquer" method, where problem is partitioned into disjoint subproblems, subproblems are recursively solved and then combined to find the solution of the original problem. 
+<span class="hl-bg">Dynamic Programming</span> (DP) is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just one, and storing their solutions - ideally, using a memory-based data structure.
 
-- subproblems may share subsubproblems (subproblem overlap)
-- DP solves each subproblems once and saves its answer to a table (memorization)  
-- technique of constructing DP solution:
-  - iterative (using for loop)
-  - recusive  (using recursion)
+<div align="center">
+
+<img src="/images/dp1.png" style="width: 50%"/>
+
+</div>
+
+<br/>
 
 <span class="norm">💡 usually DP problem is hard</span>    
 <span class="norm">💡 different DP through exercises</span>  
@@ -4907,6 +4969,271 @@ li {
     margin-bottom: 8px;
 }
 </style>
+
+---
+
+# 0-1 Knapsack Problem
+
+<br/>
+
+Given weights and values of n items, put these items in a knapsack of capacity $C$ to get the maximum total value in the knapsack. In other words, given two integer arrays $v[0..n-1]$ and $w[0..n-1]$ which represent values and weights associated with $n$ items respectively. Also given an integer $C$ which represents knapsack capacity, find out the maximum value subset of $v$ such that sum of the weights of this subset is smaller than or equal to $C$. You cannot break an item, either pick the complete item or don’t pick it (0-1 property).   
+
+$w=[10,20,30]$ $v=[60,100,120]$ $C=50$   
+**solution: 200**   
+
+w=10; v=60;  
+w=20; v=100;  
+w=30; v=120;  
+w=(20+10); v=(100+60);  
+w=(30+10); v=(120+60);  
+w=(30+20); v=(120+100);
+w=(30+20+10) > 50  
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# 0-1 Knapsack Problem
+
+<br/>
+
+$k(n, C)$: $n$ items, capacity $C$, return max value
+
+$k(i, C)$:  
+1. include $i^{th}$ item: $v[i] + k(i-1, C - w[i])$  
+2. not included: $k(i-1, C)$
+
+$k(i, C) = max(k(i-1, C), v[i] + k(i-1, C - w[i]))$
+
+::right:: 
+
+<br/>
+
+<br/>
+
+<br/>
+
+$w=[1, 1, 1]$   
+$v=[10,20,30]$   
+$C=2$ 
+
+<img src="/images/dp-k.png" style="width: 70%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+<!--
+some k are evaluated more than one time 
+-->
+
+---
+layout: two-cols
+---
+
+# 0-1 Knapsack Problem
+
+<br/>
+
+$id =[0, 1,  2]$  
+$w = [1, 2,  3]$   
+$v = [6, 10, 12]$  
+$C = 5$   
+
+$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$    
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <th> </th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>    
+    <tr class="even">
+      <th>0</th>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr class="even">
+      <th>1</th>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+    </tr>
+    <tr class="even">
+      <th>2</th>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+      <td>18</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+```python
+def knapsack2(w, v, n, C): 
+    k = [[0 for x in range(C+1)] for x in range(n+1)]
+    # build table k from bottom up 
+    for i in range(n+1): 
+        for c in range(C+1): 
+            if i==0 or c==0: 
+                k[i][c] = 0
+            elif w[i-1] > c: 
+                k[i][c] = k[i-1][c]
+            else:
+                k[i][c] = max(v[i-1] + k[i-1][c - w[i-1]], k[i-1][c])
+    return k[n][C]
+```
+
+---
+
+# 0-1 Knapsack Problem
+
+<br/>
+
+$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$   
+
+row $i$ depends on row $i-1$, so only 2 rows required:
+
+- row0 == even rows  
+- row1 == odd rows  
+
+---
+layout: two-cols
+---
+
+# 0-1 Knapsack Problem
+
+<br/>
+
+$id =[0, 1,  2]$  
+$w = [1, 2,  3]$   
+$v = [6, 10, 12]$  
+$C = 5$   
+
+$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$    
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <th> </th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>    
+    <tr class="even">
+      <th> </th>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <th> </th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>    
+    <tr class="even">
+      <th> </th>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+```python
+def knapsack4(w, v, n, C): 
+    k = [0 for i in range(C+1)]
+    for i in range(1, n+1):  
+        # compute from the back (right to left) 
+        for c in range(C, 0, -1):  
+            if w[i-1] <= c:
+                k[c] = max(v[i-1] + k[c - w[i-1]], k[c])
+  
+    return k[C]
+```
 
 ---
 layout: center
