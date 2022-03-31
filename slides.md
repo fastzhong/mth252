@@ -3932,7 +3932,7 @@ layout: two-cols
 
 <br/>
 
-<span class="norm">💬 bad char offset $b$ can be pre-built for bad char position $j$ ($P[j]$) for all possible missing char in <span class="hl-strong">2-D</span> lookup table $badchar\_tbl$ ?</span> 
+<span class="norm">💬 bad char offset $b$ can be pre-built for bad char position $j$ ($P[j]$) for all possible missing char in <span class="hl">2-D</span> lookup table $badchar\_tbl$ ?</span> 
 
 <br/>
 
@@ -4083,7 +4083,7 @@ let $P[b]$ be the right most char <span class="uline">regardless $j$</span>
   </tbody>
 </table> 
 
-$badchar\_tbl$ becomes <span class="hl-strong">1-D</span> table: 
+$badchar\_tbl$ becomes <span class="hl">1-D</span> table: 
 <table class="grid">
   <tbody>
     <tr class="odd">
@@ -4896,6 +4896,14 @@ when n = 2, fib(2) = 1
 when n > 2, fib(n) = fib(n-1) + fib(n-2)
 ```
 
+<br/>
+
+1. recursive function 
+2. recursive function with memo
+3. <span class="hl-strong">dp solution</span> 
+      - bottom up 
+      - much better performance
+
 </div>
 
 ::right::
@@ -4906,9 +4914,7 @@ when n > 2, fib(n) = fib(n-1) + fib(n-2)
 
 <br/>
 
-DP solution:  
-- bottom up 
-- much better performance
+<br/>
 
 <div style="width: 80%; padding-left: 10px;">
 
@@ -4986,7 +4992,7 @@ w=20; v=100;
 w=30; v=120;  
 w=(20+10); v=(100+60);  
 w=(30+10); v=(120+60);  
-w=(30+20); v=(120+100);
+w=(30+20); v=(120+100);  
 w=(30+20+10) > 50  
 
 <style>
@@ -5009,7 +5015,7 @@ layout: two-cols
 
 # 0-1 Knapsack Problem
 
-<br/>
+<logos-jupyter />
 
 $k(n, C)$: $n$ items, capacity $C$, return max value
 
@@ -5017,7 +5023,9 @@ $k(i, C)$:
 1. include $i^{th}$ item: $v[i] + k(i-1, C - w[i])$  
 2. not included: $k(i-1, C)$
 
-$k(i, C) = max(k(i-1, C), v[i] + k(i-1, C - w[i]))$
+$k(i, C) = max(k(i-1, C), v[i] + k(i-1, C - w[i]))$  
+
+Time Complexity: $O(2^n)$
 
 ::right:: 
 
@@ -5119,6 +5127,9 @@ $k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$
 
 <br/>
 
+Time Complexity: $O(n)$  
+Space Complexity: $O(n * C)$  
+
 ```python
 def knapsack2(w, v, n, C): 
     k = [[0 for x in range(C+1)] for x in range(n+1)]
@@ -5134,6 +5145,22 @@ def knapsack2(w, v, n, C):
     return k[n][C]
 ```
 
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
 ---
 
 # 0-1 Knapsack Problem
@@ -5146,6 +5173,51 @@ row $i$ depends on row $i-1$, so only 2 rows required:
 
 - row0 == even rows  
 - row1 == odd rows  
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+Time Complexity: $O(n)$  
+Space Complexity: $O(2 * C)$  
+
+```python
+def knapsack3(w, v, n, C): 
+    # 2 rows only: i%2 
+    k = [[0 for x in range(C+1)] for x in range(2)]
+    # build table k from bottom up 
+    for i in range(n+1): 
+        for c in range(C+1): 
+            if i==0 or c==0: 
+                k[i % 2][c] = 0
+            elif w[i-1] > c: 
+                k[i % 2][c] = k[(i-1) % 2][c]
+            else:
+                k[i % 2][c] = max(v[i-1] + k[(i-1) % 2][c - w[i-1]], k[(i-1) % 2][c])
+    return k[n % 2][C]
+```
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
 
 ---
 layout: two-cols
@@ -5223,6 +5295,9 @@ $k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$
 
 <br/>
 
+Time Complexity: $O(n)$  
+Space Complexity: $O(C)$  
+
 ```python
 def knapsack4(w, v, n, C): 
     k = [0 for i in range(C+1)]
@@ -5230,10 +5305,23 @@ def knapsack4(w, v, n, C):
         # compute from the back (right to left) 
         for c in range(C, 0, -1):  
             if w[i-1] <= c:
-                k[c] = max(v[i-1] + k[c - w[i-1]], k[c])
-  
+                k[c] = max(v[i-1] + k[c - w[i-1]], k[c])  
     return k[C]
 ```
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
 
 ---
 layout: center
@@ -5264,7 +5352,7 @@ layout: center
 
 <br/>
 
-A <span class="hl-bg">graph</span> is an ordered pair $G = (V, E)$ comprising a set $V$ of <span class="hl">vertices</span> or nodes and a collection of pairs of vertices from $V$, known as <span class="hl">edges</span> of a graph. For example, for the graph below:  
+A <span class="hl-bg">graph</span> is an ordered pair $G = (V, E)$ comprising a set $V$ of <span class="hl-strong">vertices</span> or nodes and a collection of pairs of vertices from $V$, known as <span class="hl-strong">edges</span> of a graph. For example, for the graph below:  
 
 
 $V = { 1, 2, 3, 4, 5, 6 }$  
@@ -5316,9 +5404,9 @@ A <span class="hl-strong">Directed Acyclic Graph</span> (DAG) is a directed grap
 
 #### Weighted and Unweighted graph
 
-A weighted graph associates a value (<span class="hl-strong">weight</span>) with every edge in the graph. We can also use words cost or length instead of weight.
+A <span class="hl-strong">weighted</span> graph associates a value (<span class="hl">weight</span>) with every edge in the graph. We can also use words cost or length instead of weight.
 
-An unweighted graph does not have any value (weight) associated with every edge in the graph. In other words, an unweighted graph is a weighted graph with all edge weight as 1. Unless specified otherwise, all graphs are assumed to be unweighted by default.
+An <span class="hl-strong">unweighted</span> graph does not have any value (weight) associated with every edge in the graph. In other words, an unweighted graph is a weighted graph with all edge weight as 1. Unless specified otherwise, all graphs are assumed to be unweighted by default.
 
 <img src="/images/graph-weighted.png" style="height: 40%"/>
 
@@ -5344,7 +5432,7 @@ A <span class="hl-strong">simple</span> graph is an undirected graph in which bo
 
 #### Complete graph
 
-A complete graph is one in which every two vertices are adjacent: all edges that could exist are present.
+A <span class="hl-strong">complete</span> graph is one in which every two vertices are adjacent: all edges that could exist are present.
 
 <img src="/images/graph-complete.png" style="height: 40%"/>
 
@@ -5356,7 +5444,7 @@ A complete graph is one in which every two vertices are adjacent: all edges that
 
 #### Connected graph
 
-A Connected graph has a path between every pair of vertices. In other words, there are no unreachable vertices. A disconnected graph is a graph that is not connected.
+A <span class="hl-strong">connected             </span> graph has a path between every pair of vertices. In other words, there are no unreachable vertices. A disconnected graph is a graph that is not connected.
 
 <img src="/images/graph-connected.png" style="height: 40%"/>
 
@@ -5428,6 +5516,20 @@ li {
   - connected, then $m \geq (n-1)$
   - tree, then $m = (n-1)$
   - forest, then $m \leq (n-1)$
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
 
 ---
 
@@ -5644,8 +5746,12 @@ layout: center
 
 
 ---
+layout: center
+---
 
-# DSA
+# Summary
+
+---
 
 <mdi-timer-sand />
 

@@ -128,7 +128,7 @@ table.flashcard tr.even {
 table.grid {
     font-family: 'Open Sans';
     font-size: 0.8rem;
-    text-align: left;
+    text-align: center;
     border-spacing: 2px;
     border-collapse: separate;
 }
