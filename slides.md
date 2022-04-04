@@ -39,7 +39,10 @@ Data Structures and Algorithms II
 
 <div grid="~ cols-2 gap-4">
   <div>
-    Learning Objectives (Mar ~ Apr 6 weeks, 6 lectures & 6 labs):
+    <p>
+      Mar ~ Apr 6 weeks, 6 lectures & 6 labs
+    </p>  
+    <p>Learning Objectives:</p>
     <p class="norm">
       <ol>
         <li><span class="hl-bg">Priority Queue</span>, <span class="hl-bg">Binary Heap</span>, <span class="hl-bg">Hash Table</span></li>
@@ -3254,11 +3257,11 @@ Pattern Matching is a searching problem.
 
 - <span class="hl-bg">Rabin-Karp</span> <span class="norm">(Michael O. Rabin and Richard M. Karp, 1987)</span>
 
+- <span class="hl-bg">Knuth-Morris-Pratt Algorithm</span> (KMP) <span class="norm">(Knuth, Morris and Pratt, 1977)</span>
+
 - <span class="hl-bg">Boyer-Moore Algorithm</span> (BM) <span class="norm">(Robert S. Boyer and J Strother Moore, 1970, 1974, 1977 )</span>
 
 - <span class="hl-bg">Sunday Algorithm</span> (Sunday) <span class="norm">(Daniel M.Sunday, 1990)</span>
-
-- <span class="hl-bg">Knuth-Morris-Pratt Algorithm</span> (KMP) <span class="norm">(Knuth, Morris and Pratt, 1977)</span>
 
 ---
 layout: center
@@ -5336,15 +5339,38 @@ layout: center
 <br/>
 
 - Implement graph ADT using different internal representation
-
 - Learn graph associated algorithms
-
-- How graph can be used to solve a wide variety of problems
-
-<br/>
+- How graph can be used to solve a wide variety of problems 
 
 <span class="norm">💡 graph can model many things in real world such as roads, airline routes, social media connections, etc.
+</span>   
+<span class="norm">💡 **graph theory**, the study of graphs, is a field of discrete mathematics.
 </span>
+
+
+<div grid="~ cols-3 gap-6">
+  <div>
+    <img src="/images/singapore-mrt.jpeg" style="height: 80%">
+  </div>
+  <div>
+    <img src="/images/network-route.png" style="height: 80%">
+  </div>
+  <div>
+    <img src="/images/state-machine.png" style="height: 80%">
+  </div>
+
+</div>
+
+
+<!--
+
+Graph is not picture. Graph is a data structure.   
+
+Linear and Tree data structure is more about data storage structure and how to use that structure for data CRUD. Data storage structure for Graph is not difficult and the challenge is how to use Graph algorithm to solve different problems. 
+
+Similar to previous algorithm study, we focus on the understanding and implemetation of graph algorithm, not the math proof.  
+
+-->
 
 ---
 
@@ -5875,7 +5901,24 @@ li {
 
 <mdi-clipboard-list-outline />
 
-TBD
+
+1. Review **KMP** and implementat your solution 
+
+2. Review **BM** and implementat your solution
+
+3. The Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences in the same order, i.e., find the longest sequence which can be obtained from the first original sequence by deleting some items and from the second original sequence by deleting other items.
+
+
+For example, consider the two following sequences, X and Y:  
+
+X: ABCBDAB  
+Y: BDCABA  
+ 
+The length of the LCS is 4  
+LCS are BDAB, BCAB, and BCBA  
+
+
+
 
 <style>
 p {
