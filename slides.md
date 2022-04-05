@@ -5396,7 +5396,16 @@ $E = { (1, 4), (1, 6), (2, 6), (4, 5), (5, 6) }$
 
 An <span class="hl-strong">Undirected</span> graph(graph) is a graph in which edges have no orientation. The edge $(x, y)$ is identical to edge $(y, x)$, i.e., they are not ordered pairs. The maximum number of edges possible in an undirected graph without a loop is $n×(n-1)/2$.
 
-<img src="/images/graph-undirected.png" style="height: 40%"/>
+
+<div grid="~ cols-2 gap-4">
+  <div align="center">
+    <img src="/images/graph-undirected.png" style="width: 70%"/>
+  </div>
+  <div align="center">
+    <img src="/images/social-friends.png" style="width: 60%"/>
+    <p class="norm">social: friends</p>
+  </div>
+</div>
 
 ---
 
@@ -5408,7 +5417,15 @@ An <span class="hl-strong">Undirected</span> graph(graph) is a graph in which ed
 
 A <span class="hl-strong">Directed</span> graph (digraph) is a graph in which edges have orientations, i.e., The edge $(x, y)$ is not identical to edge $(y, x)$.
 
-<img src="/images/graph-directed.png" style="height: 40%"/>
+<div grid="~ cols-2 gap-4">
+  <div align="center">
+    <img src="/images/graph-directed.png" style="width: 70%"/>
+  </div>
+  <div align="center">
+    <img src="/images/social-follows.png" style="width: 60%"/>
+    <p class="norm">social: follows</p>
+  </div>
+</div>
 
 ---
 
@@ -5421,6 +5438,7 @@ A <span class="hl-strong">Directed</span> graph (digraph) is a graph in which ed
 A <span class="hl-strong">Directed Acyclic Graph</span> (DAG) is a directed graph that contains no cycles.
 
 <img src="/images/graph-dag.png" style="height: 40%"/>
+
 
 ---
 
