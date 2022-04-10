@@ -5429,6 +5429,7 @@ li {
 - **cycle** is a path that starts and ends at the same vertex.
 - **simple** path is a path with distinct vertices.
 - two vertices are **connected** if a path exists between them.
+- in a directed graph, if there is a path from vertex v to vertex w, it is said that w is **reachable** from v.
 
 <style>
 li {
@@ -5445,15 +5446,15 @@ li {
 <br/>
 
 - a graph is **connect** when all vertices are connected. 
-- a graph is **strongly connected** if it contains a directed path from u to v and a directed path from v to u for every pair of vertices u, v.
+- A **connected component** or simply **component** of an undirected graph is a subgraph in which each pair of nodes is connected with each other via a path.
+- a directed graph is **strongly connected** if for any pair of vertice v and w, w is reachable from v and v also reachable from w. 
 - a directed graph is called **weakly connected** if replacing all of its directed edges with undirected edges produces a connected (undirected) graph. The vertices in a weakly connected graph have either out-degree or in-degree of at least 1.
-- **connected component** is the maximal connected subgraph of an unconnected graph.
+- if a graph H's vertices and edges belong to a graph G's vertices and edges, then graph H is a **subgraph** of G. 
+- if all vertices in G are in its subgraph H, then H is a **spanning subgraph** of G.
 - a **bridge** is an edge whose removal would disconnect the graph.
 - **forest** is a graph without cycles.
-- if a graph H's vertices and edges belong to a graph G's vertices and edges, then graph H is a **subgraph** of G. 
-- if all vertices in G are in its subgraph H, then is a **
-- **tree** is a connected graph with no cycles. If we remove all the cycles from DAG (Directed Acyclic Graph), it becomes a tree, and if we remove any edge in a tree, it becomes a forest.
-- **spanning tree** of an undirected graph is a subgraph that is a tree that includes all the vertices of the graph.
+- **tree** is a connected graph with no cycles. 
+- if a spanning subgraph is a tree, then the spanning subgraph is called a **spanning tree**.
 
 <style>
 li {
@@ -5758,9 +5759,9 @@ li {
       <tr>
         <th id=""> </th>
         <th id="">Space Complexity</th>
-        <th id="">Creating</th>
+        <th id="">construction</th>
         <th id="">has_edge</th>
-        <th id="">incident_edges</th>
+        <th id="">adj</th>
       </tr>
     </thead>
     <tbody>
@@ -5783,7 +5784,9 @@ li {
 </div>
 
 
-<span class="norm">Red-Black Tree? Hash Table?</span>
+<span class="norm">Red-Black Tree?</span>  
+<span class="norm">HashSet?</span>
+
 
 <!--
 
@@ -5874,31 +5877,447 @@ dfs(int v):
 
 </div>
 
+---
+layout: two-cols
+---
 
+# Depth-First Search (DFS)
+
+<logos-jupyter />
+
+<div style="width: 80%; padding-left: 10px;">
+
+```python
+visited[0..V-1] = false 
+dfs(0)
+
+dfs(int v): 
+  visited[v] = true
+  list.add(v)
+  for (int w: incident_edges(v)): 
+    if !visited[w]: 
+      dfs(w)
+```
+
+<br/>
+
+<pre class="norm">
+dfs(0) → dfs(1) → dfs(3) → dfs(2) → dfs(6) → dfs(5)
+dfs(0) → dfs(1)
+dfs(0) → dfs(1) → dfs(4) 
+</pre>
+
+<pre class="norm">
+list: 0 1 3 2 6 5 4
+</pre>
+
+$O(V+E)$
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/dfs_undirected.png" style="height: 50%"/>
+
+<pre class="norm">
+0 : 1 2
+1 : 0 3 4
+2 : 0 3 6
+3 : 1 2 5
+4 : 1
+5 : 3 6
+6 : 2 5
+</pre>
+
+<!--
+
+Q1. not connected
+
+Q2. 
+✅ pre-order
+✅ post-order
+? in-order
+
+-->
+
+---
+layout: two-cols
+---
+
+# Depth-First Search (DFS)
+  
+<br/>
+
+<br/>
+
+**pre[]**:
+
+1 ← 0  
+2 ← 3  
+3 ← 1  
+4 ← 1   
+6 ← 2 
+
+<br/>
+
+path from 0 to 6: **6 ← 2 ← 3 ← 1 ← 0**    
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/dfs_path.png" style="height: 50%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Depth-First Search (DFS)
+
+<br/>
+
+- connected component 
+- a path between two vertices → Shortest path, Eulerian graph, Eulerian cycle, Hamiltonian path   
+- check cycle 
+- check a **bipartite** graph
+- find bridge 
+- [Tarjan's strongly connected components algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
+-  ......
+
+<div class="inline-grid grid-cols-[1fr,1fr] gap-8">
+  <div>
+    <p>a bipartite graph (or bigraph)  is a graph whose vertices can be divided into two disjoint and independent sets U and V, that is every edge connects a vertex in U to one in V.</p>
+  </div>
+  <div>
+    <img src="/images/bipartite.jpeg" style="width:60%"/>
+  </div>
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
 ---
 
 # Breadth-First Search (BFS)
 
-<mdi-timer-sand />
+<br/>
 
----
+Queue    
+0 :  
+2 → 1 : **0**  
+4 → 3 → 2 : **1**  
+6 → 5 → 4 → 3 : **2**  
+6 → 5 → 4 : **3**  
+6 → 5 : **4**  
+6 : **5**  
+: **6**  
 
-# Graph Traversal
+BFS order: **0 1 2 3 4 5 6** 
+
+
+::right::
 
 <br/>
 
-- Check if an undirected graph contains cycle or not
-- Check if a given graph is storngly connected or not
-- Find a path between two vertices
-- Find a path exists that uses every vertex exactly once 
-- Find the longest path in a DAG 
-- ......
-  
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/bfs_tree.png" style="height: 50%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
 ---
 
-# Dijkstra's Shortest Path
+# Breadth-First Search (BFS)
 
-<mdi-timer-sand />
+<logos-jupyter />
+
+Queue    
+0 :  
+2 → 1 : **0**  
+4 → 3 → 2 : **1**  
+6 → 4 → 3 : **2**  
+5 → 6 → 4 : **3**  
+5 → 6 : **4**  
+5 : **6**  
+: **5**  
+
+BFS order: **0 1 2 3 4 6 5** 
+
+$O(V+E)$
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/bfs_undirected.png" style="height: 50%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Depth-First Search (DFS)
+  
+<br/>
+
+<br/>
+
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div>
+    <span class="norm">0</span>
+  </div>
+  <div>
+    <span class="norm">distance from 0: 0</span>
+  </div>
+  <div>
+    <span class="norm">1 2</span>
+  </div>
+  <div>
+    <span class="norm">distance from 0: 1</span>
+  </div>  
+  <div>
+    <span class="norm">3 4 6</span>
+  </div>
+  <div>
+    <span class="norm">distance from 0: 2</span>
+  </div>  
+  <div>
+    <span class="norm">5</span>
+  </div>
+  <div>
+    <span class="norm">distance from 0: 3</span>
+  </div>  
+</div>
+
+
+<br/>
+
+<br/>
+
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div align="right">
+    <span class="norm">BFS order:</span>
+  </div>
+  <div>
+    <span class="norm"><strong>0 1 2 3 4 6 5</strong></span>
+  </div> 
+  <div align="right">
+    <span class="norm">dist[]:</span>
+  </div>
+  <div>
+    <span class="norm"><strong>0 1 1 2 2 2 3</strong></span>
+  </div>   
+</div>
+
+<br/>
+
+<br/>
+
+👉 shorted path 
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/bfs_path.png" style="height: 50%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Dijkstra's Algorithm
+
+<br/>
+
+distance:   
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <td style="font-weight:bolder">0</td>
+      <td style="font-weight:bolder">1</td>
+      <td style="font-weight:bolder">2</td>
+      <td style="font-weight:bolder">3</td>
+      <td style="font-weight:bolder">4</td>
+    </tr>
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td>&#8734;</td>
+      <td>&#8734;</td>
+      <td>&#8734;</td>
+      <td>&#8734;</td>
+    </tr>
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td>4</td>
+      <td style="color:red">2</td>
+      <td>&#8734;</td>
+      <td>&#8734;</td>
+    </tr>
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td>3</td>
+      <td style="color:red">2</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>    
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td style="color:red">3</td>
+      <td style="color:red">2</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>    
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td style="color:red">3</td>
+      <td style="color:red">2</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>    
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td style="color:red">3</td>
+      <td style="color:red">2</td>
+      <td style="color:red">5</td>
+      <td>6</td>
+    </tr>    
+    <tr class="even">
+      <td style="color:red">0</td>
+      <td style="color:red">3</td>
+      <td style="color:red">2</td>
+      <td style="color:red">5</td>
+      <td style="color:red">6</td>
+    </tr>     
+  </tbody>
+</table>
+
+<br/>
+
+Each iteration:
+
+1. from unvisited vertices, find the shortest distance 
+2. confirm this vertex visited 
+3. from this vertex, update distance to other unvisited vertices    
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/dijkstra1.png" style="width: 60%"/>
+
+<img src="/images/dijkstra2.png" style="width: 60%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
 
 ---
 
@@ -6153,15 +6572,19 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Iterative implementation of **DFS** (preorder) with **Adjacency List** 
+1. Iterative implementation of **DFS** with **Adjacency List** 
 
 2. Iterative implementation of **BFS** with **Adjacency List**
 
-3. Implement **DFS** with **Adjacency Matrix**  
+3. Modify **DFS** to detect cycle in undirected graph    
 
-4. Implement **BFS** with **Adjacency Matrix**   
+4. Modify **DFS** to find a path (Single Source Path) in a undirected graph   
 
-5. 
+5. Modify **BFS** to find a path (Single Source Path) in a undirected graph   
+
+6. Implement **DFS** with **Adjacency Matrix**  
+
+7. Implement **BFS** with **Adjacency Matrix**   
 
 <style>
 p {

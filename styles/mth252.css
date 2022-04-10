@@ -143,6 +143,7 @@ table.grid tr.odd {
 }
 
 table.grid tr th {
+    padding: 5px;
     background-color:#97C1EA;
     color: #ffffff;
 }
