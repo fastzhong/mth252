@@ -119,7 +119,7 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 
 <br/>
 
-#### Solution related to DSA questions:
+### Solution related to DSA questions:
 
 ⚠️  <span class="norm">always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252</span>   
   
@@ -2206,7 +2206,7 @@ layout: two-cols
 
 <br/>
 
-#### Left Rotate
+### Left Rotate
 
 <div style="width: 90%;">
 
@@ -2245,7 +2245,7 @@ layout: two-cols
 
 <br/>
 
-#### Flip Colors
+### Flip Colors
 
 <div style="width: 90%;">
 
@@ -2283,7 +2283,7 @@ layout: two-cols
 
 <br/>
 
-#### Right Rotate
+### Right Rotate
 
 <div style="width: 90%;">
 
@@ -2320,7 +2320,7 @@ layout: two-cols
 
 <br/>
 
-#### insertion: LR → RR → FC
+### insertion: LR → RR → FC
 
 <br/>
 
@@ -2337,7 +2337,7 @@ layout: two-cols
 
 <br/>
 
-#### insertion: LR → RR → FC
+### insertion: LR → RR → FC
 
 - 2-node 
 - 3-node
@@ -3121,7 +3121,7 @@ In computer science, a <span class="hl-color">selection algorithm</span> is an a
 
 # Select K
 
-#### Heap
+### Heap
 
 Solution 1: complexity $O(N) + O(KlogN)$
 
@@ -3150,7 +3150,7 @@ li {
 
 # Select K
 
-#### Quick Sort
+### Quick Sort
 
 <br/>
 
@@ -3201,7 +3201,7 @@ layout: center
 
 # Text Processing
 
-#### Algorithms on Strings
+### Algorithms on Strings
 
 - docs editors, emails, messages
 
@@ -3312,7 +3312,7 @@ layout: two-cols
 
 <logos-jupyter />
 
-#### Rolling Hash  
+### Rolling Hash  
 
 $S$ with a length of $n$, and a pattern string $P$ with length of $m$  
 for $i = m-1...n - 1$, compute hashing $h(i)$ for substring S[i-m+1...i]:
@@ -4762,14 +4762,14 @@ layout: two-cols
 
 # Boyer-Moore (BM)
 
-#### Time Complexity
+### Time Complexity
 
 - best case: $O(m + n/m)$ 
 - worst case: $O(m + n*m)$ <span class="norm">👉 $\approx 3n$, see linkes below</span>
 
 <br/>
 
-#### Space Complexity: 
+### Space Complexity: 
 
 - bad char table: $O(256 * m)$ or $O(m)$
 - suffix: $O(m)$
@@ -5384,7 +5384,13 @@ A <span class="hl-bg">graph</span> is an ordered pair $G = (V, E)$ comprising a 
 $V = { 1, 2, 3, 4, 5, 6 }$  
 $E = { (1, 4), (1, 6), (2, 6), (4, 5), (5, 6) }$  
 
-<img src="/images/graph01.png" style="height: 40%"/>
+<img src="/images/graph01.png" style="height: 40%"/>  
+
+<!--
+
+Layman's definition of a Graph: network that define and visualize relationships between various componetnts
+
+-->
 
 ---
 
@@ -5392,9 +5398,97 @@ $E = { (1, 4), (1, 6), (2, 6), (4, 5), (5, 6) }$
 
 <br/>
 
-#### Undirected Graph 
+- an **edge** is (together with vertices) one of the two basic units out of which graphs are constructed, each edge has two vertices to which it is attached, called its **endpoints**.
+- two vertices are called **adjacent** or **neighbors** if they are endpoints of the same edge.
+- **outgoing** edges of a vertex are directed edges that the vertex is the origin.
+- **incoming** edges of a vertex are directed edges that the vertex is the destination.
+- the **degree** of a vertex in a graph is the total number of edges incident to it.
+- in a directed graph, the **out-degree** of a vertex is the total number of outgoing edges, and the **in-degree** is the total number of incoming edges.
+- a vertex with in-degree zero is called a **source** vertex, while a vertex with out-degree zero is called a **sink** vertex.
+- an **isolated** vertex is a vertex with degree zero, which is not an endpoint of an edge.
+- if two or more undirected edges have the same two endpoint, or both origin and destination for two or more directed edges are the same, those edges are called **parallel edges** or **multiple edges**.  
+- if two endpoints for an edge are the same vertex, th edge become **self-loop**.
 
-An <span class="hl-strong">Undirected</span> graph(graph) is a graph in which edges have no orientation. The edge $(x, y)$ is identical to edge $(y, x)$, i.e., they are not ordered pairs. The maximum number of edges possible in an undirected graph without a loop is $n×(n-1)/2$.
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+- **path** is a sequence of alternating vertices and edges such that the edge connects each successive vertex.
+- if a path only has the directed edges and traverse along the edges' direction, the path is called a **directed path**.
+- **path length** is number of edges in a path.
+- **cycle** is a path that starts and ends at the same vertex.
+- **simple** path is a path with distinct vertices.
+- two vertices are **connected** if a path exists between them.
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+- a graph is **connect** when all vertices are connected. 
+- a graph is **strongly connected** if it contains a directed path from u to v and a directed path from v to u for every pair of vertices u, v.
+- a directed graph is called **weakly connected** if replacing all of its directed edges with undirected edges produces a connected (undirected) graph. The vertices in a weakly connected graph have either out-degree or in-degree of at least 1.
+- **connected component** is the maximal connected subgraph of an unconnected graph.
+- a **bridge** is an edge whose removal would disconnect the graph.
+- **forest** is a graph without cycles.
+- if a graph H's vertices and edges belong to a graph G's vertices and edges, then graph H is a **subgraph** of G. 
+- if all vertices in G are in its subgraph H, then is a **
+- **tree** is a connected graph with no cycles. If we remove all the cycles from DAG (Directed Acyclic Graph), it becomes a tree, and if we remove any edge in a tree, it becomes a forest.
+- **spanning tree** of an undirected graph is a subgraph that is a tree that includes all the vertices of the graph.
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Graph Terminology
+
+<br/>
+
+- **root node** is the ancestor of all other nodes in a graph. It does not have any ancestor. Each graph consists of exactly one root node. Generally, you must start traversing a graph from the root node.
+- **leaf node** represents the node that do not have any successors. These nodes only have ancestor nodes. They can have any number of incoming edges but they will not have any outgoing edges.
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Types of Graphs
+
+<br/>
+
+### Undirected and Directed Graph 
+
+An <span class="hl-strong">undirected</span> graph(graph) is a graph in which edges have no orientation. The edge $(x, y)$ is identical to edge $(y, x)$, i.e., they are not ordered pairs. The maximum number of edges possible in an undirected graph without a loop is $n×(n-1)/2$.
 
 
 <div grid="~ cols-2 gap-4">
@@ -5409,13 +5503,13 @@ An <span class="hl-strong">Undirected</span> graph(graph) is a graph in which ed
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-#### Directed Graph 
+### Undirected and Directed Graph 
 
-A <span class="hl-strong">Directed</span> graph (digraph) is a graph in which edges have orientations, i.e., The edge $(x, y)$ is not identical to edge $(y, x)$.
+A <span class="hl-strong">directed</span> graph (digraph) is a graph in which edges have orientations, i.e., The edge $(x, y)$ is not identical to edge $(y, x)$.
 
 <div grid="~ cols-2 gap-4">
   <div align="center">
@@ -5429,26 +5523,23 @@ A <span class="hl-strong">Directed</span> graph (digraph) is a graph in which ed
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-#### Directed Acyclic Graph (DAG) 
+### Undirected and Directed Graph 
 
-A <span class="hl-strong">Directed Acyclic Graph</span> (DAG) is a directed graph that contains no cycles.
-
-<img src="/images/graph-dag.png" style="height: 40%"/>
-
+A <span class="hl-strong">mixed</span> graph has both undirected and directed edges. 
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-#### Weighted and Unweighted graph
+### Weighted and Unweighted Graph
 
-A <span class="hl-strong">weighted</span> graph associates a value (<span class="hl">weight</span>) with every edge in the graph. We can also use words cost or length instead of weight.
+A <span class="hl-strong">weighted</span> graph associates a value (<span class="hl">weight</span>) with every edge in the graph. 
 
 An <span class="hl-strong">unweighted</span> graph does not have any value (weight) associated with every edge in the graph. In other words, an unweighted graph is a weighted graph with all edge weight as 1. Unless specified otherwise, all graphs are assumed to be unweighted by default.
 
@@ -5456,13 +5547,13 @@ An <span class="hl-strong">unweighted</span> graph does not have any value (weig
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-#### Simple and Multi graph
+### Simple and Multi Graph
 
-A <span class="hl-strong">multigraph</span> is an undirected graph in which multiple edges (and sometimes loops) are allowed. Multiple edges are two or more edges that connect the same two vertices. A loop is an edge (directed or undirected) that connects a vertex to itself; it may be permitted or not.
+A <span class="hl-strong">multigraph</span> is an undirected graph in which multiple edges (and sometimes loops) are allowed. 
 
 A <span class="hl-strong">simple</span> graph is an undirected graph in which both multiple edges and loops are disallowed as opposed to a multigraph. In a simple graph with $n$ vertices, every vertex’s degree is at most $n-1$.
 
@@ -5470,77 +5561,41 @@ A <span class="hl-strong">simple</span> graph is an undirected graph in which bo
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-#### Complete graph
+### Connected Graph
 
-A <span class="hl-strong">complete</span> graph is one in which every two vertices are adjacent: all edges that could exist are present.
-
-<img src="/images/graph-complete.png" style="height: 40%"/>
-
----
-
-# Graph Terminology
-
-<br/>
-
-#### Connected graph
-
-A <span class="hl-strong">connected             </span> graph has a path between every pair of vertices. In other words, there are no unreachable vertices. A disconnected graph is a graph that is not connected.
+A <span class="hl-strong">connected</span> graph has a path between every pair of vertices. In other words, there are no unreachable vertices. A <span class="hl-strong">disconnected</span> graph is a graph that is not connected.
 
 <img src="/images/graph-connected.png" style="height: 40%"/>
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-- an **edge** is (together with vertices) one of the two basic units out of which graphs are constructed, each edge has two vertices to which it is attached, called its **endpoints**.
-- two vertices are called **adjacent** if they are endpoints of the same edge.
-- **outgoing** edges of a vertex are directed edges that the vertex is the origin.
-- **incoming** edges of a vertex are directed edges that the vertex is the destination.
-- the **degree** of a vertex in a graph is the total number of edges incident to it.
-- in a directed graph, the **out-degree** of a vertex is the total number of outgoing edges, and the **in-degree** is the total number of incoming edges.
-- a vertex with in-degree zero is called a **source** vertex, while a vertex with out-degree zero is called a **sink** vertex.
-- an **isolated** vertex is a vertex with degree zero, which is not an endpoint of an edge.
-- **path** is a sequence of alternating vertices and edges such that the edge connects each successive vertex.
-- **cycle** is a path that starts and ends at the same vertex
-- **simple** path is a path with distinct vertices.
+### Directed (Cyclic) Graph and DAG
 
+A <span class="hl-strong">Directed Acyclic Graph</span> (DAG) is a directed graph that contains no cycles.
 
-<style>
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
+<img src="/images/graph-dag.png" style="height: 40%"/>
 
 ---
 
-# Graph Terminology
+# Types of Graphs
 
 <br/>
 
-- a graph is **Strongly Connected** if it contains a directed path from u to v and a directed path from v to u for every pair of vertices u, v.
-- a directed graph is called **Weakly Connected** if replacing all of its directed edges with undirected edges produces a connected (undirected) graph. The vertices in a weakly connected graph have either out-degree or in-degree of at least 1.
-- **connected component** is the maximal connected subgraph of an unconnected graph.
-- a **bridge** is an edge whose removal would disconnect the graph.
-- **forest** is a graph without cycles.
-- **tree** is a connected graph with no cycles. If we remove all the cycles from DAG (Directed Acyclic Graph), it becomes a tree, and if we remove any edge in a tree, it becomes a forest.
-- **spanning tree** of an undirected graph is a subgraph that is a tree that includes all the vertices of the graph.
+### Complete Graph
 
+A <span class="hl-strong">complete</span> graph is one in which every two vertices are adjacent: all edges that could exist are present.
 
-<style>
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
+$E = \frac{V·(V-1)}{2}$  
+
+<img src="/images/graph-complete.png" style="height: 40%"/>
 
 ---
 
@@ -5576,36 +5631,12 @@ li {
 </style>
 
 ---
-
-# Graph ADT 
-
-<br/>
-
-<pre class="norm">
-endpoint()
-opposite(v)
-vertex_count()
-vertices()
-vertex_edge()
-edges()
-get_edge(Vi, Vj)
-degree(v, out=True)
-degree(v, out=False)
-incident_edge(v, out=True)
-incident_edge(v, out=False)
-insert_vertex(w=None)
-insert_edge(Vi,Vj,e=None)
-remove_vertex(v)
-remove_edge(e)
-</pre>
-
----
 layout: two-cols
 ---
 
 # Graph ADT 
 
-#### Adjacency Matrix Representation
+### Adjacency Matrix Representation
 
 An adjacency matrix is a square matrix used to represent a finite graph. The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph. For a simple unweighted graph with vertex set $V$, the adjacency matrix is a square $|V| × |V|$ matrix A such that its element:
 
@@ -5613,6 +5644,13 @@ $A_{ij} = 1$, when there is an edge from vertex $V_i$ to vertex $V_j$, and
 $A_{ij} = 0$, when there is no edge.
 
 Each row in the matrix represents source vertices, and each column represents destination vertices. The diagonal elements of the matrix are all zero since edges from a vertex to itself, i.e., loops are not allowed in simple graphs. If the graph is undirected, the adjacency matrix will be symmetric. Also, for a weighted graph, $A_{ij}$ can represent edge weights.
+
+Space Complexity: $O(V^2)$
+
+Time Complexity   
+- creating: $O(E)$
+- has_edge: $O(1)$ 
+- incident_edges: $O(V)$ 
 
 ::right::
 
@@ -5650,9 +5688,16 @@ layout: two-cols
 
 # Graph ADT 
 
-#### Adjacency List Representation
+### Adjacency List Representation
 
 An adjacency list representation for the graph associates each vertex in the graph with the collection of its neighboring vertices or edges, i.e., every vertex stores a list of adjacent vertices. There are many variations of adjacency list representation depending upon the implementation. This data structure allows the storage of additional data on the vertices but is practically very efficient when the graph contains only a few edges. i.e. the graph is sparse.
+
+Space Complexity: $O(V + E)$
+
+Time Complexity   
+- creating: $O(E)$, $O(E * V)$
+- has_edge: $O(deg(v))$, $O(V)$ 
+- incident_edges: $O(deg(v))$, $O(V)$ 
 
 <logos-jupyter />
 
@@ -5672,11 +5717,53 @@ An adjacency list representation for the graph associates each vertex in the gra
   <img src="/images/graph-list.png" style="width: 50%"/>
 </div>
 
+<!--
+
+Consider 
+
+HashSet: O(1) 
+Red-Black Tree: O(log) 
+1. ordering
+2. space
+   
+-->
+
 <style>
 p {
     font-family: 'Open Sans';
     font-size: 0.8rem;
     line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+ 
+# Graph ADT 
+
+<br/>
+
+vertex_count()  
+edge_count()  
+vertices()  
+edges()  
+get_edge(v<sub>i</sub>, v<sub>j</sub>)  
+degree(v, out=True), degree(v, out=False)  
+incident_edge(v, out=True), incident_edge(v, out=False)  
+insert_vertex(w=None)  
+insert_edge(v<sub>i</sub>,v<sub>j</sub>,e=None)  
+remove_vertex(v)  
+remove_edge(e)  
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
 }
 
 li {
@@ -5700,6 +5787,19 @@ li {
 
 ---
 
+# Graph Traversal
+
+<br/>
+
+- Check if an undirected graph contains cycle or not
+- Check if a given graph is storngly connected or not
+- Find a path between two vertices
+- Find a path exists that uses every vertex exactly once 
+- Find the longest path in a DAG 
+- ......
+  
+---
+
 # Dijkstra's Shortest Path
 
 <mdi-timer-sand />
@@ -5721,6 +5821,7 @@ li {
 # Kruskal's Algorithm
 
 <mdi-timer-sand />
+
 
 ---
 layout: center
@@ -5924,8 +6025,9 @@ li {
 
 2. Review **BM** and implementate your solution
 
-3. The Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences in the same order, i.e., find the longest sequence which can be obtained from the first original sequence by deleting some items and from the second original sequence by deleting other items.
+3. Review **Sunday** and implement your solution 
 
+4. The Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences in the same order, i.e., find the longest sequence which can be obtained from the first original sequence by deleting some items and from the second original sequence by deleting other items. (hint: **DP**) 
 
 For example, consider the two following sequences, X and Y:  
 
@@ -5934,8 +6036,6 @@ Y: BDCABA
  
 The length of the LCS is 4  
 LCS are BDAB, BCAB, and BCBA  
-
-hint: **DP**
 
 <style>
 p {
@@ -5957,7 +6057,15 @@ li {
 
 <mdi-clipboard-list-outline />
 
-TBD
+1. Iterative implementation of **DFS** (preorder) with **Adjacency List** 
+
+2. Iterative implementation of **BFS** with **Adjacency List**
+
+3. Implement **DFS** with **Adjacency Matrix**  
+
+4. Implement **BFS** with **Adjacency Matrix**   
+
+5. 
 
 <style>
 p {
@@ -5979,7 +6087,9 @@ li {
 
 <mdi-clipboard-list-outline />
 
-TMA review
+1. TMA Review
+
+2. Algo Review (slide 3)
 
 <style>
 p {
