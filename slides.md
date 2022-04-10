@@ -5645,13 +5645,6 @@ $A_{ij} = 0$, when there is no edge.
 
 Each row in the matrix represents source vertices, and each column represents destination vertices. The diagonal elements of the matrix are all zero since edges from a vertex to itself, i.e., loops are not allowed in simple graphs. If the graph is undirected, the adjacency matrix will be symmetric. Also, for a weighted graph, $A_{ij}$ can represent edge weights.
 
-Space Complexity: $O(V^2)$
-
-Time Complexity   
-- creating: $O(E)$
-- has_edge: $O(1)$ 
-- incident_edges: $O(V)$ 
-
 ::right::
 
 <br/>
@@ -5692,13 +5685,6 @@ layout: two-cols
 
 An adjacency list representation for the graph associates each vertex in the graph with the collection of its neighboring vertices or edges, i.e., every vertex stores a list of adjacent vertices. There are many variations of adjacency list representation depending upon the implementation. This data structure allows the storage of additional data on the vertices but is practically very efficient when the graph contains only a few edges. i.e. the graph is sparse.
 
-Space Complexity: $O(V + E)$
-
-Time Complexity   
-- creating: $O(E)$, $O(E * V)$
-- has_edge: $O(deg(v))$, $O(V)$ 
-- incident_edges: $O(deg(v))$, $O(V)$ 
-
 <logos-jupyter />
 
 ::right::
@@ -5716,17 +5702,6 @@ Time Complexity
   <br/>
   <img src="/images/graph-list.png" style="width: 50%"/>
 </div>
-
-<!--
-
-Consider 
-
-HashSet: O(1) 
-Red-Black Tree: O(log) 
-1. ordering
-2. space
-   
--->
 
 <style>
 p {
@@ -5775,9 +5750,106 @@ li {
 
 ---
 
+# Graph ADT 
+
+<div style="width: 80%">
+  <table class="ops">
+    <thead>
+      <tr>
+        <th id=""> </th>
+        <th id="">Space Complexity</th>
+        <th id="">Creating</th>
+        <th id="">has_edge</th>
+        <th id="">incident_edges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Adjacency Matrix</th>
+        <td>O(V^2)</td>
+        <td>O(E)</td>
+        <td>O(1)</td>
+        <td>O(V) 👈</td>
+      </tr>
+      <tr class="even">
+        <th>Adjacency List</th>
+        <td>O(V + E)</td>
+        <td>O(E), O(E * V)</td>
+        <td>O(deg(v)), O(V)</td>
+        <td>O(deg(v)), O(V)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<span class="norm">Red-Black Tree? Hash Table?</span>
+
+<!--
+
+Consider 
+
+HashSet: O(1) 
+Red-Black Tree: O(log) 
+1. ordering
+2. space
+   
+-->
+
+---
+layout: two-cols
+---
+
 # Depth-First Search (DFS)
 
-<mdi-timer-sand />
+<br/>
+
+<img src="/images/dfs_tree.png" style="height: 60%"/>
+
+::right::
+
+<br/>
+
+<img src="/images/dfs_graph.png" style="height: 60%"/>
+
+---
+layout: two-cols
+---
+
+# Depth-First Search (DFS)
+
+<br/>
+
+<div>
+```python
+preorder(root)
+
+preorder(TreeNode node): 
+  if node != None: 
+    list.add(node.val)
+    preorder(node.left)
+    preorder(node.right)
+```
+</div>
+
+::right::
+
+<br/>
+
+<div>
+```python
+visited[0..V-1] = false 
+dfs(0)
+
+dfs(int v): 
+  visited[v] = true
+  list.add(v)
+  for (int w: incident_edges(v)): 
+    if !visited[w]: 
+      dfs(w)
+```
+</div>
+
 
 ---
 
