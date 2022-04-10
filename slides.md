@@ -6187,7 +6187,7 @@ layout: two-cols
 
 <br/>
 
-👉 shorted path 
+👉 shortest path 
 
 ::right::
 
@@ -6222,8 +6222,7 @@ layout: two-cols
 # Dijkstra's Algorithm
 
 <br/>
-
-distance:   
+  
 <table class="grid">
   <tbody>
     <tr class="odd">
@@ -6285,10 +6284,7 @@ distance:
   </tbody>
 </table>
 
-<br/>
-
-Each iteration:
-
+Each iteration:  
 1. from unvisited vertices, find the shortest distance 
 2. confirm this vertex visited 
 3. from this vertex, update distance to other unvisited vertices    
@@ -6304,6 +6300,36 @@ Each iteration:
 <img src="/images/dijkstra1.png" style="width: 60%"/>
 
 <img src="/images/dijkstra2.png" style="width: 60%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Depth-First Search (DFS)
+
+<br/>
+
+- $O(V^2)$ → $O(ElogE)$ → $O(ElogV)$
+
+- shortest path from $src$ to $dest$
+
+- all possible shortest path: $O(V * ElogE)$
+
+- negative weight?   
+  👉 [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)    
+  👉 [Floyd–Warshall](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)  
 
 <style>
 p {
