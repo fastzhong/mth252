@@ -5804,13 +5804,23 @@ layout: two-cols
 
 <br/>
 
-<img src="/images/dfs_tree.png" style="height: 60%"/>
+<br/>
+
+<img src="/images/dfs_tree.png" style="height: 40%"/>
 
 ::right::
 
 <br/>
 
-<img src="/images/dfs_graph.png" style="height: 60%"/>
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<img src="/images/dfs_graph.png" style="height: 40%"/>
 
 ---
 layout: two-cols
@@ -5820,7 +5830,10 @@ layout: two-cols
 
 <br/>
 
-<div>
+<br/>
+
+<div style="width: 80%; padding-left: 10px;">
+
 ```python
 preorder(root)
 
@@ -5830,13 +5843,23 @@ preorder(TreeNode node):
     preorder(node.left)
     preorder(node.right)
 ```
+
 </div>
 
 ::right::
 
 <br/>
 
-<div>
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div style="width: 80%; padding-left: 10px;">
+
 ```python
 visited[0..V-1] = false 
 dfs(0)
@@ -5848,6 +5871,7 @@ dfs(int v):
     if !visited[w]: 
       dfs(w)
 ```
+
 </div>
 
 
