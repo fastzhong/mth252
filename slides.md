@@ -5956,7 +5956,7 @@ layout: two-cols
 
 <br/>
 
-**pre[]**:
+**prev[]**:
 
 1 ← 0  
 2 ← 3  
@@ -6221,73 +6221,87 @@ layout: two-cols
 
 # Dijkstra's Algorithm
 
-<br/>
-  
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <td style="font-weight:bolder">0</td>
-      <td style="font-weight:bolder">1</td>
-      <td style="font-weight:bolder">2</td>
-      <td style="font-weight:bolder">3</td>
-      <td style="font-weight:bolder">4</td>
-    </tr>
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td>&#8734;</td>
-      <td>&#8734;</td>
-      <td>&#8734;</td>
-      <td>&#8734;</td>
-    </tr>
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td>4</td>
-      <td style="color:red">2</td>
-      <td>&#8734;</td>
-      <td>&#8734;</td>
-    </tr>
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td>3</td>
-      <td style="color:red">2</td>
-      <td>6</td>
-      <td>7</td>
-    </tr>    
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td style="color:red">3</td>
-      <td style="color:red">2</td>
-      <td>6</td>
-      <td>7</td>
-    </tr>    
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td style="color:red">3</td>
-      <td style="color:red">2</td>
-      <td>5</td>
-      <td>6</td>
-    </tr>    
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td style="color:red">3</td>
-      <td style="color:red">2</td>
-      <td style="color:red">5</td>
-      <td>6</td>
-    </tr>    
-    <tr class="even">
-      <td style="color:red">0</td>
-      <td style="color:red">3</td>
-      <td style="color:red">2</td>
-      <td style="color:red">5</td>
-      <td style="color:red">6</td>
-    </tr>     
-  </tbody>
-</table>
+<logos-jupyter />
 
 Each iteration:  
-1. from unvisited vertices, find the shortest distance 
-2. confirm this vertex visited 
-3. from this vertex, update distance to other unvisited vertices    
+1. from unvisited vertices, find the best vertex with shortest distance 
+2. mark this vertex visited 
+3. from this vertex, update distance to other unvisited vertices  
+
+<br/>
+
+<div class="inline-grid grid-cols-[1fr,2fr] gap-2">
+  <div>
+    <table class="grid">
+      <tbody>
+        <tr class="odd">
+          <td style="font-weight:bolder">0</td>
+          <td style="font-weight:bolder">1</td>
+          <td style="font-weight:bolder">2</td>
+          <td style="font-weight:bolder">3</td>
+          <td style="font-weight:bolder">4</td>
+        </tr>
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td>&#8734;</td>
+          <td>&#8734;</td>
+          <td>&#8734;</td>
+          <td>&#8734;</td>
+        </tr>
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td>4</td>
+          <td style="color:red">2</td>
+          <td>&#8734;</td>
+          <td>&#8734;</td>
+        </tr>
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td>3</td>
+          <td style="color:red">2</td>
+          <td>6</td>
+          <td>7</td>
+        </tr>    
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td style="color:red">3</td>
+          <td style="color:red">2</td>
+          <td>6</td>
+          <td>7</td>
+        </tr>    
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td style="color:red">3</td>
+          <td style="color:red">2</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>    
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td style="color:red">3</td>
+          <td style="color:red">2</td>
+          <td style="color:red">5</td>
+          <td>6</td>
+        </tr>    
+        <tr class="even">
+          <td style="color:red">0</td>
+          <td style="color:red">3</td>
+          <td style="color:red">2</td>
+          <td style="color:red">5</td>
+          <td style="color:red">6</td>
+        </tr>     
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <pre class="norm">
+Path (0 —> 1): Minimum cost = 3, Route = [0, 2, 1]
+Path (0 —> 2): Minimum cost = 2, Route = [0, 2]
+Path (0 —> 3): Minimum cost = 5, Route = [0, 2, 1, 3]
+Path (0 —> 4): Minimum cost = 6, Route = [0, 2, 1, 4]    
+    </pre>
+  </div> 
+</div>
 
 ::right::
 
@@ -6295,11 +6309,10 @@ Each iteration:
 
 <br/>
 
-<br/>
-
-<img src="/images/dijkstra1.png" style="width: 60%"/>
-
-<img src="/images/dijkstra2.png" style="width: 60%"/>
+<div align="center">
+  <img src="/images/dijkstra1.png" style="width: 70%"/>
+  <img src="/images/dijkstra2.png" style="width: 70%"/>
+</div>
 
 <style>
 p {
@@ -6349,20 +6362,188 @@ li {
 
 # Min-Spanning Tree (MST)
 
-<mdi-timer-sand />
+<br/>
+
+Spanning Tree: DFS & BFS  
+
+<img src="/images/mst_dfs_bfs.png" style="width: 70%"/>
+
+---
+layout: two-cols
+---
+
+# Kruskal's Algorithm
+
+<br/>
+
+<br/>
+
+- repeatedly add the next lightest edge if this doesn’t producea cycle
+
+- greeding algorithm 
+
+<br/>
+
+<pre class="norm">
+1, 2: 1
+3, 4: 1 
+0, 1: 2
+0, 5: 2 
+1, 4: 3
+1, 3 ❌   2, 4 ❌   2, 5 ❌ 
+3, 6: 5
+0, 3 ❌   4, 6 ❌
+</pre>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/mst_kruskal.png" style="width: 70%"/>
+</div>
 
 ---
 
-# Prim-Jarnik Algorithm
+# The Cut Property 
 
-<mdi-timer-sand />
+<br/>
+
+In graph theory, a cut can be defined as a partition that divides a graph into two <span class="hl-color">disjoint subsets</span>.
+
+A cut $C = (S_1, S_2)$ in a connected graph $G(V, E)$, partitions the vertex set $V$ into two disjoint subsets $S_1$, and $S_2$.
+
+A <span class="hl">cut set</span> of a cut $C(S_1, S_2)$ of a connected graph $G(V, E)$ can be defined as the set of edges that have one endpoint in $S_1$ and the other in $S_2$. For example the $C(S_1, S_2)$ of $G(V, E) = {(i, j) \in E | i \in S_1, j \in S_2 }$
+
+An edge is a <span class="hl">crossing edge</span> as an edge which connects a node from one set to a node from the other set.
+
+<br/>
+
+<span class="norm">👉 bipartitie graph: find a cut, so that every edge is crossing edge</span>
+
+---
+
+# The Cut Property 
+
+<br/>
+
+> **According to the cut property, given any cut, the minimum weight crossing edge is in the MST.**
+
+<br/>
+
+<div class="inline-grid grid-cols-[1fr,1fr] gap-8">
+  <div>
+    <img src="/images/cutp5.png" style="width: 60%"/><br/>
+    <pre class="norm">
+    0, 3: 7
+    1, 3: 4 
+    1, 4: 3 👈
+    2, 4: 4
+    </pre>
+  </div>
+  <div>
+    <img src="/images/cutp6.png" style="width: 60%"/>
+  </div>
+</div>
 
 ---
 
 # Kruskal's Algorithm
 
-<mdi-timer-sand />
+<logos-jupyter />  
 
+<br/>
+
+🙇🏻‍♂️ implementation  
+
+$O(ElogE)$  
+
+<!--
+
+- check cycle? → check connectivity/find a path 
+
+- DFS? → O(V+E)
+
+- dynamic? → Disjoin Set $O(ElogE)$
+
+-->
+
+---
+layout: two-cols
+---
+
+# Prim's Algorithm
+
+<br/>
+
+<br/>
+
+- start from 0, find the lightest crossing edge, and repeatly expand the cut  
+
+<br/>
+
+<pre class="norm">
+0, 1: 2   S1 = 0          
+1, 2: 1   S1 = 0, 1         
+0, 5: 2   S1 = 0, 1, 2      
+1, 4: 3   S1 = 0, 1, 2, 5    
+3, 4: 1   S1 = 0, 1, 2, 5, 4
+3, 6: 5   S1 = 0, 1, 2, 5, 4, 3
+             S1 = 0, 1, 2, 5, 4, 3, 6
+</pre>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div align="center">
+  <img src="/images/mst_prim.png" style="width: 70%"/>
+</div>
+
+---
+
+# Prim's Algorithm
+
+<logos-jupyter />  
+
+<br/>
+
+🙇🏻‍♂️ implementation  
+
+$O(ElogE)$  
+
+---
+
+# Min-Spanning Tree (MST)
+
+<br/>
+
+- Fedman-Tarjan $O(E + VlogV)$
+  - <span class="norm">Fredman, M. L.; Willard, D. E. (1994), "Trans-dichotomous algorithms for minimum spanning trees and shortest paths", Journal of Computer and System Sciences, 48 (3): 533–551, doi:10.1016/S0022-0000(05)80064-9, MR 1279413.</span> 
+
+- Chazelle $O(E^*)$
+  - <span class="norm">Chazelle, Bernard (2000), "A minimum spanning tree algorithm with inverse-Ackermann type complexity", Journal of the Association for Computing Machinery, 47 (6): 1028–1047, doi:10.1145/355541.355562, MR 1866456, S2CID 6276962.</span>
+  - <span class="norm">Chazelle, Bernard (2000), "The soft heap: an approximate priority queue with optimal error rate" (PDF), Journal of the Association for Computing Machinery, 47 (6): 1012–1027, doi:10.1145/355541.355554, MR 1866455, S2CID 12556140.</span>
 
 ---
 layout: center
@@ -6604,13 +6785,9 @@ li {
 
 3. Modify **DFS** to detect cycle in undirected graph    
 
-4. Modify **DFS** to find a path (Single Source Path) in a undirected graph   
+4. Modify **BFS** to find a path (Single Source Shortest Path) in a undirected graph   
 
-5. Modify **BFS** to find a path (Single Source Path) in a undirected graph   
-
-6. Implement **DFS** with **Adjacency Matrix**  
-
-7. Implement **BFS** with **Adjacency Matrix**   
+5. Implement your **Dijkstra** algorithm with WeightdeGraph class
 
 <style>
 p {
