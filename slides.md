@@ -6380,7 +6380,7 @@ layout: two-cols
 
 - repeatedly add the next lightest edge if this doesn’t producea cycle
 
-- greeding algorithm 
+- greedy algorithm 
 
 <br/>
 
@@ -6490,6 +6490,8 @@ layout: two-cols
 
 - start from 0, find the lightest crossing edge, and repeatly expand the cut  
 
+- greedy algorithm 
+
 <br/>
 
 <pre class="norm">
@@ -6530,7 +6532,7 @@ layout: two-cols
 
 🙇🏻‍♂️ implementation  
 
-$O(ElogE)$  
+$O(V^2)$, $O(ElogV)$, $O(ElogE)$  
 
 ---
 
