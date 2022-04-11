@@ -6334,11 +6334,13 @@ li {
 
 <br/>
 
-- $O(V^2)$ → $O(ElogE)$ → $O(ElogV)$
+- Space Complexity: $O(V)$
+
+- Time Complexity: $O(V^2)$ → $O(ElogV)$ → $O(E + VlogV)$
 
 - shortest path from $src$ to $dest$
 
-- all possible shortest path: $O(V * ElogE)$
+- all possible shortest path: $O(V * ElogV)$
 
 - negative weight?   
   👉 [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)    
@@ -6546,83 +6548,6 @@ $O(V^2)$, $O(ElogV)$, $O(ElogE)$
 - Chazelle $O(E^*)$
   - <span class="norm">Chazelle, Bernard (2000), "A minimum spanning tree algorithm with inverse-Ackermann type complexity", Journal of the Association for Computing Machinery, 47 (6): 1028–1047, doi:10.1145/355541.355562, MR 1866456, S2CID 6276962.</span>
   - <span class="norm">Chazelle, Bernard (2000), "The soft heap: an approximate priority queue with optimal error rate" (PDF), Journal of the Association for Computing Machinery, 47 (6): 1012–1027, doi:10.1145/355541.355554, MR 1866455, S2CID 12556140.</span>
-
----
-layout: center
----
-
-# Trie
-
-
----
-
-# Trie
-
-<mdi-timer-sand />
-
-
----
-layout: center
----
-
-# Trie
-
-
----
-
-# Suffix Tree
-
-<mdi-timer-sand />
-
-
----
-layout: center
----
-
-# Segment Tree
-
----
-
-# Segment Tree
-
-<mdi-timer-sand />
-
-
----
-layout: center
----
-
-# B Tree
-
----
-
-# B Tree
-
-<mdi-timer-sand />
-
-
----
-layout: center
----
-
-# B+ Tree
-
----
-
-# B+ Tree
-
-<mdi-timer-sand />
-
-
----
-layout: center
----
-
-# Summary
-
----
-
-<mdi-timer-sand />
 
 ---
 
