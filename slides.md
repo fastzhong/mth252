@@ -6789,6 +6789,11 @@ li {
 
 5. Implement your **Dijkstra** algorithm with WeightdeGraph class
 
+6. Implement your **Kruskal** algorithm with WeightdeGraph class
+
+7. Implement your **Prim** algorithm with WeightdeGraph class
+
+
 <style>
 p {
     font-family: 'Open Sans';
