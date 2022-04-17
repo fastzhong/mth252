@@ -7036,8 +7036,8 @@ try: $max(drop(k-1, f-1), drop(k, f-i) + 1$
 
 <br/>
 
-drop $m$ times: $floor[k][m] = $floor[k-1][m-1] + floor[k][m-1] + 1$   
-when $floor[k][m] == n$, $m$ = ?
+drop $m$ times: $floor[k][m] = floor[k-1][m-1] + floor[k][m-1] + 1$   
+when $floor[k][m] == n$, $m = ?$
 
 <style>
 p {
