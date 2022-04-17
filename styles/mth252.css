@@ -98,7 +98,7 @@ table.flashcard {
 table.flashcard thead th {
     height: 10px;
     color: #ffffff;
-    padding: 0px;
+    padding: 8px;
     background-color: #4472c4;
     border-width: 3px 1px;
     border-style: solid;
@@ -111,6 +111,11 @@ table.flashcard td {
     border-width: 1px;
     border-style: solid;
     border-color: #ffffff;
+}
+
+table.flashcard td {
+    font-family: "Open Sans";
+    font-size: 0.8em;
 }
 
 table.flashcard th {

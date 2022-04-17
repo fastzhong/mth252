@@ -1,10 +1,10 @@
 ---
 theme: seriph
-title: "MTH252"
+title: 'MTH252'
 background: https://mth252.fastzhong.com/images/cover.webp
 highlighter: shiki
 lineNumbers: false
-colorSchema: "light"
+colorSchema: 'light'
 ---
 
 # MTH252
@@ -23,9 +23,9 @@ Data Structures and Algorithms II
 
 <br/>
 
-<i class="fab fa-linkedin"></i> [https://www.linkedin.com/in/zhonglun/](https://www.linkedin.com/in/zhonglun/)   
+<i class="fab fa-linkedin"></i> [https://www.linkedin.com/in/zhonglun/](https://www.linkedin.com/in/zhonglun/)  
 <i class="far fa-envelope"></i> [zhonglun@gmail.com](zhonglun@gmail.com)  
-<i class="fas fa-mobile-alt"></i> 9647 7009  
+<i class="fas fa-mobile-alt"></i> 9647 7009
 
 <br/>
 
@@ -112,28 +112,25 @@ if you want to dive deeper into proofs and the mathematics of computer science:
 
 📚 [Building Blocks for Theoretical Computer Science](https://mfleck.cs.illinois.edu/building-blocks/index-sp2020.html) by Margaret M. Fleck
 
-
 ---
 
-# Clarification 
+# Clarification
 
 <br/>
 
 ### Solution related to DSA questions:
 
-⚠️  <span class="norm">always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252</span>   
-  
-⚠️  <span class="norm">in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent</span>  
-  
-⚠️  <span class="norm">advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the complexity becomes unknown and Python dependent</span>
+⚠️ <span class="norm">always seek the best time and space complexity by appling DSA taught in MTH251 & MTH252</span>
 
+⚠️ <span class="norm">in principle, only the standard ADT operations allowed to use by default as the solution has to be language indenpendent</span>
+
+⚠️ <span class="norm">advanced features and built-in functions from Python not allowed if not clearly asked by the question, e.g. sort/search/find (in)/min(list)/max(list)/set/match ... , as the complexity becomes unknown and Python dependent</span>
 
 ---
 layout: center
 ---
 
 # Priority Queue
-
 
 ---
 
@@ -156,9 +153,9 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 ---
 
-# Priority Queue: Operations 
+# Priority Queue: Operations
 
-### Min PQ  
+### Min PQ
 
 -   <span class="hl-strong">add(k, v)</span> (enqueue) − adding an element to the queue
 -   <span class="hl-strong">remove_min()</span> (dequeue) − obtain the first element with a pair of (k,v), where k is the mininum value of keys in Min PQ, and remove it from the queue
@@ -167,7 +164,7 @@ You cannot sort the elements/tasks first, and pick up the highest task, as the f
 
 <br/>
 
-### Max PQ  
+### Max PQ
 
 <span class="hl-strong">add(k, v)</span>, <span class="hl-strong">remove_max()</span>, <span class="hl-strong">max()</span>, size(), is_empty()
 
@@ -240,12 +237,9 @@ layout: center
 
 <br/>
 
-
 <span class="norm">👉 A <strong>perfect binary tree</strong> is a tree of which every non-leaf node has two child nodes.</span>  
 <span class="norm">👉 A <strong>complete binary tree</strong> is a tree in which at every level, except possibly the last is completely filled and all the nodes are as far left as possible.
 </span>
-
-
 
 ---
 
@@ -253,22 +247,22 @@ layout: center
 
 <br/>
 
-- key of root is always the smallest (MinHeap) or the largest (MaxHeap)
+-   key of root is always the smallest (MinHeap) or the largest (MaxHeap)
 
-- subtree is also a binary heap 
+-   subtree is also a binary heap
 
-- from root to any leaf, the key values are in non-decreasing order
+-   from root to any leaf, the key values are in non-decreasing order
 
-- given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
+-   given height $h$, total nodes of binary heap: $2^h \leq n \leq 2^{h+1} - 1$
 
-- given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
+-   given total nodes $n$, binary heap height: $\log_2(n+1) - 1 \leq h \leq \log_2n$
 
 <!--
 if exclude the bottom level, binary heap is a perfect binary tree and nodes is 2^h - 1
 
 low level node is always smaller than the high level node? NO.
 
-child of binary tree is still a binary tree, recusion can be usually considered for tree operations. 
+child of binary tree is still a binary tree, recusion can be usually considered for tree operations.
 
 -->
 
@@ -376,7 +370,6 @@ add new element:
 ---
 layout: two-cols
 ---
-
 # Binary Heap
 
 <logos-jupyter />
@@ -488,8 +481,7 @@ There are trees other than binary tree, so there are heaps other than binary hea
 ---
 layout: two-cols
 ---
-
-# Heap Sort 
+# Heap Sort
 
 <logos-jupyter />
 
@@ -518,20 +510,20 @@ Steps:
 <div style="width: 80%;padding-left: 10px;">
 
 ```python
-# heap sort 
+# heap sort
 
 # time complexity: O(NlogN)
 # space complexity: O(N)
 def heap_sort(nums: []) -> []:
     if not nums:
         return []
-    minH = MinHeap() 
+    minH = MinHeap()
     for e in nums:
         minH.add((e, e))
     nums_sorted = []
-    for i in range(len(nums)): 
+    for i in range(len(nums)):
         nums[i] = minH.remove_min()[0]
-    return nums 
+    return nums
 ```
 
 </div>
@@ -549,15 +541,14 @@ layout: two-cols
 by "sift down" the non-leaf node one by one from top to bottom
 
 Complete Binary Tree (Perfect Binary Tree in worst case)
-|                       |                     |            |                             |
+| | | | |
 | --------------------: | :------------------ | ---------: | :-------------------------- |
-|     last level nodes: | $\frac{n}{2}$       | sift_down: | $\frac{n}{2} * 0$           |
-| 2nd last level nodes: | $\frac{n}{4}$       | sift_down: | $\frac{n}{4} * 1$           |
-|                   ... |                     |        ... |                             |
+| last level nodes: | $\frac{n}{2}$ | sift_down: | $\frac{n}{2} * 0$ |
+| 2nd last level nodes: | $\frac{n}{4}$ | sift_down: | $\frac{n}{4} * 1$ |
+| ... | | ... | |
 | h+1 last level nodes: | $\frac{n}{2^{h+1}}$ | sift_down: | $\frac{n}{2^{h+1}} \cdot h$ |
 
 ::right::
-
 
 <br/>
 
@@ -584,7 +575,6 @@ table {
     font-size: 0.6rem;
 }
 </style>
-
 
 <!--
 last non-leaf node: parent of last leaf node
@@ -651,7 +641,7 @@ A <span class="hl-bg">Map</span> is an abstract data structure (ADT):
 -   a collection of key-value (k,v) paris
 -   key can be viewed as a unique identifier for the object/value
 
-<span class="hl-color">k - unique</span>   
+<span class="hl-color">k - unique</span>  
 v - can be repeated
 
 <br/>
@@ -673,11 +663,11 @@ students score:
 <div style="width: 50%;">
 
 | Student(key) | Score(value) |
-| :---------- | :----------- |
-| A           | 80           |
-| B           | 70           |
-| C           | 60           |
-| ...         | ...          |
+| :----------- | :----------- |
+| A            | 80           |
+| B            | 70           |
+| C            | 60           |
+| ...          | ...          |
 
 </div>
 
@@ -815,7 +805,7 @@ def byte_xor(ba1, ba2):
     return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
 
 # produce 32-byte hash code
-# chop the data into 32-byte long chunks (padding with zeros if required) 
+# chop the data into 32-byte long chunks (padding with zeros if required)
 # then XOR on all chunks
 def bitwise_xor(data):
     chunks = [data[i:i+32] for i in range(0, len(data), 32)]
@@ -1096,7 +1086,7 @@ layout: two-cols
 $M$<span class="norm">: total num of map elements</span>  
 $O$<span class="norm">: num of occupied buckets</span>  
 $N$<span class="norm">: size of hash table</span>  
-$P$<span class="norm">: new size of hash table (expand or shrink)</span>  
+$P$<span class="norm">: new size of hash table (expand or shrink)</span>
 
 when:
 
@@ -1128,13 +1118,13 @@ how:
 
 <br/>
 
-$H(x)$: 
+$H(x)$:
 
 -   deterministic
 -   fast as $O(1)$
--   universal input 
+-   universal input
 -   evenly distributed
--   randomly distributed 
+-   randomly distributed
 
 <br/>
 
@@ -1158,11 +1148,11 @@ layout: two-cols
 
 <br/>
 
-<span class="norm">💡 coding tips:</span>  
+<span class="norm">💡 coding tips:</span>
+
 -   <span class="norm">avoid to use real or big number as key: $H(0.0) == H(-0.0)$ ?</span>
 -   <span class="norm">compare hash code first, before compare x and y</span>
 -   <span class="norm">overwrite either both of **eq** and **hash** or neither of them</span>
-
 
 ::right::
 
@@ -1239,7 +1229,7 @@ layout: two-cols
 
 # Industrial Implementation
 
- <logos-java/> HashMap
+<logos-java/> HashMap
 
 -   hash code
 
@@ -1310,7 +1300,7 @@ layout: two-cols
 
 # Industrial Implementation
 
- <logos-java/> HashMap
+<logos-java/> HashMap
 
 -   compression/indexing: $h\;\&\;(n - 1)$
 
@@ -1355,7 +1345,7 @@ layout: two-cols
 
 # Industrial Implementation
 
- <logos-java/> HashMap
+<logos-java/> HashMap
 
 -   Collision: chaining
     -   **linked list** $O(1) + O(n)$
@@ -1388,7 +1378,7 @@ layout: two-cols
 
 # Industrial Implementation
 
- <logos-java/> HashMap
+<logos-java/> HashMap
 
 -   hash table size
     -   always $2^n$,&nbsp;&nbsp;&nbsp;default: $16$, &nbsp;&nbsp;&nbsp;max: $2^{30}$
@@ -1418,7 +1408,7 @@ layout: two-cols
 
 # Industrial Implementation
 
- <logos-java/> HashMap
+<logos-java/> HashMap
 
 -   HashMap for HashSet: HashSet&#60;E&#62; → HashMap&#60;E, Object&#62;
     -   <span class="norm">{e1, e2, e3, ...} → (e1, PRESENT), (e2, PRESENT), (e3, PRESENT), ... </span>
@@ -1426,7 +1416,6 @@ layout: two-cols
 <br/>
 
 <span class="norm">👉 source code: [https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java](https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/java/util/HashMap.java)</span>
-
 
 <!--
 
@@ -1477,7 +1466,7 @@ layout: two-cols
 </div>
 
 <!--
-Linear Search vs. Binary Search
+Linear Search vs Binary Search
 -->
 
 ---
@@ -1488,7 +1477,7 @@ Linear Search vs. Binary Search
 
 -   search()
 -   insert()
--   delete() 
+-   delete()
 -   first()
 -   last()
 -   before()
@@ -1501,7 +1490,6 @@ Linear Search vs. Binary Search
 
 <span class="norm">👉 [https://www.cs.usfca.edu/~galles/visualization/BST.html](https://www.cs.usfca.edu/~galles/visualization/BST.html)</span>
 
-
 ---
 layout: two-cols
 ---
@@ -1512,11 +1500,11 @@ layout: two-cols
 
 <br/>
 
-- del min
+-   del min
 
-- del max
+-   del max
 
-::right:: 
+::right::
 
 <br/>
 
@@ -1614,10 +1602,10 @@ layout: two-cols
 
 <br/>
 
-- pre-order
-- in-order: "sorted list" 👈
-- post-order
-- level order
+-   pre-order
+-   in-order: "sorted list" 👈
+-   post-order
+-   level order
 
 <!--
 
@@ -1680,7 +1668,7 @@ Binary Search Tree (BST) is used:
 layout: two-cols
 ---
 
-# BST vs. Heap
+# BST vs Heap
 
 <br/>
 
@@ -1731,9 +1719,10 @@ layout: two-cols
 <br/>
 
 <span class="norm">Examples:</span>
-- <span class="norm">perfect binary tree (minimum heigh)</span>
-- <span class="norm">complete binary tree</span>
-- <span class="norm">Binary Heap, Red Black Tree, Segment Tree, etc.</span>
+
+-   <span class="norm">perfect binary tree (minimum heigh)</span>
+-   <span class="norm">complete binary tree</span>
+-   <span class="norm">Binary Heap, Red Black Tree, Segment Tree, etc.</span>
 
 ::right::
 
@@ -1780,8 +1769,9 @@ layout: two-cols
 <br/>
 
 Rebalance ?
-- When: insert(), delete()
-- Where: backtracking from the node
+
+-   When: insert(), delete()
+-   Where: backtracking from the node
 
 <!--
 As we implement insert(), delete() with recurion, backtracking can be done with recursion.
@@ -1829,12 +1819,11 @@ $T1 < z < T2 < y < T3 < z < T4$
 <div style="width: 80%;">
 
 ```md
-- y.right = x
-- x.left = T3
+-   y.right = x
+-   x.left = T3
 ```
 
 </div>
-
 
 ::right::
 
@@ -1863,8 +1852,8 @@ $T4 < x < T3 < y < T1 < z < T2$
 <div style="width: 80%;">
 
 ```md
-- y.left = x
-- x.right = T3
+-   y.left = x
+-   x.right = T3
 ```
 
 </div>
@@ -1955,7 +1944,7 @@ layout: two-cols
 
 ---
 
-# BST vs. AVL Complexity
+# BST vs AVL Complexity
 
 <br/>
 
@@ -2020,35 +2009,33 @@ layout: center
 
 <br/>
 
+A <span class="hl-bg">red-black tree</span> is a binary tree that satisfies the following <span class="uline">red-black properties</span>:
 
-A <span class="hl-bg">red-black tree</span> is a binary tree that satisfies the following <span class="uline">red-black properties</span>: 
-
-1. every node is either red or black 
-2. the root is black 
-3. every leaf (NIL) is black 
-4. if a node is red, both its children are black 
+1. every node is either red or black
+2. the root is black
+3. every leaf (NIL) is black
+4. if a node is red, both its children are black
 5. for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
 
 ---
 layout: two-cols
 ---
 
-# 2-3 Tree 
+# 2-3 Tree
 
 <br/>
 
-A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3: 
+A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3:
 
-- <span class="hl">2-node</span>: node with two child nodes 
-- <span class="hl">3-node</span>: node with three child nodes
-- <span class="hl-strong">a perfectly balanced tree</span>: all leaf nodes at the same level  
+-   <span class="hl">2-node</span>: node with two child nodes
+-   <span class="hl">3-node</span>: node with three child nodes
+-   <span class="hl-strong">a perfectly balanced tree</span>: all leaf nodes at the same level
 
 ::right::
 
 <br/>
 
 <br/>
-
 
 <div grid="~ cols-2 gap-4">
   <div align="center">
@@ -2070,11 +2057,11 @@ A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3:
 
 ---
 
-# 2-3 Tree 
+# 2-3 Tree
 
-<div style="width: 50%;">  
+<div style="width: 50%;">
 
-  > Insertion is always done on leaf 
+> Insertion is always done on leaf
 
 </div>
 
@@ -2099,7 +2086,6 @@ A <span class="hl-bg">2-3 tree</span> is a B-tree of order 3:
 
 <span class="norm">👉 [https://people.ksp.sk/~kuko/gnarley-trees/23tree.html](https://people.ksp.sk/~kuko/gnarley-trees/23tree.html)</span>
 
-
 <style>
 p {
     font-family: "Open Sans";
@@ -2109,11 +2095,11 @@ p {
 
 ---
 
-# Red Black Tree 
+# Red Black Tree
 
 <div style="width: 60%;">
 
-> Red Black Tree is equivalent 2-3 Tree 
+> Red Black Tree is equivalent 2-3 Tree
 
 </div>
 
@@ -2129,11 +2115,11 @@ red node together with its parent node represents a 3-node in 2-3 tree.
 
 ---
 
-# Red Black Tree 
+# Red Black Tree
 
 <div style="width: 60%;">
 
-> Red Black Tree is equivalent 2-3 Tree 
+> Red Black Tree is equivalent 2-3 Tree
 
 </div>
 
@@ -2151,46 +2137,45 @@ red node together with its parent node represents a 3-node in 2-3 tree.
   </div>
 </div>
 
-- "black balanced" 
+-   "black balanced"
 
-- $N$ nodes → height: $2logN$, Complexity: $O(logN)$
+-   $N$ nodes → height: $2logN$, Complexity: $O(logN)$
 
-- Red Black Tree vs. AVL Tree
+-   Red Black Tree vs AVL Tree
 
 <!--
 
-1. every node is either red or black 
-2. the root is black 
+1. every node is either red or black
+2. the root is black
 
-3. every leaf (NIL) is black 
+3. every leaf (NIL) is black
 NIL is leaf node also a root of empty tree → 2
 
 4. if a node is red, both its children are black
-the child node of 3-node is 2-node or 3-node, so in either case, the child node is a black node 
-this is not true for black node, for black node, only the right node is black 
+the child node of 3-node is 2-node or 3-node, so in either case, the child node is a black node
+this is not true for black node, for black node, only the right node is black
 
 5. for each node, all simple paths from the node to descendant leaves contain the same number of black nodes
 2-3 tree, the paths from a node to leaf nodes, the number of node in the path should be same because 2-3 tree is perfectly balanced
-in red-black tree, when we visit a black node, we visit a 2-node or 3-node in the 2-3 tree, so the total number of black node means the total number of nodes for the same path in 2-3 tree.   
+in red-black tree, when we visit a black node, we visit a 2-node or 3-node in the 2-3 tree, so the total number of black node means the total number of nodes for the same path in 2-3 tree.
 
 black-balanced != balanced tree
 
 -->
 
-
 ---
 
-# Red Black Tree 
+# Red Black Tree
 
 <br/>
 
-insert a red node →  a blank tree
+insert a red node → a blank tree
 
 <!--
 
 always insert Red node
 
-insert new node to empty tree, change red to black 
+insert new node to empty tree, change red to black
 
 -->
 
@@ -2211,10 +2196,10 @@ layout: two-cols
 <div style="width: 90%;">
 
 ```md
-- node.right = x.left 
-- x.left = node
-- x.color = node.color
-- node.color = RED
+-   node.right = x.left
+-   x.left = node
+-   x.color = node.color
+-   node.color = RED
 ```
 
 </div>
@@ -2250,9 +2235,9 @@ layout: two-cols
 <div style="width: 90%;">
 
 ```md
-- node.color = RED 
-- node.left.color = BLACK
-- node.right.color = BLACK 
+-   node.color = RED
+-   node.left.color = BLACK
+-   node.right.color = BLACK
 ```
 
 </div>
@@ -2288,10 +2273,10 @@ layout: two-cols
 <div style="width: 90%;">
 
 ```md
-- node.left = T1 
-- x.right = node
-- x.color = node.color
-- node.color = RED 
+-   node.left = T1
+-   x.right = node
+-   x.color = node.color
+-   node.color = RED
 ```
 
 </div>
@@ -2326,7 +2311,6 @@ layout: two-cols
 
 <img src="/images/rb-LR-RR-FC.png" style="height: 40%"/>
 
-
 ---
 
 # Red Black Tree
@@ -2339,8 +2323,8 @@ layout: two-cols
 
 ### insertion: LR → RR → FC
 
-- 2-node 
-- 3-node
+-   2-node
+-   3-node
 
 <br/>
 
@@ -2432,7 +2416,6 @@ sorted linked list for sorted map
 
 ---
 
-
 # Skip List
 
 <br/>
@@ -2516,15 +2499,15 @@ Insert & Delete need to update the searching path, so it depends on Search.
 
 ---
 
-# Skip List vs. Hash Table, Balanced Tree
+# Skip List vs Hash Table, Balanced Tree
 
 <br/>
 
-- single key search, Hash Table close to $O(1)$
-- for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, $1.33 < 2$
-- keys in order, better for range search
-- Skip List operations (linkedlist++) simpler than balanced tree (AVL, Red Black Tree, etc.)
-- Skip List overall implementation simpler
+-   single key search, Hash Table close to $O(1)$
+-   for Skip List node, avg no. of pointers $\frac{p}{1-p}$, when $p = \frac{1}{4}$, $1.33 < 2$
+-   keys in order, better for range search
+-   Skip List operations (linkedlist++) simpler than balanced tree (AVL, Red Black Tree, etc.)
+-   Skip List overall implementation simpler
 
 ---
 layout: center
@@ -2551,13 +2534,13 @@ layout: two-cols
 
 <br/>
 
-- sort the arr from left to right
-- every time select the smallest
-- for position $i$:
-  - $[0, i)$ sorted
-  - $[i,n)$ unsorted
-  - find the smallest from $arr[i, n)$ and place at $arr[i]$
-- Complexity: $1 + 2 + 3 + ... + n = \frac{(n + 1) * n}{2}$
+-   sort the arr from left to right
+-   every time select the smallest
+-   for position $i$:
+    -   $[0, i)$ sorted
+    -   $[i,n)$ unsorted
+    -   find the smallest from $arr[i, n)$ and place at $arr[i]$
+-   Complexity: $1 + 2 + 3 + ... + n = \frac{(n + 1) * n}{2}$
 
 ::right::
 
@@ -2570,7 +2553,6 @@ layout: two-cols
 <br/>
 
 <br/>
-
 
 <div align="center">
   <img src="/images/sort_selection.gif" style="width:90%"/>
@@ -2586,12 +2568,12 @@ layout: two-cols
 
 <br/>
 
-- sort the arr from left to right
-- for postion $i$:
-  - $[0, i)$ sorted
-  - $[i, n)$ unsorted
-  - insert $arr[i]$ to the proper position on the left
-- Complexity: $O(n^2)$, if already sorted → $O(n)$ 👍
+-   sort the arr from left to right
+-   for postion $i$:
+    -   $[0, i)$ sorted
+    -   $[i, n)$ unsorted
+    -   insert $arr[i]$ to the proper position on the left
+-   Complexity: $O(n^2)$, if already sorted → $O(n)$ 👍
 
 ::right::
 
@@ -2604,7 +2586,6 @@ layout: two-cols
 <br/>
 
 <br/>
-
 
 <div align="center">
   <img src="/images/sort_insertion.gif" style="width:90%"/>
@@ -2620,12 +2601,12 @@ layout: two-cols
 
 <br/>
 
-- sort the arr from right to left
-- for postion $n-i-1$: 
-  - $[n-i, n)$ sorted
-  - $[0, n-i-1)$ unsorted
-  - bubble the biggest to $arr[n-i-1]$
-- Complexity: $O(n^2)$
+-   sort the arr from right to left
+-   for postion $n-i-1$:
+    -   $[n-i, n)$ sorted
+    -   $[0, n-i-1)$ unsorted
+    -   bubble the biggest to $arr[n-i-1]$
+-   Complexity: $O(n^2)$
 
 ::right::
 
@@ -2638,7 +2619,6 @@ layout: two-cols
 <br/>
 
 <br/>
-
 
 <div align="center">
   <img src="/images/sort_bubble.gif" style="width:90%"/>
@@ -2658,16 +2638,16 @@ layout: two-cols
 
 # Sorting: Merge
 
-<logos-jupyter /> John von Neumann  
+<logos-jupyter /> John von Neumann
 
 <img src="/images/JohnvonNeumann.jpeg" style="height:30%"/>
 
 <br/>
 
-- recursively $[l, m, r]$:
-  - sort $[l, m]$
-  - sort $[m+1, r]$
-  - <span class="hl-strong">merge</span> two sorted array $[l, m]$ & $[m+1, r]$
+-   recursively $[l, m, r]$:
+    -   sort $[l, m]$
+    -   sort $[m+1, r]$
+    -   <span class="hl-strong">merge</span> two sorted array $[l, m]$ & $[m+1, r]$
 
 <br/>
 
@@ -2683,11 +2663,9 @@ layout: two-cols
 
 <br/>
 
-
 <div align="center">
   <img src="/images/sort_merge.gif" style="width:90%"/>
 </div>
-
 
 <!--
 John von Neumann
@@ -2701,16 +2679,17 @@ John von Neumann
 
 <br/>
 
-- merge top down: <span class="norm">sort_merge_bottomup_v1</span>   
-  improvement: <span class="norm">sort_merge_recusive_v2</span>
-  - <span class="norm">✅ insertion</span>
-  - <span class="norm">❌ tmp</span>
+-   merge top down: <span class="norm">sort_merge_bottomup_v1</span>  
+    improvement: <span class="norm">sort_merge_recusive_v2</span>
 
-- merge buttom up: <span class="norm">sort_merge_bottomup</span>
+    -   <span class="norm">✅ insertion</span>
+    -   <span class="norm">❌ tmp</span>
 
-- worst case ?
-    - <span class="norm">almost sorted array</span>
-    - <span class="norm">duplicates</span>
+-   merge buttom up: <span class="norm">sort_merge_bottomup</span>
+
+-   worst case ?
+    -   <span class="norm">almost sorted array</span>
+    -   <span class="norm">duplicates</span>
 
 ---
 layout: two-cols
@@ -2720,13 +2699,13 @@ layout: two-cols
 
 <br/>
 
-- Time Complexity $O(n \cdot log_2n)$
-- Space Complexity $O(n)$
+-   Time Complexity $O(n \cdot log_2n)$
+-   Space Complexity $O(n)$
 
 <span class="norm">at each level i = $0,1,2, ..., log_2n$</span>  
 <span class="norm">there are $2^i$ subproblems, each of size $\frac{n}{2^i}$</span>  
 <span class="norm">total # of operations at level i $\le 2^i \cdot c(\frac{n}{2^i}) = c \cdot n$ </span>  
-<span class="norm">complexity on each level is $O(n)$</span>           
+<span class="norm">complexity on each level is $O(n)$</span>
 
 ::right::
 
@@ -2758,9 +2737,9 @@ layout: two-cols
 
 <br/>
 
-- <span class="hl-strong">partition</span>: select $v$, so that $[l, p-1] \leq v$ and $[p+1, r] \geq v$ 
-- recursive sort $[l, p-1]$
-- recursive sort $[p+1, r]$
+-   <span class="hl-strong">partition</span>: select $v$, so that $[l, p-1] \leq v$ and $[p+1, r] \geq v$
+-   recursive sort $[l, p-1]$
+-   recursive sort $[p+1, r]$
 
 ::right::
 
@@ -2788,27 +2767,27 @@ Quick is faster than Merge because partion func is faster than merge function
 
 # Sorting: Quick
 
-- worst case: $O(n^2)$
-    - <span class="norm">sorted array</span>
-    - <span class="norm">duplicates</span>
-    - <span class="norm">$O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$</span>
-    - <span class="norm">recusion stack overflow</span>
+-   worst case: $O(n^2)$
 
-- improvement:
-    - <span class="norm">2-way quicksort </span>
-    - <span class="norm">3-way quicksort </span>
-    - <span class="norm">[dual pivot quicksort](https://arxiv.org/abs/1503.08498)</span>
+    -   <span class="norm">sorted array</span>
+    -   <span class="norm">duplicates</span>
+    -   <span class="norm">$O(n^2)$ possibility: $\frac{1}{n} * \frac{1}{n-1} * \frac{1}{n-2} * ... = \frac{1}{n!}$</span>
+    -   <span class="norm">recusion stack overflow</span>
+
+-   improvement:
+    -   <span class="norm">2-way quicksort </span>
+    -   <span class="norm">3-way quicksort </span>
+    -   <span class="norm">[dual pivot quicksort](https://arxiv.org/abs/1503.08498)</span>
 
 <span class="norm"> 👉 random algorithm, time complexity $O(N \cdot log_2N)$ (📚 Introduction to Algorithms)</span>
 
-
 <!--
 
-Why 3-way: all elements are same, no need to continue as after partition, we can know this if we have 3 partitions: 
+Why 3-way: all elements are same, no need to continue as after partition, we can know this if we have 3 partitions:
 
 v (pivot) <v ==v >v
 
-we can continue with <v and >v only 
+we can continue with <v and >v only
 
 -->
 
@@ -2821,6 +2800,7 @@ layout: two-cols
 <br/>
 
 Simple Sort:
+
 -   <span class="hl">Selection</span>
 -   <span class="hl">Insertion</span>
 -   <span class="hl">Bubble</span>
@@ -2836,6 +2816,7 @@ Simple Sort:
 <br/>
 
 Efficient Sort:
+
 -   <span class="hl">Heap</span>
 -   <span class="hl">Merge</span>
 -   <span class="hl">Quick</span>
@@ -2972,7 +2953,7 @@ Efficient Sort:
 
 <br/>
 
-👉 <span class="norm"><span class="hl-strong">1hr</span> vs.  <span class="hl-strong">31days</span> (≈ 753hrs)</span>
+👉 <span class="norm"><span class="hl-strong">1hr</span> vs <span class="hl-strong">31days</span> (≈ 753hrs)</span>
 
 ---
 
@@ -2987,7 +2968,6 @@ Stable sort algorithms sort equal elements in the same order that they appear in
 <div align="center">
   <img src="/images/sort_stability.png" style="width: 20%"/>
 </div>
-
 
 ---
 
@@ -3045,7 +3025,7 @@ layout: two-cols
 <br/>
 
 <span class="norm">✅ size < 64 → insertion sort</span>  
-<span class="norm">✅  otherwise → "adaptive merge sort"</span>
+<span class="norm">✅ otherwise → "adaptive merge sort"</span>
 
 ::right::
 
@@ -3059,8 +3039,8 @@ layout: two-cols
 
 2 types of sorting operations:
 
-- <span class="norm">moving or coping objects (just one step)</span>
-- <span class="norm">comparing two objects:</span>
+-   <span class="norm">moving or coping objects (just one step)</span>
+-   <span class="norm">comparing two objects:</span>
     <span class="norm">compare class type → compare method → if not, ...</span>
 
 <br/>
@@ -3073,9 +3053,9 @@ layout: two-cols
 
 <logos-python/> list.sort() or sorted(list)
 
-- **run**: parts that are strictly increasing (if decreasing, reverse it)
-- split into multiple runs
-- **Galloping**: merge runs 
+-   **run**: parts that are strictly increasing (if decreasing, reverse it)
+-   split into multiple runs
+-   **Galloping**: merge runs
 
 <br/>
 
@@ -3086,20 +3066,19 @@ run2 = [101, 102, 103, , ..., 200]
 ......
 </pre>
 
-$run2[2^{n-1} - 1] \leq run1[0] \leq run2[2^n - 1]$  
+$run2[2^{n-1} - 1] \leq run1[0] \leq run2[2^n - 1]$
 
 <span class="norm">binary search: $O(N)$ → $O(logN)$</span>
-
 
 ---
 
 # Industrial Implementation
 
- <logos-java/> Arrays.sort() or Collections.sort()
+<logos-java/> Arrays.sort() or Collections.sort()
 
-- primitive array: **Dual Pivot Quicksort**
+-   primitive array: **Dual Pivot Quicksort**
 
-- object array: **Timsort**
+-   object array: **Timsort**
 
 ---
 layout: center
@@ -3113,7 +3092,7 @@ layout: center
 
 <br/>
 
-In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic. This includes the cases of finding the minimum, maximum, and median elements. 
+In computer science, a <span class="hl-color">selection algorithm</span> is an algorithm for finding the k<sup>th</sup> smallest number in a list or array; such a number is called the k<sup>th</sup> order statistic. This includes the cases of finding the minimum, maximum, and median elements.
 
 <span class="norm">🙂 sort the array first $O(NlogN)$</span>
 
@@ -3133,6 +3112,7 @@ Solution 1: complexity $O(N) + O(KlogN)$
 Solution 2: complexity $O(K) + O(NlogK)$
 
 1. create a Max Heap with size $k$, add element one by one:
+
     - if smaller than the top, replace it;
     - else skip it
 
@@ -3159,9 +3139,10 @@ p = partition(arr, l, r)
 sort_quick_recursive(arr, l, p - 1)
 sort_quick_recursive(arr, p + 1, r)
 ```
-$k == p?$    
-$k < p?$    
-$k > p?$   
+
+$k == p?$  
+$k < p?$  
+$k > p?$
 
 complexity $O(n + n/2 + n/4 + ... + 1) = O(2n) = O(n)$
 
@@ -3179,17 +3160,17 @@ li {
 
 <br/>
 
-- brute force
-  - BFS 
-  - DFS 
-- Do not visit any subtree that be judged to be irrelevant to the final results.
+-   brute force
+    -   BFS
+    -   DFS
+-   Do not visit any subtree that be judged to be irrelevant to the final results.
 
 <br/>
 
-The elimination of a large group of possibilities in one step is known as pruning:   
-<span class="norm">👉 binary search </span>   
+The elimination of a large group of possibilities in one step is known as pruning:  
+<span class="norm">👉 binary search </span>  
 <span class="norm">👉 [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)</span>  
-<span class="norm">👉 [decision tree pruning](https://en.wikipedia.org/wiki/Decision_tree_pruning)</span>   
+<span class="norm">👉 [decision tree pruning](https://en.wikipedia.org/wiki/Decision_tree_pruning)</span>
 
 ---
 layout: center
@@ -3203,19 +3184,20 @@ layout: center
 
 ### Algorithms on Strings
 
-- docs editors, emails, messages
+-   docs editors, emails, messages
 
-- web sites, search engine
+-   web sites, search engine
 
-- bio-data (genonme sequencing)
+-   bio-data (genonme sequencing)
 
-- natual language processing (NLP)
+-   natual language processing (NLP)
 
-- ...
+-   ...
 
 <br/>
 
-<span class="norm">Example:  </span>
+<span class="norm">Example: </span>
+
 <pre class="norm">
 “Hello World”
 “http://www.google.com”
@@ -3235,9 +3217,9 @@ For a text string $S$ with a length of $n$, and a pattern string $P$ with length
 
 <span class="hl">Approximate Pattern Matching</span>
 
-- input: a text string $S$ with a length of $n$, a pattern string $P$ with length of $m$, and an integer $d$
+-   input: a text string $S$ with a length of $n$, a pattern string $P$ with length of $m$, and an integer $d$
 
-- output: all positions in $S$ where $P$ appears as a substrign <span class="ul">with at most $d$ mismatches</span>
+-   output: all positions in $S$ where $P$ appears as a substrign <span class="ul">with at most $d$ mismatches</span>
 
 <!--
 
@@ -3253,15 +3235,15 @@ Pattern Matching is a searching problem.
 
 <br/>
 
-- <span class="hl-bg">Brute Force</span>
+-   <span class="hl-bg">Brute Force</span>
 
-- <span class="hl-bg">Rabin-Karp</span> <span class="norm">(Michael O. Rabin and Richard M. Karp, 1987)</span>
+-   <span class="hl-bg">Rabin-Karp</span> <span class="norm">(Michael O. Rabin and Richard M. Karp, 1987)</span>
 
-- <span class="hl-bg">Knuth-Morris-Pratt Algorithm</span> (KMP) <span class="norm">(Knuth, Morris and Pratt, 1977)</span>
+-   <span class="hl-bg">Knuth-Morris-Pratt Algorithm</span> (KMP) <span class="norm">(Knuth, Morris and Pratt, 1977)</span>
 
-- <span class="hl-bg">Boyer-Moore Algorithm</span> (BM) <span class="norm">(Robert S. Boyer and J Strother Moore, 1970, 1974, 1977 )</span>
+-   <span class="hl-bg">Boyer-Moore Algorithm</span> (BM) <span class="norm">(Robert S. Boyer and J Strother Moore, 1970, 1974, 1977 )</span>
 
-- <span class="hl-bg">Sunday Algorithm</span> (Sunday) <span class="norm">(Daniel M.Sunday, 1990)</span>
+-   <span class="hl-bg">Sunday Algorithm</span> (Sunday) <span class="norm">(Daniel M.Sunday, 1990)</span>
 
 ---
 layout: center
@@ -3291,7 +3273,7 @@ compare two strings O(n) -> compare two integers O(1)
 
 ---
 layout: center
----
+--- 
 
 # Rabin-Karp
 
@@ -3308,29 +3290,28 @@ layout: center
 ---
 layout: two-cols
 ---
+
 # Rabin-Karp
 
 <logos-jupyter />
 
-### Rolling Hash  
+### Rolling Hash
 
 $S$ with a length of $n$, and a pattern string $P$ with length of $m$  
 for $i = m-1...n - 1$, compute hashing $h(i)$ for substring S[i-m+1...i]:
 
-$B = 256$   
+$B = 256$  
 $M = 1e9 + 7$  
-$BP = B^{m-1}\;\%\;M$  
+$BP = B^{m-1}\;\%\;M$
 
-h(i-1): S[i-m+1] ... S[i-1]    
-&nbsp;&nbsp;&nbsp;h(i): <span style="text-decoration: line-through red;">S[i-m+1]</span> ... S[i-1] S[i]  
+h(i-1): S[i-m+1] ... S[i-1]  
+&nbsp;&nbsp;&nbsp;h(i): <span style="text-decoration: line-through red;">S[i-m+1]</span> ... S[i-1] S[i]
 
 -   $h[i] = (h * B + S[i])\;\%\;M$
 
 -   $h = h[i-1] - s[i-m+1] * B^{m-1}\;\%\;M$  
     $h = (h[i-1] - s[i-m+1] * B^{m-1}\;\%\;M + M)\;\%\;M$ ⏰  
-    $h = (h[i-1] - s[i-m+1] * BP\;\%\;M + M)\;\%\;M$ 
-     
-
+    $h = (h[i-1] - s[i-m+1] * BP\;\%\;M + M)\;\%\;M$
 
 ::right::
 
@@ -3351,8 +3332,8 @@ h(i-1): S[i-m+1] ... S[i-1]
 <br/>
 
 <span class="norm">e.g. m = 5</span>  
-"54321": $5 * 10^4 + 4 * 10^3 + 3 * 10^2 + 2 * 10^1 + 1 * 10^0$   
-"bbabc": $b * 256^4 + b * 256^3 + a * 256^2 + b * 256^1 + c * 256^0$    
+"54321": $5 * 10^4 + 4 * 10^3 + 3 * 10^2 + 2 * 10^1 + 1 * 10^0$  
+"bbabc": $b * 256^4 + b * 256^3 + a * 256^2 + b * 256^1 + c * 256^0$
 
 <br/>
 
@@ -3364,16 +3345,16 @@ h(i-1): S[i-m+1] ... S[i-1]
 
 <br/>
 
-$(a + b)\;\%\;M = (a\;\%\;M + b\;\%\;M)\;\%\;M$   
-$(a * b)\;\%\;M = (a\;\%\;M * b\;\%\;M)\;\%\;M$ 
+$(a + b)\;\%\;M = (a\;\%\;M + b\;\%\;M)\;\%\;M$  
+$(a * b)\;\%\;M = (a\;\%\;M * b\;\%\;M)\;\%\;M$
 
 <!--
 
 Rabin-Karp = rolling hashing (sliding window)
 
-Rabin-Karp worst case: find all "aaa" from "aaaaaaaaa" 
+Rabin-Karp worst case: find all "aaa" from "aaaaaaaaa"
 
-Brute-Force not so bad for usual case 
+Brute-Force not so bad for usual case
 
 -->
 
@@ -3656,11 +3637,11 @@ layout: two-cols
 
 <br/>
 
-<span class="norm">char to compare in pattern: $j = 5$</span>   
+<span class="norm">char to compare in pattern: $j = 5$</span>  
 <span class="norm">bad char: $P[5]$</span>  
 <span class="norm">substring: $P[0:5]$ (b c b c b)</span>  
 <span class="norm">look for longest common prefix/suffix: $next[5-1]$</span>  
-<span class="norm">next char to compare in pattern: $j = next[5-1] + 1 = 2 + 1 = 3$</span>  
+<span class="norm">next char to compare in pattern: $j = next[5-1] + 1 = 2 + 1 = 3$</span>
 
 <br/>
 
@@ -3708,7 +3689,6 @@ layout: two-cols
   </tbody>
 </table>
 
-
 ---
 layout: two-cols
 ---
@@ -3717,19 +3697,19 @@ layout: two-cols
 
 <logos-jupyter />
 
-for i = 0...n, compare $S[i]$ and $P[j]$:   
+for i = 0...n, compare $S[i]$ and $P[j]$:
 
-- $S[i]\;==\;P[j]$
-  - if $j = m$, $P$ is found in $S$
-  - else move both $S$ and $P$ to next char   
-  $i++$, $j++$
+-   $S[i]\;==\;P[j]$
 
+    -   if $j = m$, $P$ is found in $S$
+    -   else move both $S$ and $P$ to next char  
+        $i++$, $j++$
 
-- $S[i]\;!=\;P[j]$ (bad char)
-  - if longest common prefix/suffx found, next char to compare:   
-  $j = next[j-1] + 1$
-  - else compare from the begining (∵ $next[j-1] = -1$):   
-  $j = next[j-1] + 1 = -1 + 1 = 0$ 
+-   $S[i]\;!=\;P[j]$ (bad char)
+    -   if longest common prefix/suffx found, next char to compare:  
+        $j = next[j-1] + 1$
+    -   else compare from the begining (∵ $next[j-1] = -1$):  
+        $j = next[j-1] + 1 = -1 + 1 = 0$
 
 ::right::
 
@@ -3744,10 +3724,10 @@ for i = 0...n, compare $S[i]$ and $P[j]$:
 <br/>
 
 ```python
-for i in range(len_s): 
-        while j > 0 and s[i] != p[j]: 
+for i in range(len_s):
+        while j > 0 and s[i] != p[j]:
             # refer to slides: "bad char" found
-            j = next_arr[j - 1] + 1 
+            j = next_arr[j - 1] + 1
         if s[i] == p[j]:
             j += 1
         if j == len_p:
@@ -3772,9 +3752,9 @@ layout: two-cols
 
 <span class="hl">next array</span>
 
-Give $next[i-1] = k$ and $P[i] = x$ then $next[i]$?  
+Give $next[i-1] = k$ and $P[i] = x$ then $next[i]$?
 
-case1: $P[k+1] == x$, than $next[i] = k + 1$    
+case1: $P[k+1] == x$, than $next[i] = k + 1$
 
 case2: if not, continuously look for $k'$, so that $P[k'+1] == x$
 
@@ -3782,13 +3762,12 @@ $k$: $next[i-1]$ → $next[k]$ → $next[next[k]]$ → $next[next[next[k]]]$ ...
 
 $x?$: $P[k]$ → $P[next[k]]$ → $P[next[next[k]]]$ → ......
 
-
 ```python
-while k != -1 and p[k + 1] != p[i]: 
+while k != -1 and p[k + 1] != p[i]:
     k = next_arr[k]
 if p[k + 1] == p[i]:
     k += 1
-next_arr[i] = k 
+next_arr[i] = k
 ```
 
 ::right::
@@ -3823,7 +3802,7 @@ layout: two-cols
 
 <br />
 
-<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span>  
+<span class="hl">worst case: $O(n + (m-1)*n/m + m)$</span>
 
 <img src="/images/kmp_worst.jpeg" style="width: 80%"/>
 
@@ -3837,11 +3816,9 @@ layout: two-cols
 
 <br/>
 
-
-<span class="hl">best case: $O(n + 1*n/m + m)$</span>  
+<span class="hl">best case: $O(n + 1*n/m + m)$</span>
 
 <img src="/images/kmp_best.jpeg" style="width: 80%"/>
-
 
 ---
 layout: center
@@ -3852,6 +3829,7 @@ layout: center
 ---
 layout: two-cols
 ---
+
 # Boyer-Moore (BM)
 
 ### bad char heuristic
@@ -3889,11 +3867,11 @@ layout: two-cols
 
 <!--
 
-E mistach and not in Pattern 
-B mistach and in Pattern, bad char lookup good, align   
-D mistach and in Pattern, bad char lookup good, align 
+E mistach and not in Pattern
+B mistach and in Pattern, bad char lookup good, align
+D mistach and in Pattern, bad char lookup good, align
 
-if there are two or more bad char in Pattern? right most 
+if there are two or more bad char in Pattern? right most
 
 -->
 
@@ -3903,7 +3881,7 @@ if there are two or more bad char in Pattern? right most
 
 ### bad char heuristic
 
-look for the <span class="uline">right most</span> bad char:   
+look for the <span class="uline">right most</span> bad char:
 
 <div class="inline-grid grid-cols-[1fr,1fr] gap-4">
   <div>
@@ -3928,14 +3906,14 @@ layout: two-cols
 
 ### bad char heuristic
 
-<span class="hl">bad char</span> shift $d = j - b$   
+<span class="hl">bad char</span> shift $d = j - b$
 
-- where $S[i+j]$ is the bad char, and $P[b] == S[i+j]$ is the right most bad char 
-- if $P[b]$ doesnot exist, let $b = -1$
+-   where $S[i+j]$ is the bad char, and $P[b] == S[i+j]$ is the right most bad char
+-   if $P[b]$ doesnot exist, let $b = -1$
 
 <br/>
 
-<span class="norm">💬 bad char offset $b$ can be pre-built for bad char position $j$ ($P[j]$) for all possible missing char in <span class="hl">2-D</span> lookup table $badchar\_tbl$ ?</span> 
+<span class="norm">💬 bad char offset $b$ can be pre-built for bad char position $j$ ($P[j]$) for all possible missing char in <span class="hl">2-D</span> lookup table $badchar\_tbl$ ?</span>
 
 <br/>
 
@@ -3943,8 +3921,7 @@ layout: two-cols
 
 <br/>
 
-<br/> 
-
+<br/>
 
 <div style="margin:5%; width:90%">
   <img src="/images/string_matching_bm5.png" style="width: 90%"/>
@@ -3999,7 +3976,7 @@ layout: two-cols
     </tbody>
   </table>
 
-  $d = 5 - 2 = 3$
+$d = 5 - 2 = 3$
 
   <table class="grid">
     <tbody>
@@ -4050,7 +4027,6 @@ layout: two-cols
 
 </div>
 
-
 ---
 layout: two-cols
 ---
@@ -4060,13 +4036,13 @@ layout: two-cols
 ### bad char heuristic
 
 let $P[b]$ be the right most char <span class="uline">regardless $j$</span>
-  
-- case1: bad char not found $d = j - b = j - (-1)$ 
 
-- case2: bad char found and $b < j$, $d = j - b$ 
+-   case1: bad char not found $d = j - b = j - (-1)$
 
-- case3: when $d \leq 0$, let $d = 1$ (might not be the optimized shift)
- 
+-   case2: bad char found and $b < j$, $d = j - b$
+
+-   case3: when $d \leq 0$, let $d = 1$ (might not be the optimized shift)
+
 <table class="grid">
   <tbody>
     <tr class="odd">
@@ -4084,9 +4060,10 @@ let $P[b]$ be the right most char <span class="uline">regardless $j$</span>
       <td>3</td>
     </tr>
   </tbody>
-</table> 
+</table>
 
-$badchar\_tbl$ becomes <span class="hl">1-D</span> table: 
+$badchar\_tbl$ becomes <span class="hl">1-D</span> table:
+
 <table class="grid">
   <tbody>
     <tr class="odd">
@@ -4114,17 +4091,18 @@ $badchar\_tbl$ becomes <span class="hl">1-D</span> table:
       <td>-1</td>
     </tr>
   </tbody>
-</table> 
+</table>
 
 ::right::
 
 <br/>
 
-<br/> 
+<br/>
 
-<br/> 
+<br/>
 
-**case1**: 
+**case1**:
+
 <div class="inline-grid grid-cols-[1fr,1fr] gap-4">
   <div>
   <table class="grid">
@@ -4180,7 +4158,8 @@ $badchar\_tbl$ becomes <span class="hl">1-D</span> table:
   </div>
 </div>
 
-**case2**: 
+**case2**:
+
 <div class="inline-grid grid-cols-[1fr,1fr] gap-4">
   <div>
   <table class="grid">
@@ -4234,7 +4213,8 @@ $badchar\_tbl$ becomes <span class="hl">1-D</span> table:
   </div>
 </div>
 
-**case3**: 
+**case3**:
+
 <div class="inline-grid grid-cols-[1fr,1fr] gap-4">
   <div>
   <table class="grid">
@@ -4304,12 +4284,12 @@ li {
 ---
 layout: two-cols
 ---
+
 # Boyer-Moore (BM)
 
 ### good suffix heuristic
 
 <br/>
-
 
 <div align="center">
   <img src="/images/string_matching_bm8.png" style="width: 80%"/>
@@ -4337,10 +4317,10 @@ layout: two-cols
 </div>
 
 <!--
-similar to "bad char": 
+similar to "bad char":
 
-suffix CD exists E mistach and in Pattern 
-if suffix exists but not in Pattern, shift to the char after good suffix 
+suffix CD exists E mistach and in Pattern
+if suffix exists but not in Pattern, shift to the char after good suffix
 
 -->
 
@@ -4352,18 +4332,18 @@ layout: two-cols
 
 ### good suffix heuristic
 
-<span class="hl">good suffix</span> on the left, shift $d = j - s$ 
+<span class="hl">good suffix</span> on the left, shift $d = j - s$
 
-- $P[j]$: bad char
-- $P[j+1:m]$ = $P[s:s+k]$: good suffix with length $k = (m-1) - j$ 
+-   $P[j]$: bad char
+-   $P[j+1:m]$ = $P[s:s+k]$: good suffix with length $k = (m-1) - j$
 
-<span class="norm">💬 good suffix with offset $s$ for bad char $P[j]$ can be pre-built in a $suffix$ array</span> 
+<span class="norm">💬 good suffix with offset $s$ for bad char $P[j]$ can be pre-built in a $suffix$ array</span>
 
 ::right::
 
 <br/>
 
-<br/> 
+<br/>
 
 <br/>
 
@@ -4391,20 +4371,17 @@ layout: two-cols
 
 <br/>
 
-<span class="hl">good suffix</span> NOT on the left, shift $d = m$ ?    
+<span class="hl">good suffix</span> NOT on the left, shift $d = m$ ?
 
 <br/>
 
 ⚠️ <span class="hl-strong">Prefix</span>
 
-
-
-
 ::right::
 
 <br/>
 
-<br/> 
+<br/>
 
 <br/>
 
@@ -4537,8 +4514,6 @@ layout: two-cols
   </tbody>
 </table>
 
-
-
 ---
 layout: two-cols
 ---
@@ -4547,20 +4522,20 @@ layout: two-cols
 
 ### good suffix heuristic
 
-a prefix in <span class="hl">good suffix</span>, shift $d = r$ 
+a prefix in <span class="hl">good suffix</span>, shift $d = r$
 
-- $P[j]$: bad char
-- $P[j+1:m]$: good suffix 
-- $P[j+2:m]$: potential prefix 
-- $P[r:m]$: the largest prefix ($P[0:m-r]$), where $j+2 \leq r \leq m-1$   
+-   $P[j]$: bad char
+-   $P[j+1:m]$: good suffix
+-   $P[j+2:m]$: potential prefix
+-   $P[r:m]$: the largest prefix ($P[0:m-r]$), where $j+2 \leq r \leq m-1$
 
-<span class="norm">💬 prefix for length $m-r$ checking can be pre-built in a $prefix$ array</span> 
+<span class="norm">💬 prefix for length $m-r$ checking can be pre-built in a $prefix$ array</span>
 
 ::right::
 
 <br/>
 
-<br/> 
+<br/>
 
 <br/>
 
@@ -4578,7 +4553,7 @@ li {
 }
 </style>
 
----  
+---
 layout: two-cols
 ---
 
@@ -4586,10 +4561,11 @@ layout: two-cols
 
 ### good suffix heuristic
 
-- <span class="hl">Suffix</span><span class="norm"> array: start position of the right most suffix</span>  
-- <span class="hl">Prefix</span><span class="norm"> array: True if it is a prefix </span>
+-   <span class="hl">Suffix</span><span class="norm"> array: start position of the right most suffix</span>
+-   <span class="hl">Prefix</span><span class="norm"> array: True if it is a prefix </span>
 
 <span class="norm">P: "abcdab"</span>
+
 <table class="ops">
   <thead>
     <tr>
@@ -4644,21 +4620,21 @@ layout: two-cols
 <div style="display:flex; justify-content:center; width:100%">
 
 ```python
-def build_goodsuffix_arr(p): 
+def build_goodsuffix_arr(p):
     m = len(p)
     suffix = [-1 for _ in range(m)]
     prefix = [False for _ in range(m)]
-    for i in range(m - 1): 
-        # two pointers to compare suffix 
-        j = i 
+    for i in range(m - 1):
+        # two pointers to compare suffix
+        j = i
         k = 0
-        while j >= 0 and p[j] == p[m - 1 - k]: 
+        while j >= 0 and p[j] == p[m - 1 - k]:
             k += 1
-            suffix[k] = j 
+            suffix[k] = j
             j -= 1
-        if j == -1: 
+        if j == -1:
             prefix[k] = True
-    return suffix, prefix 
+    return suffix, prefix
 ```
 
 </div>
@@ -4692,22 +4668,22 @@ layout: two-cols
 <br/>
 
 ```python
-def search_bm_shift_goodsuffix(suffix, prefix, m, j): 
-    k =  m - 1 - j # length of good suffix 
-    # look for right most suffix with length k 
-    if suffix[k] != -1: 
-        # "suffix" exists 
+def search_bm_shift_goodsuffix(suffix, prefix, m, j):
+    k =  m - 1 - j # length of good suffix
+    # look for right most suffix with length k
+    if suffix[k] != -1:
+        # "suffix" exists
         return j - suffix[k] + 1
-    # look for the largest prefix in P[j+2...m]: j+2 <= r <= m-1  
-    for r in range(j+2, m, 1): 
-        if prefix[m-r]: 
-            # "prefix" exists 
+    # look for the largest prefix in P[j+2...m]: j+2 <= r <= m-1
+    for r in range(j+2, m, 1):
+        if prefix[m-r]:
+            # "prefix" exists
             return r
-    # no suffix, no prefix 
+    # no suffix, no prefix
     return m
 ```
 
----  
+---
 layout: two-cols
 ---
 
@@ -4715,13 +4691,13 @@ layout: two-cols
 
 <logos-jupyter />
 
-locate bad char $P[j]$ then decide $d$:   
+locate bad char $P[j]$ then decide $d$:
 
-- <span class="strong">bad char</span> $d1$  
+-   <span class="strong">bad char</span> $d1$
 
-- <span class="strong">good suffix</span> $d2$
+-   <span class="strong">good suffix</span> $d2$
 
-- $d = max(d1, d2)$
+-   $d = max(d1, d2)$
 
 ::right::
 
@@ -4735,26 +4711,24 @@ locate bad char $P[j]$ then decide $d$:
 
 ```python
 # comapre backward to find "bad char"
-for i in range(len_s - len_p + 1): 
-        j = len_p - 1 
+for i in range(len_s - len_p + 1):
+        j = len_p - 1
         # comapre backward to find "bad char"
-        while j >= 0 and s[i+j] == p[j]: 
+        while j >= 0 and s[i+j] == p[j]:
             j -= 1
-        if j < 0: 
-            # p is found 
-            return i 
+        if j < 0:
+            # p is found
+            return i
         # bad char found at s[i+j] != p[j]
         # bad char shift d1
         d1 = j - badchar_tbl[ord(s[i+j])]
-        d1 = 1 if d1 <= 0 else d1 
-        # good suffix shift d2 
-        d2 = 0 
-        if len_p - 1 - j > 0: 
+        d1 = 1 if d1 <= 0 else d1
+        # good suffix shift d2
+        d2 = 0
+        if len_p - 1 - j > 0:
             d2 = search_bm_shift_goodsuffix(suffix, prefix, len_p, j)
         i += max(d1, d2)
 ```
-
-
 
 ---
 layout: two-cols
@@ -4764,20 +4738,20 @@ layout: two-cols
 
 ### Time Complexity
 
-- best case: $O(m + n/m)$ 
-- worst case: $O(m + n*m)$ <span class="norm">👉 $\approx 3n$, see linkes below</span>
+-   best case: $O(m + n/m)$
+-   worst case: $O(m + n*m)$ <span class="norm">👉 $\approx 3n$, see linkes below</span>
 
 <br/>
 
-### Space Complexity: 
+### Space Complexity:
 
-- bad char table: $O(256 * m)$ or $O(m)$
-- suffix: $O(m)$
-- prefix: $O(m)$
+-   bad char table: $O(256 * m)$ or $O(m)$
+-   suffix: $O(m)$
+-   prefix: $O(m)$
 
 <br/>
 
-<span class="norm">👉 [A new proof of the linearity of the Boyer-Moore string searching algorithm](https://dl.acm.org/doi/10.1109/SFCS.1977.3)</span>   
+<span class="norm">👉 [A new proof of the linearity of the Boyer-Moore string searching algorithm](https://dl.acm.org/doi/10.1109/SFCS.1977.3)</span>
 
 <span class="norm">👉 [Tight bounds on the complexity of the Boyer-Moore string matching algorithm](https://dl.acm.org/doi/10.5555/127787.127830)</span>
 
@@ -4785,7 +4759,7 @@ layout: two-cols
 
 <br/>
 
-<br/> 
+<br/>
 
 <br/>
 
@@ -4834,7 +4808,7 @@ layout: center
 
 ---
 
-# Complexity: KMP vs BM vs Sunday 
+# Complexity: KMP vs BM vs Sunday
 
 <br/>
 
@@ -4879,457 +4853,6 @@ layout: center
 layout: center
 ---
 
-# Dynamic Programming
-
----
-layout: two-cols
----
-
-# Fibonacci
-
-<br/>
-
-<div style="width: 80%;padding-left: 10px;">
-
-```md
-Fibonacci sequence: 0,1,1,2,3,5,8, ...
-
-when n = 1, fib(1) = 0
-when n = 2, fib(2) = 1
-when n > 2, fib(n) = fib(n-1) + fib(n-2)
-```
-
-<br/>
-
-1. recursive function 
-2. recursive function with memo
-3. <span class="hl-strong">dp solution</span> 
-      - bottom up 
-      - much better performance
-
-</div>
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<div style="width: 80%; padding-left: 10px;">
-
-```python
-def fib_dp(n): 
-    memo = {}
-    memo[1] = 0 
-    memo[2] = 1
-    for i in range(2, n+1, 1): 
-        memo[i] = memo[i-1] + memo[i-2]
-    return memo[n]
-``` 
-
-</div>
-
-<style>
-p {
-    font-family: 'Open Sans';
-    font-size: 0.8rem;
-    line-height: 1.2em;
-}
-
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-
-# Dynamic Programming
-
-<br/>
-
-<span class="hl-bg">Dynamic Programming</span> (DP) is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just one, and storing their solutions - ideally, using a memory-based data structure.
-
-<div align="center">
-
-<img src="/images/dp1.png" style="width: 50%"/>
-
-</div>
-
-<br/>
-
-<span class="norm">💡 usually DP problem is hard</span>    
-<span class="norm">💡 different DP through exercises</span>  
-<!--
-
-Patterns: brute-force, hashing, devide-and-conquer, recursion, ...
-
--->
-
-<style>
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-
-# 0-1 Knapsack Problem
-
-<br/>
-
-Given weights and values of n items, put these items in a knapsack of capacity $C$ to get the maximum total value in the knapsack. In other words, given two integer arrays $v[0..n-1]$ and $w[0..n-1]$ which represent values and weights associated with $n$ items respectively. Also given an integer $C$ which represents knapsack capacity, find out the maximum value subset of $v$ such that sum of the weights of this subset is smaller than or equal to $C$. You cannot break an item, either pick the complete item or don’t pick it (0-1 property).   
-
-$w=[10,20,30]$ $v=[60,100,120]$ $C=50$   
-**solution: 200**   
-
-w=10; v=60;  
-w=20; v=100;  
-w=30; v=120;  
-w=(20+10); v=(100+60);  
-w=(30+10); v=(120+60);  
-w=(30+20); v=(120+100);  
-w=(30+20+10) > 50  
-
-<style>
-p {
-    font-family: 'Open Sans';
-    font-size: 0.8rem;
-    line-height: 1.2em;
-}
-
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-layout: two-cols
----
-
-# 0-1 Knapsack Problem
-
-<logos-jupyter />
-
-$k(n, C)$: $n$ items, capacity $C$, return max value
-
-$k(i, C)$:  
-1. include $i^{th}$ item: $v[i] + k(i-1, C - w[i])$  
-2. not included: $k(i-1, C)$
-
-$k(i, C) = max(k(i-1, C), v[i] + k(i-1, C - w[i]))$  
-
-Time Complexity: $O(2^n)$
-
-::right:: 
-
-<br/>
-
-<br/>
-
-<br/>
-
-$w=[1, 1, 1]$   
-$v=[10,20,30]$   
-$C=2$ 
-
-<img src="/images/dp-k.png" style="width: 70%"/>
-
-<style>
-p {
-    font-family: 'Open Sans';
-    font-size: 0.8rem;
-    line-height: 1.2em;
-}
-
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
-<!--
-some k are evaluated more than one time 
--->
-
----
-layout: two-cols
----
-
-# 0-1 Knapsack Problem
-
-<br/>
-
-$id =[0, 1,  2]$  
-$w = [1, 2,  3]$   
-$v = [6, 10, 12]$  
-$C = 5$   
-
-$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$    
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <th> </th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-    </tr>    
-    <tr class="even">
-      <th>0</th>
-      <td>0</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-    </tr>
-    <tr class="even">
-      <th>1</th>
-      <td>0</td>
-      <td>6</td>
-      <td>10</td>
-      <td>16</td>
-      <td>16</td>
-      <td>16</td>
-    </tr>
-    <tr class="even">
-      <th>2</th>
-      <td>0</td>
-      <td>6</td>
-      <td>10</td>
-      <td>16</td>
-      <td>18</td>
-      <td>22</td>
-    </tr>
-  </tbody>
-</table>
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-Time Complexity: $O(n)$  
-Space Complexity: $O(n * C)$  
-
-```python
-def knapsack2(w, v, n, C): 
-    k = [[0 for x in range(C+1)] for x in range(n+1)]
-    # build table k from bottom up 
-    for i in range(n+1): 
-        for c in range(C+1): 
-            if i==0 or c==0: 
-                k[i][c] = 0
-            elif w[i-1] > c: 
-                k[i][c] = k[i-1][c]
-            else:
-                k[i][c] = max(v[i-1] + k[i-1][c - w[i-1]], k[i-1][c])
-    return k[n][C]
-```
-
-<style>
-p {
-    font-family: 'Open Sans';
-    font-size: 0.8rem;
-    line-height: 1.2em;
-}
-
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-layout: two-cols
----
-
-# 0-1 Knapsack Problem
-
-<br/>
-
-$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$   
-
-row $i$ depends on row $i-1$, so only 2 rows required:
-
-- row0 == even rows  
-- row1 == odd rows  
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-Time Complexity: $O(n)$  
-Space Complexity: $O(2 * C)$  
-
-```python
-def knapsack3(w, v, n, C): 
-    # 2 rows only: i%2 
-    k = [[0 for x in range(C+1)] for x in range(2)]
-    # build table k from bottom up 
-    for i in range(n+1): 
-        for c in range(C+1): 
-            if i==0 or c==0: 
-                k[i % 2][c] = 0
-            elif w[i-1] > c: 
-                k[i % 2][c] = k[(i-1) % 2][c]
-            else:
-                k[i % 2][c] = max(v[i-1] + k[(i-1) % 2][c - w[i-1]], k[(i-1) % 2][c])
-    return k[n % 2][C]
-```
-
-<style>
-p {
-    font-family: 'Open Sans';
-    font-size: 0.8rem;
-    line-height: 1.2em;
-}
-
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-layout: two-cols
----
-
-# 0-1 Knapsack Problem
-
-<br/>
-
-$id =[0, 1,  2]$  
-$w = [1, 2,  3]$   
-$v = [6, 10, 12]$  
-$C = 5$   
-
-$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$    
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <th> </th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-    </tr>    
-    <tr class="even">
-      <th> </th>
-      <td>0</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-    </tr>
-  </tbody>
-</table>
-
-<br/>
-
-<table class="grid">
-  <tbody>
-    <tr class="odd">
-      <th> </th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-    </tr>    
-    <tr class="even">
-      <th> </th>
-      <td>0</td>
-      <td>6</td>
-      <td>10</td>
-      <td>16</td>
-      <td>16</td>
-      <td>16</td>
-    </tr>
-  </tbody>
-</table>
-
-
-::right::
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-Time Complexity: $O(n)$  
-Space Complexity: $O(C)$  
-
-```python
-def knapsack4(w, v, n, C): 
-    k = [0 for i in range(C+1)]
-    for i in range(1, n+1):  
-        # compute from the back (right to left) 
-        for c in range(C, 0, -1):  
-            if w[i-1] <= c:
-                k[c] = max(v[i-1] + k[c - w[i-1]], k[c])  
-    return k[C]
-```
-
-<style>
-p {
-    font-family: 'Open Sans';
-    font-size: 0.8rem;
-    line-height: 1.2em;
-}
-
-li {
-    font-family: "Open Sans";
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-}
-</style>
-
----
-layout: center
----
-
 # Graph
 
 ---
@@ -5338,15 +4861,14 @@ layout: center
 
 <br/>
 
-- Implement graph ADT using different internal representation
-- Learn graph associated algorithms
-- How graph can be used to solve a wide variety of problems 
+-   Implement graph ADT using different internal representation
+-   Learn graph associated algorithms
+-   How graph can be used to solve a wide variety of problems
 
 <span class="norm">💡 graph can model many things in real world such as roads, airline routes, social media connections, etc.
-</span>   
+</span>  
 <span class="norm">💡 **graph theory**, the study of graphs, is a field of discrete mathematics.
 </span>
-
 
 <div grid="~ cols-3 gap-6">
   <div>
@@ -5361,14 +4883,13 @@ layout: center
 
 </div>
 
-
 <!--
 
-Graph is not picture. Graph is a data structure.   
+Graph is not picture. Graph is a data structure.
 
-Linear and Tree data structure is more about data storage structure and how to use that structure for data CRUD. Data storage structure for Graph is not difficult and the challenge is how to use Graph algorithm to solve different problems. 
+Linear and Tree data structure is more about data storage structure and how to use that structure for data CRUD. Data storage structure for Graph is not difficult and the challenge is how to use Graph algorithm to solve different problems.
 
-Similar to previous algorithm study, we focus on the understanding and implemetation of graph algorithm, not the math proof.  
+Similar to previous algorithm study, we focus on the understanding and implemetation of graph algorithm, not the math proof.
 
 -->
 
@@ -5378,13 +4899,12 @@ Similar to previous algorithm study, we focus on the understanding and implemeta
 
 <br/>
 
-A <span class="hl-bg">graph</span> is an ordered pair $G = (V, E)$ comprising a set $V$ of <span class="hl-strong">vertices</span> or nodes and a collection of pairs of vertices from $V$, known as <span class="hl-strong">edges</span> of a graph. For example, for the graph below:  
-
+A <span class="hl-bg">graph</span> is an ordered pair $G = (V, E)$ comprising a set $V$ of <span class="hl-strong">vertices</span> or nodes and a collection of pairs of vertices from $V$, known as <span class="hl-strong">edges</span> of a graph. For example, for the graph below:
 
 $V = { 1, 2, 3, 4, 5, 6 }$  
-$E = { (1, 4), (1, 6), (2, 6), (4, 5), (5, 6) }$  
+$E = { (1, 4), (1, 6), (2, 6), (4, 5), (5, 6) }$
 
-<img src="/images/graph01.png" style="height: 40%"/>  
+<img src="/images/graph01.png" style="height: 40%"/>
 
 <!--
 
@@ -5398,16 +4918,16 @@ Layman's definition of a Graph: network that define and visualize relationships 
 
 <br/>
 
-- an **edge** is (together with vertices) one of the two basic units out of which graphs are constructed, each edge has two vertices to which it is attached, called its **endpoints**.
-- two vertices are called **adjacent** or **neighbors** if they are endpoints of the same edge.
-- **outgoing** edges of a vertex are directed edges that the vertex is the origin.
-- **incoming** edges of a vertex are directed edges that the vertex is the destination.
-- the **degree** of a vertex in a graph is the total number of edges incident to it.
-- in a directed graph, the **out-degree** of a vertex is the total number of outgoing edges, and the **in-degree** is the total number of incoming edges.
-- a vertex with in-degree zero is called a **source** vertex, while a vertex with out-degree zero is called a **sink** vertex.
-- an **isolated** vertex is a vertex with degree zero, which is not an endpoint of an edge.
-- if two or more undirected edges have the same two endpoint, or both origin and destination for two or more directed edges are the same, those edges are called **parallel edges** or **multiple edges**.  
-- if two endpoints for an edge are the same vertex, th edge become **self-loop**.
+-   an **edge** is (together with vertices) one of the two basic units out of which graphs are constructed, each edge has two vertices to which it is attached, called its **endpoints**.
+-   two vertices are called **adjacent** or **neighbors** if they are endpoints of the same edge.
+-   **outgoing** edges of a vertex are directed edges that the vertex is the origin.
+-   **incoming** edges of a vertex are directed edges that the vertex is the destination.
+-   the **degree** of a vertex in a graph is the total number of edges incident to it.
+-   in a directed graph, the **out-degree** of a vertex is the total number of outgoing edges, and the **in-degree** is the total number of incoming edges.
+-   a vertex with in-degree zero is called a **source** vertex, while a vertex with out-degree zero is called a **sink** vertex.
+-   an **isolated** vertex is a vertex with degree zero, which is not an endpoint of an edge.
+-   if two or more undirected edges have the same two endpoint, or both origin and destination for two or more directed edges are the same, those edges are called **parallel edges** or **multiple edges**.
+-   if two endpoints for an edge are the same vertex, th edge become **self-loop**.
 
 <style>
 li {
@@ -5423,13 +4943,13 @@ li {
 
 <br/>
 
-- **path** is a sequence of alternating vertices and edges such that the edge connects each successive vertex.
-- if a path only has the directed edges and traverse along the edges' direction, the path is called a **directed path**.
-- **path length** is number of edges in a path.
-- **cycle** is a path that starts and ends at the same vertex.
-- **simple** path is a path with distinct vertices.
-- two vertices are **connected** if a path exists between them.
-- in a directed graph, if there is a path from vertex v to vertex w, it is said that w is **reachable** from v.
+-   **path** is a sequence of alternating vertices and edges such that the edge connects each successive vertex.
+-   if a path only has the directed edges and traverse along the edges' direction, the path is called a **directed path**.
+-   **path length** is number of edges in a path.
+-   **cycle** is a path that starts and ends at the same vertex.
+-   **simple** path is a path with distinct vertices.
+-   two vertices are **connected** if a path exists between them.
+-   in a directed graph, if there is a path from vertex v to vertex w, it is said that w is **reachable** from v.
 
 <style>
 li {
@@ -5445,16 +4965,16 @@ li {
 
 <br/>
 
-- a graph is **connect** when all vertices are connected. 
-- A **connected component** or simply **component** of an undirected graph is a subgraph in which each pair of nodes is connected with each other via a path.
-- a directed graph is **strongly connected** if for any pair of vertice v and w, w is reachable from v and v also reachable from w. 
-- a directed graph is called **weakly connected** if replacing all of its directed edges with undirected edges produces a connected (undirected) graph. The vertices in a weakly connected graph have either out-degree or in-degree of at least 1.
-- if a graph H's vertices and edges belong to a graph G's vertices and edges, then graph H is a **subgraph** of G. 
-- if all vertices in G are in its subgraph H, then H is a **spanning subgraph** of G.
-- a **bridge** is an edge whose removal would disconnect the graph.
-- **forest** is a graph without cycles.
-- **tree** is a connected graph with no cycles. 
-- if a spanning subgraph is a tree, then the spanning subgraph is called a **spanning tree**.
+-   a graph is **connect** when all vertices are connected.
+-   A **connected component** or simply **component** of an undirected graph is a subgraph in which each pair of nodes is connected with each other via a path.
+-   a directed graph is **strongly connected** if for any pair of vertice v and w, w is reachable from v and v also reachable from w.
+-   a directed graph is called **weakly connected** if replacing all of its directed edges with undirected edges produces a connected (undirected) graph. The vertices in a weakly connected graph have either out-degree or in-degree of at least 1.
+-   if a graph H's vertices and edges belong to a graph G's vertices and edges, then graph H is a **subgraph** of G.
+-   if all vertices in G are in its subgraph H, then H is a **spanning subgraph** of G.
+-   a **bridge** is an edge whose removal would disconnect the graph.
+-   **forest** is a graph without cycles.
+-   **tree** is a connected graph with no cycles.
+-   if a spanning subgraph is a tree, then the spanning subgraph is called a **spanning tree**.
 
 <style>
 li {
@@ -5470,8 +4990,8 @@ li {
 
 <br/>
 
-- **root node** is the ancestor of all other nodes in a graph. It does not have any ancestor. Each graph consists of exactly one root node. Generally, you must start traversing a graph from the root node.
-- **leaf node** represents the node that do not have any successors. These nodes only have ancestor nodes. They can have any number of incoming edges but they will not have any outgoing edges.
+-   **root node** is the ancestor of all other nodes in a graph. It does not have any ancestor. Each graph consists of exactly one root node. Generally, you must start traversing a graph from the root node.
+-   **leaf node** represents the node that do not have any successors. These nodes only have ancestor nodes. They can have any number of incoming edges but they will not have any outgoing edges.
 
 <style>
 li {
@@ -5487,10 +5007,9 @@ li {
 
 <br/>
 
-### Undirected and Directed Graph 
+### Undirected and Directed Graph
 
 An <span class="hl-strong">undirected</span> graph(graph) is a graph in which edges have no orientation. The edge $(x, y)$ is identical to edge $(y, x)$, i.e., they are not ordered pairs. The maximum number of edges possible in an undirected graph without a loop is $n×(n-1)/2$.
-
 
 <div grid="~ cols-2 gap-4">
   <div align="center">
@@ -5508,7 +5027,7 @@ An <span class="hl-strong">undirected</span> graph(graph) is a graph in which ed
 
 <br/>
 
-### Undirected and Directed Graph 
+### Undirected and Directed Graph
 
 A <span class="hl-strong">directed</span> graph (digraph) is a graph in which edges have orientations, i.e., The edge $(x, y)$ is not identical to edge $(y, x)$.
 
@@ -5528,9 +5047,9 @@ A <span class="hl-strong">directed</span> graph (digraph) is a graph in which ed
 
 <br/>
 
-### Undirected and Directed Graph 
+### Undirected and Directed Graph
 
-A <span class="hl-strong">mixed</span> graph has both undirected and directed edges. 
+A <span class="hl-strong">mixed</span> graph has both undirected and directed edges.
 
 ---
 
@@ -5540,7 +5059,7 @@ A <span class="hl-strong">mixed</span> graph has both undirected and directed ed
 
 ### Weighted and Unweighted Graph
 
-A <span class="hl-strong">weighted</span> graph associates a value (<span class="hl">weight</span>) with every edge in the graph. 
+A <span class="hl-strong">weighted</span> graph associates a value (<span class="hl">weight</span>) with every edge in the graph.
 
 An <span class="hl-strong">unweighted</span> graph does not have any value (weight) associated with every edge in the graph. In other words, an unweighted graph is a weighted graph with all edge weight as 1. Unless specified otherwise, all graphs are assumed to be unweighted by default.
 
@@ -5554,7 +5073,7 @@ An <span class="hl-strong">unweighted</span> graph does not have any value (weig
 
 ### Simple and Multi Graph
 
-A <span class="hl-strong">multigraph</span> is an undirected graph in which multiple edges (and sometimes loops) are allowed. 
+A <span class="hl-strong">multigraph</span> is an undirected graph in which multiple edges (and sometimes loops) are allowed.
 
 A <span class="hl-strong">simple</span> graph is an undirected graph in which both multiple edges and loops are disallowed as opposed to a multigraph. In a simple graph with $n$ vertices, every vertex’s degree is at most $n-1$.
 
@@ -5594,7 +5113,7 @@ A <span class="hl-strong">Directed Acyclic Graph</span> (DAG) is a directed grap
 
 A <span class="hl-strong">complete</span> graph is one in which every two vertices are adjacent: all edges that could exist are present.
 
-$E = \frac{V·(V-1)}{2}$  
+$E = \frac{V·(V-1)}{2}$
 
 <img src="/images/graph-complete.png" style="height: 40%"/>
 
@@ -5604,18 +5123,19 @@ $E = \frac{V·(V-1)}{2}$
 
 <br/>
 
-- If a graph G has vertex set $V$ and $m$ edges, then $\sum\limits_{v\;in\;V} deg(v) = 2m$
+-   If a graph G has vertex set $V$ and $m$ edges, then $\sum\limits_{v\;in\;V} deg(v) = 2m$
 
-- If a directed graph G has vertex set $V$ and $m$ edges, then $\sum\limits_{v\;in\;V} indeg(v) = \sum\limits_{v\;in\;V} outdeg(v) = m$
+-   If a directed graph G has vertex set $V$ and $m$ edges, then $\sum\limits_{v\;in\;V} indeg(v) = \sum\limits_{v\;in\;V} outdeg(v) = m$
 
-- A simple graph G has $n$ vertices and $m$ edges: 
-  - undirected, then $m \leq n*(n-1)/2$
-  - directed, then $m \leq n*(n-1)$
+-   A simple graph G has $n$ vertices and $m$ edges:
 
-- An undirected graph G has $n$ vertices and $m$ edges: 
-  - connected, then $m \geq (n-1)$
-  - tree, then $m = (n-1)$
-  - forest, then $m \leq (n-1)$
+    -   undirected, then $m \leq n*(n-1)/2$
+    -   directed, then $m \leq n*(n-1)$
+
+-   An undirected graph G has $n$ vertices and $m$ edges:
+    -   connected, then $m \geq (n-1)$
+    -   tree, then $m = (n-1)$
+    -   forest, then $m \leq (n-1)$
 
 <style>
 p {
@@ -5635,13 +5155,13 @@ li {
 layout: two-cols
 ---
 
-# Graph ADT 
+# Graph ADT
 
 ### Adjacency Matrix Representation
 
 An adjacency matrix is a square matrix used to represent a finite graph. The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph. For a simple unweighted graph with vertex set $V$, the adjacency matrix is a square $|V| × |V|$ matrix A such that its element:
 
-$A_{ij} = 1$, when there is an edge from vertex $V_i$ to vertex $V_j$, and   
+$A_{ij} = 1$, when there is an edge from vertex $V_i$ to vertex $V_j$, and  
 $A_{ij} = 0$, when there is no edge.
 
 Each row in the matrix represents source vertices, and each column represents destination vertices. The diagonal elements of the matrix are all zero since edges from a vertex to itself, i.e., loops are not allowed in simple graphs. If the graph is undirected, the adjacency matrix will be symmetric. Also, for a weighted graph, $A_{ij}$ can represent edge weights.
@@ -5680,7 +5200,7 @@ li {
 layout: two-cols
 ---
 
-# Graph ADT 
+# Graph ADT
 
 ### Adjacency List Representation
 
@@ -5719,8 +5239,8 @@ li {
 </style>
 
 ---
- 
-# Graph ADT 
+
+# Graph ADT
 
 <br/>
 
@@ -5734,7 +5254,7 @@ incident_edge(v, out=True), incident_edge(v, out=False)
 insert_vertex(w=None)  
 insert_edge(v<sub>i</sub>,v<sub>j</sub>,e=None)  
 remove_vertex(v)  
-remove_edge(e)  
+remove_edge(e)
 
 <style>
 p {
@@ -5751,7 +5271,7 @@ li {
 
 ---
 
-# Graph ADT 
+# Graph ADT
 
 <div style="width: 80%">
   <table class="ops">
@@ -5783,20 +5303,18 @@ li {
   </table>
 </div>
 
-
 <span class="norm">Red-Black Tree?</span>  
 <span class="norm">HashSet?</span>
 
-
 <!--
 
-Consider 
+Consider
 
-HashSet: O(1) 
-Red-Black Tree: O(log) 
+HashSet: O(1)
+Red-Black Tree: O(log)
 1. ordering
 2. space
-   
+
 -->
 
 ---
@@ -5840,8 +5358,8 @@ layout: two-cols
 ```python
 preorder(root)
 
-preorder(TreeNode node): 
-  if node != None: 
+preorder(TreeNode node):
+  if node != None:
     list.add(node.val)
     preorder(node.left)
     preorder(node.right)
@@ -5864,14 +5382,14 @@ preorder(TreeNode node):
 <div style="width: 80%; padding-left: 10px;">
 
 ```python
-visited[0..V-1] = false 
+visited[0..V-1] = false
 dfs(0)
 
-dfs(int v): 
+dfs(int v):
   visited[v] = true
   list.add(v)
-  for (int w: incident_edges(v)): 
-    if !visited[w]: 
+  for (int w: incident_edges(v)):
+    if !visited[w]:
       dfs(w)
 ```
 
@@ -5888,14 +5406,14 @@ layout: two-cols
 <div style="width: 80%; padding-left: 10px;">
 
 ```python
-visited[0..V-1] = false 
+visited[0..V-1] = false
 dfs(0)
 
-dfs(int v): 
+dfs(int v):
   visited[v] = true
   list.add(v)
-  for (int w: incident_edges(v)): 
-    if !visited[w]: 
+  for (int w: incident_edges(v)):
+    if !visited[w]:
       dfs(w)
 ```
 
@@ -5939,7 +5457,7 @@ $O(V+E)$
 
 Q1. not connected
 
-Q2. 
+Q2.
 ✅ pre-order
 ✅ post-order
 ? in-order
@@ -5951,7 +5469,7 @@ layout: two-cols
 ---
 
 # Depth-First Search (DFS)
-  
+
 <br/>
 
 <br/>
@@ -5961,12 +5479,12 @@ layout: two-cols
 1 ← 0  
 2 ← 3  
 3 ← 1  
-4 ← 1   
-6 ← 2 
+4 ← 1  
+6 ← 2
 
 <br/>
 
-path from 0 to 6: **6 ← 2 ← 3 ← 1 ← 0**    
+path from 0 to 6: **6 ← 2 ← 3 ← 1 ← 0**
 
 ::right::
 
@@ -6000,13 +5518,13 @@ li {
 
 <br/>
 
-- connected component 
-- a path between two vertices → Shortest path, Eulerian graph, Eulerian cycle, Hamiltonian path   
-- check cycle 
-- check a **bipartite** graph
-- find bridge 
-- [Tarjan's strongly connected components algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
--  ......
+-   connected component
+-   a path between two vertices → Shortest path, Eulerian graph, Eulerian cycle, Hamiltonian path
+-   check cycle
+-   check a **bipartite** graph
+-   find bridge
+-   [Tarjan's strongly connected components algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
+-   ......
 
 <div class="inline-grid grid-cols-[1fr,1fr] gap-8">
   <div>
@@ -6039,7 +5557,7 @@ layout: two-cols
 
 <br/>
 
-Queue    
+Queue  
 0 :  
 2 → 1 : **0**  
 4 → 3 → 2 : **1**  
@@ -6047,10 +5565,9 @@ Queue
 6 → 5 → 4 : **3**  
 6 → 5 : **4**  
 6 : **5**  
-: **6**  
+: **6**
 
-BFS order: **0 1 2 3 4 5 6** 
-
+BFS order: **0 1 2 3 4 5 6**
 
 ::right::
 
@@ -6086,7 +5603,7 @@ layout: two-cols
 
 <logos-jupyter />
 
-Queue    
+Queue  
 0 :  
 2 → 1 : **0**  
 4 → 3 → 2 : **1**  
@@ -6094,9 +5611,9 @@ Queue
 5 → 6 → 4 : **3**  
 5 → 6 : **4**  
 5 : **6**  
-: **5**  
+: **5**
 
-BFS order: **0 1 2 3 4 6 5** 
+BFS order: **0 1 2 3 4 6 5**
 
 $O(V+E)$
 
@@ -6131,7 +5648,7 @@ layout: two-cols
 ---
 
 # Depth-First Search (DFS)
-  
+
 <br/>
 
 <br/>
@@ -6163,7 +5680,6 @@ layout: two-cols
   </div>  
 </div>
 
-
 <br/>
 
 <br/>
@@ -6187,7 +5703,7 @@ layout: two-cols
 
 <br/>
 
-👉 shortest path 
+👉 shortest path
 
 ::right::
 
@@ -6223,10 +5739,11 @@ layout: two-cols
 
 <logos-jupyter />
 
-Each iteration:  
-1. from unvisited vertices, find the best vertex with shortest distance 
-2. mark this vertex visited 
-3. from this vertex, update distance to other unvisited vertices  
+Each iteration:
+
+1. from unvisited vertices, find the best vertex with shortest distance
+2. mark this vertex visited
+3. from this vertex, update distance to other unvisited vertices
 
 <br/>
 
@@ -6334,17 +5851,17 @@ li {
 
 <br/>
 
-- Space Complexity: $O(V)$
+-   Space Complexity: $O(V)$
 
-- Time Complexity: $O(V^2)$ → $O(ElogV)$ → $O(E + VlogV)$
+-   Time Complexity: $O(V^2)$ → $O(ElogV)$ → $O(E + VlogV)$
 
-- shortest path from $src$ to $dest$
+-   shortest path from $src$ to $dest$
 
-- all possible shortest path: $O(V * ElogV)$
+-   all possible shortest path: $O(V * ElogV)$
 
-- negative weight?   
-  👉 [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)    
-  👉 [Floyd–Warshall](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)  
+-   negative weight?  
+    👉 [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)  
+    👉 [Floyd–Warshall](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
 <style>
 p {
@@ -6366,7 +5883,7 @@ li {
 
 <br/>
 
-Spanning Tree: DFS & BFS  
+Spanning Tree: DFS & BFS
 
 <img src="/images/mst_dfs_bfs.png" style="width: 70%"/>
 
@@ -6380,9 +5897,9 @@ layout: two-cols
 
 <br/>
 
-- repeatedly add the next lightest edge if this doesn’t producea cycle
+-   repeatedly add the next lightest edge if this doesn’t producea cycle
 
-- greedy algorithm 
+-   greedy algorithm
 
 <br/>
 
@@ -6417,7 +5934,7 @@ layout: two-cols
 
 ---
 
-# The Cut Property 
+# The Cut Property
 
 <br/>
 
@@ -6435,7 +5952,7 @@ An edge is a <span class="hl">crossing edge</span> as an edge which connects a n
 
 ---
 
-# The Cut Property 
+# The Cut Property
 
 <br/>
 
@@ -6462,17 +5979,17 @@ An edge is a <span class="hl">crossing edge</span> as an edge which connects a n
 
 # Kruskal's Algorithm
 
-<logos-jupyter />  
+<logos-jupyter />
 
 <br/>
 
-🙇🏻‍♂️ implementation  
+🙇🏻‍♂️ implementation
 
-$O(ElogE)$  
+$O(ElogE)$
 
 <!--
 
-- check cycle? → check connectivity/find a path 
+- check cycle? → check connectivity/find a path
 
 - DFS? → O(V+E)
 
@@ -6490,9 +6007,9 @@ layout: two-cols
 
 <br/>
 
-- start from 0, find the lightest crossing edge, and repeatly expand the cut  
+-   start from 0, find the lightest crossing edge, and repeatly expand the cut
 
-- greedy algorithm 
+-   greedy algorithm
 
 <br/>
 
@@ -6528,13 +6045,13 @@ layout: two-cols
 
 # Prim's Algorithm
 
-<logos-jupyter />  
+<logos-jupyter />
 
 <br/>
 
-🙇🏻‍♂️ implementation  
+🙇🏻‍♂️ implementation
 
-$O(V^2)$, $O(ElogV)$, $O(ElogE)$  
+$O(V^2)$, $O(ElogV)$, $O(ElogE)$
 
 ---
 
@@ -6542,12 +6059,1068 @@ $O(V^2)$, $O(ElogV)$, $O(ElogE)$
 
 <br/>
 
-- Fedman-Tarjan $O(E + VlogV)$
-  - <span class="norm">Fredman, M. L.; Willard, D. E. (1994), "Trans-dichotomous algorithms for minimum spanning trees and shortest paths", Journal of Computer and System Sciences, 48 (3): 533–551, doi:10.1016/S0022-0000(05)80064-9, MR 1279413.</span> 
+-   Fedman-Tarjan $O(E + VlogV)$
 
-- Chazelle $O(E^*)$
-  - <span class="norm">Chazelle, Bernard (2000), "A minimum spanning tree algorithm with inverse-Ackermann type complexity", Journal of the Association for Computing Machinery, 47 (6): 1028–1047, doi:10.1145/355541.355562, MR 1866456, S2CID 6276962.</span>
-  - <span class="norm">Chazelle, Bernard (2000), "The soft heap: an approximate priority queue with optimal error rate" (PDF), Journal of the Association for Computing Machinery, 47 (6): 1012–1027, doi:10.1145/355541.355554, MR 1866455, S2CID 12556140.</span>
+    -   <span class="norm">Fredman, M. L.; Willard, D. E. (1994), "Trans-dichotomous algorithms for minimum spanning trees and shortest paths", Journal of Computer and System Sciences, 48 (3): 533–551, doi:10.1016/S0022-0000(05)80064-9, MR 1279413.</span>
+
+-   Chazelle $O(E^*)$
+    -   <span class="norm">Chazelle, Bernard (2000), "A minimum spanning tree algorithm with inverse-Ackermann type complexity", Journal of the Association for Computing Machinery, 47 (6): 1028–1047, doi:10.1145/355541.355562, MR 1866456, S2CID 6276962.</span>
+    -   <span class="norm">Chazelle, Bernard (2000), "The soft heap: an approximate priority queue with optimal error rate" (PDF), Journal of the Association for Computing Machinery, 47 (6): 1012–1027, doi:10.1145/355541.355554, MR 1866455, S2CID 12556140.</span>
+
+---
+layout: center
+---
+
+# Algorithm Design Technique
+
+---
+
+# Divide-and-Conquer
+
+<br/>
+
+Input: Problem $P$  
+
+Algorithm <span class="norm">divideAndConquer($P$)</span>:  
+
+1. Base case: if size of $P$ is small, solve it (e.g. brute force) and return solution, else:
+2. <span class="hl">Divide</span>: divide $P$ into smaller problems $P1$, $P2$
+3. <span class="hl">Conquer</span>: solve the smaller subproblems recursively, by calling <span class="norm">divideAndConquer($P1$)</span> and <span class="norm">divideAndConquer($P2$)</span>
+4. <span class="hl">Combine</span>: combine solutions to $P1$, $P2$ into solution for $P$.
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Divide-and-Conquer
+
+<br/>
+
+<div style="width: 90%;padding-left: 10px;">
+
+Merge-sort an array of $n$ elements:  
+  
+- base-case: if size of input is $1$, return  
+- else:   
+         - **Divide**: Divide the array into two arrays of $n/2$ elements each  
+         - **Conquer**: Sort the two arrays recursively  
+         - **Combine**: Merge the two sorted arrays of $n/2$ elements into one sorted array of size $n$  
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div style="width: 80%;padding-left: 10px;">
+  <img src="images/merge-sort-tree.png">
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Greedy Algorithm
+
+<br/>
+
+A <span class="hl-bg">greedy algorithm</span> is a simple and efficient algorithmic approach for solving any given problem by selecting the best available option at that moment of time, without bothering about the future results.
+
+<br/>
+
+To create greedy algorithm:
+
+- Firstly, the solution set (that is supposed to contain answers) is set to empty.
+- Secondly, at each step, an item is pushed to the solution set.
+- Only if the solution set is deemed feasible, the current item is kept for future purpose.
+- Else, the current item is rejected and is never considered again (no reversal of decision)
+
+<style>
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+<!--
+
+A greedy algorithm, as the name suggests, always makes the choice that seems to be the best at that moment. This means that it makes a locally-optimal choice in the hope that this choice will lead to a globally-optimal solution.
+
+The difficult part is that for greedy algorithms you have to work much harder to understand correctness issues. Even with the correct algorithm, it is hard to prove why it is correct. 
+
+How to create a Greedy Algorithm?
+
+-->
+
+---
+
+# Greedy Algorithm
+
+<br/>
+
+0-1 Knapsack: greedy and most valuable item? 
+
+$w = [1, 2, 3]$, $v = [6, 10, 12]$, $C=5$
+
+<div style="width: 60%;padding-left: 10px;">
+  <table class="grid">
+    <tbody>
+      <tr class="id">
+        <th> </th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+      </tr>    
+      <tr class="even">
+        <th>weight</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr class="even">
+        <th>value</th>
+        <td>6</td>
+        <td>10</td>
+        <td>12</td>
+      </tr>
+      <tr class="even">
+        <th>v/w</th>
+        <td>6</td>
+        <td>5</td>
+        <td>4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+$6 + 10 = 16$ ❌  
+$10 + 12 = 22$ ✅ 
+
+---
+
+# Greedy Algorithm
+
+<logos-jupyter />
+
+Given an array of intervals intervals where intervals[i] = [start<sub>i</sub>, end<sub>i</sub>], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Input: intervals = [[1,2],[2,3],[3,4],[1,3]]  
+Output: 1  
+Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.  
+
+Input: intervals = [[1,2],[1,2],[1,2]]  
+Output: 2  
+Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping.    
+
+**Greedy**:  sort end<sub>i</sub>, select the smaller e<sub>i</sub> and non-overlapping intervals[i]
+
+why correct? 
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# Backtracking
+
+<br/>
+
+- <span class="hl-bg">Backtracking</span> Backtracking is an algorithmic technique for finding all solutions to some computational problems that have certain constraints and incrementally builds candidates to the solutions while abandoning a candidate if it does not lead to valid solutions.
+- It is known for solving problems recursively one step at a time and removing those solutions that that do not satisfy the problem constraints at any point of time.
+- It is a <span class="uline">refined brute force</span> approach that tries out all the possible solutions and chooses the best possible ones out of them.
+- The backtracking approach is generally used in the cases where there are possibilities of multiple solutions.
+
+<div align="center">
+  <img src="/images/backtracking.png" style="width: 40%"/>
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+<!--
+
+The term backtracking implies - if the current solution is not suitable, then eliminate that and backtrack (go back) and check for other solutions.
+
+Here S is the starting point of the problem. We start from S, we go to find solution S1 via the intermediate point I1. But we find that the solution S1 is not a feasible solution to our problem. Hence, we backtrack (go back) from S1, go back to I1, go back to S and then check for the feasible solution S2. This process happens till we arrive at a feasible solution.
+Here, S1 and S2 are not the feasible solutions. Only S3 is a feasible solution as per our example. When we look at this example, we can see that we traverse through all possible combinations, till we arrive at the feasible solution. This is why, we say that backtracking is a brute-force algorithmic technique.
+The above tree representation of a problem is called as a “space state tree”. It represents all possible states (solution or non-solution) of that given problem.
+The final algorithm can be summarised as:
+Step 1 − if current point is a feasible solution, return success
+Step 2 − else if all paths are exhausted (i.e current point is an end point), return failure, since we have no feasible solution.
+Step 3 − else if current point is not an end point, backtrack and explore other points and repeat above steps
+
+-->
+
+---
+
+# Backtracking: Sudoku 
+
+<div class="inline-grid grid-cols-[1fr,1fr] gap-4">
+  <div>
+    <img src="/images/sudoku1.png" style="width: 70%"/>
+  </div>
+  <div>
+    <pre class="hg-strong">Input</pre>  
+    <pre class="norm">
+[["5","3",".",".","7",".",".",".","."],
+["6",".",".","1","9","5",".",".","."],
+[".","9","8",".",".",".",".","6","."],
+["8",".",".",".","6",".",".",".","3"],
+["4",".",".","8",".","3",".",".","1"],
+["7",".",".",".","2",".",".",".","6"],
+[".","6",".",".",".",".","2","8","."],
+[".",".",".","4","1","9",".",".","5"],
+[".",".",".",".","8",".",".","7","9"]]    
+    </pre>
+  </div>
+  <div>
+    <img src="/images/sudoku2.png" style="width: 70%"/>
+  </div>
+  <div>
+    <pre class="hg-strong">Output</pre>  
+    <pre class="norm">
+[["5","3","4","6","7","8","9","1","2"],
+["6","7","2","1","9","5","3","4","8"],
+["1","9","8","3","4","2","5","6","7"],
+["8","5","9","7","6","1","4","2","3"],
+["4","2","6","8","5","3","7","9","1"],
+["7","1","3","9","2","4","8","5","6"],
+["9","6","1","5","3","7","2","8","4"],
+["2","8","7","4","1","9","6","3","5"],
+["3","4","5","2","8","6","1","7","9"]]  
+    </pre>
+  </div>  
+</div>
+
+---
+
+# Backtracking
+
+<br/>
+
+backtracking vs brute force: 
+- <span class="norm">brute force algorithms are those which computes every possible solution to a problem and then selects the best one among them that fulfills the given requirements.</span>
+- <span class="norm">Whereas, backtracking is a refined brute force technique where the implicit constraints are evaluated after every choice (not as in brute force where evaluation is done after all solutions have been generated). This means that potential non-satisfying solutions can be rejected before the computations have been ‘completed’.</span>
+
+backtracking vs recursion: 
+- <span class="norm">In recursion, a function simply calls itself until reaches a base case.</span>
+- <span class="norm">Whereas, in backtracking we use recursion for exploring all the possibilities until we get the best and feasible result for any given problem.</span>
+
+
+---
+
+# Dynamic Programming
+
+<br/>
+
+<span class="hl-bg">Dynamic Programming</span> (DP) is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just one, and storing their solutions - ideally, using a memory-based data structure.
+
+<br/>
+
+
+Writes down "1+1+1+1+1+ =" on a sheet of paper.  
+"What's that equal to?"  
+Counting "Five!"  
+Writes down another "1+" on the left.  
+"What about that?"  
+"Six!" " How'd you know it was nine so fast?"  
+"You just added one more!"  
+"So you didn't need to recount because you remembered there were five!    
+Dynamic Programming is just a fancy way to say remembering stuff to save time later!"  
+
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# DP: Fibonacci
+
+<br/>
+
+<div style="width: 90%;padding-left: 10px;">
+
+```md
+Fibonacci sequence: 0,1,1,2,3,5,8, ...
+
+when n = 1, fib(1) = 0
+when n = 2, fib(2) = 1
+when n > 2, fib(n) = fib(n-1) + fib(n-2)
+```
+
+<br/>
+
+```python
+# Time Complexity: O(2^n)
+def fib_recursive(n):
+    global fib_run 
+    fib_run += 1
+    if (n == 1):
+        return 0
+    if (n == 2):
+        return 1 
+    return fib_recursive(n-1) + fib_recursive(n-2)
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div style="padding-left: 10px;">
+  <img src="images/fib_recursion.png">
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# DP: Fibonacci
+
+<br/>
+
+<div style="padding-left: 10px;">
+
+> Any problem is said to have overlapping subproblems if calculating its solution involves solving the same subproblem multiple times.
+
+> This method of remembering the solutions of already solved subproblems is called **Memoization**.
+
+<br/>
+
+```python
+# Time Complexity: O(n)
+def fib_recursive_memo(n): 
+    global fib_run, fib_memo
+    fib_run += 1
+    # return directly from cache if found
+    if (n in fib_memo): 
+        return fib_memo[n]
+    if (n == 1):
+        return 0
+    if (n == 2):
+        return 1 
+    # cache the result
+    fib_memo[n] = fib_recursive_memo(n-1) + fib_recursive_memo(n-2)
+    return fib_memo[n]
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div style="padding-left: 10px;">
+  <img src="images/fib_topdown.png">
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# DP: Fibonacci
+
+<br/>
+
+<div style="padding-left: 10px;">
+
+> bottom up is the opposite of the top-down approach which avoids recursion by solving all the related subproblems first.
+
+<br/>
+
+```python
+# Time Complexity: O(n)
+def fib_dp(n): 
+    dp_memo = {}
+    dp_memo[0] = 0
+    dp_memo[1] = 0 
+    dp_memo[2] = 1
+    for i in range(2, n+1, 1): 
+        dp_memo[i] = dp_memo[i-1] + dp_memo[i-2]
+    return dp_memo[n]
+```
+
+</div>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<div style="padding-left: 10px;">
+  <img src="images/fib_bottomup.png">
+</div>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# DP Solution 
+
+<br/>
+
+DP in a nutshell: 
+
+1. check for <span class="uline">optimal substructure</span> and formulate the problem <span class="uline">recursively</span>, and
+2. use a table to “cache” the solutions to subproblems, in order to avoid recomputing them.
+
+<br/>
+
+<div align="center">
+
+<img src="/images/dp1.png" style="width: 50%"/>
+
+</div>
+
+<br/>
+
+<span class="norm">💡 usually DP problem is hard</span>  
+<span class="norm">💡 different DP through exercises</span>
+
+<!--
+- Step 1. Think of a recursive approach to solving the problem which essentially expresses a problem, say $P(X)$, in terms of smaller subproblem, say $P(Y)$ or an expression involving multiple smaller subproblems, say $P(Yi)$. Here we expect $Yi < X$
+- Step 2. Once you have a approach, write a recursive code for that. Consider your recursive code function definition to be as below: solve (K1, K2, K3 ... )
+- Step 3. Keep track of the results of each function by saving them after every function call so that if the same function solve $(K1, K2, K3 ... ) is called again, we need not compute again.
+- Step 4. Once we are done, analyze the space and time complexities of the solution developed, and try to improve them if possible.
+-->
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# DP: 0-1 Knapsack Problem
+
+<br/>
+
+Given weights and values of n items, put these items in a knapsack of capacity $C$ to get the maximum total value in the knapsack. In other words, given two integer arrays $v[0..n-1]$ and $w[0..n-1]$ which represent values and weights associated with $n$ items respectively. Also given an integer $C$ which represents knapsack capacity, find out the maximum value subset of $v$ such that sum of the weights of this subset is smaller than or equal to $C$. You cannot break an item, either pick the complete item or don’t pick it (0-1 property).
+
+$w=[10,20,30]$, $v=[60,100,120]$, $C=50$  
+**solution: 200**
+
+w=10; v=60;  
+w=20; v=100;  
+w=30; v=120;  
+w=(20+10); v=(100+60);  
+w=(30+10); v=(120+60);  
+w=(30+20); v=(120+100);  
+w=(30+20+10) > 50
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# DP: 0-1 Knapsack Problem
+
+<logos-jupyter />
+
+$k(n, C)$: $n$ items, capacity $C$, return max value
+
+$k(i, C)$:
+
+1. include $i^{th}$ item: $v[i] + k(i-1, C - w[i])$
+2. not included: $k(i-1, C)$
+
+$k(i, C) = max(k(i-1, C), v[i] + k(i-1, C - w[i]))$
+
+Time Complexity: $O(2^n)$
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+$w=[1, 1, 1]$  
+$v=[10,20,30]$  
+$C=2$
+
+<img src="/images/dp-k.png" style="width: 70%"/>
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+<!--
+some k are evaluated more than one time
+-->
+
+---
+layout: two-cols
+---
+
+# DP: 0-1 Knapsack Problem
+
+<br/>
+
+$id =[0, 1,  2]$  
+$w = [1, 2,  3]$  
+$v = [6, 10, 12]$  
+$C = 5$
+
+$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <th> </th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>    
+    <tr class="even">
+      <th>0</th>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr class="even">
+      <th>1</th>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+    </tr>
+    <tr class="even">
+      <th>2</th>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+      <td>18</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+Time Complexity: $O(n)$  
+Space Complexity: $O(n * C)$
+
+```python
+def knapsack2(w, v, n, C):
+    k = [[0 for x in range(C+1)] for x in range(n+1)]
+    # build table k from bottom up
+    for i in range(n+1):
+        for c in range(C+1):
+            if i==0 or c==0:
+                k[i][c] = 0
+            elif w[i-1] > c:
+                k[i][c] = k[i-1][c]
+            else:
+                k[i][c] = max(v[i-1] + k[i-1][c - w[i-1]], k[i-1][c])
+    return k[n][C]
+```
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# DP: 0-1 Knapsack Problem
+
+<br/>
+
+$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$
+
+row $i$ depends on row $i-1$, so only 2 rows required:
+
+-   row0 == even rows
+-   row1 == odd rows
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+Time Complexity: $O(n)$  
+Space Complexity: $O(2 * C)$
+
+```python
+def knapsack3(w, v, n, C):
+    # 2 rows only: i%2
+    k = [[0 for x in range(C+1)] for x in range(2)]
+    # build table k from bottom up
+    for i in range(n+1):
+        for c in range(C+1):
+            if i==0 or c==0:
+                k[i % 2][c] = 0
+            elif w[i-1] > c:
+                k[i % 2][c] = k[(i-1) % 2][c]
+            else:
+                k[i % 2][c] = max(v[i-1] + k[(i-1) % 2][c - w[i-1]], k[(i-1) % 2][c])
+    return k[n % 2][C]
+```
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# DP: 0-1 Knapsack Problem
+
+<br/>
+
+$id =[0, 1,  2]$  
+$w = [1, 2,  3]$  
+$v = [6, 10, 12]$  
+$C = 5$
+
+$k(i, c) = max(k(i-1, c), v[i] + k(i-1, c - w[i]))$
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <th> </th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>    
+    <tr class="even">
+      <th> </th>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="grid">
+  <tbody>
+    <tr class="odd">
+      <th> </th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>    
+    <tr class="even">
+      <th> </th>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+
+::right::
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+Time Complexity: $O(n)$  
+Space Complexity: $O(C)$
+
+```python
+def knapsack4(w, v, n, C):
+    k = [0 for i in range(C+1)]
+    for i in range(1, n+1):
+        # compute from the back (right to left)
+        for c in range(C, 0, -1):
+            if w[i-1] <= c:
+                k[c] = max(v[i-1] + k[c - w[i-1]], k[c])
+    return k[C]
+```
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# DP: Egg Drop
+
+<br/>
+
+You are given $k$ identical eggs and you have access to a building with $n$ floors labeled from $1$ to $n$.
+
+You know that there exists a floor $f$ where $0 <= f <= n$ such that any egg dropped at a floor higher than $f$ will break, and any egg dropped at or below floor f will not break.
+
+In each move, you may take an unbroken egg and drop it from any floor $x$ (where $1 <= x <= n$). If the egg breaks, you can no longer use it. However, if the egg does not break, you may reuse it in future moves.
+
+Return the **minimum number of moves** that you need to determine **with certainty** what the value of $f$ is.
+
+<br/>
+
+Input: k = 2, n = 100  
+Output: 14  
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+<!--
+
+if we have many eggs, with binary search, we know the answer is logN. 
+
+if one egg, test floor by floor
+
+if two egg, follow binary searc
+
+-->
+
+---
+
+# DP: Egg Drop
+
+<br/>
+
+- $k = 1$: $n$ 
+- $k = \infty$: $logN$ 
+- $k = 2$, $n = 100$: 
+  - A = 10, 20, 30, ..., 100, B = x1, x2, x3, ..., x9: 10 + 9 = 19
+  - A = 14, 27, 39, ..., 95, 99, 100: 14  
+
+<br/>
+
+$drop(k, n)$ ? at floor $f$:  
+1. broken, $floor[1...f-1]$: $drop(k-1, f-1)$  
+2. unbroken, $floor[f+1...n]$: $drop{k, n-f}$  
+
+try: $max(drop(k-1, f-1), drop(k, f-i) + 1$    
+
+<br/>
+
+drop $m$ times: $floor[k][m] = $floor[k-1][m-1] + floor[k][m-1] + 1$   
+when $floor[k][m] == n$, $m$ = ?
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+</style>
+
+<!--
+
+
+-->
+
+---
+
+# DP vs Divide-and-Conquer
+
+<br/>
+
+- The most important difference in Divide and Conquer strategy is that the subproblems are independent of each other. When a problem is divided into subproblems, they do not overlap which is why each subproblem is to be solved only once.
+
+- Whereas in DP, a subproblem solved as part of a bigger problem may be required to be solved again as part of another subproblem (concept of overlapping subproblem), so the results of a subproblem is solved and stored so that the next time it is encountered, the result is simply fetched and returned.
+
+<style>
+p {
+    font-family: 'Open Sans';
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+
+li {
+    font-family: "Open Sans";
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+</style>
+
+---
+
+# DP vs Greedy
+
+<br/>
+
+<div style="width: 100%">
+  <table class="flashcard">
+    <thead>
+      <tr>
+        <th id="">Parameters</th>
+        <th id="">Dynamic Programming</th>
+        <th id="">Greedy Approach</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <th>Optimality</th>
+        <td>There is guaranteed optimal solution as DP considers all possible cases and then choose the best among them.</td>
+        <td>Provides no guarantee of getting optimum approach.</td>
+      </tr>
+      <tr class="even">
+        <th>Memory</th>
+        <td>DP requires a table or cache for remembering and this increases it’s memory complexity.</td>
+        <td>More memory efficient as it never looks back or revises its previous choices.</td>
+      </tr>
+      <tr class="odd">
+        <th>Time complexity</th>
+        <td>DP is generally slower due to considering all possible cases and then choosing the best among them.</td>
+        <td>Generally faster.</td>
+      </tr>
+      <tr class="even">
+        <th>Feasibility</th>
+        <td>Decision at each step is made after evaluating current problem and solution to previously solved subproblem to calculate optimal solution.</td>
+        <td>Choice is made which seems best at the moment in the hope of getting global optimal solution.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ---
 
@@ -6576,14 +7149,15 @@ $O(V^2)$, $O(ElogV)$, $O(ElogE)$
 
 1. Review "sift up" and "sift down", implement your <strong>MaxHeap</strong>.
 
-2. Give an <strong>O(logN * logN)</strong> algorithm to merge two binary heap.
+2. Give an <strong>O(logN \* logN)</strong> algorithm to merge two binary heap.
 
-3. Design a <strong>Min-Max Heap</strong> that supports both remove_min and remove_max in <strong>O(logN)</strong> per operation.  
-    - how to find min and max element? 
-    - how to insert/add an element? 
+3. Design a <strong>Min-Max Heap</strong> that supports both remove_min and remove_max in <strong>O(logN)</strong> per operation.
+
+    - how to find min and max element?
+    - how to insert/add an element?
     - how to build a Min-Max Heap(heapify) in linear time?
-  
-4. Implement a classic <strong>Cuckoo Hash Table</strong> ([Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)) and support the basic operations: insert, get and remove a key. 
+
+4. Implement a classic <strong>Cuckoo Hash Table</strong> ([Cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)) and support the basic operations: insert, get and remove a key.
 
 <style>
 p {
@@ -6605,17 +7179,16 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Implement BST search operation with iterative solution. 
+1. Implement BST search operation with iterative solution.
 
-2. before(k) & after(k) in <strong>BST</strong> would not work if BST doesnot contain the key $k$, pls improve the algorithm to support such case. 
+2. before(k) & after(k) in <strong>BST</strong> would not work if BST doesnot contain the key $k$, pls improve the algorithm to support such case.
 
-3. (a) convert a BST into a Min Heap   
+3. (a) convert a BST into a Min Heap  
    (b) convert a Min Heap into a BST
 
-4. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.   
+4. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.
 
-5. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key. 
-
+5. Implement a map data structure with <strong>AVL</strong> tree and support the basic operations: insert, get and remove a key.
 
 <style>
 p {
@@ -6643,7 +7216,7 @@ li {
 
 3. Implement your <strong>Merge Sort</strong> and use bottom-up approach.
 
-4. <strong>[Shell Sort](https://en.wikipedia.org/wiki/Shellsort)</strong> is an optimization of Insertion Sort. Implement your Shell Short. 
+4. <strong>[Shell Sort](https://en.wikipedia.org/wiki/Shellsort)</strong> is an optimization of Insertion Sort. Implement your Shell Short.
 
 5. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
 
@@ -6669,22 +7242,11 @@ li {
 
 <mdi-clipboard-list-outline />
 
-
-1. Review **KMP** and implementate your solution 
+1. Review **KMP** and implementate your solution
 
 2. Review **BM** and implementate your solution
 
-3. Review **Sunday** and implement your solution 
-
-4. The Longest Common Subsequence (LCS) problem is finding the longest subsequence present in given two sequences in the same order, i.e., find the longest sequence which can be obtained from the first original sequence by deleting some items and from the second original sequence by deleting other items. (hint: **DP**) 
-
-For example, consider the two following sequences, X and Y:  
-
-X: ABCBDAB  
-Y: BDCABA  
- 
-The length of the LCS is 4  
-LCS are BDAB, BCAB, and BCBA  
+3. Review **Sunday** and implement your solution
 
 <style>
 p {
@@ -6694,7 +7256,7 @@ p {
 }
 
 li {
-    font-family: "Open Sans";
+    font-family: "Open Sans";                                            
     font-size: 0.8rem;
     margin-bottom: 8px;
 }
@@ -6706,20 +7268,19 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Iterative implementation of **DFS** with **Adjacency List** 
+1. Iterative implementation of **DFS** with **Adjacency List**
 
 2. Iterative implementation of **BFS** with **Adjacency List**
 
-3. Modify **DFS** to detect cycle in undirected graph    
+3. Modify **DFS** to detect cycle in undirected graph
 
-4. Modify **BFS** to find a path (Single Source Shortest Path) in a undirected graph   
+4. Modify **BFS** to find a path (Single Source Shortest Path) in a undirected graph
 
 5. Implement your **Dijkstra** algorithm with WeightdeGraph class
 
 6. Implement your **Kruskal** algorithm with WeightdeGraph class
 
 7. Implement your **Prim** algorithm with WeightdeGraph class
-
 
 <style>
 p {
@@ -6741,9 +7302,7 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. TMA Review
-
-2. Algo Review (slide 3)
+Q&A  
 
 <style>
 p {
