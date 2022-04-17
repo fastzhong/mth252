@@ -6133,7 +6133,7 @@ Merge-sort an array of $n$ elements:
 <br/>
 
 <div style="width: 80%;padding-left: 10px;">
-  <img src="images/merge-sort-tree.png">
+  <img src="/images/merge-sort-tree.png">
 </div>
 
 <style>
