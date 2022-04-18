@@ -6245,7 +6245,7 @@ Input: intervals = [[1,2],[1,2],[1,2]]
 Output: 2  
 Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping.    
 
-**Greedy**:  sort end<sub>i</sub>, select the smaller e<sub>i</sub> and non-overlapping intervals[i]
+**Greedy**:  sort end<sub>i</sub>, select the smaller end<sub>i</sub> and non-overlapping intervals[i]
 
 why correct? 
 
