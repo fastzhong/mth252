@@ -7028,11 +7028,10 @@ if two egg, follow binary searc
 
 <br/>
 
-$drop(k, n)$ ? at floor $f$:  
+if drop at floor $f$:  
 1. broken, $floor[1...f-1]$: $drop(k-1, f-1)$  
-2. unbroken, $floor[f+1...n]$: $drop{k, n-f}$  
-
-try: $max(drop(k-1, f-1), drop(k, f-i) + 1$    
+2. unbroken, $floor[f+1...n]$: $drop(k, n-f)$  
+we need to try: $max(drop(k-1, f-1), drop(k, n-f) + 1$      
 
 <br/>
 
