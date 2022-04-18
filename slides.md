@@ -6443,7 +6443,7 @@ def fib_recursive(n):
 <br/>
 
 <div style="padding-left: 10px;">
-  <img src="images/fib_recursion.png">
+  <img src="/images/fib_recursion.png">
 </div>
 
 <style>
@@ -6506,7 +6506,7 @@ def fib_recursive_memo(n):
 <br/>
 
 <div style="padding-left: 10px;">
-  <img src="images/fib_topdown.png">
+  <img src="/images/fib_topdown.png">
 </div>
 
 <style>
@@ -6562,7 +6562,7 @@ def fib_dp(n):
 <br/>
 
 <div style="padding-left: 10px;">
-  <img src="images/fib_bottomup.png">
+  <img src="/images/fib_bottomup.png">
 </div>
 
 <style>
