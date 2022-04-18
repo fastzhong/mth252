@@ -7022,16 +7022,18 @@ if two egg, follow binary searc
 
 - $k = 1$: $n$ 
 - $k = \infty$: $logN$ 
-- $k = 2$, $n = 100$: 
-  - A = 10, 20, 30, ..., 100, B = x1, x2, x3, ..., x9: 10 + 9 = 19
-  - A = 14, 27, 39, ..., 95, 99, 100: 14  
+- $k = 2$ (A, B), $n = 100$: 
+  - A = 10, 20, 30, ..., 100, B = x1, x2, x3, ..., x9: 10 + 9 = 19 (not sure)
+  - A = 14, 27, 39, ..., 95, 99, 100: 14 (not sure)
 
 <br/>
 
 if drop at floor $f$:  
 1. broken, $floor[1...f-1]$: $drop(k-1, f-1)$  
 2. unbroken, $floor[f+1...n]$: $drop(k, n-f)$  
-we need to try: $max(drop(k-1, f-1), drop(k, n-f)) + 1$      
+we need to try: $max(drop(k-1, f-1), drop(k, n-f)) + 1$    
+so after try every floor $f \in [1..n]$   
+we can get the answer: $min(max(drop_f(k-1, f-1), drop_f(k, n-f)) + 1))$ 
 
 <br/>
 
@@ -7146,7 +7148,7 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Review "sift up" and "sift down", implement your <strong>MaxHeap</strong>.
+1. Review "sift up" and "sift down" of <strong>MinHeap</strong>, implement your <strong>MaxHeap</strong>.
 
 2. Give an <strong>O(logN \* logN)</strong> algorithm to merge two binary heap.
 
@@ -7178,12 +7180,12 @@ li {
 
 <mdi-clipboard-list-outline />
 
-1. Implement BST search operation with iterative solution.
+1. Implement <strong>BST</strong> search operation with iterative solution.
 
 2. before(k) & after(k) in <strong>BST</strong> would not work if BST doesnot contain the key $k$, pls improve the algorithm to support such case.
 
-3. (a) convert a BST into a Min Heap  
-   (b) convert a Min Heap into a BST
+3. (a) convert a <strong>BST</strong> into a <strong>MinHeap</strong>  
+   (b) convert a <strong>MinHeap</strong> into a <strong>BST</strong>
 
 4. Optimize <strong>AVL</strong> tree so when there is no change to the hight of nodes, the rebalance process can be stopped.
 
@@ -7219,8 +7221,6 @@ li {
 
 5. <strong>[Dual Pivot Quick Sort](https://arxiv.org/abs/1503.08498)</strong> by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch, this algorithm offers $O(NlogN)$ performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations. Implement your Dual Pivot Quick Sort.
 
-6. Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
-
 <style>
 p {
     font-family: 'Open Sans';
@@ -7244,8 +7244,6 @@ li {
 1. Review **KMP** and implementate your solution
 
 2. Review **BM** and implementate your solution
-
-3. Review **Sunday** and implement your solution
 
 <style>
 p {
